@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-24 bg-white work__card">
+  <div class="mt-24 bg-white work__card shadow-sm ">
     <img class="rounded-xl work__img" :src="image" alt="" />
     <div class="work__text">
       <div class="mt-4 text-lg">{{ date }}</div>
@@ -56,7 +56,6 @@ onMounted(() => {
 <style scoped>
 .work__card {
   margin-bottom: 150px;
-  border: 3px solid green;
 }
 
 .work__text {
