@@ -6,7 +6,8 @@
         Currently living and working in Montreal.
       </div>
       <div class="mt-6">
-        <img class="w-full rounded-[2rem]" src="/gifer.gif" rel="preload" />
+        <!-- <img class="w-full rounded-[2rem]" src="/gifer.gif" rel="preload" /> -->
+        <NuxtImg class="w-full rounded-[2rem]" preload format="gif" src="/gifer.gif" />
       </div>
     </div>
     <div v-for="(project, index) in projects" :key="index">
