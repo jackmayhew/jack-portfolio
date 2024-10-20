@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "@nuxt/icon": "^1.5.6",
+    "@nuxt/image": "^1.8.1",
+    "@nuxtjs/color-mode": "^3.5.1",
     "gsap": "^3.12.5",
     "nuxt": "^3.13.0",
     "vue": "latest",

@@ -1,12 +1,15 @@
 <template>
-  <main class="px-8 md:px-4 mt-6 sm:mt-12">
+  <main class="px-4 mt-6 sm:mt-12">
     <div>
-      <div class="intro text-3xl sm:text-5xl">
-        <span class="underline font-semibold">Jack Mayhew</span> is a full stack
-        developer who enjoys building cool things for the web and beyond.
+      <div class="intro text-4xl sm:text-5xl">
+        Just a guy who enjoys building cool things for the web and beyond.
+        Currently living and working in Montreal.
+        <!-- I'm <span class="underline font-semibold">Jack</span>, a full stack
+        web developer who enjoys building cool things for the web and beyond.
+        Currently living and working in Montreal. -->
       </div>
       <div class="mt-6">
-        <img class="rounded-2xl" src="/george.jpg" alt="" />
+        <NuxtImg class="rounded-2xl w-full" src="/george.jpg" rel="preload" />
       </div>
     </div>
     <div v-for="(project, index) in projects" :key="index">
