@@ -6,7 +6,15 @@
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+useHead({
+  title: "Jack",
+  meta: [{ name: "description", content: "My amazing site." }],
+  bodyAttrs: {
+    class: "test",
+  },
+});
+</script>
 
 <style>
 .page-enter-active {

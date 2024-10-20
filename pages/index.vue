@@ -6,8 +6,7 @@
         Currently living and working in Montreal.
       </div>
       <div class="mt-6">
-        <img class="rounded-2xl w-full" src="/gifer.gif" rel="preload" />
-        <!-- <Hero /> -->
+        <img class="w-full rounded-[2rem]" src="/gifer.gif" rel="preload" />
       </div>
     </div>
     <div v-for="(project, index) in projects" :key="index">
@@ -25,19 +24,7 @@
 
 <script setup>
 import { projects } from "@/data/projects";
-
-useHead({
-  title: "Jack",
-  meta: [{ name: "description", content: "My amazing site." }],
-  bodyAttrs: {
-    class: "test",
-  },
-  script: [{ innerHTML: "console.log('Hello world')" }],
-});
 </script>
 
 <style scoped>
-.h-dvh {
-  height: 100vh;
-}
 </style>
