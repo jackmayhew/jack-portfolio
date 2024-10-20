@@ -4,12 +4,10 @@
       <div class="intro text-4xl sm:text-5xl">
         Just a guy who enjoys building cool things for the web and beyond.
         Currently living and working in Montreal.
-        <!-- I'm <span class="underline font-semibold">Jack</span>, a full stack
-        web developer who enjoys building cool things for the web and beyond.
-        Currently living and working in Montreal. -->
       </div>
       <div class="mt-6">
-        <NuxtImg class="rounded-2xl w-full" src="/george.jpg" rel="preload" />
+        <img class="rounded-2xl w-full" src="/gifer.gif" rel="preload" />
+        <!-- <Hero /> -->
       </div>
     </div>
     <div v-for="(project, index) in projects" :key="index">
@@ -39,10 +37,6 @@ useHead({
 </script>
 
 <style scoped>
-main {
-  color: black;
-}
-
 .h-dvh {
   height: 100vh;
 }

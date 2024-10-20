@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-24 bg-white work__card shadow-sm ">
+  <div class="mt-24  work__card shadow-sm ">
     <img class="rounded-xl work__img" :src="image" alt="" />
     <div class="work__text">
       <div class="mt-4 text-lg">{{ date }}</div>

@@ -15,6 +15,7 @@
     "@nuxtjs/color-mode": "^3.5.1",
     "gsap": "^3.12.5",
     "nuxt": "^3.13.0",
+    "nuxt-storage": "^1.2.2",
     "vue": "latest",
     "vue-router": "latest"
   },

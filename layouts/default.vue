@@ -1,10 +1,12 @@
 <template>
-  <div class="mx-auto text-white max-w-screen-md wrapper">
+  <div class="mx-auto max-w-screen-md wrapper bg-light-bg dark:bg-dark-bg text-light-text dark:text-dark-text">
     <Navbar />
     <NuxtPage class="page" />
-    <Footer />
+    <Footer class="page" />
   </div>
 </template>
+
+<script setup></script>
 
 <style>
 .page-enter-active {
@@ -22,15 +24,15 @@
 
 .page-leave-to {
   opacity: 0;
-  /* transform: translateY(-20px); */
-}
-
-.wrapper {
-  color: black;
 }
 
 .page {
   position: relative;
   min-height: 100%;
 }
+
+.dark-mode body {
+  background-color: #111;
+}
+
 </style>
