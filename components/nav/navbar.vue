@@ -9,10 +9,10 @@
           <button @click="toggleColorMode">
             <ClientOnly>
               <div class="w-6 h-6">
-              <Icon 
-                :name="colorMode.value === 'dark' ? 'uil:moon' : 'uil:sun'" 
-                class="w-full h-full"
-              />                
+                <Icon
+                  :name="colorMode.value === 'dark' ? 'uil:moon' : 'uil:sun'"
+                  class="w-full h-full"
+                />
               </div>
             </ClientOnly>
           </button>

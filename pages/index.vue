@@ -7,25 +7,13 @@
       </div>
       <div class="mt-6">
         <!-- <img class="w-full rounded-[2rem]" src="/gifer.gif" rel="preload" /> -->
-        <NuxtImg class="w-full rounded-[2rem]" preload format="gif" src="/gifer.gif" />
+        <NuxtImg class="w-full rounded-[2rem]" format="gif" src="/gifer.gif" />
       </div>
     </div>
-    <div v-for="(project, index) in projects" :key="index">
-      <WorkCard
-        :title="project.title"
-        :date="project.date"
-        :desc="project.desc"
-        :url="project.url"
-        :stack="project.stack"
-        :image="project.image"
-      />
-    </div>
+    <Work />
   </main>
 </template>
 
-<script setup>
-import { projects } from "@/data/projects";
-</script>
+<script setup></script>
 
-<style scoped>
-</style>
+<style scoped></style>

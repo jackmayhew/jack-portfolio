@@ -1,7 +1,7 @@
 <template>
-  <div class="mt-24  work__card shadow-sm ">
+  <div class="mt-24 mb-36 shadow-sm">
     <img class="rounded-xl work__img" :src="image" alt="" />
-    <div class="work__text">
+    <div class="work__text pb-6 sticky bottom-0">
       <div class="mt-4 text-lg">{{ date }}</div>
       <h2 class="mt-2 text-3xl font-semibold">{{ title }}</h2>
       <p class="mt-2 text-xl">{{ desc }}</p>
@@ -13,6 +13,10 @@
 </template>
 
 <script setup>
+import { onMounted } from "vue";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 const props = defineProps({
   title: String,
   date: String,
@@ -21,10 +25,6 @@ const props = defineProps({
   stack: String,
   image: String,
 });
-
-import { onMounted } from "vue";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 if (process.client) {
   gsap.registerPlugin(ScrollTrigger);
@@ -54,19 +54,12 @@ onMounted(() => {
 </script>
 
 <style scoped>
-.work__card {
-  margin-bottom: 150px;
-}
-
 .work__text {
-  position: sticky;
-  bottom: 0;
   background-image: linear-gradient(
     to top,
     rgba(255, 255, 255, 1),
     40%,
     transparent
   );
-  padding-bottom: 25px;
 }
 </style>
