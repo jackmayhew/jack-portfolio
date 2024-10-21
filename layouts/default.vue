@@ -1,8 +1,10 @@
 <template>
   <div class="mx-auto max-w-screen-md wrapper bg-light-bg dark:bg-dark-bg text-light-text dark:text-dark-text">
     <Navbar />
-    <NuxtPage />
-    <Footer />
+    <div class="px-6 mt-6 sm:mt-12">
+      <NuxtPage />
+      <Footer />
+    </div>
   </div>
 </template>
 
@@ -10,6 +12,12 @@
 useHead({
   title: "Jack",
   meta: [{ name: "description", content: "My amazing site." }],
+  link: [
+    {
+      rel: "prefetch",
+      href: "/gifer.gif"
+    }
+  ],
   bodyAttrs: {
     class: "test",
   },
@@ -42,5 +50,4 @@ useHead({
 .dark-mode body {
   background-color: #111;
 }
-
 </style>

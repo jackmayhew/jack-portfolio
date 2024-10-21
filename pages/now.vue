@@ -1,5 +1,5 @@
 <template>
-  <main class="px-6 mt-6 sm:mt-12">
+  <main>
     <h1 class="text-4xl sm:text-5xl">Just</h1>
     <h2 class="text-xl sm:text-2xl">What's Jack up to?</h2>
     <div class="w-full max-w-3xl mx-auto">
