@@ -1,5 +1,5 @@
 <template>
-  <main class="px-4 mt-6 sm:mt-12">
+  <main class="px-6 mt-6 sm:mt-12">
     <div>
       <div class="intro text-4xl sm:text-5xl">
         Just a guy who enjoys building cool things for the web and beyond.

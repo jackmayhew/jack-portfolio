@@ -1,8 +1,8 @@
 <template>
   <div class="mx-auto max-w-screen-md wrapper bg-light-bg dark:bg-dark-bg text-light-text dark:text-dark-text">
     <Navbar />
-    <NuxtPage class="page" />
-    <Footer class="page" />
+    <NuxtPage />
+    <Footer />
   </div>
 </template>
 

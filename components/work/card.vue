@@ -62,4 +62,12 @@ onMounted(() => {
     transparent
   );
 }
+
+.dark-mode .work__text {
+  background-image: linear-gradient(
+    to top,
+    rgba(17, 17, 17, 1) 40%,
+    transparent
+  );
+}
 </style>

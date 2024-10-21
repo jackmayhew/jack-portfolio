@@ -1,6 +1,6 @@
 <template>
   <header class="sticky top-0 bg-light-bg dark:bg-dark-bg z-10">
-    <nav class="container mx-auto p-4 flex justify-between">
+    <nav class="py-4 px-6 flex justify-between">
       <NuxtLink to="/" class="font-bold text-green">Jacko</NuxtLink>
       <ul class="flex gap-4">
         <li><NuxtLink to="/about">About</NuxtLink></li>
