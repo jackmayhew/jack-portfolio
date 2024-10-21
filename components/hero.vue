@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="band intro text-4xl sm:text-5xl">
+    <div class="band intro text-4xl sm:text-5xl invisible">
       Just a guy who enjoys building cool things for the web and beyond.
       Currently living and working in Montreal.
     </div>
@@ -52,7 +52,11 @@ function initSplitTextAndAnimations() {
     y: 70,
     transformOrigin: "0% 50% -50",
     stagger: 0.01,
+    onStart: () => {
+      gsap.set(chars, { visibility: 'visible' }); // Ensure chars are visible at the start
+    }
   });
+
 
   return tl;
 }
@@ -69,10 +73,6 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
-.band {
-  overflow: hidden;
-}
-
 .char {
   display: inline-block;
 }
@@ -80,5 +80,9 @@ onUnmounted(() => {
 .word {
   display: inline-block;
   margin-right: 0.25em;
+}
+
+.band {
+  overflow: hidden;
 }
 </style>
