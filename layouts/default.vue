@@ -50,4 +50,15 @@ useHead({
 .dark-mode body {
   background-color: #111;
 }
+
+/* ::-moz-selection {
+  color: red;
+  background: yellow;
+}
+
+::selection {
+
+  background: #d5c12e;
+} */
+
 </style>

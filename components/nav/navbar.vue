@@ -4,6 +4,7 @@
       <NuxtLink to="/" class="font-bold text-green">Jacko</NuxtLink>
       <ul class="flex gap-4">
         <li><NuxtLink to="/about">About</NuxtLink></li>
+        <li><NuxtLink to="/contact">Contact</NuxtLink></li>
         <li><NuxtLink to="/now">Now</NuxtLink></li>
         <li class="w-6 h-6">
           <button @click="toggleColorMode">

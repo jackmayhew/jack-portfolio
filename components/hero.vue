@@ -1,67 +1,84 @@
 <template>
-    <div>
-      <div class="band intro text-4xl sm:text-5xl">
-        Just a guy who enjoys building cool things for the web and beyond.
-        Currently living and working in Montreal.
-      </div>
-      <div class="mt-6">
-        <img class="w-full rounded-[2rem]" src="/public/gifer.gif"  rel="preload"/>
-
-      </div>
+  <div>
+    <div class="band intro text-4xl sm:text-5xl">
+      Just a guy who enjoys building cool things for the web and beyond.
+      Currently living and working in Montreal.
     </div>
-  </template>
-  
-  <script setup>
-//   import { onMounted } from "vue";
-//   import gsap from "gsap";
-//   useHead({
-//     script: [
-//       {
-//         src: "/SplitText.js",
-//         defer: true,
-//       },
-//     ],
-//   });
-  
-//   const select = e => document.querySelector(e);
-  
-//   let gltl;
-  
-//   function initSplitTextAndAnimations() {
-//     const bandST = new SplitText('.band', { type: "chars", charsClass: "bandChar", position: "relative" });
-  
-//     const tl = gsap.timeline({
-//       defaults: {
-//         ease: "power2",
-//         duration: .5,
-//         delay: 0.25,
-//         z: 0.01,
-//         rotation: 0.01,
-//         transformPerspective: 1000,
-//         transformStyle: "preserve-3d",
-//         backfaceVisibility: "hidden",
-//       },
-//     });
-  
-//     // Animate opacity and y position for each bandChar
-//     tl.from(".bandChar", {
-//       y: -30,
-//       autoAlpha: 0, // Start with opacity 0
-//       stagger: 0.06,
-//     });
-  
-//     return tl;
-//   }
-  
-//   onMounted(() => {
-//     gltl = initSplitTextAndAnimations();
-//   });
-  </script>
-  
-  
-  <style scoped>
-  .band {
-    overflow: hidden;
+    <div class="mt-6">
+      <img class="w-full rounded-[2rem]" src="/public/gifer.gif" rel="preload" />
+    </div>
+  </div>
+</template>
+
+<script setup>
+import { onMounted, onUnmounted } from "vue";
+import gsap from "gsap";
+useHead({
+  script: [
+    {
+      src: "/SplitText.js",
+      defer: true,
+    },
+  ],
+});
+
+let splitText;
+let gltl;
+
+function initSplitTextAndAnimations() {
+
+  if (splitText) {
+    splitText.revert();
   }
-  </style>
-  
+
+  splitText = new SplitText('.band', {
+    type: "chars,words",
+    charsClass: "char",
+    wordsClass: "word"
+  });
+
+  const chars = splitText.chars;
+
+  const tl = gsap.timeline({
+    defaults: {
+      ease: "back.out(1.7)",
+      duration: 1
+    }
+  });
+
+  tl.from(chars, {
+    opacity: 0,
+    scale: 1,
+    y: 70,
+    transformOrigin: "0% 50% -50",
+    stagger: 0.01,
+  });
+
+  return tl;
+}
+
+onMounted(() => {
+  gltl = initSplitTextAndAnimations();
+});
+
+onUnmounted(() => {
+  if (splitText) {
+    splitText.revert();
+  }
+});
+</script>
+
+<style scoped>
+.band {
+  overflow: hidden;
+}
+
+.char {
+  display: inline-block;
+}
+
+.word {
+  display: inline-block;
+  margin-right: 0.25em;
+}
+</style>
