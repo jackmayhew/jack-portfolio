@@ -1,10 +1,10 @@
 <template>
   <div class="mt-24 mb-28">
-    <img class="rounded-xl work__img" :src="image" alt="" />
+    <NuxtImg class="rounded-xl work__img opacity-0 w-full h-full" :src="image" alt="" />
     <div class="work__text pb-6 sticky bottom-0">
-      <div class="mt-4 text-lg">{{ date }}</div>
-      <h2 class="mt-2 text-3xl font-semibold">{{ title }}</h2>
-      <p class="mt-2 text-xl">{{ desc }}</p>
+      <div class="mt-4 sm:mt-8 text-lg">{{ date }}</div>
+      <h2 class="mt-2 text-2xl sm:text-4xl font-semibold">{{ title }}</h2>
+      <p class="mt-2 text-xl sm:text-2xl">{{ desc }}</p>
       <div class="mt-4 text-lg">
         <a :href="url" rel="noopener" target="_blank">Visit</a>
       </div>

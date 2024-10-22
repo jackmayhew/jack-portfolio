@@ -2,6 +2,10 @@
 export default {
   content: [],
   theme: {
+    screens: {
+      xs: "540px",
+      ...require('tailwindcss/defaultTheme').screens,
+    },
     extend: {
       colors: {
         "light-bg": "#fff",

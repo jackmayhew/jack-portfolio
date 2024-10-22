@@ -5,7 +5,7 @@
       Currently living and working in Montreal.
     </div>
     <div class="mt-6">
-      <img class="w-full rounded-[2rem]" src="/public/gifer.gif" rel="preload" />
+      <img class="w-full rounded-3xl" src="/public/gifer.gif" rel="preload" />
     </div>
   </div>
 </template>
@@ -13,50 +13,46 @@
 <script setup>
 import { onMounted, onUnmounted } from "vue";
 import gsap from "gsap";
-useHead({
-  script: [
-    {
-      src: "/SplitText.js",
-      defer: true,
-    },
-  ],
-});
 
 let splitText;
 let gltl;
 
 function initSplitTextAndAnimations() {
-
   if (splitText) {
     splitText.revert();
   }
 
   splitText = new SplitText('.band', {
-    type: "chars,words",
-    charsClass: "char",
-    wordsClass: "word"
+    type: "chars,words,lines",  // Added lines splitting
+    charsClass: "bandChar",
+    wordsClass: "word",
+    linesClass: "line",
+    position: "relative"
   });
 
   const chars = splitText.chars;
+  const lines = splitText.lines;
 
   const tl = gsap.timeline({
     defaults: {
-      ease: "back.out(1.7)",
-      duration: 1
+      ease: "power3.out",  // Changed easing for smoother motion
+      duration: 0.8  // Faster overall animation
     }
   });
 
-  tl.from(chars, {
-    opacity: 0,
-    scale: 1,
-    y: 70,
-    transformOrigin: "0% 50% -50",
-    stagger: 0.01,
-    onStart: () => {
-      gsap.set(chars, { visibility: 'visible' }); // Ensure chars are visible at the start
-    }
+  // Animate each line's characters together
+  lines.forEach((line, i) => {
+    const charsInLine = line.querySelectorAll('.bandChar');
+
+    tl.from(charsInLine, {
+      y: -50,  // Reduced distance for snappier feel
+      autoAlpha: 0,
+      stagger: 0.02,  // Much tighter stagger between chars
+      duration: 0.6,  // Faster per-line duration
+    }, i * 0.1);  // Slight delay between lines
   });
 
+  gsap.set('.band', { visibility: 'visible' });
 
   return tl;
 }
@@ -73,8 +69,11 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
-.char {
+.bandChar {
   display: inline-block;
+  position: relative;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
 }
 
 .word {
@@ -82,7 +81,16 @@ onUnmounted(() => {
   margin-right: 0.25em;
 }
 
+.line {
+  display: block;
+  overflow: hidden;
+}
+
 .band {
   overflow: hidden;
+  position: relative;
+  perspective: 200px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 </style>
