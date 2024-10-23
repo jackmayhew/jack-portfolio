@@ -1,8 +1,8 @@
 <template>
-  <div class="mx-auto max-w-screen-md wrapper bg-light-bg dark:bg-dark-bg text-light-text dark:text-dark-text">
+  <div class="wrapper mx-auto max-w-screen-md bg-light-bg dark:bg-dark-bg text-light-text dark:text-dark-text">
     <Navbar />
-    <Transition name="content" mode="out-in">
-      <div :key="$route.fullPath" class="px-6 mt-6 sm:mt-12">
+    <Transition name="content" mode="out-in" :appear="isMount">
+      <div :key="$route.fullPath" class="px-6 mt-6 sm:mt-12 main__content" v-if="isMount">
         <NuxtPage />
         <Footer />
       </div>
@@ -11,6 +11,15 @@
 </template>
 
 <script setup>
+import { ref, onMounted } from 'vue'
+const isMount = ref(false)
+
+onMounted(() => {
+  setTimeout(() => {
+    isMount.value = true
+  }, 10)
+})
+
 useHead({
   title: "Jack",
   meta: [{ name: "description", content: "My amazing site." }],

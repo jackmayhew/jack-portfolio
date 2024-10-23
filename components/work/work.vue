@@ -1,6 +1,6 @@
 <template>
   <div class="mt-24">
-    <h1 class="mb-24">Recent Works</h1>
+    <!-- <h1 class="mb-12 text-4xl">Selected Works</h1> -->
   <div v-for="(project, index) in projects" :key="index">
     <Card
       :title="project.title"

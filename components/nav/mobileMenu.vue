@@ -1,8 +1,8 @@
 <template>
     <div class="menu-wrap fixed inset-0 grid pointer-events-none transition-opacity duration-300 opacity-0">
-        <nav class="menu flex flex-col items-center justify-center w-full h-full gap-6">
+        <nav class="menu flex flex-col items-center justify-center w-full h-dvh	 gap-2">
             <NuxtLink v-for="link in navigationLinks" :key="link.path" @click="handleLinkClick" :to="link.path"
-                class="menu__item js-link text-3xl hover:text-green transition-colors"
+                class="menu__item js-link text-4xl hover:text-green transition-colors"
                 :class="{ 'disabled__link': isAnimating }">
                 {{ link.name }}
             </NuxtLink>
@@ -26,14 +26,14 @@ const props = defineProps({
 const emit = defineEmits(['updateBurgerIcon', 'updateAnimatingState', 'closeMenu'])
 
 const navigationLinks = [
-    { path: '/', name: 'home' },
-    { path: '/about', name: 'about' },
-    { path: '/contact', name: 'contact' },
-    { path: '/now', name: 'now' }
+    { path: '/', name: 'Home' },
+    { path: '/about', name: 'About' },
+    { path: '/contact', name: 'Contact' },
+    { path: '/now', name: 'Now' }
 ]
 
 let isAnimating = false
-let overlayPath, menuWrap, menuItems, body
+let overlayPath, menuWrap, menuItems, body, mainContent
 
 const handleLinkClick = () => {
     emit('closeMenu')
@@ -52,6 +52,8 @@ const openMenu = () => {
 
     isAnimating = true
     emit('updateAnimatingState', true)
+
+    mainContent = document.querySelector('.main__content')
 
     gsap.timeline({
         onComplete: () => {
@@ -79,6 +81,14 @@ const openMenu = () => {
                 emit('updateBurgerIcon', false)
             }
         })
+        .to(mainContent, {
+            duration: 0.8,
+            ease: "power3.in",
+            y: -100,
+            opacity: 0
+        },
+            0.2
+        )
         .set(menuItems, { opacity: 0 })
         .set(overlayPath, { attr: { d: 'M 0 0 V 100 Q 50 100 100 100 V 0 z' } })
         .to(overlayPath, {
@@ -99,6 +109,7 @@ const openMenu = () => {
             opacity: 1,
             stagger: 0.05
         }, '>-=1.1')
+
 }
 
 const closeMenu = () => {
@@ -106,6 +117,7 @@ const closeMenu = () => {
 
     isAnimating = true
     emit('updateAnimatingState', true)
+
 
     gsap.timeline({
         onComplete: () => {
@@ -117,7 +129,7 @@ const closeMenu = () => {
         .to(overlayPath, {
             duration: 0.8,
             ease: 'power4.in',
-            attr: { d: 'M 0 0 V 50 Q 50 100 100 50 V 0 z' }
+            attr: { d: 'M 0 0 V 50 Q 50 100 100 50 V 0 z' },
         })
         .to(overlayPath, {
             duration: 0.3,
@@ -129,6 +141,7 @@ const closeMenu = () => {
                 body.classList.remove('locked')
             }
         })
+
         .set(overlayPath, { attr: { d: 'M 0 100 V 0 Q 50 0 100 0 V 100 z' } })
         .to(overlayPath, {
             duration: 0.3,
@@ -147,6 +160,15 @@ const closeMenu = () => {
             opacity: 0,
             stagger: -0.05
         }, 0)
+        // .to(mainContent, {
+        //     duration: 3.5,
+        //     ease: 'power4',
+        //     y: 0,
+        //     opacity: 1,
+        // },
+        //     0
+        // )
+
 }
 
 watch(() => props.isOpen, (newVal) => {

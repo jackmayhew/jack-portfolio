@@ -1,11 +1,11 @@
 <template>
   <header class="sticky top-0 bg-light-bg dark:bg-dark-bg z-10">
-    <nav class="container mx-auto py-6 sm:py-4 px-6 flex justify-between items-center">
+    <nav class="py-4 px-6 container mx-auto flex justify-between items-center">
       <NuxtLink to="/" class="text-lg font-bold text-green hover:text-green-600 transition-colors z-50"
         :class="{ 'disabled__link': isAnimating }" @click="menuOpen = false">
         Jacko
       </NuxtLink>
-      <ul class="flex items-center gap-6">
+      <ul class="flex items-center gap-4 sm:gap-6">
         <li v-for="link in navigationLinks" :key="link.path" class="hidden xs:block">
           <NuxtLink :to="link.path" class="text-lg">
             {{ link.name }}

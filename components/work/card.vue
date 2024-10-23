@@ -32,23 +32,26 @@ if (process.client) {
 
 onMounted(() => {
   if (process.client) {
-    let images = gsap.utils.toArray(".work__img");
-
-    images.forEach((img) => {
-      gsap.fromTo(
-        img,
-        { opacity: 0 },
-        {
-          opacity: 1,
-          scrollTrigger: {
-            trigger: img,
-            start: "top 55%",
-            end: "top 10%",
-            scrub: true,
-          },
-        }
-      );
-    });
+    setTimeout(() => {
+      let images = gsap.utils.toArray(".work__img");
+      images.forEach((img) => {
+        img.style.opacity = '0';
+        
+        gsap.fromTo(
+          img,
+          { opacity: 0 },
+          {
+            opacity: 1,
+            scrollTrigger: {
+              trigger: img,
+              start: "top 60%",
+              end: "top 10%",
+              scrub: true,
+            },
+          }
+        );
+      });
+    }, 300); 
   }
 });
 </script>
