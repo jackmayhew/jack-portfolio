@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-24 mb-28">
+  <div class="mb-28">
     <NuxtImg class="rounded-xl work__img opacity-0 w-full h-full" :src="image" alt="" />
     <div class="work__text pb-6 sticky bottom-0">
       <div class="mt-4 sm:mt-8 text-lg">{{ date }}</div>
@@ -55,19 +55,15 @@ onMounted(() => {
 
 <style scoped>
 .work__text {
-  background-image: linear-gradient(
-    to top,
-    rgba(255, 255, 255, 1),
-    40%,
-    transparent
-  );
+  background-image: linear-gradient(to top,
+      rgba(251, 247, 245, 1) 40%,
+      40%,
+      transparent);
 }
 
 .dark-mode .work__text {
-  background-image: linear-gradient(
-    to top,
-    rgba(17, 17, 17, 1) 40%,
-    transparent
-  );
+  background-image: linear-gradient(to top,
+      rgba(18, 18, 18, 1) 40%,
+      transparent);
 }
 </style>

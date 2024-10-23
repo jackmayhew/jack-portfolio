@@ -8,10 +8,10 @@ export default {
     },
     extend: {
       colors: {
-        "light-bg": "#fff",
-        "light-text": "#000",
-        "dark-bg": "#111",
-        "dark-text": "#fff",
+        "light-bg": "#FBF7F5",
+        "light-text": "#131212",
+        "dark-bg": "#121212",
+        "dark-text": "#DDDDDD",
       },
     },
   },

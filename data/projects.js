@@ -5,7 +5,7 @@ export const projects = [
     desc: `Refuge Kitty-Kat Rescue is a nonprofit organization based in Montreal dedicated to rescuing and rehoming cats in need.`,
     url: "https://www.refugekittykat.com/",
     stack: "Next.js, Tailwind, and Hypgraph",
-    image: "/george2.jpg",
+    image: "/refuge.png",
   },
   {
     title: "CampVI",
@@ -13,7 +13,7 @@ export const projects = [
     desc: `CampVI is the go-to camping resource for Vancouver Island, making it easy for users to discover campsites and plan their next adventure.`,
     url: "https://www.campvi.ca/",
     stack: "Next.js, TypeScript, and Sanity.io",
-    image: "/george2.jpg",
+    image: "/campvi.png",
   },
   {
     title: "MTL Spots",
