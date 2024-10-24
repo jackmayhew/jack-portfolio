@@ -76,6 +76,13 @@ useHead({
   opacity: 0;
 }
 
+/* @media only screen and (max-width: 600px) {
+  .content-enter-active {
+    transition: all 1s ease-out;
+  }
+} */
+
+
 .light-mode,
 .light-mode body {
   background-color: #FBF7F5;

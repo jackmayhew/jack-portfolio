@@ -1,4 +1,3 @@
-// md file?
 const aboutContent = [
   {
     id: 1,
@@ -10,11 +9,11 @@ const aboutContent = [
   },
   {
     id: 3,
-    text: "These days, I split my time between carpentry and freelance web development, while keeping an eye out for the right job opportunity. I’m eager to dive back into the industry but am taking my time to find the perfect fit.",
+    text: "These days, I split my time between carpentry and freelance web development, while keeping an eye out for the right job opportunity. I’m eager to dive back into the industry, but am taking my time to find the perfect fit.",
   },
   {
     id: 4,
-    text: "Outside of coding, you’ll likely find me playing baseball or soccer, surfing, or playing my bass guitar. I’m based in Montreal, but Vancouver—my hometown—is always calling me back for visits.",
+    text: "Outside of coding, you can find me playing baseball or soccer, surfing, or playing my bass guitar. I’m based in Montreal, but Vancouver—my hometown—is always calling me back for visits.",
   },
   {
     id: 5,

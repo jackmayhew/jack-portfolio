@@ -1,5 +1,5 @@
 <template>
-  <div class="menu__inner js-menu-inner fixed top-0 left-0 w-full h-screen flex items-center z-[1] rounded-[10px] overflow-hidden invisible opacity-0">
+  <div class="menu__inner js-menu-inner fixed top-0 left-0 w-full h-dvh flex items-center z-[1] rounded-[10px] overflow-hidden invisible opacity-0">
     <ul class="menu__inner-background js-menu-inner-background absolute top-0 left-0 h-full w-full list-none p-0 m-0 text-[0]">
       <li v-for="n in 5" :key="n" class="relative inline-block h-full overflow-hidden first:w-[21px] last:w-[21px] [&:nth-child(2)]:w-[calc(33.33%-14px)] [&:nth-child(3)]:w-[calc(33.33%-14px)] [&:nth-child(4)]:w-[calc(33.33%-14px)]">
         <i class="bg-white dark:bg-[#0e0e0e] absolute left-0 top-0 w-full h-full invisible opacity-0 after:content-[''] after:block after:h-full after:w-[1px] after:bg-[#edeff5] dark:after:bg-[#212121] after:z-[1]"></i>
