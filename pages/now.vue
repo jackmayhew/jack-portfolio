@@ -1,7 +1,7 @@
 <template>
   <main>
     <h1 class="text-4xl sm:text-5xl">Now</h1>
-    <h2 class="text-xl sm:text-2xl">What's Jack up to?</h2>
+    <h2 class="mt-2 text-xl sm:text-3xl">What's Jack up to?</h2>
     <div class="w-full max-w-3xl mx-auto">
       <div class="my-6">
         <div v-for="(event, index) in events" :key="index" class="py-6 relative group">

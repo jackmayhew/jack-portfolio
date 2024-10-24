@@ -1,6 +1,6 @@
 <template>
   <div class="mb-28">
-    <NuxtImg class="rounded-xl work__img opacity-0 w-full h-full" :src="image" alt="" />
+    <NuxtImg class="rounded-2xl work__img opacity-0 w-full h-full" :src="image" alt="" />
     <div class="work__text pb-6 sticky bottom-0">
       <div class="mt-4 sm:mt-8 text-lg">{{ date }}</div>
       <h2 class="mt-2 text-2xl sm:text-4xl font-semibold">{{ title }}</h2>
@@ -51,7 +51,7 @@ onMounted(() => {
           }
         );
       });
-    }, 300); 
+    }, 500); 
   }
 });
 </script>

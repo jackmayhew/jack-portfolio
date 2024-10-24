@@ -23,7 +23,7 @@ function initSplitTextAndAnimations() {
   }
 
   splitText = new SplitText('.band', {
-    type: "chars,words,lines", 
+    type: "chars,words,lines",
     charsClass: "bandChar",
     wordsClass: "word",
     linesClass: "line",
@@ -36,15 +36,14 @@ function initSplitTextAndAnimations() {
   const tl = gsap.timeline({
     defaults: {
       ease: "power3.out",
-      duration: 0.8 
+      duration: 0.8
     }
   });
 
   lines.forEach((line, i) => {
     const charsInLine = line.querySelectorAll('.bandChar');
-
     tl.from(charsInLine, {
-      y: -50,  
+      y: -50,
       autoAlpha: 0,
       stagger: 0.02,
       duration: 0.6,
@@ -52,7 +51,6 @@ function initSplitTextAndAnimations() {
   });
 
   gsap.set('.band', { visibility: 'visible' });
-
   return tl;
 }
 

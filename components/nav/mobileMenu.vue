@@ -1,211 +1,92 @@
 <template>
-    <div class="menu-wrap fixed inset-0 grid pointer-events-none transition-opacity duration-300 opacity-0">
-        <nav class="menu flex flex-col items-center justify-center w-full h-dvh	 gap-2">
-            <NuxtLink v-for="link in navigationLinks" :key="link.path" @click="handleLinkClick" :to="link.path"
-                class="menu__item js-link text-4xl hover:text-green transition-colors"
-                :class="{ 'disabled__link': isAnimating }">
-                {{ link.name }}
-            </NuxtLink>
-        </nav>
+  <div class="menu__inner js-menu-inner fixed top-0 left-0 w-full h-screen flex items-center z-[1] rounded-[10px] overflow-hidden invisible opacity-0">
+    <ul class="menu__inner-background js-menu-inner-background absolute top-0 left-0 h-full w-full list-none p-0 m-0 text-[0]">
+      <li v-for="n in 5" :key="n" class="relative inline-block h-full overflow-hidden first:w-[21px] last:w-[21px] [&:nth-child(2)]:w-[calc(33.33%-14px)] [&:nth-child(3)]:w-[calc(33.33%-14px)] [&:nth-child(4)]:w-[calc(33.33%-14px)]">
+        <i class="bg-white dark:bg-[#0e0e0e] absolute left-0 top-0 w-full h-full invisible opacity-0 after:content-[''] after:block after:h-full after:w-[1px] after:bg-[#edeff5] dark:after:bg-[#212121] after:z-[1]"></i>
+      </li>
+    </ul>
+    <div class="menu__items-wrapper relative pl-[22px] flex h-full items-center">
+      <ul class="menu__items-list js-menu-items-list">
+        <li v-for="link in mobileLinks" :key="link.path" class="js-menu-item mb-2">
+          <NuxtLink @click="toggleMenu" :to="link.path" class="text-[50px] leading-[50px]">{{ link.name }}</NuxtLink>
+        </li>
+      </ul>
     </div>
-    <svg class="overlay fixed inset-0 w-full h-full z-50 pointer-events-none" viewBox="0 0 100 100"
-        preserveAspectRatio="none">
-        <path class="overlay__path" vector-effect="non-scaling-stroke" d="M 0 100 V 100 Q 50 100 100 100 V 100 z" />
-    </svg>
+    <button class="menu__trigger js-menu-close absolute top-0 right-0 p-4 px-6 cursor-pointer w-20" @click="toggleMenu">
+      <svg class="stroke-black dark:stroke-white fill-none transition-transform duration-500 ease-in-out hover:scale-110" viewBox="0 0 25 16">
+        <path d="M2.238 7.079h2.727M2.482 9.496l-.666-2.7" />
+        <path d="M23.753 5.403s-1.87 16.88-22.03 1.785" />
+      </svg>
+    </button>
+  </div>
 </template>
 
 <script setup>
-import { defineProps, defineEmits, watch, onMounted, ref } from 'vue'
-import gsap from 'gsap'
+import { onMounted, watch } from 'vue';
+import { TimelineMax, Power4, Power1, Back } from 'gsap';
 
 const props = defineProps({
-    isOpen: Boolean,
-    isAnimating: Boolean
-})
+  isOpen: Boolean,
+  toggleMenu: Function,
+  navigationLinks: Array
+});
 
-const emit = defineEmits(['updateBurgerIcon', 'updateAnimatingState', 'closeMenu'])
+const mobileLinks = computed(() => [
+{ path: '/', name: 'Home' },
+  ...props.navigationLinks
+]);
 
-const navigationLinks = [
-    { path: '/', name: 'Home' },
-    { path: '/about', name: 'About' },
-    { path: '/contact', name: 'Contact' },
-    { path: '/now', name: 'Now' }
-]
-
-let isAnimating = false
-let overlayPath, menuWrap, menuItems, body, mainContent
-
-const handleLinkClick = () => {
-    emit('closeMenu')
-    closeMenu()
-}
+let timeline;
 
 onMounted(() => {
-    overlayPath = document.querySelector('.overlay__path')
-    menuWrap = document.querySelector('.menu-wrap')
-    menuItems = menuWrap?.querySelectorAll('.menu__item') || []
-    body = document.querySelector('body')
-})
+  function initMenu() {
+    const menuInner = document.querySelector('.js-menu-inner'),
+      menuInnerBackgroundItems = document.querySelectorAll('.js-menu-inner-background i'),
+      menuItems = document.querySelectorAll('.js-menu-items-list li'),
+      menuClose = document.querySelector('.js-menu-close');
 
-const openMenu = () => {
-    if (isAnimating || !overlayPath || !menuWrap) return
+    timeline = new TimelineMax({ paused: true });
 
-    isAnimating = true
-    emit('updateAnimatingState', true)
+    timeline
+      .to(menuInner, 1, { autoAlpha: 1, ease: Power4.easeOut }, 'start')
+      .fromTo(
+        menuInnerBackgroundItems,
+        0.25,
+        { x: '-100%', autoAlpha: 0 },
+        { x: '0%', autoAlpha: 1, ease: Power1.easeOut },
+        'start'
+      )
+      .staggerFromTo(
+        menuItems,
+        0.4,
+        { x: -30, autoAlpha: 0 },
+        { x: 0, autoAlpha: 1, delay: 0.35, ease: Back.easeOut.config(1) },
+        0.15,
+        'start'
+      )
+      .fromTo(menuClose, 0.2, { x: -10, autoAlpha: 0 }, { x: 0, autoAlpha: 1, delay: 1, ease: Power1.easeOut }, 'start');
+  }
 
-    mainContent = document.querySelector('.main__content')
-
-    gsap.timeline({
-        onComplete: () => {
-            isAnimating = false
-            emit('updateAnimatingState', false)
-        }
-    })
-        .set(overlayPath, {
-            attr: { d: 'M 0 100 V 100 Q 50 100 100 100 V 100 z' }
-        })
-        .to(overlayPath, {
-            duration: 0.8,
-            ease: 'power4.in',
-            attr: { d: 'M 0 100 V 50 Q 50 0 100 50 V 100 z' },
-            onComplete() {
-                menuWrap.classList.add('menu-wrap--open')
-                body.classList.add('locked')
-            }
-        })
-        .to(overlayPath, {
-            duration: 0.3,
-            ease: 'power2',
-            attr: { d: 'M 0 100 V 0 Q 50 0 100 0 V 100 z' },
-            onComplete() {
-                emit('updateBurgerIcon', false)
-            }
-        })
-        .to(mainContent, {
-            duration: 0.8,
-            ease: "power3.in",
-            y: -100,
-            opacity: 0
-        },
-            0.2
-        )
-        .set(menuItems, { opacity: 0 })
-        .set(overlayPath, { attr: { d: 'M 0 0 V 100 Q 50 100 100 100 V 0 z' } })
-        .to(overlayPath, {
-            duration: 0.3,
-            ease: 'power2.in',
-            attr: { d: 'M 0 0 V 50 Q 50 0 100 50 V 0 z' }
-        })
-        .to(overlayPath, {
-            duration: 0.8,
-            ease: 'power4',
-            attr: { d: 'M 0 0 V 0 Q 50 0 100 0 V 0 z' }
-        })
-        .to(menuItems, {
-            duration: 1.1,
-            ease: 'power4',
-            startAt: { y: 150 },
-            y: 0,
-            opacity: 1,
-            stagger: 0.05
-        }, '>-=1.1')
-
-}
-
-const closeMenu = () => {
-    if (isAnimating || !overlayPath || !menuWrap) return
-
-    isAnimating = true
-    emit('updateAnimatingState', true)
+  initMenu();
+});
 
 
-    gsap.timeline({
-        onComplete: () => {
-            isAnimating = false
-            emit('updateAnimatingState', false)
-        }
-    })
-        .set(overlayPath, { attr: { d: 'M 0 0 V 0 Q 50 0 100 0 V 0 z' } })
-        .to(overlayPath, {
-            duration: 0.8,
-            ease: 'power4.in',
-            attr: { d: 'M 0 0 V 50 Q 50 100 100 50 V 0 z' },
-        })
-        .to(overlayPath, {
-            duration: 0.3,
-            ease: 'power2',
-            attr: { d: 'M 0 0 V 100 Q 50 100 100 100 V 0 z' },
-            onComplete() {
-                emit('updateBurgerIcon', true)
-                menuWrap.classList.remove('menu-wrap--open')
-                body.classList.remove('locked')
-            }
-        })
-
-        .set(overlayPath, { attr: { d: 'M 0 100 V 0 Q 50 0 100 0 V 100 z' } })
-        .to(overlayPath, {
-            duration: 0.3,
-            ease: 'power2.in',
-            attr: { d: 'M 0 100 V 50 Q 50 100 100 50 V 100 z' }
-        })
-        .to(overlayPath, {
-            duration: 0.8,
-            ease: 'power4',
-            attr: { d: 'M 0 100 V 100 Q 50 100 100 100 V 100 z' }
-        })
-        .to(menuItems, {
-            duration: 0.8,
-            ease: 'power2.in',
-            y: 100,
-            opacity: 0,
-            stagger: -0.05
-        }, 0)
-        // .to(mainContent, {
-        //     duration: 3.5,
-        //     ease: 'power4',
-        //     y: 0,
-        //     opacity: 1,
-        // },
-        //     0
-        // )
-
-}
-
-watch(() => props.isOpen, (newVal) => {
-    if (newVal) openMenu()
-    else closeMenu()
-})
+watch(() => props.isOpen, (newValue) => {
+  if (newValue) {
+    timeline.play();
+    document.querySelector('body').classList.add('locked');
+  } else {
+    timeline.timeScale(1.25).reverse();
+    document.querySelector('body').classList.remove('locked');
+  }
+});
 </script>
 
+
+
 <style scoped>
-.menu-wrap {
-    grid-area: 1/1/2/2;
-}
-
-.menu-wrap.menu-wrap--open {
-    opacity: 1;
-    pointer-events: auto;
-    display: grid;
-    background-color: #FBF7F5;
-}
-
-.overlay__path {
-    fill: #FDFBFA;
-}
-
-.dark-mode .menu-wrap.menu-wrap--open {
-    background-color: #121212;
-}
-
-.dark-mode .overlay__path {
-    fill: #0e0e0e;
-}
-
-.menu__item {
-    will-change: opacity, transform;
-}
-
-.disabled__link {
-    pointer-events: none;
+.menu__trigger--close {
+  visibility: hidden;
+  opacity: 0;
 }
 </style>
