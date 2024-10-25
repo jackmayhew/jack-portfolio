@@ -14,6 +14,8 @@
 import { onMounted, onUnmounted } from "vue";
 import gsap from "gsap";
 
+const props = defineProps(['isFromMobileMenu']);
+
 let splitText;
 let gltl;
 
@@ -32,6 +34,7 @@ function initSplitTextAndAnimations() {
 
   const chars = splitText.chars;
   const lines = splitText.lines;
+  const delay = props.isFromMobileMenu ? .7 : 0;
 
   const tl = gsap.timeline({
     defaults: {
@@ -39,6 +42,9 @@ function initSplitTextAndAnimations() {
       duration: 0.8
     }
   });
+
+  tl.delay(delay);
+
 
   lines.forEach((line, i) => {
     const charsInLine = line.querySelectorAll('.bandChar');

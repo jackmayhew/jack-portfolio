@@ -1,5 +1,5 @@
 <template>
-  <footer class="rounded-lg">
+  <footer class="mt-24 sm:mt-32 rounded-lg">
     <div class="py-4 md:py-8 mx-auto w-full max-w-screen-xl">
       <div class="sm:flex sm:items-center sm:justify-between">
         <a href="https://jman99.netlify.app/" class="mb-4 sm:mb-0 flex items-center space-x-3 rtl:space-x-reverse">

@@ -1,9 +1,9 @@
 <template>
   <div class="wrapper mx-auto max-w-screen-md bg-light-bg dark:bg-dark-bg text-light-text dark:text-dark-text">
-    <Navbar />
+    <Navbar @mobile-menu-click="setMobileTransition" />
     <Transition name="content" mode="out-in" :appear="isMount">
-      <div :key="$route.fullPath" class="px-6 mt-6 sm:mt-12 main__content" v-if="isMount">
-        <NuxtPage />
+      <div :key="$route.fullPath" class="px-6 mt-6 sm:mt-12 main__content" v-if="isMount" :data-from-mobile="isFromMobileMenu">
+        <NuxtPage :isFromMobileMenu="isFromMobileMenu" />
         <Footer />
       </div>
     </Transition>
@@ -12,7 +12,21 @@
 
 <script setup>
 import { ref, onMounted } from 'vue'
+import { useRouter } from 'nuxt/app'
+
 const isMount = ref(false)
+const router = useRouter()
+const isFromMobileMenu = ref(false)
+
+const setMobileTransition = () => {
+  isFromMobileMenu.value = true
+}
+
+router.afterEach(() => {
+  setTimeout(() => {
+    isFromMobileMenu.value = false
+  }, 1100)
+})
 
 onMounted(() => {
   setTimeout(() => {
@@ -76,12 +90,11 @@ useHead({
   opacity: 0;
 }
 
-/* @media only screen and (max-width: 600px) {
-  .content-enter-active {
-    transition: all 1s ease-out;
+@media only screen and (max-width: 540px) {
+  .content-enter-active[data-from-mobile="true"] {
+    transition: all 0.3s ease-out .75s !important;
   }
-} */
-
+}
 
 .light-mode,
 .light-mode body {
@@ -96,65 +109,4 @@ useHead({
 .locked {
   overflow: hidden !important;
 }
-
-/* @keyframes noise {
-  0% {
-    transform: translate3d(0, 9rem, 0)
-  }
-
-  10% {
-    transform: translate3d(-1rem, -4rem, 0)
-  }
-
-  20% {
-    transform: translate3d(-8rem, 2rem, 0)
-  }
-
-  30% {
-    transform: translate3d(9rem, -9rem, 0)
-  }
-
-  40% {
-    transform: translate3d(-2rem, 7rem, 0)
-  }
-
-  50% {
-    transform: translate3d(-9rem, -4rem, 0)
-  }
-
-  60% {
-    transform: translate3d(2rem, 6rem, 0)
-  }
-
-  70% {
-    transform: translate3d(7rem, -8rem, 0)
-  }
-
-  80% {
-    transform: translate3d(-9rem, 1rem, 0)
-  }
-
-  90% {
-    transform: translate3d(6rem, -5rem, 0)
-  }
-
-  to {
-    transform: translate3d(-7rem, 0, 0)
-  }
-}
-
-body:before {
-    top: -10rem;
-    left: -10rem;
-    width: calc(100% + 20rem);
-    height: calc(100% + 20rem);
-    z-index: 9;
-    content: '';
-    position: fixed;
-    pointer-events: none;
-    background-position: 50%;
-    background-image: url(/noise.png);
-    pointer-events: none;
-    animation: noise 1s steps(2) infinite;
-} */
 </style>

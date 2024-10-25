@@ -36,6 +36,7 @@ onMounted(() => {
       let images = gsap.utils.toArray(".work__img");
       images.forEach((img) => {
         img.style.opacity = '0';
+        img.style.border = '2px solid red';
         
         gsap.fromTo(
           img,

@@ -1,7 +1,7 @@
 <template>
   <header class="sticky top-0 bg-light-bg dark:bg-dark-bg z-10">
     <nav class="py-4 px-6 mx-auto flex justify-between items-center">
-      <NuxtLink to="/" class="text-lg font-bold z-50" @click="isMobileMenuOpen = false">
+      <NuxtLink to="/" class="text-lg font-bold z-50" @click="closeMobileMenu">
         Jack
       </NuxtLink>
       <ul class="flex items-center gap-4 sm:gap-6">
@@ -34,12 +34,17 @@
         </li>
       </ul>
     </nav>
-    <MobileMenu :isOpen="isMobileMenuOpen" :toggleMenu="toggleMobileMenu" :navigationLinks="navigationLinks" />
+    <MobileMenu :isOpen="isMobileMenuOpen" :toggleMenu="toggleMobileMenu" :closeMobileMenu="closeMobileMenu"
+      :navigationLinks="navigationLinks" />
   </header>
 </template>
 
 <script setup>
 import { ref } from 'vue'
+
+const emit = defineEmits(['mobile-menu-click']);
+const isMobileMenuOpen = ref(false);
+const colorMode = useColorMode()
 
 const navigationLinks = [
   { path: '/about', name: 'About' },
@@ -47,11 +52,15 @@ const navigationLinks = [
   { path: '/now', name: 'Now' }
 ]
 
-const isMobileMenuOpen = ref(false);
-const colorMode = useColorMode()
-
 const toggleMobileMenu = () => {
   isMobileMenuOpen.value = !isMobileMenuOpen.value;
+};
+
+const closeMobileMenu = () => {
+  if (isMobileMenuOpen.value) {
+    emit('mobile-menu-click');
+  }
+  isMobileMenuOpen.value = false;
 };
 
 const toggleColorMode = () => {
