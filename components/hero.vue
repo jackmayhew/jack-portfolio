@@ -45,7 +45,6 @@ function initSplitTextAndAnimations() {
 
   tl.delay(delay);
 
-
   lines.forEach((line, i) => {
     const charsInLine = line.querySelectorAll('.bandChar');
     tl.from(charsInLine, {
