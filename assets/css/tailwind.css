@@ -3,12 +3,28 @@
 @tailwind utilities;
 
 @font-face {
-    font-family: 'YourFont';
-    src: url('assets/fonts/StabilGrotesk-Regular.woff2') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-  }
-  
-  body {
-    font-family: 'YourFont', sans-serif;
-  }
+  font-family: "YourFont";
+  src: url("assets/fonts/StabilGrotesk-Regular.woff2") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: "YourFont", sans-serif;
+}
+
+::selection {
+  background-color: #9fc8b2;
+}
+
+::-moz-selection {
+  background-color: #9fc8b2;
+}
+
+.dark-mode ::selection {
+  color: #121212;
+}
+
+.dark-mode ::-moz-selection {
+  color: #121212;
+}

@@ -4,7 +4,7 @@ export default {
   theme: {
     screens: {
       xs: "540px",
-      ...require('tailwindcss/defaultTheme').screens,
+      ...require("tailwindcss/defaultTheme").screens,
     },
     extend: {
       colors: {
@@ -12,6 +12,8 @@ export default {
         "light-text": "#131212",
         "dark-bg": "#121212",
         "dark-text": "#DDDDDD",
+        "grey-text": "#8F8F8F",
+        // "grey-text": "#B0B0B0",
       },
     },
   },

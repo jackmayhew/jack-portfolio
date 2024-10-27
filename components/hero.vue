@@ -5,7 +5,7 @@
       Currently living and working in Montreal.
     </div>
     <div class="mt-6">
-      <img class="w-full rounded-3xl" src="/public/gifer.gif" rel="preload" />
+      <img class="w-full rounded-3xl" src="/public/hero.gif" rel="preload" />
     </div>
   </div>
 </template>
@@ -19,7 +19,7 @@ const props = defineProps(['isFromMobileMenu']);
 let splitText;
 let gltl;
 
-function initSplitTextAndAnimations() {
+function heroText() {
   if (splitText) {
     splitText.revert();
   }
@@ -34,7 +34,7 @@ function initSplitTextAndAnimations() {
 
   const chars = splitText.chars;
   const lines = splitText.lines;
-  const delay = props.isFromMobileMenu ? .7 : 0;
+  const delay = props.isFromMobileMenu ? .7 : .1;
 
   const tl = gsap.timeline({
     defaults: {
@@ -60,7 +60,7 @@ function initSplitTextAndAnimations() {
 }
 
 onMounted(() => {
-  gltl = initSplitTextAndAnimations();
+  gltl = heroText();
 });
 
 onUnmounted(() => {

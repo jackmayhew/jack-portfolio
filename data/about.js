@@ -21,7 +21,8 @@ const aboutContent = [
   },
   {
     id: 5,
-    text: "If you're around and want to chat, drop me a message!",
+    text: "If you're around and want to chat,",
+    link: "drop me a message!"
   },
 ];
 
