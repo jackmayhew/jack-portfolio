@@ -26,33 +26,28 @@ const props = defineProps({
   image: String,
 });
 
-if (process.client) {
-  gsap.registerPlugin(ScrollTrigger);
-}
-
 onMounted(() => {
-  if (process.client) {
-    setTimeout(() => {
-      let images = gsap.utils.toArray(".work__img");
-      images.forEach((img) => {
-        img.style.opacity = '0';
-        img.style.border = '2px solid red';       
-        gsap.fromTo(
-          img,
-          { opacity: 0 },
-          {
-            opacity: 1,
-            scrollTrigger: {
-              trigger: img,
-              start: "top 60%",
-              end: "top 10%",
-              scrub: true,
-            },
-          }
-        );
-      });
-    }, 500); 
-  }
+  gsap.registerPlugin(ScrollTrigger);
+  setTimeout(() => {
+    let images = gsap.utils.toArray(".work__img");
+    images.forEach((img) => {
+      img.style.opacity = '0';
+      img.style.border = '2px solid red';
+      gsap.fromTo(
+        img,
+        { opacity: 0 },
+        {
+          opacity: 1,
+          scrollTrigger: {
+            trigger: img,
+            start: "top 60%",
+            end: "top 10%",
+            scrub: true,
+          },
+        }
+      );
+    });
+  }, 500);
 });
 </script>
 

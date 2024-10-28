@@ -10,6 +10,7 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@nuxt/icon": "^1.5.6",
     "@nuxt/image": "^1.8.1",
     "@nuxtjs/color-mode": "^3.5.1",

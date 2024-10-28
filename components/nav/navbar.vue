@@ -63,8 +63,8 @@ const colorMode = useColorMode();
 
 const navigationLinks = [
   { path: '/about', name: 'About' },
-  { path: '/contact', name: 'Contact' },
-  { path: '/now', name: 'Now' }
+  { path: '/now', name: 'Now' },
+  { path: '/contact', name: 'Contact' }
 ];
 
 const toggleMobileMenu = () => {

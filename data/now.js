@@ -1,4 +1,4 @@
-export const events = [
+export const nowContent = [
   {
     displayDate: "Oct 2024",
     formateDate: "2024-10-31",

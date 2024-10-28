@@ -2,7 +2,7 @@ export const projects = [
   {
     title: "Refuge Kitty-Kat Rescue",
     date: "2024",
-    desc: `Refuge Kitty-Kat Rescue is a nonprofit organization based in Montreal dedicated to rescuing and rehoming cats in need.`,
+    desc: `Refuge Kitty-Kat Rescue is a nonprofit cat rescue based in Montreal dedicated to rescuing and rehoming cats in need.`,
     url: "https://www.refugekittykat.com/",
     stack: "Next.js, Tailwind, and Hypgraph",
     image: "/refuge.png",

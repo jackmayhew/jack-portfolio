@@ -3,18 +3,27 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: "YourFont";
+  font-family: "regular";
   src: url("assets/fonts/StabilGrotesk-Regular.woff2") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
-body {
-  font-family: "YourFont", sans-serif;
+@font-face {
+  font-family: "medium";
+  src: url("assets/fonts/StabilGrotesk-medium.woff2") format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
 
+body {
+  font-family: "regular", sans-serif;
+}
+
+
+
 ::selection {
-  background-color: #9fc8b2;
+  background-color: #9ECF9A;
 }
 
 ::-moz-selection {
@@ -23,8 +32,24 @@ body {
 
 .dark-mode ::selection {
   color: #121212;
+  -webkit-text-fill-color: #121212;
 }
 
 .dark-mode ::-moz-selection {
   color: #121212;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition-delay: 9999s;
+  -webkit-text-fill-color: #131212;
+}
+
+.dark-mode :-webkit-autofill,
+.dark-mode input:-webkit-autofill:hover,
+.dark-mode input:-webkit-autofill:focus,
+.dark-mode input:-webkit-autofill:active {
+  -webkit-text-fill-color: #DDDDDD;
 }

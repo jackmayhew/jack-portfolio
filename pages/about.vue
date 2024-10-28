@@ -1,7 +1,7 @@
 <template>
   <main>
     <h1 class="text-4xl sm:text-5xl h1">About Jack</h1>
-    <h2 class="mt-2 text-xl sm:text-3xl">A brief reflection on my coding journey and personal pursuits.</h2>
+    <h2 class="mt-2 text-xl sm:text-2xl">A brief reflection on my coding journey and personal pursuits.</h2>
     <div class="w-full max-w-3xl mx-auto">
       <div class="mt-6 text-lg">
         <p v-for="section in aboutContent" :key="section.id" class="mt-5">

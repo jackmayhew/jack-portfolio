@@ -2,7 +2,7 @@ const aboutContent = [
   {
     id: 1,
     text: `I started coding in 2019, building websites for friends and family—nothing fancy, but it was enough to get me hooked. 
-   Quickly realizing this was more than just a hobby, I got to work learning and honing my skills in web development.`,
+    Quickly realizing this was more than just a hobby, I got to work learning and honing my skills in web development.`,
   },
   {
     id: 2,
@@ -22,7 +22,7 @@ const aboutContent = [
   {
     id: 5,
     text: "If you're around and want to chat,",
-    link: "drop me a message!"
+    link: "drop me a message!",
   },
 ];
 
