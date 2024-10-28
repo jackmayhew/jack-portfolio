@@ -110,6 +110,7 @@ const sendEmail = () => {
       }
     );
 };
+
 </script>
 
 <style scoped>
