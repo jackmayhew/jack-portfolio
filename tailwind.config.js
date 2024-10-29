@@ -13,7 +13,7 @@ export default {
         "dark-bg": "#121212",
         "dark-text": "#DDDDDD",
         "grey-text": "#8F8F8F",
-        // "grey-text": "#B0B0B0",
+        "dark-grey-text": "#ADADAD",
       },
     },
   },

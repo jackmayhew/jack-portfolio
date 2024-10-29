@@ -1,13 +1,11 @@
 <template>
   <div class="mb-28">
-    <NuxtImg class="rounded-2xl work__img opacity-0 w-full h-full" :src="image" alt="" />
+    <NuxtImg class="work__img w-full h-full invisible opacity-0 rounded-2xl" :src="image" alt="" />
     <div class="work__text pb-6 sticky bottom-0">
-      <div class="mt-4 sm:mt-8 text-lg text-grey-text">{{ date }}</div>
+      <div class="mt-4 sm:mt-8 text-lg text-gray-400">{{ date }}</div>
       <h2 class="mt-2 text-2xl sm:text-4xl font-semibold">{{ title }}</h2>
-      <p class="mt-2 text-xl sm:text-2xl">{{ desc }}</p>
-      <div class="mt-4 text-lg">
-        <a :href="url" rel="noopener" target="_blank">Visit</a>
-      </div>
+      <p class="my-2 text-xl sm:text-2xl">{{ desc }}</p>
+      <a class="text-lg" :href="url" rel="noopener" target="_blank">Visit</a>
     </div>
   </div>
 </template>
@@ -32,6 +30,7 @@ onMounted(() => {
     let images = gsap.utils.toArray(".work__img");
     images.forEach((img) => {
       img.style.opacity = '0';
+      img.style.visibility = 'visible';
       img.style.border = '2px solid red';
       gsap.fromTo(
         img,
@@ -40,9 +39,10 @@ onMounted(() => {
           opacity: 1,
           scrollTrigger: {
             trigger: img,
-            start: "top 60%",
+            start: "top 50%",
             end: "top 10%",
             scrub: true,
+            visibility: "visible"
           },
         }
       );
