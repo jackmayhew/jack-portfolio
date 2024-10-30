@@ -25,6 +25,13 @@ h1 {
 }
 
 
+/* .work__img {
+  opacity: 0; 
+  visibility: hidden;
+  border: 20px solid red !important;
+} */
+
+
 ::selection {
   background-color: #9ECF9A;
 }
@@ -57,3 +64,5 @@ input:-webkit-autofill:active {
   transition-delay: 9999s;
   -webkit-text-fill-color: #DDDDDD;
 }
+
+

@@ -1,6 +1,6 @@
 <template>
   <div class="mb-28">
-    <NuxtImg class="work__img w-full h-full invisible opacity-0 rounded-2xl" :src="image" alt="" />
+    <img class="work__img w-full h-full invisible rounded-2xl" :src="image" alt="" />
     <div class="work__text pb-6 sticky bottom-0">
       <div class="mt-4 sm:mt-8 text-lg text-gray-400">{{ date }}</div>
       <h2 class="mt-2 text-2xl sm:text-4xl font-semibold">{{ title }}</h2>
@@ -29,14 +29,13 @@ onMounted(() => {
   setTimeout(() => {
     let images = gsap.utils.toArray(".work__img");
     images.forEach((img) => {
-      img.style.opacity = '0';
-      img.style.visibility = 'visible';
-      img.style.border = '2px solid red';
+      gsap.set(img, { opacity: 0, border: '2px solid green' });
       gsap.fromTo(
         img,
-        { opacity: 0 },
+        { opacity: 0, visibility: 'hidden' },
         {
           opacity: 1,
+          visibility: 'visible',
           scrollTrigger: {
             trigger: img,
             start: "top 50%",
@@ -48,6 +47,8 @@ onMounted(() => {
       );
     });
   }, 500);
+
+
 });
 </script>
 

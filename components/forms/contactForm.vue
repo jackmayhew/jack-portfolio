@@ -51,9 +51,10 @@ const errors = ref({
 });
 
 const submitForm = () => {
-  errors.value = { firstName: null, email: null, message: null };
+  // pretty loose email check. no need to go crazy
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   let isValid = true;
+  errors.value = { firstName: null, email: null, message: null };
 
   if (!form.value.firstName.trim()) {
     errors.value.firstName = 'First name required';
@@ -74,13 +75,12 @@ const submitForm = () => {
     sendEmail();
   }
 
-  // reset states if user clicks 'submit' again after a successful form submit
+  // reset states if user clicks 'submit' again after a successful form submition
   if (messageStatusResponse.value == 200) {
     messageStatus.value = "Send a message, or email me directly at ";
     messageStatusEmail.value = true;
     messageStatusResponse.value = 0;
   }
-
 };
 
 const sendEmail = () => {

@@ -39,8 +39,9 @@ useHead({
   meta: [{ name: "description", content: "My amazing site." }],
   link: [
     {
-      rel: "prefetch",
-      href: "/gifer.gif"
+      rel: "preload",
+      href: "/hero.gif",
+      as: "image"
     }
   ],
   script: [
@@ -56,6 +57,8 @@ useHead({
 </script>
 
 <style>
+
+
 .page-enter-active {
   transition: all 0.3s ease-out;
 }
