@@ -2,7 +2,7 @@
   <div class="wrapper mx-auto max-w-screen-md bg-light-bg dark:bg-dark-bg text-light-text dark:text-dark-text">
     <Navbar @mobile-menu-click="setMobileTransition" />
     <Transition name="content" mode="out-in" :appear="isMount">
-      <div :key="$route.fullPath" class="px-6 mt-6 sm:mt-12 main__content" v-if="isMount" :data-from-mobile="isFromMobileMenu">
+      <div :key="$route.fullPath" class="main__content px-6 mt-6 sm:mt-12" v-if="isMount" :data-from-mobile="isFromMobileMenu">
         <NuxtPage :isFromMobileMenu="isFromMobileMenu" />
         <Footer />
       </div>
@@ -58,6 +58,10 @@ useHead({
 
 <style>
 
+.main__content {
+  min-height: 100vh;
+  height: 100%;
+}
 
 .page-enter-active {
   transition: all 0.3s ease-out;
