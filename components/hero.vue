@@ -4,9 +4,9 @@
       Just a guy who enjoys building cool things for the web and beyond.
       Currently living and working in Montreal.
     </div>
-    <div class="mt-6">
+    <!-- <div class="mt-6">
       <NuxtImg class="hero__image w-full rounded-3xl" src="/hero.gif" rel="preload" />
-    </div>
+    </div> -->
   </div>
 </template>
 
