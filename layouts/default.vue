@@ -2,7 +2,8 @@
   <div class="wrapper mx-auto max-w-screen-md bg-light-bg dark:bg-dark-bg text-light-text dark:text-dark-text">
     <Navbar @mobile-menu-click="setMobileTransition" />
     <Transition name="content" mode="out-in" :appear="isMount">
-      <div :key="$route.fullPath" class="main__content px-6 mt-6 sm:mt-12" v-if="isMount" :data-from-mobile="isFromMobileMenu">
+      <div :key="$route.fullPath" class="main__content px-6 mt-6 sm:mt-12" v-if="isMount"
+        :data-from-mobile="isFromMobileMenu">
         <NuxtPage :isFromMobileMenu="isFromMobileMenu" />
         <Footer />
       </div>
@@ -42,7 +43,21 @@ useHead({
       rel: "preload",
       href: "/hero.gif",
       as: "image"
-    }
+    },
+    {
+      rel: "preload",
+      href: "/fonts/StabilGrotesk-Regular.woff2",
+      as: "font",
+      type: "font/woff2",
+      crossorigin: "anonymous",
+    },
+    {
+      rel: "preload",
+      href: "/fonts/StabilGrotesk-Medium.woff2",
+      as: "font",
+      type: "font/woff2",
+      crossorigin: "anonymous",
+    },
   ],
   script: [
     {
@@ -57,7 +72,6 @@ useHead({
 </script>
 
 <style>
-
 .main__content {
   min-height: 100vh;
   height: 100%;

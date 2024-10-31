@@ -4,14 +4,14 @@
 
 @font-face {
   font-family: "regular";
-  src: url("assets/fonts/StabilGrotesk-Regular.woff2") format("truetype");
+  src: url("/fonts/StabilGrotesk-Regular.woff2") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "medium";
-  src: url("assets/fonts/StabilGrotesk-Medium.woff2") format("truetype");
+  src: url("/fonts/StabilGrotesk-Medium.woff2") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
