@@ -59,3 +59,8 @@ input:-webkit-autofill:active {
 }
 
 
+.hero__image {
+  width: 100%; /* or specific width */
+  height: auto; /* maintain aspect ratio */
+  display: block; /* prevents inline spacing issues */
+}

@@ -5,7 +5,7 @@
       Currently living and working in Montreal.
     </div>
     <div class="mt-6">
-      <img class="w-full rounded-3xl" src="/public/hero.gif" rel="preload" />
+      <NuxtImg class="hero__image w-full rounded-3xl" src="/hero.gif" rel="preload" />
     </div>
   </div>
 </template>
