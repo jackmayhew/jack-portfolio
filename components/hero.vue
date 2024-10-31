@@ -71,6 +71,13 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
+
+.hero__image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
 .bandChar {
   display: inline-block;
   position: relative;
