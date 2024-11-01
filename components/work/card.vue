@@ -29,7 +29,7 @@ onMounted(() => {
   setTimeout(() => {
     let images = gsap.utils.toArray(".work__img");
     images.forEach((img) => {
-      gsap.set(img, { opacity: 0, border: '2px solid green' });
+      gsap.set(img, { opacity: 0 });
       gsap.fromTo(
         img,
         { opacity: 0, visibility: 'hidden' },
