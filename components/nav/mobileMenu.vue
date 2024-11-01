@@ -8,8 +8,7 @@
     <div class="menu__items-wrapper relative pl-[22px] flex h-full items-center">
       <ul class="menu__items-list js-menu-items-list">
         <li v-for="link in mobileLinks" :key="link.path" class="js-menu-item bold mb-2">
-          <NuxtLink @click="closeMobileMenu" :to="link.path" class="text-[50px] leading-[50px] mobile-menu-link">{{
-            link.name }}</NuxtLink>
+          <NuxtLink @click="closeMobileMenu" :to="link.path" class="text-[50px] leading-[50px] mobile-menu-link">{{ link.name }}</NuxtLink>
         </li>
       </ul>
     </div>

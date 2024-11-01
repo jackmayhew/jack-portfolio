@@ -6,20 +6,15 @@
           <span class="self-center text-2xl font-semibold whitespace-nowrap">Jack</span>
         </a>
         <ul class="mb-6 sm:mb-0 flex flex-wrap items-center text-sm font-medium">
-          <li>
-            <NuxtLink class="me-4 md:me-6 hover:underline" to="/">Home</NuxtLink>
+          <li v-for="link in navigationLinks" :key="link.path">
+            <NuxtLink class="me-4 md:me-6 hover:underline" :to="link.path">
+              {{ link.name }}
+            </NuxtLink>
           </li>
           <li>
-            <NuxtLink class="me-4 md:me-6 hover:underline" to="/about">About</NuxtLink>
-          </li>
-          <li>
-            <NuxtLink class="me-4 md:me-6 hover:underline" to="/contact">Contact</NuxtLink>
-          </li>
-          <li>
-            <NuxtLink class="me-4 md:me-6 hover:underline" to="/now">Now</NuxtLink>
-          </li>
-          <li>
-            <a class="me-4 md:me-6 hover:underline" href="https://github.com/jackmayhew" target="_blank" rel="noopener">GitHub</a>
+            <a href="https://github.com/jackmayhew" target="_blank" rel="noopener noreferrer" class="me-4 md:me-6 hover:underline">
+              GitHub
+            </a>
           </li>
         </ul>
       </div>
@@ -30,6 +25,13 @@
   </footer>
 </template>
 
-<script setup></script>
+<script setup>
+const navigationLinks = [
+  { path: '/', name: 'Home' },
+  { path: '/about', name: 'About' },
+  { path: '/now', name: 'Now' },
+  { path: '/contact', name: 'Contact' }
+];
+</script>
 
 <style scoped></style>
