@@ -5,7 +5,7 @@
       Currently living and working in Montreal.
     </div>
     <div class="mt-6">
-      <img class="hero__image w-full rounded-3xl" src="/hero.gif" rel="preload" />
+      <img class="hero__image w-full rounded-3xl" src="/hero.webp" rel="preload" />
     </div>
   </div>
 </template>
@@ -15,7 +15,6 @@ import { onMounted, onUnmounted } from "vue";
 import gsap from "gsap";
 
 const props = defineProps(['isFromMobileMenu']);
-
 let splitText;
 let gltl;
 
@@ -71,7 +70,6 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
-
 .hero__image {
   width: 100%;
   height: auto;

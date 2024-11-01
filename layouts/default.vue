@@ -32,7 +32,7 @@ router.afterEach(() => {
 onMounted(() => {
   setTimeout(() => {
     isMount.value = true
-  }, 10)
+  }, 20)
 })
 
 useHead({

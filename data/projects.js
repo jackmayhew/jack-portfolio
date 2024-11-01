@@ -25,7 +25,7 @@ export const projects = [
   },
   {
     title: "Floss Dental Hygiene Services",
-    date: "2022",
+    date: "2021",
     desc: `Floss is a private dental hygiene clinic in Comox, BC, dedicated to providing preventive dental care in a comfortable and welcoming environment.`,
     url: "https://www.flossdentalhygiene.ca/",
     stack: "GSAP, SCSS, and cPanel",

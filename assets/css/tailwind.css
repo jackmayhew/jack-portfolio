@@ -20,7 +20,7 @@ body {
   font-family: "regular", sans-serif;
 }
 
-h1 {
+h1, .bold {
   font-family: "medium", sans-serif;
 }
 

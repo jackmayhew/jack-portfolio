@@ -7,7 +7,7 @@
     </ul>
     <div class="menu__items-wrapper relative pl-[22px] flex h-full items-center">
       <ul class="menu__items-list js-menu-items-list">
-        <li v-for="link in mobileLinks" :key="link.path" class="js-menu-item mb-2">
+        <li v-for="link in mobileLinks" :key="link.path" class="js-menu-item bold mb-2">
           <NuxtLink @click="closeMobileMenu" :to="link.path" class="text-[50px] leading-[50px] mobile-menu-link">{{
             link.name }}</NuxtLink>
         </li>
@@ -43,10 +43,10 @@ const mobileLinks = computed(() => [
 let timeline;
 
 onMounted(() => {
-  initMenu();
+  menuAnimation();
 });
 
-function initMenu() {
+function menuAnimation() {
   const menuInner = document.querySelector('.js-menu-inner');
   const menuInnerBackgroundItems = document.querySelectorAll('.js-menu-inner-background i');
   const menuItems = document.querySelectorAll('.js-menu-items-list li');
@@ -85,7 +85,7 @@ function initMenu() {
         x: 0,
         autoAlpha: 1,
         delay: 0.35,
-        ease: "back.out(1)",
+        ease: "back.out(3)",
         stagger: 0.15
       },
       'start'
