@@ -6,7 +6,7 @@
       </NuxtLink>
       <ul class="flex items-center gap-4 sm:gap-6">
         <li v-for="link in navigationLinks" :key="link.path" class="hidden xs:block">
-          <NuxtLink :to="link.path" class="text-lg">
+          <NuxtLink :to="link.path" class="link text-lg">
             {{ link.name }}
           </NuxtLink>
         </li>

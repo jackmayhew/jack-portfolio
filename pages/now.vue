@@ -15,7 +15,7 @@
               {{ event.desc }}
             </p>
             <span v-if="event.url">
-              <a class="underline" :href="event.url" target="_blank" rel="noopener">previous website,</a>
+              <a class="underline" :href="event.url" target="_blank" rel="noopener">previous&nbsp;website,</a>
               or explore the code for this website on my <a class="underline" :href="event.github" target="_blank" rel="noopener">GitHub.</a>
             </span>
           </div>

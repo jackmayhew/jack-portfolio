@@ -41,7 +41,7 @@ useHead({
   link: [
     {
       rel: "preload",
-      href: "/hero.gif",
+      href: "/hero.webp",
       as: "image"
     },
     {
