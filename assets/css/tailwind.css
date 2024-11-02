@@ -24,7 +24,6 @@ h1, .bold {
   font-family: "medium", sans-serif;
 }
 
-
 ::selection {
   background-color: #9ECF9A;
 }
@@ -57,7 +56,6 @@ input:-webkit-autofill:active {
   transition-delay: 9999s;
   -webkit-text-fill-color: #DDDDDD;
 }
-
 
 .hero__image {
   width: 100%;
