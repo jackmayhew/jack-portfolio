@@ -23,12 +23,12 @@ export const projects = [
     stack: "Next.js, TypeScript, SCSS, S3, and MongoDB",
     image: "/mtlspots.png",
   },
-  {
-    title: "Floss Dental Hygiene Services",
-    date: "2021",
-    desc: `Floss is a private dental hygiene clinic in Comox, BC, dedicated to providing preventive dental care in a comfortable and welcoming environment.`,
-    url: "https://www.flossdentalhygiene.ca/",
-    stack: "GSAP, SCSS, and cPanel",
-    image: "/floss.png",
-  },
+  // {
+  //   title: "Floss Dental Hygiene Services",
+  //   date: "2021",
+  //   desc: `Floss is a private dental hygiene clinic in Comox, BC, dedicated to providing preventive dental care in a comfortable and welcoming environment.`,
+  //   url: "https://www.flossdentalhygiene.ca/",
+  //   stack: "GSAP, SCSS, and cPanel",
+  //   image: "/floss.png",
+  // },
 ];
