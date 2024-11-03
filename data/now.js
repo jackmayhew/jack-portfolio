@@ -15,13 +15,13 @@ export const nowContent = [
     Ongoing SEO efforts have helped them rank well.`,
   },
   {
-    displayDate: "Nov 2022",
+    displayDate: "Jan 2023",
     formateDate: "2022-11-01",
     desc: `Montreal is home for now! I'm slowly settling into life here and enjoying the change of pace.
      My french is definitely a bit rusty, but it's slowly coming back. Big fan of smoked meat sandwiches.`,
   },
   {
-    displayDate: "Awhile ago",
+    displayDate: "March 2022",
     formateDate: "2022-05-01",
     desc: `Starting a new role at Gain Group. I'm excited to jump in and contribute while learning all I can from the team. 
     Looking forward to tackling new projects and pushing my skills further in a collaborative setting.`,
