@@ -10,6 +10,11 @@
         <li v-for="link in mobileLinks" :key="link.path" class="js-menu-item bold mb-2">
           <NuxtLink @click="closeMobileMenu" :to="link.path" class="text-[50px] leading-[50px] mobile-menu-link">{{ link.name }}</NuxtLink>
         </li>
+        <li class="js-menu-item bold mb-2">
+          <a href="https://github.com/jackmayhew" target="_blank" rel="noopener noreferrer" class="text-[50px] leading-[50px] mobile-menu-link">
+            GitHub
+          </a>
+        </li>
       </ul>
     </div>
     <button class="menu__trigger js-menu-close absolute top-0 right-0 p-4 px-6 cursor-pointer w-20" @click="toggleMenu">

@@ -10,12 +10,18 @@
             {{ link.name }}
           </NuxtLink>
         </li>
+        <li class="hidden xs:block">
+          <a href="https://github.com/jackmayhew" target="_blank" rel="noopener noreferrer" class="link text-lg">
+            GitHub
+          </a>
+        </li>
         <li class="w-6 h-6 flex">
           <ClientOnly>
             <div :class="[colorMode.value === 'dark' ? 'dark' : 'light']" class="flex toggle">
               <button class="" title="Toggle Theme" @click="toggleColorMode">
-                <svg class="w-full h-full stroke-light-text dark:stroke-dark-text" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"
-                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <svg class="w-full h-full stroke-light-text dark:stroke-dark-text" xmlns="http://www.w3.org/2000/svg"
+                  width="48" height="48" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
                   <!-- Moon -->
                   <path pathLength="1" class="moon-icon" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                   <!-- Sun -->
@@ -64,7 +70,7 @@ const colorMode = useColorMode();
 const navigationLinks = [
   { path: '/about', name: 'About' },
   { path: '/now', name: 'Now' },
-  { path: '/contact', name: 'Contact' }
+  { path: '/contact', name: 'Contact' },
 ];
 
 const toggleMobileMenu = () => {
