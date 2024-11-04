@@ -7,9 +7,6 @@
 
 <script setup>
 const props = defineProps(['isFromMobileMenu']);
-useHead({
-  title: 'Jack Mayhew'
-})
 </script>
 
 <style scoped></style>

@@ -16,7 +16,7 @@
 <script setup>
 import aboutContent from '~/data/about';
 useHead({
-  title: 'Jack Mayhew - About'
+  title: 'About'
 })
 </script>
 
