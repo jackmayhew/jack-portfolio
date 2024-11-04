@@ -16,15 +16,15 @@ export function setupHead(prevPage) {
       // open graph / facebook
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://jackmayhew.com" },
-      { property: "og:title", content: "Jack" },
+      { property: "og:title", content: "Jack Mayhew" },
       { property: "og:description", content: "Just a guy who enjoys building cool stuff for the web, making things (blazingly) fast, and ricing my desktop. In case anyone is wondering, I use arch linux." },
-      { property: "og:image", content: "/og.png" },
+      { property: "og:image", content: "/card.png" },
       // twitter
       { property: "twitter:card", content: "summary_large_image" },
       { property: "twitter:url", content: "https://jackmayhew.com" },
-      { property: "twitter:title", content: "Jack" },
+      { property: "twitter:title", content: "Jack Mayhew" },
       { property: "twitter:description", content: "Just a guy who enjoys building cool stuff for the web, making things (blazingly) fast, and ricing my desktop. In case anyone is wondering, I use arch linux." },
-      { property: "twitter:image", content: "/twitter.png" }
+      { property: "twitter:image", content: "/card.png" }
     ],
     link: [
       // favicons
