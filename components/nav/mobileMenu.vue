@@ -18,12 +18,7 @@
       </ul>
     </div>
     <button class="menu__trigger js-menu-close absolute top-0 right-0 p-4 px-6 cursor-pointer w-20" @click="toggleMenu">
-      <svg
-        class="stroke-light-text dark:stroke-dark-text fill-none transition-transform duration-500 ease-in-out hover:scale-110"
-        viewBox="0 0 25 16">
-        <path d="M2.238 7.079h2.727M2.482 9.496l-.666-2.7" />
-        <path d="M23.753 5.403s-1.87 16.88-22.03 1.785" />
-      </svg>
+      <MobileMenuClose />
     </button>
   </div>
 </template>
@@ -89,7 +84,7 @@ function menuAnimation() {
         x: 0,
         autoAlpha: 1,
         delay: 0.35,
-        ease: "back.out(3)",
+        ease: "back.out(2.5)",
         stagger: 0.15
       },
       'start'
@@ -105,7 +100,8 @@ function menuAnimation() {
         x: 0,
         autoAlpha: 1,
         delay: 1,
-        ease: "power1.out"
+        ease: "power1.out",
+        // onComplete: () => document.querySelector('body').classList.add('locked')
       },
       'start'
     );
@@ -117,14 +113,9 @@ watch(() => props.isOpen, (newValue) => {
     document.querySelector('body').classList.add('locked');
   } else {
     timeline.timeScale(1.25).reverse();
-    document.querySelector('body').classList.remove('locked');
+    timeline.eventCallback('onReverseComplete', () => document.querySelector('body').classList.remove('locked'));
   }
 });
 </script>
 
-<style scoped>
-.menu__trigger--close {
-  visibility: hidden;
-  opacity: 0;
-}
-</style>
+<style scoped></style>

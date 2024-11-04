@@ -1,4 +1,3 @@
-<!-- DirectionAwareButton.vue -->
 <template>
     <button
       class="button button--bestia"
