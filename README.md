@@ -8,4 +8,4 @@ Might add a guestbook feature down the road—stay tuned!
 
 Built with Nuxt3, GSAP, and Tailwind.
 
-[@Feel free to explore!](https://www.jackmayhew.com/)
+<a href="https://www.jackmayhew.com/" target="_blank" rel="noopener noreferrer">Feel free to explore!</a>
