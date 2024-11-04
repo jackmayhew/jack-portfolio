@@ -15,6 +15,11 @@
 
 <script setup>
 import aboutContent from '~/data/about';
+
+useHead({
+  title: 'About'
+})
+
 </script>
 
 <style scoped></style>
