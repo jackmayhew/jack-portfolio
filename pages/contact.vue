@@ -8,6 +8,10 @@
   </main>
 </template>
 
-<script setup></script>
+<script setup>
+useHead({
+  title: 'Contact'
+})
+</script>
 
 <style></style>

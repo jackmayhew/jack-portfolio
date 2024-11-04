@@ -12,7 +12,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted, watch } from 'vue'
+import { ref, onMounted, computed } from 'vue'
 import { useRouter } from 'nuxt/app'
 
 const isMount = ref(false)
@@ -35,10 +35,11 @@ onMounted(() => {
   }, 20)
 })
 
+// is this seriously a skill issue???? dumbfounded
 useHead({
-  titleTemplate: (titleChunk) => {
-    return titleChunk ? `Jack Mayhew - ${titleChunk}` : 'Jack Mayhew';
-  },
+  // titleTemplate: (titleChunk) => {
+  //   return titleChunk ? `${titleChunk}` : 'Jack Mayhew';
+  // },
   script: [
     {
       src: "/SplitText.js",

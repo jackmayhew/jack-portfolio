@@ -26,6 +26,9 @@
 
 <script setup>
 import { nowContent } from "@/data/now";
+useHead({
+  title: 'Jack Mayhew - Now'
+})
 </script>
 
 <style scoped></style>
