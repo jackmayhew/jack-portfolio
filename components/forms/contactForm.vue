@@ -7,19 +7,19 @@
       <div class="flex flex-col">
         <label for="name">First Name*</label>
         <!-- tailwind @apply not working, so just leaving these long class names for now -->
-        <input v-model="form.firstName" type="text" name="name"
+        <input v-model="form.firstName" type="text" name="name" id="name"
           class="p-2 rounded-lg text-base border-2 border-neutral-200 dark:border-gray-700 dark:bg-transparent hover:border-neutral-300 focus:border-neutral-300 focus:ring-neutral-300 focus:outline-none outline-none duration-300 ease-in-out" />
         <span v-if="errors.firstName" class="text-red-600 dark:text-red-500">{{ errors.firstName }}</span>
       </div>
       <div class="flex flex-col mt-6">
         <label for="email">Email*</label>
-        <input v-model="form.email" type="text" name="email"
+        <input v-model="form.email" type="text" name="email" id="email"
           class="p-2 rounded-lg text-base border-2 border-neutral-200 dark:border-gray-700 dark:bg-transparent hover:border-neutral-300 focus:border-neutral-300 focus:ring-neutral-300 focus:outline-none outline-none duration-300 ease-in-out" />
         <span v-if="errors.email" class="text-red-600 dark:text-red-500">{{ errors.email }}</span>
       </div>
       <div class="flex flex-col mt-6">
         <label for="message">Message*</label>
-        <textarea v-model="form.message" name="message"
+        <textarea v-model="form.message" name="message" id="message"
           class="h-40 p-2 rounded-lg text-base resize-none border-2 border-neutral-200 dark:border-gray-700 dark:bg-transparent hover:border-neutral-300 focus:border-neutral-300 focus:ring-neutral-300 focus:outline-none outline-none duration-300 ease-in-out"></textarea>
         <span v-if="errors.message" class="text-red-600 dark:text-red-500">{{ errors.message }}</span>
       </div>
