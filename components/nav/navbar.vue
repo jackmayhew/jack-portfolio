@@ -1,7 +1,7 @@
 <template>
   <header class="sticky top-0 bg-light-bg dark:bg-dark-bg z-10">
     <nav class="py-4 px-6 mx-auto flex justify-between items-center">
-      <NuxtLink to="/" class="text-lg font-bold z-50" @click="closeMobileMenu">
+      <NuxtLink to="/" class="text-lg font-semibold z-50" @click="closeMobileMenu">
         Jack
       </NuxtLink>
       <ul class="flex items-center gap-4 sm:gap-6">

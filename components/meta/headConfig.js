@@ -5,7 +5,7 @@ export function setupHead(prevPage) {
     },
     script: [
       {
-        src: "/SplitText.js",
+        src: "js/SplitText.js",
         defer: true,
       },
     ],
@@ -18,13 +18,13 @@ export function setupHead(prevPage) {
       { property: "og:url", content: "https://jackmayhew.com" },
       { property: "og:title", content: "Jack Mayhew" },
       { property: "og:description", content: "Just a guy who enjoys building cool stuff for the web, making things (blazingly) fast, and ricing my desktop. In case anyone is wondering, I use arch linux." },
-      { property: "og:image", content: "/card.png" },
+      { property: "og:image", content: "/img/card.png" },
       // twitter
       { property: "twitter:card", content: "summary_large_image" },
       { property: "twitter:url", content: "https://jackmayhew.com" },
       { property: "twitter:title", content: "Jack Mayhew" },
       { property: "twitter:description", content: "Just a guy who enjoys building cool stuff for the web, making things (blazingly) fast, and ricing my desktop. In case anyone is wondering, I use arch linux." },
-      { property: "twitter:image", content: "/card.png" }
+      { property: "twitter:image", content: "/img/card.png" }
     ],
     link: [
       // favicons
@@ -35,7 +35,7 @@ export function setupHead(prevPage) {
       { rel: "manifest", href: "/favicon/site.webmanifest" },
       { rel: "canonical", href: "https://jackmayhew.com" },
       // preloads
-      { rel: "preload", href: "/hero.webp", as: "image" },
+      { rel: "preload", href: "/img/hero.webp", as: "image" },
       { rel: "preload", href: "/fonts/StabilGrotesk-Regular.woff2", as: "font", type: "font/woff2", crossorigin: "anonymous" },
       { rel: "preload", href: "/fonts/StabilGrotesk-Medium.woff2", as: "font", type: "font/woff2", crossorigin: "anonymous" },
       { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@800&display=swap" }

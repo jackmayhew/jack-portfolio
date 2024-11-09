@@ -2,7 +2,7 @@
   <footer class="mt-24 sm:mt-32 rounded-lg">
     <div class="pt-4 pb-12 md:py-8 mx-auto w-full max-w-screen-xl">
       <div class="sm:flex sm:items-center sm:justify-between">
-        <a href="https://jman99.netlify.app/" class="mb-4 sm:mb-0 flex items-center space-x-3 rtl:space-x-reverse">
+        <a href="https://jackmayhew.com/" class="mb-4 sm:mb-0 flex items-center space-x-3 rtl:space-x-reverse">
           <span class="self-center text-2xl font-semibold whitespace-nowrap">Jack</span>
         </a>
         <ul class="mb-6 sm:mb-0 flex flex-wrap items-center text-sm font-medium">
@@ -20,7 +20,7 @@
       </div>
       <hr class="my-6 lg:my-8 sm:mx-auto" />
       <span class="block text-sm text-gray-500 sm:text-center dark:text-gray-400">© {{ new Date().getFullYear() }}
-        <a href="https://jman99.netlify.app/" class="hover:underline">Jack</a>. All Rights Reserved.</span>
+        <a href="https://jackmayhew.com/" class="hover:underline">Jack</a>. All Rights Reserved.</span>
     </div>
   </footer>
 </template>
