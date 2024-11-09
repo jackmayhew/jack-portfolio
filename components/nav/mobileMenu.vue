@@ -17,7 +17,7 @@
         </li>
       </ul>
     </div>
-    <button class="menu__trigger js-menu-close absolute top-0 right-0 p-4 px-6 cursor-pointer w-20" @click="toggleMenu">
+    <button class="menu__trigger js-menu-close absolute top-0 right-0 p-4 px-6 cursor-pointer w-20" @click="toggleMenu" aria-label="close mobile menu">
       <MobileMenuClose />
     </button>
   </div>

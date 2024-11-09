@@ -1,6 +1,6 @@
 <template>
   <div class="mb-28">
-    <img class="work__img w-full h-full invisible rounded-2xl" :src="image" alt="" />
+    <NuxtImg class="work__img w-full h-full invisible rounded-2xl" :src="image" alt="" />
     <div class="work__text pb-6 sticky bottom-0">
       <div class="mt-4 sm:mt-8 text-lg text-gray-400">{{ date }}</div>
       <h2 class="mt-2 text-2xl sm:text-4xl font-semibold">{{ title }}</h2>

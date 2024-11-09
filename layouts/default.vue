@@ -97,13 +97,13 @@ function capitalizeFirstLetter(string) {
 
 @media only screen and (max-width: 540px) {
   .content-enter-active[data-from-mobile="true"] {
-    transition: all 0.3s ease-out .75s !important;
+    transition: all 0.3s ease-out .85s !important;
   }
 }
 
 .light-mode,
 .light-mode body {
-  background-color: #FBF7F5;
+  background-color: #FDFAF5;
 }
 
 .dark-mode,

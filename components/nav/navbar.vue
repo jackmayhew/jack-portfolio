@@ -1,5 +1,5 @@
 <template>
-  <header class="sticky top-0 bg-light-bg dark:bg-dark-bg z-10">
+  <header ref="header" class="gsap-menu sticky top-0 bg-light-bg dark:bg-dark-bg z-10">
     <nav class="py-4 px-6 mx-auto flex justify-between items-center">
       <NuxtLink to="/" class="text-lg font-semibold z-50" @click="closeMobileMenu">
         Jack
@@ -25,23 +25,28 @@
           </ClientOnly>
         </li>
         <li class="flex xs:hidden">
-          <button class="w-6 h-6" @click="toggleMobileMenu">
+          <button class="w-6 h-6" @click="toggleMobileMenu" aria-label="open mobile menu">
             <MobileMenuOpen />
           </button>
         </li>
       </ul>
     </nav>
-    <MobileMenu :isOpen="isMobileMenuOpen" :toggleMenu="toggleMobileMenu" :closeMobileMenu="closeMobileMenu"
-      :navigationLinks="navigationLinks" />
+    <MobileMenu 
+      :isOpen="isMobileMenuOpen" 
+      :toggleMenu="toggleMobileMenu" 
+      :closeMobileMenu="closeMobileMenu"
+      :navigationLinks="navigationLinks" 
+    />
   </header>
 </template>
 
 <script setup>
-import { ref } from 'vue'
 
+import { ref } from 'vue'
 const emit = defineEmits(['mobile-menu-click']);
 const isMobileMenuOpen = ref(false);
 const colorMode = useColorMode();
+const header = ref(null);
 
 const navigationLinks = [
   { path: '/about', name: 'About' },
@@ -65,4 +70,4 @@ const toggleColorMode = () => {
 };
 </script>
 
-<style></style>
+<style scoped></style>

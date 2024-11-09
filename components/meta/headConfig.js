@@ -3,6 +3,9 @@ export function setupHead(prevPage) {
     titleTemplate: (titleChunk) => {
       return titleChunk ? `Jack Mayhew - ${titleChunk}` : `Jack Mayhew ${prevPage.value}`;
     },
+    htmlAttrs: {
+      lang: 'en'
+    },
     script: [
       {
         src: "js/SplitText.js",

@@ -5,7 +5,7 @@
       Currently living and working in Montreal.
     </div>
     <div class="mt-6">
-      <img class="hero__image w-full rounded-3xl" src="/img/hero.webp" rel="preload" />
+      <img class="hero__image w-full rounded-3xl" src="/img/hero.webp" alt="Jack at computer" rel="preload" />
     </div>
   </div>
 </template>
