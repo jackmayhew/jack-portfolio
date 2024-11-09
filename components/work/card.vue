@@ -55,7 +55,7 @@ onMounted(() => {
 <style scoped>
 .work__text {
   background-image: linear-gradient(to top,
-      rgba(251, 247, 245, 1) 40%,
+      rgba(253, 250, 245, 1) 40%,
       40%,
       transparent);
 }
