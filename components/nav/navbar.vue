@@ -61,7 +61,7 @@ const toggleMobileMenu = () => {
 const closeMobileMenu = () => {
   if (isMobileMenuOpen.value) {
     emit('mobile-menu-click');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    // window.scrollTo({ top: 0, behavior: 'smooth' });
   }
   isMobileMenuOpen.value = false;
 };
