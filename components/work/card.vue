@@ -1,6 +1,6 @@
 <template>
   <div class="mb-28">
-    <NuxtImg class="work__img w-full h-full invisible opacity-0 rounded-2xl" :src="image" :alt="title" />
+    <NuxtImg class="work__img w-full h-full rounded-2xl opacity-0" :src="image" :alt="title" />
     <div class="work__text pb-6 sticky bottom-0">
       <div class="mt-4 sm:mt-8 text-lg text-gray-400">{{ date }}</div>
       <h2 class="mt-2 text-2xl sm:text-4xl font-semibold">{{ title }}</h2>
@@ -11,10 +11,6 @@
 </template>
 
 <script setup>
-import { onMounted } from "vue";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
 const props = defineProps({
   title: String,
   date: String,
@@ -22,33 +18,6 @@ const props = defineProps({
   url: String,
   stack: String,
   image: String,
-});
-
-onMounted(() => {
-  gsap.registerPlugin(ScrollTrigger);
-  setTimeout(() => {
-    let images = gsap.utils.toArray(".work__img");
-    images.forEach((img) => {
-      gsap.set(img, { opacity: 0 });
-      gsap.fromTo(
-        img,
-        { opacity: 0, visibility: 'hidden' },
-        {
-          opacity: 1,
-          visibility: 'visible',
-          scrollTrigger: {
-            trigger: img,
-            start: "top 50%",
-            end: "top 10%",
-            scrub: true,
-            visibility: "visible"
-          },
-        }
-      );
-    });
-  }, 500);
-
-
 });
 </script>
 

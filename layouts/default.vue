@@ -1,9 +1,8 @@
 <template>
-  <div class="wrapper mx-auto max-w-screen-md bg-light-bg dark:bg-dark-bg text-light-text dark:text-dark-text">
+  <div class="wrapper mx-auto max-w-screen-md bg-light-bg dark:bg-dark-bg text-light-text dark:text-dark-text" >
     <Navbar @mobile-menu-click="setMobileTransition" />
-    <Transition name="content" mode="out-in"> <!-- :appear="isMount" -->
-      <div :key="$route.fullPath" class="main__content px-6 mt-6 sm:mt-12" v-if="isMount"
-        :data-from-mobile="isFromMobileMenu">
+    <Transition name="content" mode="out-in">
+      <div :key="$route.fullPath" :data-from-mobile="isFromMobileMenu" class="main__content px-6 mt-6 sm:mt-12" v-if="isMount">
         <NuxtPage :isFromMobileMenu="isFromMobileMenu" />
         <Footer />
       </div>
@@ -21,6 +20,8 @@ const router = useRouter()
 const isFromMobileMenu = ref(false)
 const prevPage = ref("")
 
+setupHead(prevPage)
+
 const setMobileTransition = () => {
   isFromMobileMenu.value = true
 }
@@ -35,16 +36,11 @@ router.afterEach(() => {
 // fade in animation on inital page load
 onMounted(() => {
   isMount.value = true
-  // setTimeout(() => {
-  // isMount.value = true
-  // }, 20)
 })
-
-setupHead(prevPage)
 
 // is this a skill issue???? adding dynamic titles with titleTemplate
 // results in a flicker when navigating between pages, or on page refresh
-// still a slight flicker on prevPage.value on load/refresh, but it's less noticeable and best option imo
+// still a slight flicker on load/refresh, but it's less noticeable and best option imo
 watch(() => router.currentRoute.value, (from) => {
   if (from.name === "index") prevPage.value = ""
   else prevPage.value = ` - ${capitalizeFirstLetter(from.name)}`
