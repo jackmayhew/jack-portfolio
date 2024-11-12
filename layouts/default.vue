@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper mx-auto max-w-screen-md bg-light-bg dark:bg-dark-bg text-light-text dark:text-dark-text">
     <Navbar @mobile-menu-click="setMobileTransition" />
-    <Transition name="content" mode="out-in" :appear="isMount">
+    <Transition name="content" mode="out-in"> <!-- :appear="isMount" -->
       <div :key="$route.fullPath" class="main__content px-6 mt-6 sm:mt-12" v-if="isMount"
         :data-from-mobile="isFromMobileMenu">
         <NuxtPage :isFromMobileMenu="isFromMobileMenu" />
@@ -34,9 +34,10 @@ router.afterEach(() => {
 
 // fade in animation on inital page load
 onMounted(() => {
-  setTimeout(() => {
-    isMount.value = true
-  }, 20)
+  isMount.value = true
+  // setTimeout(() => {
+  // isMount.value = true
+  // }, 20)
 })
 
 setupHead(prevPage)
@@ -45,9 +46,9 @@ setupHead(prevPage)
 // results in a flicker when navigating between pages, or on page refresh
 // still a slight flicker on prevPage.value on load/refresh, but it's less noticeable and best option imo
 watch(() => router.currentRoute.value, (from) => {
-    if (from.name === "index") prevPage.value = ""
-    else prevPage.value = ` - ${capitalizeFirstLetter(from.name)}`
-  }
+  if (from.name === "index") prevPage.value = ""
+  else prevPage.value = ` - ${capitalizeFirstLetter(from.name)}`
+}
 );
 
 function capitalizeFirstLetter(string) {
