@@ -22,15 +22,15 @@ onMounted(() => {
       image.style.opacity = 0
       gsap.fromTo(
         image,
-        { opacity: 0 },
+        { autoAlpha: 0 },
         {
-          opacity: 1,
+          autoAlpha: 1,
           scrollTrigger: {
             trigger: image,
-            start: "top 55%",
+            start: "top 80%",
             end: "top 10%",
             scrub: true,
-            toggleActions: "play none none reverse",
+            // toggleActions: "play none none reverse",
           },
         }
       );
