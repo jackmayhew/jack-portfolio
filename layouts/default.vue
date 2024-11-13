@@ -1,9 +1,10 @@
 <template>
-  <div class="wrapper mx-auto max-w-screen-md bg-light-bg dark:bg-dark-bg text-light-text dark:text-dark-text" >
+  <div class="wrapper mx-auto max-w-screen-md bg-light-bg dark:bg-dark-bg text-light-text dark:text-dark-text">
     <Navbar @mobile-menu-click="setMobileTransition" />
     <Transition name="content" mode="out-in">
-      <div :key="$route.fullPath" :data-from-mobile="isFromMobileMenu" class="main__content px-6 mt-6 sm:mt-12" v-if="isMount">
-        <NuxtPage :isFromMobileMenu="isFromMobileMenu" />
+      <div :key="$route.fullPath" :data-from-mobile="isFromMobileMenu" class="main__content px-6 mt-6 sm:mt-12"
+        v-if="isMounted">
+        <NuxtPage :isFromMobileMenu="isFromMobileMenu" :mountWork="mountWork" />
         <Footer />
       </div>
     </Transition>
@@ -15,7 +16,8 @@ import { ref, onMounted, watch } from 'vue'
 import { useRouter } from 'nuxt/app'
 import { setupHead } from '../components/meta/headConfig.js'
 
-const isMount = ref(false)
+const isMounted = ref(false)
+const mountWork = ref(false)
 const router = useRouter()
 const isFromMobileMenu = ref(false)
 const prevPage = ref("")
@@ -33,13 +35,20 @@ router.afterEach(() => {
   }, 1100)
 })
 
+console.log('layout script')
 // fade in animation on inital page load
 onMounted(() => {
-  isMount.value = true
+  isMounted.value = true
+  console.log('layout mount')
+
+  setTimeout(() => {
+    console.log('layout mount timeout')
+    mountWork.value = true
+  }, 2000);
 })
 
-// is this a skill issue???? adding dynamic titles with titleTemplate
-// results in a flicker when navigating between pages, or on page refresh
+// is this a skill issue?? adding dynamic should be simpler than this
+// using titleTemplate with code below results in a flicker when navigating between pages
 // still a slight flicker on load/refresh, but it's less noticeable and best option imo
 watch(() => router.currentRoute.value, (from) => {
   if (from.name === "index") prevPage.value = ""
