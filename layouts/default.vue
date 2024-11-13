@@ -44,7 +44,7 @@ onMounted(() => {
   setTimeout(() => {
     console.log('layout mount timeout')
     mountWork.value = true
-  }, 2000);
+  }, 1000);
 })
 
 // is this a skill issue?? adding dynamic should be simpler than this
