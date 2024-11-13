@@ -1,6 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: "2024-04-03",
+  ssr: false,
   devtools: { enabled: true },
   modules: [
     "@nuxtjs/tailwindcss",
@@ -18,6 +19,11 @@ export default defineNuxtConfig({
     pageTransition: {
       name: 'page',
       mode: 'out-in',
+    },
+    head: {
+      script: [
+        {'src': 'js/SplitText.js', tagPosition: 'bodyClose'},
+      ],
     },
   },
   colorMode: {

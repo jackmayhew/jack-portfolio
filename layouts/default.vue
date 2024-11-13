@@ -2,8 +2,7 @@
   <div class="wrapper mx-auto max-w-screen-md bg-light-bg dark:bg-dark-bg text-light-text dark:text-dark-text">
     <Navbar @mobile-menu-click="setMobileTransition" />
     <Transition name="content" mode="out-in">
-      <div :key="$route.fullPath" :data-from-mobile="isFromMobileMenu" class="main__content px-6 mt-6 sm:mt-12"
-        v-if="isMounted">
+      <div :key="$route.fullPath" :data-from-mobile="isFromMobileMenu" class="main__content px-6 mt-6 sm:mt-12 ni" v-if="isMounted"> <!-- v-if="isMounted" -->
         <NuxtPage :isFromMobileMenu="isFromMobileMenu" :mountWork="mountWork" />
         <Footer />
       </div>
@@ -35,14 +34,10 @@ router.afterEach(() => {
   }, 1100)
 })
 
-console.log('layout script')
 // fade in animation on inital page load
 onMounted(() => {
   isMounted.value = true
-  console.log('layout mount')
-
   setTimeout(() => {
-    console.log('layout mount timeout')
     mountWork.value = true
   }, 1000);
 })

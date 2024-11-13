@@ -16,14 +16,9 @@ import { projects } from "@/data/projects";
 
 const props = defineProps(['mountWork']);
 
-onMounted(() => {
-  console.log('work mount')
-})
 watch(() => props.mountWork, () => {
-  console.log('work watch')
   gsap.registerPlugin(ScrollTrigger);
   let images = gsap.utils.toArray(".work__img");
-
   images.forEach((image) => {
       image.style.opacity = 0
       gsap.fromTo(
@@ -41,7 +36,6 @@ watch(() => props.mountWork, () => {
         }
       );
     });
-
 });
 
 // onMounted(() => {

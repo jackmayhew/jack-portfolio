@@ -6,12 +6,13 @@ export function setupHead(prevPage) {
     htmlAttrs: {
       lang: 'en'
     },
-    script: [
-      {
-        src: "js/SplitText.js",
-        defer: true,
-      },
-    ],
+    // script: [
+    //   {
+    //     src: "js/SplitText.js",
+    //     tagPosition: 'bodyClose',
+    //     defer: true
+    //   },
+    // ],
     meta: [
       { name: "description", content: "Just a guy who enjoys building cool stuff for the web, making things (blazingly) fast, and ricing my desktop. In case anyone is wondering, I use arch linux." },
       { charset: "UTF-8" },
