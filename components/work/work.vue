@@ -30,12 +30,12 @@ onMounted(() => {
             start: "top 80%",
             end: "top 10%",
             scrub: true,
-            // toggleActions: "play none none reverse",
+            toggleActions: "play none none reverse",
           },
         }
       );
     });
-  }, 1000);
+  }, 2000);
 });
 </script>
 
