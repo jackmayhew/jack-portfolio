@@ -22,13 +22,13 @@ export function setupHead(prevPage) {
       { property: "og:url", content: "https://jackmayhew.com" },
       { property: "og:title", content: "Jack Mayhew" },
       { property: "og:description", content: "Just a guy who enjoys building cool stuff for the web, making things (blazingly) fast, and ricing my desktop. In case anyone is wondering, I use arch linux." },
-      { property: "og:image", content: "/img/card.png" },
+      { property: "og:image", content: "/img/og.png" },
       // twitter
       { property: "twitter:card", content: "summary_large_image" },
       { property: "twitter:url", content: "https://jackmayhew.com" },
       { property: "twitter:title", content: "Jack Mayhew" },
       { property: "twitter:description", content: "Just a guy who enjoys building cool stuff for the web, making things (blazingly) fast, and ricing my desktop. In case anyone is wondering, I use arch linux." },
-      { property: "twitter:image", content: "/img/card.png" }
+      { property: "twitter:image", content: "/img/twitter.png" }
     ],
     link: [
       // favicons
