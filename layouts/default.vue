@@ -39,7 +39,7 @@ onMounted(() => {
   isMounted.value = true
   const context = gsap.context(() => {
     gsap.fromTo(document.querySelector('.main__content'),
-      { y: 15, autoAlpha: 0 },
+      { y: 30, autoAlpha: 0 },
       { y: 0, autoAlpha: 1, duration: 0.3, ease: "power2.out" }
     );
   });
