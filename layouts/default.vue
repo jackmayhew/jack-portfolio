@@ -2,8 +2,8 @@
   <div class="wrapper mx-auto max-w-screen-md bg-light-bg dark:bg-dark-bg text-light-text dark:text-dark-text">
     <Navbar @mobile-menu-click="setMobileTransition" />
     <Transition name="content" mode="out-in">
-      <div :key="$route.fullPath" :data-from-mobile="isFromMobileMenu" class="main__content px-6 mt-6 sm:mt-12 fade__in"> <!-- v-if="isMounted" -->
-        <NuxtPage :isFromMobileMenu="isFromMobileMenu" :mountWork="mountWork" />
+      <div :key="$route.fullPath" :data-from-mobile="isFromMobileMenu" class="main__content px-6 mt-6 sm:mt-12" :class="!isMounted ? 'hide__body' : ''" >
+        <NuxtPage :isFromMobileMenu="isFromMobileMenu" />
         <Footer />
       </div>
     </Transition>
@@ -14,9 +14,9 @@
 import { ref, onMounted, watch } from 'vue'
 import { useRouter } from 'nuxt/app'
 import { setupHead } from '../components/meta/headConfig.js'
+import gsap from 'gsap'
 
 const isMounted = ref(false)
-const mountWork = ref(false)
 const router = useRouter()
 const isFromMobileMenu = ref(false)
 const prevPage = ref("")
@@ -37,17 +37,19 @@ router.afterEach(() => {
 // fade in animation on inital page load
 onMounted(() => {
   isMounted.value = true
-  setTimeout(() => {
-    document.querySelector('.main__content').classList.remove('fade__in')
-    mountWork.value = true
-  }, 1000);
+  const context = gsap.context(() => {
+    gsap.fromTo(document.querySelector('main'),
+      { y: 30, autoAlpha: 0 },
+      { y: 0, autoAlpha: 1, delay: 0.1, duration: 0.5, ease: "power2.out" }
+    );
+  });
+  return () => context.revert();
 })
 
-// is this a skill issue?? adding dynamic should be simpler than this
+// is this a skill issue? adding dynamic should be simpler than this
 // using titleTemplate with code below results in a flicker when navigating between pages
 // still a slight flicker on load/refresh, but it's less noticeable and best option imo
 watch(() => router.currentRoute.value, (from) => {
-  document.querySelector('.main__content').classList.remove('fade__in')
   if (from.name === "index") prevPage.value = ""
   else prevPage.value = ` - ${capitalizeFirstLetter(from.name)}`
 }
@@ -59,18 +61,8 @@ function capitalizeFirstLetter(string) {
 </script>
 
 <style>
-@keyframes pageLoadAnimation {
-  0% {
-    opacity: 0;
-  }
-  100% {
-
-    opacity: 1;
-  }
-}
-
-.fade__in {
-  animation: pageLoadAnimation 0.5s ease-in-out forwards;
+.hide__body {
+  opacity: 0;
 }
 
 .main__content {
