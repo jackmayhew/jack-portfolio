@@ -2,7 +2,7 @@
   <div class="wrapper mx-auto max-w-screen-md bg-light-bg dark:bg-dark-bg text-light-text dark:text-dark-text">
     <Navbar @mobile-menu-click="setMobileTransition" />
     <Transition name="content" mode="out-in">
-      <div :key="$route.fullPath" :data-from-mobile="isFromMobileMenu" class="main__content px-6 mt-6 sm:mt-12 ni" v-if="isMounted"> <!-- v-if="isMounted" -->
+      <div :key="$route.fullPath" :data-from-mobile="isFromMobileMenu" class="main__content px-6 mt-6 sm:mt-12 fade__in"> <!-- v-if="isMounted" -->
         <NuxtPage :isFromMobileMenu="isFromMobileMenu" :mountWork="mountWork" />
         <Footer />
       </div>
@@ -38,6 +38,7 @@ router.afterEach(() => {
 onMounted(() => {
   isMounted.value = true
   setTimeout(() => {
+    document.querySelector('.main__content').classList.remove('fade__in')
     mountWork.value = true
   }, 1000);
 })
@@ -46,6 +47,7 @@ onMounted(() => {
 // using titleTemplate with code below results in a flicker when navigating between pages
 // still a slight flicker on load/refresh, but it's less noticeable and best option imo
 watch(() => router.currentRoute.value, (from) => {
+  document.querySelector('.main__content').classList.remove('fade__in')
   if (from.name === "index") prevPage.value = ""
   else prevPage.value = ` - ${capitalizeFirstLetter(from.name)}`
 }
@@ -57,6 +59,20 @@ function capitalizeFirstLetter(string) {
 </script>
 
 <style>
+@keyframes pageLoadAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+
+    opacity: 1;
+  }
+}
+
+.fade__in {
+  animation: pageLoadAnimation 0.5s ease-in-out forwards;
+}
+
 .main__content {
   min-height: 100vh;
   height: 100%;

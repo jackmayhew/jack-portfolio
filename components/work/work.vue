@@ -16,33 +16,10 @@ import { projects } from "@/data/projects";
 
 const props = defineProps(['mountWork']);
 
-watch(() => props.mountWork, () => {
-  gsap.registerPlugin(ScrollTrigger);
-  let images = gsap.utils.toArray(".work__img");
-  images.forEach((image) => {
-      image.style.opacity = 0
-      gsap.fromTo(
-        image,
-        { autoAlpha: 0 },
-        {
-          autoAlpha: 1,
-          scrollTrigger: {
-            trigger: image,
-            start: "top 80%",
-            end: "top 10%",
-            scrub: true,
-            toggleActions: "play none none reverse",
-          },
-        }
-      );
-    });
-});
-
-// onMounted(() => {
+// watch(() => props.mountWork, () => {
 //   gsap.registerPlugin(ScrollTrigger);
 //   let images = gsap.utils.toArray(".work__img");
-//   setTimeout(() => {
-//     images.forEach((image) => {
+//   images.forEach((image) => {
 //       image.style.opacity = 0
 //       gsap.fromTo(
 //         image,
@@ -59,8 +36,31 @@ watch(() => props.mountWork, () => {
 //         }
 //       );
 //     });
-//   }, 1500);
 // });
+
+onMounted(() => {
+  gsap.registerPlugin(ScrollTrigger);
+  let images = gsap.utils.toArray(".work__img");
+  // setTimeout(() => {
+    images.forEach((image) => {
+      // image.style.opacity = 0
+      gsap.fromTo(
+        image,
+        { autoAlpha: 0 },
+        {
+          autoAlpha: 1,
+          scrollTrigger: {
+            trigger: image,
+            start: "top 80%",
+            end: "top 10%",
+            scrub: true,
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
+    });
+  // }, 1500);
+});
 </script>
 
 
