@@ -67,9 +67,11 @@ function capitalizeFirstLetter(string) {
 }
 
 
-.main__content {
-  min-height: 100vh;
-  height: 100%;
+.main__content,
+.wrapper {
+  min-height: 100vh !important;
+  height: 100% !important;
+  border: 2px solid red;
 }
 
 .page-enter-active {
