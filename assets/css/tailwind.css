@@ -65,7 +65,6 @@ input:-webkit-autofill:active {
 }
 
 /* navbar links. should move this into the component maybe */
-
 .link {
   position: relative;
   height: 1.125rem;
@@ -100,4 +99,3 @@ input:-webkit-autofill:active {
   transform-origin: 0% 50%;
   transform: scale3d(1, 1, 1);
 }
-
