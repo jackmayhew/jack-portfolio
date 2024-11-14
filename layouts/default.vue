@@ -37,6 +37,7 @@ router.afterEach(() => {
 // fade in animation on inital page load
 onMounted(() => {
   isMounted.value = true
+  window.scrollTo(0, 0)
   const context = gsap.context(() => {
     gsap.fromTo(document.querySelector('.main__content'),
       { y: 30, autoAlpha: 0 },
