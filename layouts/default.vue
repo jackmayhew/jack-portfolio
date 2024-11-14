@@ -37,8 +37,9 @@ router.afterEach(() => {
 // fade in animation on inital page load
 onMounted(() => {
   isMounted.value = true
+  // window.scrollTo(0, 0)
   const context = gsap.context(() => {
-    gsap.fromTo(document.querySelector('main'),
+    gsap.fromTo(document.querySelector('.main__content'),
       { y: 30, autoAlpha: 0 },
       { y: 0, autoAlpha: 1, delay: 0.1, duration: 0.5, ease: "power2.out" }
     );
@@ -64,6 +65,7 @@ function capitalizeFirstLetter(string) {
 .hide__body {
   opacity: 0;
 }
+
 
 .main__content {
   min-height: 100vh;
