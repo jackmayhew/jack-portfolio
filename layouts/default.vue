@@ -23,6 +23,8 @@ const prevPage = ref("")
 
 setupHead(prevPage)
 
+const isReady = ref(false);
+
 const setMobileTransition = () => {
   isFromMobileMenu.value = true
 }
@@ -42,12 +44,12 @@ onMounted(() => {
     timeline
       .fromTo(".main__content",
         { y: 30, autoAlpha: 0 },
-        { y: 0, autoAlpha: 1, delay: 0.1, duration: 0.5, ease: "power2.out" })
+        { y: 0, autoAlpha: 1, delay: 0.2, duration: 0.5, ease: "power2.out" })
   });
   return () => context.revert();
 })
 
-// is this a skill issue? adding dynamic should be simpler than this
+// is this a skill issue? adding dynamic titles should be simpler than this
 // using titleTemplate with code below results in a flicker when navigating between pages
 // still a slight flicker on load/refresh, but it's less noticeable and best option imo
 watch(() => router.currentRoute.value, (from) => {
@@ -64,6 +66,7 @@ function capitalizeFirstLetter(string) {
 <style>
 .hide__body {
   opacity: 0;
+  visibility: hidden;
 }
 
 .main__content,

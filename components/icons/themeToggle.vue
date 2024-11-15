@@ -19,38 +19,23 @@
 <script setup></script>
 
 <style scoped>
-.moon-icon {
-    stroke-dasharray: 1px 1px;
-    opacity: 1;
-}
-
+.moon-icon,
 .sun-icon {
     stroke-dasharray: 1px 1px;
     opacity: 1;
 }
 
-.toggle:not(.dark) .moon-icon {
-    stroke-dasharray: 0px 1px;
-    opacity: 0;
-    transition: stroke-dasharray 0.5s ease-in, opacity 300ms ease-in;
-}
-
-.toggle:not(.dark) .sun-icon {
-    stroke-dasharray: 1px 1px;
-    opacity: 1;
-    transition: stroke-dasharray 0.5s ease-in, opacity 300ms ease-in;
-}
-
-
-.toggle.dark .moon-icon {
-    stroke-dasharray: 1px 1px;
-    opacity: 1;
-    transition: stroke-dasharray 0.5s ease-in, opacity 300ms ease-in;
-}
-
+.toggle:not(.dark) .moon-icon,
 .toggle.dark .sun-icon {
     stroke-dasharray: 0px 1px;
     opacity: 0;
+    transition: stroke-dasharray 0.5s ease-in, opacity 300ms ease-in;
+}
+
+.toggle:not(.dark) .sun-icon,
+.toggle.dark .moon-icon {
+    stroke-dasharray: 1px 1px;
+    opacity: 1;
     transition: stroke-dasharray 0.5s ease-in, opacity 300ms ease-in;
 }
 </style>

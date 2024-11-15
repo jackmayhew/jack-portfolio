@@ -33,7 +33,7 @@ function heroText() {
 
   const chars = splitText.chars;
   const lines = splitText.lines;
-  const delay = props.isFromMobileMenu ? .7 : .1;
+  const delay = props.isFromMobileMenu ? .7 : .2;
 
   const tl = gsap.timeline({
     defaults: {
