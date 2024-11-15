@@ -2,7 +2,7 @@
   <div class="wrapper mx-auto max-w-screen-md bg-light-bg dark:bg-dark-bg text-light-text dark:text-dark-text">
     <Navbar @mobile-menu-click="setMobileTransition" />
     <Transition name="content" mode="out-in">
-      <div :key="$route.fullPath" :data-from-mobile="isFromMobileMenu" class="main__content px-6 mt-6 sm:mt-12" :class="!isMounted ? 'hide__body' : ''" >
+      <div :key="$route.fullPath" :data-from-mobile="isFromMobileMenu" class="main__content px-6 mt-6 sm:mt-12"  :class="!isMounted ? 'hide__body' : ''" >
         <NuxtPage :isFromMobileMenu="isFromMobileMenu" />
         <Footer />
       </div>
@@ -38,10 +38,11 @@ router.afterEach(() => {
 onMounted(() => {
   isMounted.value = true
   const context = gsap.context(() => {
-    gsap.fromTo(document.querySelector('.main__content'),
-      { y: 30, autoAlpha: 0 },
-      { y: 0, autoAlpha: 1, duration: 0.3, ease: "power2.out" }
-    );
+    const timeline = gsap.timeline();
+    timeline
+      .fromTo(".main__content",
+        { y: 30, autoAlpha: 0 },
+        { y: 0, autoAlpha: 1, delay: 0.1, duration: 0.5, ease: "power2.out" })
   });
   return () => context.revert();
 })
