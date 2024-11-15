@@ -99,6 +99,24 @@ input:-webkit-autofill:active {
   transform-origin: 0% 50%;
   transform: scale3d(1, 1, 1);
 }
-html, body, .wrapper, .bg-light-bg {
+
+html,
+body,
+.wrapper,
+.bg-light-bg {
   transition: background-color 0.3s ease;
+}
+
+.light-mode,
+.light-mode body {
+  background-color: #fdfaf5;
+}
+
+.dark-mode,
+.dark-mode body {
+  background-color: #121212;
+}
+
+.locked {
+  overflow: hidden !important;
 }

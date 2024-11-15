@@ -60,6 +60,14 @@ function heroText() {
 
 onMounted(() => {
   gltl = heroText();
+  const context = gsap.context(() => {
+    const timeline = gsap.timeline();
+    timeline
+      .fromTo(".hero__image",
+        { y: 30, autoAlpha: 0 },
+        { y: 0, autoAlpha: 1, delay: 0.2, duration: 0.5, ease: "power2.out" })
+  });
+  return () => context.revert();
 });
 
 onUnmounted(() => {

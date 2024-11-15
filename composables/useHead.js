@@ -6,13 +6,6 @@ export function setupHead(prevPage) {
     htmlAttrs: {
       lang: 'en'
     },
-    // script: [
-    //   {
-    //     src: "js/SplitText.js",
-    //     tagPosition: 'bodyClose',
-    //     defer: true
-    //   },
-    // ],
     meta: [
       { name: "description", content: "Just a guy who enjoys building cool stuff for the web, making things (blazingly) fast, and ricing my desktop." },
       { charset: "UTF-8" },
@@ -43,7 +36,6 @@ export function setupHead(prevPage) {
       { rel: "preload", href: "/img/hero.webp", as: "image" },
       { rel: "preload", href: "/fonts/StabilGrotesk-Regular.woff2", as: "font", type: "font/woff2", crossorigin: "anonymous" },
       { rel: "preload", href: "/fonts/StabilGrotesk-Medium.woff2", as: "font", type: "font/woff2", crossorigin: "anonymous" },
-      // { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@800&display=swap" }
     ],
   });
 }

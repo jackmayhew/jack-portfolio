@@ -13,7 +13,7 @@
 <script setup>
 import { ref, onMounted, watch } from 'vue'
 import { useRouter } from 'nuxt/app'
-import { setupHead } from '../components/meta/headConfig.js'
+import { setupHead } from '~/composables/useHead.js'
 import gsap from 'gsap'
 
 const isMounted = ref(false)
@@ -22,8 +22,6 @@ const isFromMobileMenu = ref(false)
 const prevPage = ref("")
 
 setupHead(prevPage)
-
-const isReady = ref(false);
 
 const setMobileTransition = () => {
   isFromMobileMenu.value = true
@@ -36,22 +34,20 @@ router.afterEach(() => {
   }, 1100)
 })
 
-// fade in animation on inital page load
+// fade in page on inital page load
 onMounted(() => {
   isMounted.value = true
   const context = gsap.context(() => {
     const timeline = gsap.timeline();
     timeline
-      .fromTo(".main__content",
-        { y: 30, autoAlpha: 0 },
-        { y: 0, autoAlpha: 1, delay: 0.2, duration: 0.5, ease: "power2.out" })
+      .fromTo(".gsap-load",
+        { y: 15, autoAlpha: 0 },
+        { y: 0, autoAlpha: 1, delay: 0.2, duration: 0.3, ease: "power2.out" })
   });
   return () => context.revert();
 })
 
 // is this a skill issue? adding dynamic titles should be simpler than this
-// using titleTemplate with code below results in a flicker when navigating between pages
-// still a slight flicker on load/refresh, but it's less noticeable and best option imo
 watch(() => router.currentRoute.value, (from) => {
   if (from.name === "index") prevPage.value = ""
   else prevPage.value = ` - ${capitalizeFirstLetter(from.name)}`
@@ -64,17 +60,6 @@ function capitalizeFirstLetter(string) {
 </script>
 
 <style>
-.hide__body {
-  opacity: 0;
-  visibility: hidden;
-}
-
-.main__content,
-.wrapper {
-  min-height: 100vh !important;
-  height: 100% !important;
-}
-
 .page-enter-active {
   transition: all 0.3s ease-out;
 }
@@ -115,17 +100,14 @@ function capitalizeFirstLetter(string) {
   }
 }
 
-.light-mode,
-.light-mode body {
-  background-color: #FDFAF5;
+.hide__body {
+  opacity: 0;
+  visibility: hidden;
 }
 
-.dark-mode,
-.dark-mode body {
-  background-color: #121212;
-}
-
-.locked {
-  overflow: hidden !important;
+.main__content,
+.wrapper {
+  min-height: 100vh !important;
+  height: 100% !important;
 }
 </style>
