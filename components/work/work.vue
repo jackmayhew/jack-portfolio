@@ -8,31 +8,31 @@
 </template>
 
 <script setup>
-import { onMounted } from "vue";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+// import { onMounted } from "vue";
+// import { gsap } from "gsap";
+// import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { projects } from "@/data/projects";
 
-onMounted(() => {
-  gsap.registerPlugin(ScrollTrigger);
-  let images = gsap.utils.toArray(".work__img");
-  images.forEach((image) => {
-    gsap.fromTo(
-      image,
-      { autoAlpha: 0 },
-      {
-        autoAlpha: 1,
-        scrollTrigger: {
-          trigger: image,
-          start: "top 80%",
-          end: "top 10%",
-          scrub: true,
-          toggleActions: "play none none reverse",
-        },
-      }
-    );
-  });
-});
+// onMounted(() => {
+//   gsap.registerPlugin(ScrollTrigger);
+//   let images = gsap.utils.toArray(".work__img");
+//   images.forEach((image) => {
+//     gsap.fromTo(
+//       image,
+//       { autoAlpha: 0 },
+//       {
+//         autoAlpha: 1,
+//         scrollTrigger: {
+//           trigger: image,
+//           start: "top 80%",
+//           end: "top 10%",
+//           scrub: true,
+//           toggleActions: "play none none reverse",
+//         },
+//       }
+//     );
+//   });
+// });
 </script>
 
 <style scoped></style>

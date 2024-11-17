@@ -1,8 +1,8 @@
 <template>
-  <div class="wrapper mx-auto max-w-screen-md bg-light-bg dark:bg-dark-bg text-light-text dark:text-dark-text">
+  <div class="wrapper px-6  mx-auto max-w-screen-md bg-light-bg dark:bg-dark-bg text-light-text dark:text-dark-text">
     <Navbar @mobile-menu-click="setMobileTransition" />
     <Transition name="content" mode="out-in">
-      <div :key="$route.fullPath" :data-from-mobile="isFromMobileMenu" class="main__content px-6 mt-6 sm:mt-12"  :class="!isMounted ? 'hide__body' : ''" >
+      <div :key="$route.fullPath" :data-from-mobile="isFromMobileMenu" class="main__content mt-6 sm:mt-12"  :class="!isMounted ? 'hide__body' : ''" >
         <NuxtPage :isFromMobileMenu="isFromMobileMenu" />
         <Footer />
       </div>

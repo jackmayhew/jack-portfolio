@@ -2,8 +2,8 @@ export const nowContent = [
   {
     displayDate: "Oct 2024",
     formateDate: "2024-10-31",
-    desc: `Finishing up a new personal portfolio website (the one you're on now)—just something simple and minimalist. 
-    Decided to build with Nuxt for the first time, and it’s been super smooth. If you're curious, you can check out my `,
+    desc: `Finishing up a new personal portfolio website (the one you're on now)—just something super simple and minimalist. 
+    Decided to build with Nuxt for the first time, and it’s been really nice. If you're curious, you can check out my `,
     url: "https://jacko-three.vercel.app/",
     github: "https://github.com/jackmayhew/",
   },

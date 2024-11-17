@@ -1,10 +1,10 @@
 <template>
-  <header ref="header" class="gsap-menu sticky top-0 bg-light-bg dark:bg-dark-bg z-10">
-    <nav class="py-4 px-6 mx-auto flex justify-between items-center">
+  <header ref="header" class="gsap-menu sticky top-0 bg-light-bg dark:bg-dark-bg z-50">
+    <nav class="py-4 mx-auto flex justify-between items-center">
       <NuxtLink to="/" class="text-lg font-semibold z-50" @click="closeMobileMenu">
         Jack
       </NuxtLink>
-      <ul class="flex items-center gap-4 sm:gap-6">
+      <ul class="flex items-center gap-4 sm:gap-6 ">
         <li v-for="link in navigationLinks" :key="link.path" class="hidden xs:block">
           <NuxtLink :to="link.path" class="link text-lg">
             {{ link.name }}
@@ -15,7 +15,7 @@
             GitHub
           </a>
         </li>
-        <li class="w-6 h-6 flex">
+        <li class="w-6 h-6 flex z-50">
           <ClientOnly>
             <div :class="[colorMode.value === 'dark' ? 'dark' : 'light']" class="flex toggle">
               <button class="" title="Toggle Theme" @click="toggleColorMode">
@@ -25,18 +25,20 @@
           </ClientOnly>
         </li>
         <li class="flex xs:hidden">
-          <button class="w-6 h-6" @click="toggleMobileMenu" aria-label="open mobile menu">
-            <MobileMenuOpen />
-          </button>
+          <!-- <button class="w-6 h-6" @click="toggleMobileMenu" aria-label="open mobile menu">
+            <MobileMenuOpen  />
+          </button> -->
+          <Mob />
         </li>
       </ul>
     </nav>
-    <MobileMenu 
+    <!-- <Mob /> -->
+    <!-- <MobileMenu 
       :isOpen="isMobileMenuOpen" 
       :toggleMenu="toggleMobileMenu" 
       :closeMobileMenu="closeMobileMenu"
       :navigationLinks="navigationLinks" 
-    />
+    /> -->
   </header>
 </template>
 
@@ -53,6 +55,8 @@ const navigationLinks = [
   { path: '/now', name: 'Now' },
   { path: '/contact', name: 'Contact' },
 ];
+
+
 
 const toggleMobileMenu = () => {
   isMobileMenuOpen.value = !isMobileMenuOpen.value;
