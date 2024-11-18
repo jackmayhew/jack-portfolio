@@ -2,7 +2,7 @@
   <div class="wrapper mx-auto max-w-screen-md bg-light-bg dark:bg-dark-bg text-light-text dark:text-dark-text">
     <Navbar />
     <Transition name="content" mode="out-in">
-      <div class="main-content px-6 mt-6 sm:mt-12" :class="!isMounted ? 'hide-body' : ''">
+      <div class="main-content px-6 mt-6 sm:mt-12" :class="!isMounted ? 'hide-content' : ''">
         <NuxtPage />
         <Footer />
       </div>
@@ -26,7 +26,7 @@ onMounted(() => {
     timeline
       .fromTo(".gsap-load",
         { y: 15, autoAlpha: 0 },
-        { y: 0, autoAlpha: 1, delay: 0.2, duration: 0.3, ease: "power2.out" })
+        { y: 0, autoAlpha: 1, duration: 0.3, ease: "power2.out" }, 0.2)
   });
   return () => context.revert();
 })
@@ -48,6 +48,7 @@ onMounted(() => {
 
 .page-leave-to {
   opacity: 0;
+  transform: translateY(-5px);
 }
 
 .content-enter-active {
@@ -73,7 +74,7 @@ onMounted(() => {
   }
 }
 
-.hide-body {
+.hide-content {
   opacity: 0;
   visibility: hidden;
 }
