@@ -14,22 +14,24 @@
                             GitHub
                         </a>
                     </li>
-                    <li class="js-item menu-item">
-                        <div class="wrap-footer">
-                            <Icon name="tabler:mail" size="36" />
-                            <Icon name="tabler:brand-github" size="36" />
-                            <Icon name="tabler:brand-linkedin" size="36" />
-                        </div>
-                    </li>
                 </ul>
-                <!-- <div class="wrap-footer">
-                    <Icon name="tabler:mail" size="36" />
-                    <Icon name="tabler:brand-github" size="36" />
-                    <Icon name="tabler:brand-linkedin" size="36" />
-                </div> -->
+                <div class="wrap-footer">
+                    <div class="js-item wrap-footer-icons">
+                        <a href="mailto:jackmayhew5@gmail.com">
+                            <Icon name="tabler:mail" size="36" />
+                        </a>
+                        <a href="https://github.com/jackmayhew" target="_blank" rel="noopener">
+                            <Icon name="tabler:brand-github" size="36" />
+                        </a>
+                        <a href="https://www.linkedin.com/in/jack-mayhew-610b042b2/" target="_blank" rel="noopener">
+                            <Icon name="tabler:brand-linkedin" size="36" />
+                        </a>
+                    </div>
+
+                </div>
             </div>
         </div>
-        <button class="ham flex items-center h-6 relative w-[3rem] justify-center" @click="toggleNav"
+        <button class="ham flex items-center h-6 relative justify-center" @click="toggleNav"
             aria-label="open mobile menu">
             <div class="hamburger" :class="{ open: isOpen }">
                 <span></span>
@@ -174,7 +176,7 @@ watch(() => route.path, () => {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #F0E4D7;
+    background-color: #70a2e1;
     border-radius: 1.5rem;
     right: 0;
     position: absolute;
@@ -212,6 +214,9 @@ ul {
     font-weight: 600;
 }
 
+.menu-item:last-child {
+    margin-bottom: 0;
+}
 
 .wrap-footer {
     display: flex;
@@ -219,21 +224,35 @@ ul {
     align-items: center;
     justify-content: flex-start;
     /* margin-top: 2rem; */
-    /* background-color: #3c61e5; */
+    background-color: #3c61e5;
     width: 100%;
     /* padding: 1.75rem 2rem; */
     gap: 10px;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+    padding: 1.75rem;
+}
+
+.wrap-footer span {
+    color: white;
+}
+
+.wrap-footer-icons {
+    display: flex;
+    gap: 10px;
 }
 
 .ham {
     border-radius: 9999px;
-    /* height: 3rem; */
-    /* height: 3rem; */
+    width: 3rem;
+    height: 3rem;
     z-index: 1000;
-    background-color: #FDFAF5;
+    background-color: #70a2e1;
+    color: #fff;
+    /* background-color: #FDFAF5; */
 }
+
+/* .dark-mode .ham {
+    background-color: #121212;
+} */
 
 .hamburger {
     width: 17px;
@@ -248,9 +267,9 @@ ul {
 
 .hamburger span {
     display: block;
-    height: 2.5px;
+    height: 3px;
     width: 100%;
-    background-color: #131212;
+    background-color: #fff;
     /* background-color: #131212; */
     transition: all 0.3s ease-in-out;
     border-radius: 999em;
@@ -261,11 +280,11 @@ ul {
 }
 
 .hamburger.open span:nth-child(1) {
-    transform: translateY(3.25px) rotate(45deg);
+    transform: translateY(2.75px) rotate(45deg);
 }
 
 .hamburger.open span:nth-child(2) {
-    transform: translateY(-3.25px) rotate(-45deg);
+    transform: translateY(-2.75px) rotate(-45deg);
 }
 
 
@@ -289,7 +308,7 @@ ul {
 
 
 
-/* .router-link-active:before {
+.router-link-active:before {
     position: absolute;
     top: calc(50% - 3px);
     left: -1rem;
@@ -309,5 +328,5 @@ ul {
 
 .router-link-active:before {
     transform: translate3d(0, 0, 0) scale(1);
-} */
+}
 </style>
