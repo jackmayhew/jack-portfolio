@@ -14,7 +14,6 @@
 import { onMounted, onUnmounted } from "vue";
 import gsap from "gsap";
 
-const props = defineProps(['isFromMobileMenu']);
 let splitText;
 let gltl;
 
@@ -33,7 +32,7 @@ function heroText() {
 
   const chars = splitText.chars;
   const lines = splitText.lines;
-  const delay = props.isFromMobileMenu ? .7 : .2;
+  const delay = .2;
 
   const tl = gsap.timeline({
     defaults: {

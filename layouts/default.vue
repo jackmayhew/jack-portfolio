@@ -1,9 +1,9 @@
 <template>
-  <div class="wrapper px-6  mx-auto max-w-screen-md bg-light-bg dark:bg-dark-bg text-light-text dark:text-dark-text">
-    <Navbar @mobile-menu-click="setMobileTransition" />
+  <div class="wrapper mx-auto max-w-screen-md bg-light-bg dark:bg-dark-bg text-light-text dark:text-dark-text">
+    <Navbar />
     <Transition name="content" mode="out-in">
-      <div :key="$route.fullPath" :data-from-mobile="isFromMobileMenu" class="main__content mt-6 sm:mt-12"  :class="!isMounted ? 'hide__body' : ''" >
-        <NuxtPage :isFromMobileMenu="isFromMobileMenu" />
+      <div class="main__content px-6 mt-6 sm:mt-12" :class="!isMounted ? 'hide__body' : ''">
+        <NuxtPage />
         <Footer />
       </div>
     </Transition>
@@ -12,27 +12,15 @@
 
 <script setup>
 import { ref, onMounted, watch } from 'vue'
-import { useRouter } from 'nuxt/app'
+// import { useRouter } from 'nuxt/app'
 import { setupHead } from '~/composables/useHead.js'
 import gsap from 'gsap'
 
+// const router = useRouter()
 const isMounted = ref(false)
-const router = useRouter()
-const isFromMobileMenu = ref(false)
 const prevPage = ref("")
 
 setupHead(prevPage)
-
-const setMobileTransition = () => {
-  isFromMobileMenu.value = true
-}
-
-// reset isFromMobileMenu after mobile menu navigation
-router.afterEach(() => {
-  setTimeout(() => {
-    isFromMobileMenu.value = false
-  }, 1100)
-})
 
 // fade in page on inital page load
 onMounted(() => {
@@ -47,12 +35,13 @@ onMounted(() => {
   return () => context.revert();
 })
 
-// is this a skill issue? adding dynamic titles should be simpler than this
-watch(() => router.currentRoute.value, (from) => {
-  if (from.name === "index") prevPage.value = ""
-  else prevPage.value = ` - ${capitalizeFirstLetter(from.name)}`
-}
-);
+// is this a skill issue? getting flashes on page change & load without this
+// adding dynamic titles should be simpler than this
+// watch(() => router.currentRoute.value, (from) => {
+//   if (from.name === "index") prevPage.value = ""
+//   else prevPage.value = ` - ${capitalizeFirstLetter(from.name)}`
+// }
+// );
 
 function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);

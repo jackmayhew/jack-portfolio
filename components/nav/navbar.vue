@@ -1,7 +1,7 @@
 <template>
-  <header ref="header" class="gsap-menu sticky top-0 bg-light-bg dark:bg-dark-bg z-50">
-    <nav class="py-4 mx-auto flex justify-between items-center naver">
-      <NuxtLink to="/" class="text-lg font-semibold z-50" @click="closeMobileMenu">
+  <header class="gsap-menu px-6 sticky top-0 bg-light-bg dark:bg-dark-bg z-50">
+    <nav class="py-4 mx-auto relative flex justify-between items-center naver">
+      <NuxtLink to="/" class="text-lg font-semibold z-50">
         Jack
       </NuxtLink>
       <ul class="flex items-center gap-4 sm:gap-6 ">
@@ -25,49 +25,21 @@
           </ClientOnly>
         </li>
         <li class="flex xs:hidden">
-          <!-- <button class="w-6 h-6" @click="toggleMobileMenu" aria-label="open mobile menu">
-            <MobileMenuOpen  />
-          </button> -->
-          <Mob />
+          <MobileMenu />
         </li>
       </ul>
     </nav>
-    <!-- <Mob /> -->
-    <!-- <MobileMenu 
-      :isOpen="isMobileMenuOpen" 
-      :toggleMenu="toggleMobileMenu" 
-      :closeMobileMenu="closeMobileMenu"
-      :navigationLinks="navigationLinks" 
-    /> -->
   </header>
 </template>
 
 <script setup>
-
-import { ref } from 'vue'
-const emit = defineEmits(['mobile-menu-click']);
-const isMobileMenuOpen = ref(false);
 const colorMode = useColorMode();
-const header = ref(null);
 
 const navigationLinks = [
   { path: '/about', name: 'About' },
   { path: '/now', name: 'Now' },
   { path: '/contact', name: 'Contact' },
 ];
-
-
-
-const toggleMobileMenu = () => {
-  isMobileMenuOpen.value = !isMobileMenuOpen.value;
-};
-
-const closeMobileMenu = () => {
-  if (isMobileMenuOpen.value) {
-    emit('mobile-menu-click');
-  }
-  isMobileMenuOpen.value = false;
-};
 
 const toggleColorMode = () => {
   colorMode.preference = colorMode.value === 'dark' ? 'light' : 'dark';

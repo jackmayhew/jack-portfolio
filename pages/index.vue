@@ -1,12 +1,10 @@
 <template>
   <main>
-    <Hero :isFromMobileMenu="isFromMobileMenu" />
+    <Hero />
     <Work />
   </main>
 </template>
 
-<script setup>
-const props = defineProps(['isFromMobileMenu']);
-</script>
+<script setup></script>
 
 <style scoped></style>

@@ -1,6 +1,6 @@
 <template>
   <div class="mb-28" ref="cardContainer">
-    <NuxtImg class="work__img w-full h-full rounded-2xl opacity-0" :src="project.image" :alt="project.title" />
+    <NuxtImg class="work__img w-full h-full rounded-2xl opacity-0 invisible" :src="project.image" :alt="project.title" />
     <div class="work__text pb-6 sticky bottom-0">
       <div class="mt-4 sm:mt-8 text-lg text-gray-400">{{ project.date }}</div>
       <h2 class="mt-2 text-2xl sm:text-4xl font-semibold">{{ project.title }}</h2>
@@ -24,6 +24,8 @@ const cardContainer = ref(null);
 onMounted(() => {
   gsap.registerPlugin(ScrollTrigger);
   const img = cardContainer.value.querySelector('.work__img');
+  img.style.opacity = 0;
+  img.style.visibility = 'hidden';
   gsap.fromTo(
     img,
     { autoAlpha: 0 },
