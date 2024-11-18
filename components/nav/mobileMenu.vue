@@ -87,7 +87,7 @@ function toggleNav() {
             .set(wrapperInner.value, { y: "-3.5rem", scaleX: 0, width: "3rem", height: "3rem" })
             .set('.menu-overlay', { opacity: 1, duration: .6 })
             .set('.footer-bg', { width: "0" })
-            .set(wrapper.value, { opacity: 1, width: "100%" })
+            .to(wrapper.value, { opacity: 1, width: "100%" })
             .to(wrapperInner.value, {
                 y: 0,
                 scaleX: 1,
