@@ -2,7 +2,7 @@
   <div class="wrapper mx-auto max-w-screen-md bg-light-bg dark:bg-dark-bg text-light-text dark:text-dark-text">
     <Navbar />
     <Transition name="content" mode="out-in">
-      <div class="main__content px-6 mt-6 sm:mt-12" :class="!isMounted ? 'hide__body' : ''">
+      <div class="main-content px-6 mt-6 sm:mt-12" :class="!isMounted ? 'hide-body' : ''">
         <NuxtPage />
         <Footer />
       </div>
@@ -11,18 +11,14 @@
 </template>
 
 <script setup>
-import { ref, onMounted, watch } from 'vue'
-// import { useRouter } from 'nuxt/app'
+import { ref, onMounted } from 'vue'
 import { setupHead } from '~/composables/useHead.js'
 import gsap from 'gsap'
 
-// const router = useRouter()
 const isMounted = ref(false)
-const prevPage = ref("")
 
-setupHead(prevPage)
+setupHead()
 
-// fade in page on inital page load
 onMounted(() => {
   isMounted.value = true
   const context = gsap.context(() => {
@@ -34,18 +30,6 @@ onMounted(() => {
   });
   return () => context.revert();
 })
-
-// is this a skill issue? getting flashes on page change & load without this
-// adding dynamic titles should be simpler than this
-// watch(() => router.currentRoute.value, (from) => {
-//   if (from.name === "index") prevPage.value = ""
-//   else prevPage.value = ` - ${capitalizeFirstLetter(from.name)}`
-// }
-// );
-
-function capitalizeFirstLetter(string) {
-  return string.charAt(0).toUpperCase() + string.slice(1);
-}
 </script>
 
 <style>
@@ -89,12 +73,12 @@ function capitalizeFirstLetter(string) {
   }
 }
 
-.hide__body {
+.hide-body {
   opacity: 0;
   visibility: hidden;
 }
 
-.main__content,
+.main-conten,
 .wrapper {
   min-height: 100vh !important;
   height: 100% !important;

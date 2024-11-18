@@ -26,11 +26,11 @@ h1,
 }
 
 ::selection {
-  background-color: #9ecf9a;
+  background-color: #70a2e1;
 }
 
 ::-moz-selection {
-  background-color: #9fc8b2;
+  background-color: #70a2e1;
 }
 
 .dark-mode ::selection {

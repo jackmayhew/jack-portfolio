@@ -1,3 +1,10 @@
+<!--
+  still a wip:
+  - need to clean up
+  - might keep CSS instead of tailwind
+  - consider outside click to close menu?
+  - lock page scroll when menu is open?
+-->
 <template>
     <div class="nav-menu">
         <div ref="wrapper" class="nav-wrapper" :class="isNavOpened || waitToggle ? '' : 'menu-disabled'">

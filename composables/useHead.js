@@ -1,13 +1,13 @@
-export function setupHead(prevPage) {
+export function setupHead() {
   useHead({
     titleTemplate: (titleChunk) => {
-      return titleChunk ? `Jack Mayhew - ${titleChunk}` : `Jack Mayhew ${prevPage.value}`;
+      return titleChunk ? `Jack Mayhew - ${titleChunk}` : `Jack Mayhew`;
     },
     htmlAttrs: {
       lang: 'en'
     },
     meta: [
-      { name: "description", content: "Just a guy who enjoys building cool stuff for the web, making things (blazingly) fast, and ricing my desktop." },
+      { name: "description", content: "Just a guy who enjoys building cool stuff for the web, making things (blazingly) fast, and ricing my desktop. In case anyone is wondering, I use arch linux." },
       { charset: "UTF-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1.0" },
       // open graph / facebook
@@ -15,13 +15,13 @@ export function setupHead(prevPage) {
       { property: "og:site_name", content: "Jack Mayhew" },
       { property: "og:url", content: "https://jackmayhew.com" },
       { property: "og:title", content: "Jack Mayhew" },
-      { property: "og:description", content: "Just a guy who enjoys building cool stuff for the web, making things (blazingly) fast, and ricing my desktop." },
+      { property: "og:description", content: "Just a guy who enjoys building cool stuff for the web, making things (blazingly) fast, and ricing my desktop. In case anyone is wondering, I use arch linux." },
       { property: "og:image", content: "https://jackmayhew.com/img/og.png" },
       // twitter
       { property: "twitter:card", content: "summary_large_image" },
       { property: "twitter:url", content: "https://jackmayhew.com" },
       { property: "twitter:title", content: "Jack Mayhew" },
-      { property: "twitter:description", content: "Just a guy who enjoys building cool stuff for the web, making things (blazingly) fast, and ricing my desktop." },
+      { property: "twitter:description", content: "Just a guy who enjoys building cool stuff for the web, making things (blazingly) fast, and ricing my desktop. In case anyone is wondering, I use arch linux." },
       { property: "twitter:image", content: "https://jackmayhew.com/img/twitter.png" }
     ],
     link: [

@@ -1,12 +1,10 @@
 <template>
-  <div class="">
-    <div class="band intro pb-1 text-4xl sm:text-5xl invisible">
-      Just a guy who enjoys building cool things for the web and beyond.
-      Currently living and working in Montreal.
-    </div>
-    <div class="mt-6">
-      <img class="hero__image w-full rounded-3xl" src="/img/hero.webp" alt="Jack at computer" rel="preload" />
-    </div>
+  <div class="band intro pb-1 text-4xl sm:text-5xl invisible">
+    Just a guy who enjoys building cool things for the web and beyond.
+    Currently living and working in Montreal.
+  </div>
+  <div class="mt-6">
+    <img class="hero-img w-full h-auto block rounded-3xl" src="/img/hero.webp" alt="Jack at computer" rel="preload" />
   </div>
 </template>
 
@@ -62,9 +60,9 @@ onMounted(() => {
   const context = gsap.context(() => {
     const timeline = gsap.timeline();
     timeline
-      .fromTo(".hero__image",
-        { y: 30, autoAlpha: 0 },
-        { y: 0, autoAlpha: 1, delay: 0.2, duration: 0.5, ease: "power2.out" })
+      .fromTo(".hero-img",
+        { y: 40, autoAlpha: 0 },
+        { y: 0, autoAlpha: 1, duration: 0.5, ease: "power2.out" }, .2)
   });
   return () => context.revert();
 });
@@ -77,12 +75,6 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
-.hero__image {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
 .bandChar {
   display: inline-block;
   position: relative;
