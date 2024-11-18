@@ -83,10 +83,11 @@ function toggleNav() {
     else {
         const wrapperHeight = cachedHeight.value;
         timeline
-            .set(wrapper.value, { height: wrapperHeight, width: "100%" })
-            .set(wrapperInner.value, { y: "-3.5rem", scaleX: 0, width: "3rem", height: "3rem" }, 0)
-            .set('.menu-overlay', { opacity: 1, duration: .6 }, 0)
-            .set('.footer-bg', { width: "0" }, 0)
+            .set(wrapper.value, { height: wrapperHeight, opacity: 0, width: "100%" })
+            .set(wrapperInner.value, { y: "-3.5rem", scaleX: 0, width: "3rem", height: "3rem" })
+            .set('.menu-overlay', { opacity: 1, duration: .6 })
+            .set('.footer-bg', { width: "0" })
+            .set(wrapper.value, { opacity: 1, width: "100%" })
             .to(wrapperInner.value, {
                 y: 0,
                 scaleX: 1,
@@ -153,6 +154,7 @@ watch(() => route.path, () => {
     transform-origin: top right;
     z-index: 1000;
     border-radius: 1.5rem;
+    opacity: 0;
 }
 
 .nav-wrapper-inner {
