@@ -1,8 +1,8 @@
 <!--
   still a wip:
-  - need to clean up
-  - might keep CSS instead of tailwind
-  - consider outside click to close menu?
+  - clean up
+  - might just keep css instead of tailwind
+  - close menu on outside click?
   - lock page scroll when menu is open?
 -->
 <template>
@@ -43,8 +43,6 @@
 </template>
 
 <script setup>
-import { ref, watch } from 'vue';
-import { useRoute } from 'vue-router';
 import { gsap } from 'gsap';
 
 const route = useRoute();

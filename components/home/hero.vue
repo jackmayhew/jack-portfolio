@@ -9,7 +9,6 @@
 </template>
 
 <script setup>
-import { onMounted, onUnmounted } from "vue";
 import gsap from "gsap";
 
 let splitText;
@@ -65,12 +64,6 @@ onMounted(() => {
         { y: 0, autoAlpha: 1, duration: 0.5, ease: "power2.out" }, .2)
   });
   return () => context.revert();
-});
-
-onUnmounted(() => {
-  if (splitText) {
-    splitText.revert();
-  }
 });
 </script>
 

@@ -9,16 +9,12 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
 import { setupHead } from '~/composables/useHead.js'
 import gsap from 'gsap'
-
-const isMounted = ref(false)
 
 setupHead()
 
 onMounted(() => {
-  isMounted.value = true
   const context = gsap.context(() => {
     const timeline = gsap.timeline();
     timeline

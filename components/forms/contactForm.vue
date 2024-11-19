@@ -84,6 +84,7 @@ const submitForm = () => {
 };
 
 const sendEmail = () => {
+  // emailjs keys are exposed to client by default
   emailjs
     .send(useRuntimeConfig().public.EMAILJS_SERVICE_ID, useRuntimeConfig().public.EMAILJS_TEMPLATE_ID, {
       name: form.value.firstName,

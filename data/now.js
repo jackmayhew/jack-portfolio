@@ -1,6 +1,6 @@
 export const nowContent = [
   {
-    displayDate: "Oct 2024",
+    displayDate: "October 2024",
     formateDate: "2024-10-31",
     desc: `Finishing up a new personal portfolio website (the one you're on now)—just something super simple and minimalist. 
     Decided to build with Nuxt for the first time, and it’s been really nice. If you're curious, you can check out my `,
@@ -8,14 +8,14 @@ export const nowContent = [
     github: "https://github.com/jackmayhew/",
   },
   {
-    displayDate: "June 2024",
+    displayDate: "April 2024",
     formateDate: "2024-06-15",
     desc: `Partnered with Refuge Kitty Kat Rescue, a nonprofit cat rescue in Montreal, to design and build their new website. 
     It’s been cool to see this work directly support their mission, with an increase in donations, more volunteers, and higher adoption rates. 
     Ongoing SEO efforts have helped them rank well, currently sitting second only to the SPCA for popular keywords like 'cat rescue Montreal.'`,
   },
   {
-    displayDate: "Jan 2023",
+    displayDate: "December 2023",
     formateDate: "2022-11-01",
     desc: `Montreal is home for now! I'm slowly settling into life here and enjoying the change of pace.
      My french is definitely a bit rusty, but it's slowly coming back. Big fan of smoked meat sandwiches.`,

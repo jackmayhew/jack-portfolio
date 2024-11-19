@@ -9,7 +9,6 @@
 import { projects } from "@/data/projects";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { onMounted } from 'vue';
 
 onMounted(() => {
   gsap.registerPlugin(ScrollTrigger);
