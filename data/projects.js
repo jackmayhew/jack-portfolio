@@ -5,7 +5,8 @@ export const projects = [
     desc: `Refuge Kitty-Kat Rescue is a nonprofit cat rescue based in Montreal dedicated to rescuing and rehoming cats in need.`,
     url: "https://www.refugekittykat.com/",
     stack: "Next.js, Tailwind, and Hypgraph",
-    image: "/img/refuge.png",
+    image: "/img/refuge.webp",
+    id: 1,
   },
   {
     title: "CampVI",
@@ -13,7 +14,8 @@ export const projects = [
     desc: `CampVI is the go-to camping resource for Vancouver Island, making it easy for users to discover campsites and plan their next adventure.`,
     url: "https://www.campvi.ca/",
     stack: "Next.js, TypeScript, and Sanity.io",
-    image: "/img/campvi.png",
+    image: "/img/campvi.webp",
+    id: 2,
   },
   {
     title: "MTL Spots",
@@ -21,7 +23,8 @@ export const projects = [
     desc: `MTL Spots is a platform built for skateboarders to discover and share skate spots in Montreal.`,
     url: "https://www.mtlspots.ca/",
     stack: "Next.js, TypeScript, SCSS, S3, and MongoDB",
-    image: "/img/mtlspots.png",
+    image: "/img/mtlspots.webp",
+    id: 3,
   },
   {
     title: "TabZen",
@@ -29,6 +32,7 @@ export const projects = [
     desc: `TabZen is a browser extension that removes disruptive ads and visual clutter from guitar, bass, and drum tabs & chords.`,
     url: "https://tabzen.app/",
     stack: "Next.js, TypeScript, SCSS, S3, and MongoDB",
-    image: "/img/tabzen.png",
+    image: "/img/tabzen.webp",
+    id: 4,
   },
 ];

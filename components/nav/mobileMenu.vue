@@ -155,6 +155,7 @@ watch(() => route.path, () => {
     z-index: 1000;
     border-radius: 1.5rem;
     opacity: 0;
+    background-color: transparent;
 }
 
 .nav-wrapper-inner {

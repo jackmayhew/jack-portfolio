@@ -1,12 +1,10 @@
 <template>
-  <div class="wrapper mx-auto max-w-screen-md bg-light-bg dark:bg-dark-bg text-light-text dark:text-dark-text">
+  <div class="wrapper mx-auto max-w-screen-md bg-light-bg text-light-text dark:bg-dark-bg dark:text-dark-text">
     <Navbar />
-    <Transition name="content" mode="out-in">
-      <div class="main-content px-6 mt-6 sm:mt-12" :class="!isMounted ? 'hide-content' : ''">
-        <NuxtPage />
-        <Footer />
-      </div>
-    </Transition>
+    <div class="main-content px-6 mt-6 sm:mt-12">
+      <NuxtPage />
+      <Footer />
+    </div>
   </div>
 </template>
 
@@ -79,7 +77,7 @@ onMounted(() => {
   visibility: hidden;
 }
 
-.main-conten,
+.main-content,
 .wrapper {
   min-height: 100vh !important;
   height: 100% !important;

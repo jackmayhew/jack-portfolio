@@ -1,8 +1,8 @@
 <template>
-  <div class="mb-28" ref="cardContainer">
-    <NuxtImg class="work-img w-full h-full rounded-2xl opacity-0 invisible" :src="project.image" :alt="project.title" />
+  <div class="mb-28">
+    <NuxtImg class="work-img w-full h-full rounded-2xl opacity-0 invisible bg-white" :src="project.image" :alt="project.title" loading="lazy" width="800" height="510" />
     <div class="work-text pb-6 sticky bottom-0">
-      <div class="mt-4 sm:mt-8 text-lg text-gray-400">{{ project.date }}</div>
+      <time class="mt-4 sm:mt-8 text-lg text-gray-400" :datetime="project.date">{{ project.date }}</time>
       <h2 class="mt-2 text-2xl sm:text-4xl font-semibold">{{ project.title }}</h2>
       <p class="my-2 text-xl sm:text-2xl">{{ project.desc }}</p>
       <a class="flex items-center gap-2 w-fit" :href="project.url" target="_blank" rel="noopener">
@@ -14,35 +14,8 @@
 </template>
 
 <script setup>
-import { onMounted, ref } from "vue";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
 const props = defineProps({
   project: Object,
-});
-
-const cardContainer = ref(null);
-
-onMounted(() => {
-  gsap.registerPlugin(ScrollTrigger);
-  const img = cardContainer.value.querySelector('.work-img');
-  img.style.opacity = 0;
-  img.style.visibility = 'hidden';
-  gsap.fromTo(
-    img,
-    { autoAlpha: 0 },
-    {
-      autoAlpha: 1,
-      scrollTrigger: {
-        trigger: cardContainer.value,
-        start: "top 60%",
-        end: "top 10%",
-        scrub: true,
-        toggleActions: "play none none reverse",
-      },
-    }
-  );
 });
 </script>
 
