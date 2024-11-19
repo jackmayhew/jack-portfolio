@@ -3,16 +3,15 @@ export const nowContent = [
     displayDate: "October 2024",
     formateDate: "2024-10-31",
     desc: `Finishing up a new personal portfolio website (the one you're on now)—just something super simple and minimalist. 
-    Decided to build with Nuxt for the first time, and it’s been really nice. If you're curious, you can check out my `,
-    url: "https://jacko-three.vercel.app/",
-    github: "https://github.com/jackmayhew/",
+    Decided to build with Nuxt for the first time, and it’s been really nice.`,
+    website: true,
   },
   {
     displayDate: "April 2024",
     formateDate: "2024-06-15",
     desc: `Partnered with Refuge Kitty Kat Rescue, a nonprofit cat rescue in Montreal, to design and build their new website. 
-    It’s been cool to see this work directly support their mission, with an increase in donations, more volunteers, and higher adoption rates. 
-    Ongoing SEO efforts have helped them rank well, currently sitting second only to the SPCA for popular keywords like 'cat rescue Montreal.'`,
+    It’s been cool to see this work directly support their mission, with an increase in donations, more volunteers, and higher adoption rates.`,
+    seo: true,
   },
   {
     displayDate: "December 2023",
