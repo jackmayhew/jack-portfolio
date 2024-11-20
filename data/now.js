@@ -2,7 +2,7 @@ export const nowContent = [
   {
     displayDate: "October 2024",
     formateDate: "2024-10-31",
-    desc: `Finishing up a new personal portfolio website (the one you're on now)—just something super simple and minimalist. 
+    desc: `Finishing up a new personal portfolio website (the one you're on now)—just something simple and minimalist. 
     Decided to build with Nuxt for the first time, and it’s been really nice.`,
     website: true,
   },

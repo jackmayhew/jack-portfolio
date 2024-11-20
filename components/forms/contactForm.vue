@@ -31,7 +31,6 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
 import emailjs from '@emailjs/browser';
 
 const messageStatus = ref("Send a message, or email me directly at ");

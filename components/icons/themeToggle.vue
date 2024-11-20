@@ -16,8 +16,6 @@
     </svg>
 </template>
 
-<script setup></script>
-
 <style scoped>
 .moon-icon,
 .sun-icon {
