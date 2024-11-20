@@ -1,4 +1,4 @@
-<!-- still a wip - need to clean up. might just keep css instead of using tailwind -->
+<!-- still a wip - need to clean up, new colours, and might just keep css instead of using tailwind -->
 <template>
     <div class="nav-menu">
         <div ref="wrapper" class="nav-wrapper" :class="menuIsOpen || menuIsAnimating ? '' : 'menu-disabled'">
@@ -19,9 +19,9 @@
                 <div class="nav-footer">
                     <div class="footer-bg"></div>
                     <div class="nav-item nav-footer-icons">
-                        <a href="mailto:jackmayhew5@gmail.com"><Icon name="tabler:mail" size="36" /></a>
-                        <a href="https://github.com/jackmayhew" target="_blank" rel="noopener"><Icon name="tabler:brand-github" size="36" /></a>
-                        <a href="https://www.linkedin.com/in/jack-mayhew-610b042b2/" target="_blank" rel="noopener"><Icon name="tabler:brand-linkedin" size="36" /></a>
+                        <a href="mailto:jackmayhew5@gmail.com" aria-label="email"><Icon name="tabler:mail" size="36" /></a>
+                        <a href="https://github.com/jackmayhew" target="_blank" rel="noopener" aria-label="github"><Icon name="tabler:brand-github" size="36" /></a>
+                        <a href="https://www.linkedin.com/in/jack-mayhew-610b042b2/" target="_blank" rel="noopener" aria-label="linkedin"><Icon name="tabler:brand-linkedin" size="36" /></a>
                     </div>
                 </div>
             </div>
@@ -71,7 +71,6 @@ function toggleNav() {
         timeline.to(wrapperInner.value, { height: 0, y: -10, duration: 0.6, ease: 'expo.inOut' }, 0)
             .to('.menu-overlay', { opacity: 0, duration: 0.6, ease: 'expo.inOut' }, 0)
     }
-    
     else {
         const wrapperHeight = menuHeight.value;
         timeline
@@ -114,6 +113,7 @@ function toggleNav() {
     menuIsOpen.value = !menuIsOpen.value;
     hamburgerToggle.value = !hamburgerToggle.value;
     document.body.classList.toggle('locked');
+    document.querySelector('.menu-overlay').classList.toggle('no');
 }
 
 // close on browser navigation
@@ -301,7 +301,7 @@ ul {
     background-color: rgba(253, 250, 245, .8);
     opacity: 0;
     transition: opacity .2s linear;
-    /* pointer-events: none; */
+    pointer-events: none;
     will-change: opacity;
 }
 
@@ -355,5 +355,9 @@ ul {
 
 .router-link-active:before {
     transform: translate3d(0, 0, 0) scale(1);
+}
+
+.no {
+    pointer-events: auto !important; 
 }
 </style>
