@@ -2,7 +2,6 @@
   still a wip:
   - clean up
   - might just keep css instead of tailwind
-  - close menu on outside click?
   - lock page scroll when menu is open?
 -->
 <template>
@@ -32,7 +31,7 @@
                 </div>
             </div>
         </div>
-        <button class="hamburger-button" @click="toggleNav" aria-label="open mobile menu">
+        <button class="ignore-click hamburger-button" @click="toggleNav" aria-label="open mobile menu">
             <div class="hamburger" :class="{ open: isOpen }">
                 <span></span>
                 <span></span>
@@ -44,6 +43,7 @@
 
 <script setup>
 import { gsap } from 'gsap';
+import { onClickOutside } from '@vueuse/core'
 
 const route = useRoute();
 
@@ -67,12 +67,10 @@ const navigationLinks = [
 function toggleNav() {
     if (waitToggle.value) return;
     waitToggle.value = true;
+    
     isOpen.value = !isOpen.value;
     if (!cachedHeight.value) cachedHeight.value = wrapperInner.value.offsetHeight;
-
-    const timeline = gsap.timeline({
-        onComplete: () => (waitToggle.value = false),
-    });
+    const timeline = gsap.timeline({onComplete: () => (waitToggle.value = false)});
 
     if (isNavOpened.value) {
         timeline.to(wrapperInner.value, { height: 0, y: -10, duration: 0.6, ease: 'expo.inOut' }, 0)
@@ -127,6 +125,13 @@ watch(() => route.path, () => {
         toggleNav();
     }
 });
+
+onClickOutside(wrapper, event => {
+    if (event.target.closest('.ignore-click')) return;
+    if (!isNavOpened.value || waitToggle.value) return;
+    waitToggle.value = false;
+    toggleNav();
+})
 </script>
 
 <style scoped>

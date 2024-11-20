@@ -18,7 +18,7 @@
         <li class="w-6 h-6 flex z-50">
           <ClientOnly>
             <div :class="[colorMode.value === 'dark' ? 'dark' : 'light']" class="flex toggle">
-              <button class="" title="Toggle Theme" @click="toggleColorMode">
+              <button class="ignore-click" title="Toggle Theme" @click="toggleColorMode">
                 <ThemeToggle />
               </button>
             </div>
@@ -33,7 +33,7 @@
 </template>
 
 <script setup>
-const colorMode = useColorMode();
+const colorMode = useColorMode()
 
 const navigationLinks = [
   { path: '/about', name: 'About' },
