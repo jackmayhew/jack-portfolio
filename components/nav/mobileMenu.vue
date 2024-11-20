@@ -1,12 +1,12 @@
 <!-- still a wip - need to clean up. might just keep css instead of using tailwind -->
 <template>
     <div class="nav-menu">
-        <div ref="wrapper" class="nav-wrapper" :class="isNavOpened || waitToggle ? '' : 'menu-disabled'">
+        <div ref="wrapper" class="nav-wrapper" :class="menuIsOpen || menuIsAnimating ? '' : 'menu-disabled'">
             <div ref="wrapperInner" class="nav-wrapper-inner">
                 <div ref="background" class="nav-background"></div>
                 <ul ref="wrapperList">
                     <li v-for="(link, index) in navigationLinks" :key="index" class="nav-item menu-item">
-                        <NuxtLink :to="link.path" @click="toggleNav" :class="waitToggle ? 'disable' : 'menu-active'">
+                        <NuxtLink :to="link.path" @click="toggleNav" :class="menuIsAnimating ? 'disable' : 'menu-active'">
                             {{ link.name }}
                         </NuxtLink>
                     </li>
@@ -27,7 +27,7 @@
             </div>
         </div>
         <button class="ignore-click hamburger-button" @click="toggleNav" aria-label="open mobile menu">
-            <div class="hamburger" :class="{ open: isOpen }">
+            <div class="hamburger" :class="{ open: hamburgerToggle }">
                 <span></span>
                 <span></span>
             </div>
@@ -44,13 +44,13 @@ const route = useRoute();
 
 const wrapper = ref(null);
 const wrapperInner = ref(null);
-const background = ref(null);
 const wrapperList = ref(null);
+const background = ref(null);
 
-const cachedHeight = ref(null);
-const isNavOpened = ref(false);
-const waitToggle = ref(false);
-const isOpen = ref(false)
+const menuHeight = ref(null);
+const menuIsOpen = ref(false);
+const menuIsAnimating = ref(false);
+const hamburgerToggle = ref(false);
 
 const navigationLinks = [
     { name: 'Home', path: '/' },
@@ -60,19 +60,20 @@ const navigationLinks = [
 ];
 
 function toggleNav() {
-    if (waitToggle.value) return;
-    waitToggle.value = true;
-    
-    isOpen.value = !isOpen.value;
-    if (!cachedHeight.value) cachedHeight.value = wrapperInner.value.offsetHeight;
-    const timeline = gsap.timeline({onComplete: () => (waitToggle.value = false)});
+    if (menuIsAnimating.value) return;
+    menuIsAnimating.value = true;
 
-    if (isNavOpened.value) {
+    const timeline = gsap.timeline({onComplete: () => (menuIsAnimating.value = false)});
+    
+    if (!menuHeight.value) menuHeight.value = wrapperInner.value.offsetHeight;
+
+    if (menuIsOpen.value) {
         timeline.to(wrapperInner.value, { height: 0, y: -10, duration: 0.6, ease: 'expo.inOut' }, 0)
             .to('.menu-overlay', { opacity: 0, duration: 0.6, ease: 'expo.inOut' }, 0)
     }
+    
     else {
-        const wrapperHeight = cachedHeight.value;
+        const wrapperHeight = menuHeight.value;
         timeline
             .set(wrapper.value, { height: wrapperHeight, opacity: 0, width: "100%" })
             .set(wrapperInner.value, { y: "-3.5rem", scaleX: 0, width: "3rem", height: "3rem" })
@@ -110,24 +111,29 @@ function toggleNav() {
             }, .3)
     }
 
-    isNavOpened.value = !isNavOpened.value;
+    menuIsOpen.value = !menuIsOpen.value;
+    hamburgerToggle.value = !hamburgerToggle.value;
     document.body.classList.toggle('locked');
 }
 
 // close on browser navigation
 watch(() => route.path, () => {
-    if (isNavOpened.value) {
-        waitToggle.value = false;
+    if (menuIsOpen.value) {
+        menuIsAnimating.value = false;
         toggleNav();
     }
 });
 
+// disable logo 
+watch(() => menuIsAnimating.value, () => {
+    if(menuIsAnimating.value) document.querySelector('.nav-logo').classList.add('disabled');
+    else document.querySelector('.nav-logo').classList.remove('disabled');
+});
 
 onClickOutside(wrapper, event => {
-    // if (event.target.tagName === 'A' &&  waitToggle.value) return
     if (event.target.closest('.ignore-click')) return;
-    if (!isNavOpened.value || waitToggle.value) return;
-    waitToggle.value = false;
+    if (!menuIsOpen.value || menuIsAnimating.value) return;
+    menuIsAnimating.value = false;
     toggleNav();
 })
 </script>
