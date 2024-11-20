@@ -1,9 +1,4 @@
-<!--
-  still a wip:
-  - clean up
-  - might just keep css instead of tailwind
-  - lock page scroll when menu is open?
--->
+<!-- still a wip - need to clean up. might just keep css instead of using tailwind -->
 <template>
     <div class="nav-menu">
         <div ref="wrapper" class="nav-wrapper" :class="isNavOpened || waitToggle ? '' : 'menu-disabled'">
@@ -116,6 +111,7 @@ function toggleNav() {
     }
 
     isNavOpened.value = !isNavOpened.value;
+    document.body.classList.toggle('locked');
 }
 
 // close on browser navigation
@@ -126,7 +122,9 @@ watch(() => route.path, () => {
     }
 });
 
+
 onClickOutside(wrapper, event => {
+    // if (event.target.tagName === 'A' &&  waitToggle.value) return
     if (event.target.closest('.ignore-click')) return;
     if (!isNavOpened.value || waitToggle.value) return;
     waitToggle.value = false;
@@ -297,7 +295,7 @@ ul {
     background-color: rgba(253, 250, 245, .8);
     opacity: 0;
     transition: opacity .2s linear;
-    pointer-events: none;
+    /* pointer-events: none; */
     will-change: opacity;
 }
 
