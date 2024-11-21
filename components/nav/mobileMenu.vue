@@ -3,7 +3,6 @@
     <div class="nav-menu">
         <div ref="wrapper" class="nav-wrapper" :class="menuIsOpen || menuIsAnimating ? '' : 'menu-disabled'">
             <div ref="wrapperInner" class="nav-wrapper-inner">
-                <div ref="background" class="nav-background"></div>
                 <ul ref="wrapperList">
                     <li v-for="(link, index) in navigationLinks" :key="index" class="nav-item menu-item">
                         <NuxtLink :to="link.path" @click="toggleNav" :class="menuIsAnimating ? 'disable' : 'menu-active'">
@@ -45,7 +44,6 @@ const route = useRoute();
 const wrapper = ref(null);
 const wrapperInner = ref(null);
 const wrapperList = ref(null);
-const background = ref(null);
 
 const menuHeight = ref(null);
 const menuIsOpen = ref(false);
@@ -113,11 +111,13 @@ function toggleNav() {
     menuIsOpen.value = !menuIsOpen.value;
     hamburgerToggle.value = !hamburgerToggle.value;
     document.body.classList.toggle('locked');
-    document.querySelector('.menu-overlay').classList.toggle('no');
+    document.querySelector('.menu-overlay').classList.toggle('pointer-events-auto');
+    // document.querySelector('.hamburger-button').classList.toggle('active-hamburger');
 }
 
 // close on browser navigation
 watch(() => route.path, () => {
+    console.log(menuIsOpen.value);
     if (menuIsOpen.value) {
         menuIsAnimating.value = false;
         toggleNav();
@@ -139,17 +139,12 @@ onClickOutside(wrapper, event => {
 </script>
 
 <style scoped>
-.disable {
-    pointer-events: none;
-}
-
-.menu-disabled {
-    opacity: 0 !important;
-    pointer-events: none;
-}
-
 .nav-menu {
     overflow: hidden;
+    --menu-bg: #70a2e1;
+    --menu-footer: #3c61e5;
+    --dark-menu-bg: #1b1b1b;
+    --dark-menu-footer: #161616;
 }
 
 .nav-wrapper {
@@ -170,16 +165,11 @@ onClickOutside(wrapper, event => {
     flex-direction: column;
     align-items: center;
     color: #131212;
-    background-color: #70a2e1;
+    background-color: var(--menu-bg);
     border-radius: 1.5rem;
     right: 0;
     position: absolute;
     overflow: hidden;
-    /* F0E4D7 */
-    /* 5C6D70 */
-    /* A1C6EA */
-    /* B0C4DE */
-    /* ffd37d */
 }
 
 .nav-background {
@@ -227,7 +217,7 @@ ul {
     position: absolute;
     width: 0%;
     right: 0;
-    background-color: #3c61e5;
+    background-color: var(--menu-footer);
     border-radius: 1px 0 1.5rem 1.5rem;
 }
 
@@ -260,9 +250,13 @@ ul {
     width: 3rem;
     height: 3rem;
     z-index: 1000;
-    background-color: #70a2e1;
+    background-color: var(--menu-bg);
+    transition: all .2s;
 }
 
+.active-hamburger {
+    background-color: var(--menu-footer);
+}
 .hamburger {
     width: 17px;
     height: 9px;
@@ -306,12 +300,12 @@ ul {
 }
 
 .dark-mode .nav-wrapper-inner {
-    background-color: #1b1b1b;
+    background-color: var(--dark-menu-bg);
     color: #DDDDDD;
 }
 
 .dark-mode .footer-bg {
-    background-color: #161616;
+    background-color: var(--dark-menu-footer);
 }
 
 .dark-mode .nav-footer span {
@@ -357,7 +351,18 @@ ul {
     transform: translate3d(0, 0, 0) scale(1);
 }
 
-.no {
+.pointer-events-auto {
     pointer-events: auto !important; 
 }
+
+.disable {
+    pointer-events: none;
+}
+
+.menu-disabled {
+    opacity: 0 !important;
+    pointer-events: none;
+}
+
+
 </style>
