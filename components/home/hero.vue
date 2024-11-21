@@ -1,8 +1,8 @@
 <template>
-  <div class="band intro pb-1 text-4xl sm:text-5xl invisible">
+  <p class="band intro pb-1 text-4xl sm:text-5xl invisible">
     Just a guy who enjoys building cool things for the web and beyond.
     Currently living and working in Montreal.
-  </div>
+  </p>
   <div class="mt-6">
     <img class="hero-img w-full h-auto block rounded-3xl" src="/img/hero.webp" alt="Jack at computer" rel="preload" />
   </div>

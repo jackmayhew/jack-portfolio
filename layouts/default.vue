@@ -11,6 +11,7 @@
 <script setup>
 import { setupHead } from '~/composables/useHead.js'
 import gsap from 'gsap'
+const route = useRoute();
 
 setupHead()
 
@@ -24,6 +25,20 @@ onMounted(() => {
   });
   return () => context.revert();
 })
+
+watch(() => route.path, () => {
+  // animate the footer out separately to match page transitons (since nuxt page transitons suck)
+  // not a fan of this, but it works for now 
+  const context = gsap.context(() => {
+    gsap.set(".footer", { y: 0, autoAlpha: 1 });
+    gsap.timeline()
+      .to(".footer", { y: -5, autoAlpha: 0, duration: 0.3, ease: "power2.out" })
+      .eventCallback("onComplete", () => {
+        gsap.set(".footer", { y: 0, autoAlpha: 1 });
+      });
+  });
+  return () => context.revert();
+});
 </script>
 
 <style>
@@ -45,37 +60,9 @@ onMounted(() => {
   transform: translateY(-5px);
 }
 
-.content-enter-active {
-  transition: all 0.3s ease-out;
-}
-
-.content-leave-active {
-  transition: all 0.15s ease-out;
-}
-
-.content-enter-from {
-  opacity: 0;
-  transform: translateY(15px);
-}
-
-.content-leave-to {
-  opacity: 0;
-}
-
-@media only screen and (max-width: 540px) {
-  .content-enter-active[data-from-mobile="true"] {
-    transition: all 0.3s ease-out .85s !important;
-  }
-}
-
-.hide-content {
-  opacity: 0;
-  visibility: hidden;
-}
-
 .main-content,
 .wrapper {
-  min-height: 100vh !important;
-  height: 100% !important;
+  min-height: 100vh;
+  height: 100%;
 }
 </style>

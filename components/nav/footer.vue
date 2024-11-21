@@ -1,5 +1,5 @@
 <template>
-  <footer class="mt-24 sm:mt-32 rounded-lg">
+  <footer class="footer mt-24 sm:mt-32 rounded-lg">
     <div class="pt-4 pb-12 md:py-8 mx-auto w-full max-w-screen-xl">
       <div class="sm:flex sm:items-center sm:justify-between">
         <a href="https://jackmayhew.com/" class="mb-4 sm:mb-0 flex items-center space-x-3 rtl:space-x-reverse">
@@ -7,12 +7,12 @@
         </a>
         <ul class="mb-6 sm:mb-0 flex flex-wrap items-center text-sm font-medium">
           <li v-for="link in navigationLinks" :key="link.path">
-            <NuxtLink class="me-4 md:me-6 hover:underline" :to="link.path">
+            <NuxtLink class="mr-4 sm:ml-6 sm:mr-0 hover:underline" :to="link.path">
               {{ link.name }}
             </NuxtLink>
           </li>
           <li>
-            <a href="https://github.com/jackmayhew" target="_blank" rel="noopener noreferrer" class="me-4 md:me-6 hover:underline">
+            <a href="https://github.com/jackmayhew" target="_blank" rel="noopener noreferrer" class="mr-4 sm:ml-6 sm:mr-0 hover:underline">
               GitHub
             </a>
           </li>
