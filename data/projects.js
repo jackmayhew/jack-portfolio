@@ -31,7 +31,7 @@ export const projects = [
     date: "2024",
     desc: `TabZen is a browser extension that removes disruptive ads and visual clutter from guitar, bass, and drum tabs & chords.`,
     url: "https://tabzen.app/",
-    stack: "Next.js, TypeScript, SCSS, S3, and MongoDB",
+    stack: "Nuxt, GSAP, and Tailwind",
     image: "/img/tabzen.webp",
     id: 4,
   },

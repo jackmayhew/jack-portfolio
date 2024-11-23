@@ -6,9 +6,10 @@
       <time class="mt-4 sm:mt-8 text-lg text-gray-400" :datetime="project.date">{{ project.date }}</time>
       <h2 class="mt-2 text-2xl sm:text-4xl font-semibold">{{ project.title }}</h2>
       <p class="my-2 text-xl sm:text-2xl">{{ project.desc }}</p>
+      <p class="my-2 text-lg font-semibold">{{ project.stack }}</p>
       <a class="flex items-center gap-2 mt-4 w-fit" :href="project.url" target="_blank" rel="noopener">
-        <Icon name="tabler:link" size="28" />
-        <span class="text-lg font-semibold">Visit</span>
+        <Icon name="tabler:link" size="32" />
+        <span class="text-xl font-semibold">Visit</span>
       </a>
     </div>
   </div>
@@ -21,11 +22,18 @@ const props = defineProps({
 </script>
 
 <style scoped>
+@property --gradient-color {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: rgba(253, 250, 245, 1);
+}
+
 .work-text {
-  background-image: linear-gradient(to top, rgba(253, 250, 245, 1) 40%, 40%, transparent);
+  background: linear-gradient(to top, var(--gradient-color) 40%, transparent);
+  transition: --gradient-color 0.2s ease;
 }
 
 .dark-mode .work-text {
-  background-image: linear-gradient(to top, rgba(18, 18, 18, 1) 40%, transparent);
+  --gradient-color: rgba(18, 18, 18, 1);
 }
 </style>

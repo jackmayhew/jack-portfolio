@@ -100,12 +100,6 @@ input:-webkit-autofill:active {
   transform: scale3d(1, 1, 1);
 }
 
-html,
-body,
-.wrapper,
-.bg-light-bg {
-  transition: background-color 0.3s ease;
-}
 
 .light-mode,
 .light-mode body {
@@ -119,4 +113,11 @@ body,
 
 .locked {
   overflow: hidden;
+}
+
+html,
+body,
+.wrapper,
+.navbar {
+  transition: background-color 0.2s ease;
 }

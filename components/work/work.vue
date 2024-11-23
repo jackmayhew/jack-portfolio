@@ -21,7 +21,7 @@ onMounted(() => {
         autoAlpha: 1,
         scrollTrigger: {
           trigger: img,
-          start: "top 60%",
+          start: "top 55%",
           end: "top 10%",
           scrub: true,
           toggleActions: "play none none reverse",
