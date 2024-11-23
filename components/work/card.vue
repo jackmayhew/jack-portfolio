@@ -6,7 +6,7 @@
       <time class="mt-4 sm:mt-8 text-lg text-gray-400" :datetime="project.date">{{ project.date }}</time>
       <h2 class="mt-2 text-2xl sm:text-4xl font-semibold">{{ project.title }}</h2>
       <p class="my-2 text-xl sm:text-2xl">{{ project.desc }}</p>
-      <p class="my-2 text-lg font-semibold">{{ project.stack }}</p>
+      <p class="my-2 text-lg ">{{ project.stack }}</p>
       <div class="flex gap-4 mt-4">
         <a class="btn flex items-center gap-2 w-fit text-white text-xl font-bold py-2 px-4 rounded" :href="project.url" target="_blank" rel="noopener">
         Visit

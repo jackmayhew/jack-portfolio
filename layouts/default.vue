@@ -11,7 +11,6 @@
 </template>
 
 <script setup>
-import { setupHead } from '~/composables/useHead.js'
 import gsap from 'gsap'
 const route = useRoute();
 
