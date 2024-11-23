@@ -118,5 +118,5 @@ body,
 }
 
 .locked {
-  overflow: hidden !important;
+  overflow: hidden;
 }

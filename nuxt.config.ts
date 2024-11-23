@@ -2,12 +2,7 @@ export default defineNuxtConfig({
   compatibilityDate: "2024-04-03",
   ssr: false,
   devtools: { enabled: true },
-  modules: [
-    "@nuxtjs/tailwindcss",
-    "@nuxt/icon",
-    "@nuxt/image",
-    "@nuxtjs/color-mode",
-  ],
+  modules: ["@nuxtjs/tailwindcss", "@nuxt/icon", "@nuxt/image", "@nuxtjs/color-mode", "nuxt-gtag"],
   components: [
     {
       path: "~/components",
@@ -41,6 +36,9 @@ export default defineNuxtConfig({
       EMAILJS_TEMPLATE_ID: process.env.EMAILJS_TEMPLATE_ID,
       EMAILJS_PUBLIC_KEY: process.env.EMAILJS_PUBLIC_KEY,
     },
+  },
+  gtag: {
+    id: 'G-FRSCKR2CD'
   },
 
 });

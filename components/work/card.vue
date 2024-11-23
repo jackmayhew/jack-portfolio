@@ -1,6 +1,7 @@
 <template>
   <div class="mb-28">
-    <NuxtImg class="work-img w-full h-full rounded-2xl opacity-0 invisible bg-light-bg dark:bg-dark-bg" :src="project.image" :alt="project.title" loading="lazy" width="800" height="510" />
+    <NuxtImg class="work-img w-full h-full rounded-2xl opacity-0 invisible bg-light-bg dark:bg-dark-bg"
+      :src="project.image" :alt="project.title" loading="lazy" width="800" height="510" />
     <div class="work-text py-6 sticky bottom-0">
       <time class="mt-4 sm:mt-8 text-lg text-gray-400" :datetime="project.date">{{ project.date }}</time>
       <h2 class="mt-2 text-2xl sm:text-4xl font-semibold">{{ project.title }}</h2>
