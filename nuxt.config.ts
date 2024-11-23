@@ -38,7 +38,7 @@ export default defineNuxtConfig({
     },
   },
   gtag: {
-    id: 'G-FRSCKR2CD'
+    id: 'G-FRSCKR2CDP'
   },
 
 });

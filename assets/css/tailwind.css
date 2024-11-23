@@ -64,7 +64,7 @@ input:-webkit-autofill:active {
   display: block;
 }
 
-/* navbar links. should move this into the component maybe */
+/* navbar links, should move this into the component maybe */
 .link {
   position: relative;
   height: 1.125rem;
