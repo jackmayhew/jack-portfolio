@@ -16,7 +16,7 @@ export default defineNuxtConfig({
     },
     head: {
       script: [
-        {'src': 'js/SplitText.js', tagPosition: 'bodyClose'},
+        {'src': '/js/SplitText.js', tagPosition: 'bodyClose'},
       ],
       link: [
         // preloads

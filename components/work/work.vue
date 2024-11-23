@@ -6,7 +6,7 @@
 </template>
 
 <script setup>
-import { projects } from "@/data/projects";
+import { projects } from "~/data/projectCards";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 

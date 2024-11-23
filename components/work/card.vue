@@ -7,10 +7,16 @@
       <h2 class="mt-2 text-2xl sm:text-4xl font-semibold">{{ project.title }}</h2>
       <p class="my-2 text-xl sm:text-2xl">{{ project.desc }}</p>
       <p class="my-2 text-lg font-semibold">{{ project.stack }}</p>
-      <a class="flex items-center gap-2 mt-4 w-fit" :href="project.url" target="_blank" rel="noopener">
-        <Icon name="tabler:link" size="32" />
-        <span class="text-xl font-semibold">Visit</span>
+      <div class="flex gap-4 mt-4">
+        <a class="btn flex items-center gap-2 w-fit text-white text-xl font-bold py-2 px-4 rounded" :href="project.url" target="_blank" rel="noopener">
+        Visit
+        <Icon name="tabler:link" size="22" />
       </a>
+      <NuxtLink class="btn flex items-center gap-2 w-fit text-white text-xl font-bold py-2 px-4 rounded" :to="`/projects/${project.slug}`" >
+        Details
+        <Icon name="tabler:arrow-right" size="22" />
+      </NuxtLink>
+      </div>
     </div>
   </div>
 </template>

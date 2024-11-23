@@ -117,7 +117,6 @@ function toggleNav() {
 
 // close on browser navigation
 watch(() => route.path, () => {
-    console.log(menuIsOpen.value);
     if (menuIsOpen.value) {
         menuIsAnimating.value = false;
         toggleNav();

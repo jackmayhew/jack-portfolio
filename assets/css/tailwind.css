@@ -118,6 +118,23 @@ input:-webkit-autofill:active {
 html,
 body,
 .wrapper,
-.navbar {
+.navbar,
+.btn {
   transition: background-color 0.2s ease;
+}
+
+.btn {
+  background-color: #70a2e1;
+}
+
+.btn:hover {
+  background-color: #3c61e5;
+}
+
+.dark-mode .btn {
+  background-color: #1b1b1b;
+}
+
+.dark-mode .btn:hover {
+  background-color: #161616;
 }
