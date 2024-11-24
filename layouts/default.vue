@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper text-light-text dark:text-dark-text">
     <div class="mx-auto max-w-screen-md">
-      <Navbar />
+      <Navbar class="sticky top-0 z-[999]" />
       <div class="main-content px-6 mt-6 sm:mt-12">
         <NuxtPage />
         <Footer />
@@ -63,5 +63,10 @@ watch(() => route.path, () => {
 .wrapper {
   min-height: 100vh;
   height: 100%;
+}
+
+.wrapper {
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
 }
 </style>
