@@ -362,6 +362,4 @@ ul {
     opacity: 0 !important;
     pointer-events: none;
 }
-
-
 </style>

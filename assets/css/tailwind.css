@@ -18,6 +18,12 @@
 
 body {
   font-family: "regular", sans-serif;
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+}
+
+html {
+  height: -webkit-fill-available;
 }
 
 h1,
@@ -25,81 +31,13 @@ h1,
   font-family: "medium", sans-serif;
 }
 
-::selection {
-  background-color: #70a2e1;
+html,
+body,
+.wrapper,
+.navbar,
+.btn {
+  transition: background-color 0.2s ease;
 }
-
-::-moz-selection {
-  background-color: #70a2e1;
-}
-
-.dark-mode ::selection {
-  color: #121212;
-  -webkit-text-fill-color: #121212;
-}
-
-.dark-mode ::-moz-selection {
-  color: #121212;
-}
-
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-input:-webkit-autofill:active {
-  transition-delay: 9999s;
-  -webkit-text-fill-color: #131212;
-}
-
-.dark-mode :-webkit-autofill,
-.dark-mode input:-webkit-autofill:hover,
-.dark-mode input:-webkit-autofill:focus,
-.dark-mode input:-webkit-autofill:active {
-  transition-delay: 9999s;
-  -webkit-text-fill-color: #dddddd;
-}
-
-.hero__image {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* navbar links, should move this into the component maybe */
-.link {
-  position: relative;
-  height: 1.125rem;
-  line-height: 1.1rem;
-  display: block;
-}
-
-.link::before,
-.link::after {
-  position: absolute;
-  width: 100%;
-  height: 2px;
-  background: currentColor;
-  top: 100%;
-  left: 0;
-  pointer-events: none;
-}
-
-.link::before {
-  content: "";
-  transform-origin: 100% 50%;
-  transform: scale3d(0, 1, 1);
-  transition: transform 0.4s;
-}
-
-.link:hover::before {
-  transform-origin: 0% 50%;
-  transform: scale3d(1, 1, 1);
-}
-
-.router-link-active::before {
-  transform-origin: 0% 50%;
-  transform: scale3d(1, 1, 1);
-}
-
 
 html.light-mode {
   background-color: #fdfaf5;
@@ -109,24 +47,6 @@ html.light-mode {
 html.dark-mode {
   background-color: #121212;
   color-scheme: dark;
-}
-
-
-/* .dark-mode,
-.dark-mode body {
-  background-color: #121212;
-} */
-
-.locked {
-  overflow: hidden;
-}
-
-html,
-body,
-.wrapper,
-.navbar,
-.btn {
-  transition: background-color 0.2s ease;
 }
 
 .btn {
@@ -143,4 +63,22 @@ body,
 
 .dark-mode .btn:hover {
   background-color: #161616;
+}
+
+::selection {
+  background-color: #70a2e1;
+}
+
+::-moz-selection {
+  background-color: #70a2e1;
+}
+
+.dark-mode ::selection,
+.dark-mode ::-moz-selection {
+  color: #121212;
+  -webkit-text-fill-color: #121212;
+}
+
+.locked {
+  overflow: hidden;
 }

@@ -115,4 +115,16 @@ const messageStatusClass = computed(() => {
 });
 </script>
 
-<style scoped></style>
+<style scoped>
+/* prevent autofill styling */
+input:-webkit-autofill {
+    -webkit-text-fill-color: #131212;
+    transition: background-color 0s 9999999s;
+    box-shadow: 0 0 0 1000px #fff inset;
+}
+
+.dark-mode input:-webkit-autofill {
+    -webkit-text-fill-color: #dddddd;
+    box-shadow: 0 0 0 1000px #121212 inset;
+}
+</style>

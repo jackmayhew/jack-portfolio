@@ -9,7 +9,7 @@
     <p v-for="(paragraph, index) in project.paragraphs" :key="index" class="my-4 text-xl">
       {{ paragraph }}
     </p>
-    <p class="text-xl mb-4">Built with: {{ project.techStack }}</p>
+    <p class="text-xl mb-6">Built with: {{ project.techStack }}</p>
     <a class="btn flex items-center gap-2 w-fit text-white text-xl font-bold py-2 px-4 rounded" :href="project.url"
       target="_blank" rel="noopener">
       Visit
