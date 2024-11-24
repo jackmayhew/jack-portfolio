@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper text-light-text dark:text-dark-text">
+    <Navbar class="sticky top-0 z-[999] mx-auto max-w-screen-md" />
     <div class="mx-auto max-w-screen-md">
-      <Navbar class="sticky top-0 z-[999]" />
       <div class="main-content px-6 mt-6 sm:mt-12">
         <NuxtPage />
         <Footer />
