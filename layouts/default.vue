@@ -34,7 +34,7 @@ watch(() => route.path, () => {
   const context = gsap.context(() => {
     gsap.set(".footer", { y: 0, autoAlpha: 1 });
     gsap.timeline()
-      .to(".footer", { y: -10, autoAlpha: 0, duration: 0.2, ease: "power2.out" })
+      .to(".footer", { y: -15, autoAlpha: 0, duration: 0.3, ease: "power2.out" })
       .eventCallback("onComplete", () => {
         gsap.set(".footer", { y: 0, autoAlpha: 1 });
       });

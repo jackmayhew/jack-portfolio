@@ -1,5 +1,5 @@
 <template>
-  <main class="gsap-load">
+  <main>
     <button @click="goBack" class="py-2 absolute mt-[-35px]">
       <Icon name="tabler:arrow-left" size="22" />
     </button>
