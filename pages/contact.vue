@@ -13,5 +13,3 @@ useHead({
   title: 'Contact'
 })
 </script>
-
-<style></style>

@@ -37,5 +37,3 @@ useHead({
   title: project.title
 })
 </script>
-
-<style scoped></style>

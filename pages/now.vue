@@ -34,5 +34,3 @@ useHead({
   title: 'Now'
 })
 </script>
-
-<style scoped></style>

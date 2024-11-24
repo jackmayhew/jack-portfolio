@@ -33,5 +33,3 @@ const navigationLinks = [
   { path: '/contact', name: 'Contact' }
 ];
 </script>
-
-<style scoped></style>

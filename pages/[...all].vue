@@ -19,5 +19,3 @@ useHead({
     title: '404'
 })
 </script>
-
-<style scoped></style>

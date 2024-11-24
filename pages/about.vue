@@ -19,5 +19,3 @@ useHead({
   title: 'About'
 })
 </script>
-
-<style scoped></style>
