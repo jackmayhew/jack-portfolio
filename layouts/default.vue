@@ -49,36 +49,55 @@ onMounted(() => {
 //   return () => context.revert();
 // });
 </script>
-
 <style>
-.page-enter-active{
+.page-enter-active {
   transition: all 0.3s ease-out;
-  background-color: transparent;
 }
 
 .page-leave-active {
-  transition: all 0.15s ease-in;
-  background-color: transparent;
+  transition: all 0.15s ease-out;
 }
 
 .page-enter-from {
   opacity: 0;
-  transform: translateY(10px);
+  transform: translateY(15px);
 }
 
 .page-leave-to {
   opacity: 0;
-  transform: translateY(-10px);
+}
+
+.content-enter-active {
+  transition: all 0.3s ease-out;
+}
+
+.content-leave-active {
+  transition: all 0.15s ease-out;
+}
+
+.content-enter-from {
+  opacity: 0;
+  transform: translateY(15px);
+}
+
+.content-leave-to {
+  opacity: 0;
+}
+
+@media only screen and (max-width: 540px) {
+  .content-enter-active[data-from-mobile="true"] {
+    transition: all 0.3s ease-out .85s !important;
+  }
+}
+
+.hide__body {
+  opacity: 0;
+  visibility: hidden;
 }
 
 .main-content,
 .wrapper {
-  min-height: 100vh;
-  height: 100%;
-}
-
-.wrapper {
-  transform-style: preserve-3d;
-  backface-visibility: hidden;
+  min-height: 100vh !important;
+  height: 100% !important;
 }
 </style>
