@@ -103,10 +103,12 @@ input:-webkit-autofill:active {
 
 html.light-mode {
   background-color: #fdfaf5;
+  color-scheme: light;
 }
 
 html.dark-mode {
   background-color: #121212;
+  color-scheme: dark;
 }
 
 
