@@ -26,7 +26,7 @@
       <div class="mt-6 w-fit">
         <!-- <button class="flex px-6 py-2 rounded-lg border-2 border-neutral-200 dark:border-gray-700 transition-colors duration-300 hover:border-neutral-300">Submit</button> -->
         <button class="btn flex items-center gap-2 w-fit text-white text-xl py-2 px-4 rounded">
-        Visit
+        Send
         <Icon name="tabler:send" size="22" />
       </button>
       </div>
