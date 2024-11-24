@@ -5,7 +5,7 @@
     </button>
     <h1 class="text-5xl sm:text-6xl">{{ project.title }}</h1>
     <h2 class="mt-2 text-xl sm:text-2xl">{{ project.subtitle }}</h2>
-    <div class="my-6"><img class="hero-img w-full h-auto block rounded-3xl" :src="project.image" :alt="project.title" /></div>
+    <div class="my-6"><NuxtImg class="hero-img w-full h-auto block rounded-3xl" :src="project.image" :alt="project.title" width="800" height="510"/></div>
     <p v-for="(paragraph, index) in project.paragraphs" :key="index" class="my-4 text-xl">
       {{ paragraph }}
     </p>
