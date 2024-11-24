@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper bg-light-bg dark:bg-dark-bg text-light-text dark:text-dark-text">
+  <div class="wrapper  text-light-text dark:text-dark-text">
     <div class="mx-auto max-w-screen-md">
       <Navbar />
       <div class="main-content px-6 mt-6 sm:mt-12">

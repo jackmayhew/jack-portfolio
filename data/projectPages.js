@@ -32,7 +32,7 @@ export const projectDetails = [
     slug: "mtl-spots",
     subtitle: "A platform for skaters to share and find local skate spots.",
     paragraphs: {
-      1: `I built MTLSpots as a way for locals to share the city's best spots. Users can share by uploading photos, locations and details, making it easy for others to find spots around Montreal.`,
+      1: `MTL Spots is a platform for local skateboarders to share the city's best spots. Users can share by uploading photos, locations and details, making it easy for others to find spots around Montreal.`,
       2: `With an interactive map and a clean interface, finding a spot is simple.`,
     },
     techStack: "Next.js, TypeScript, SCSS, S3, MongoDB",

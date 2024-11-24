@@ -101,15 +101,19 @@ input:-webkit-autofill:active {
 }
 
 
-.light-mode,
-.light-mode body {
+html.light-mode {
   background-color: #fdfaf5;
 }
 
-.dark-mode,
-.dark-mode body {
+html.dark-mode {
   background-color: #121212;
 }
+
+
+/* .dark-mode,
+.dark-mode body {
+  background-color: #121212;
+} */
 
 .locked {
   overflow: hidden;
