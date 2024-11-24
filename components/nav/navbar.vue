@@ -1,5 +1,5 @@
 <template>
-  <header class="gsap-menu navbar px-6 sticky top-0 z-50 bg-light-bg dark:bg-dark-bg">
+  <header class="gsap-menu navbar px-6 bg-light-bg dark:bg-dark-bg">
     <nav class="py-4 mx-auto relative flex justify-between items-center">
       <NuxtLink to="/" class="nav-logo text-lg font-semibold z-10">
         Jack
