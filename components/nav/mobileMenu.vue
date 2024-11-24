@@ -156,7 +156,7 @@ onClickOutside(wrapper, event => {
     top: 100%;
     right: 0;
     transform-origin: top right;
-    z-index: 1000;
+    z-index: 998;
     border-radius: 1.5rem;
     opacity: 0;
     background-color: transparent;
@@ -181,7 +181,7 @@ onClickOutside(wrapper, event => {
     width: 100%;
     height: 100%;
     transform-origin: left center;
-    z-index: -1;
+    /* z-index: -1; */
     transform: scaleX(0);
 }
 
@@ -251,7 +251,7 @@ ul {
     border-radius: 9999px;
     width: 3rem;
     height: 3rem;
-    z-index: 1000;
+    z-index: 999;
     background-color: var(--menu-bg);
     transition: all .2s;
 }
@@ -291,7 +291,7 @@ ul {
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 1;
+    /* z-index: 1; */
     width: 100%;
     height: 100%;
     background-color: rgba(253, 250, 245, .8);

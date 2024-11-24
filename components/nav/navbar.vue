@@ -1,10 +1,10 @@
 <template>
-  <header class="gsap-menu navbar px-6 sticky top-0 bg-light-bg dark:bg-dark-bg z-50">
-    <nav class="py-4 mx-auto relative flex justify-between items-center naver">
-      <NuxtLink to="/" class="nav-logo text-lg font-semibold z-50">
+  <header class="gsap-menu navbar px-6 sticky top-0 bg-light-bg dark:bg-dark-bg z-[999]">
+    <nav class="py-4 mx-auto relative flex justify-between items-center">
+      <NuxtLink to="/" class="nav-logo text-lg font-semibold z-10">
         Jack
       </NuxtLink>
-      <ul class="flex items-center gap-4 sm:gap-6 ">
+      <ul class="flex items-center gap-4 sm:gap-6">
         <li v-for="link in navigationLinks" :key="link.path" class="hidden xs:block">
           <NuxtLink :to="link.path" class="link text-lg">
             {{ link.name }}
@@ -15,7 +15,7 @@
             GitHub
           </a>
         </li>
-        <li class="w-6 h-6 flex z-50">
+        <li class="w-6 h-6 flex z-10">
           <ClientOnly>
             <div :class="[colorMode.value === 'dark' ? 'dark' : 'light']" class="flex toggle">
               <button class="ignore-click" title="Toggle Theme" @click="toggleColorMode">
