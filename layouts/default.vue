@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper text-light-text dark:text-dark-text mx-auto max-w-screen-md">
-    <Navbar class="sticky top-0 z-[999]" />
+    <Navbar class="sticky top-0 z-[999] " />
       <div class="main-content px-6 mt-6 sm:mt-12">
         <NuxtPage />
         <Footer />
@@ -42,10 +42,16 @@ watch(() => route.path, () => {
 </script>
 
 <style>
-.page-enter-active,
-.page-leave-active {
-  transition: all 0.2s ease-out;
+.page-enter-active{
+  transition: all 0.3s ease-out;
+  background-color: transparent;
 }
+
+.page-leave-active {
+  transition: all 0.15s ease-in;
+  background-color: transparent;
+}
+
 
 .page-enter-from {
   opacity: 0;
