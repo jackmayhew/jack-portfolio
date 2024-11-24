@@ -29,7 +29,7 @@ onMounted(() => {
 })
 
 watch(() => route.path, () => {
-  // animate footer separately to match page transitons (since nuxt page transitons suck)
+  // animate footer separately to match page transitons
   // not a fan of this, but it works for now 
   const context = gsap.context(() => {
     gsap.set(".footer", { y: 0, autoAlpha: 1 });
@@ -44,10 +44,7 @@ watch(() => route.path, () => {
 </script>
 
 <style>
-.page-enter-active {
-  transition: all 0.2s ease-out;
-}
-
+.page-enter-active,
 .page-leave-active {
   transition: all 0.2s ease-out;
 }

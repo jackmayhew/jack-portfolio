@@ -2,7 +2,13 @@ export default defineNuxtConfig({
   compatibilityDate: "2024-04-03",
   ssr: false,
   devtools: { enabled: true },
-  modules: ["@nuxtjs/tailwindcss", "@nuxt/icon", "@nuxt/image", "@nuxtjs/color-mode", "nuxt-gtag"],
+  modules: [
+    "@nuxtjs/tailwindcss",
+    "@nuxt/icon",
+    "@nuxt/image",
+    "@nuxtjs/color-mode",
+    "nuxt-gtag",
+  ],
   components: [
     {
       path: "~/components",
@@ -11,24 +17,34 @@ export default defineNuxtConfig({
   ],
   app: {
     pageTransition: {
-      name: 'page',
-      mode: 'out-in',
+      name: "page",
+      mode: "out-in",
     },
     head: {
-      script: [
-        {'src': '/js/SplitText.js', tagPosition: 'bodyClose'},
-      ],
+      script: [{ src: "/js/SplitText.js", tagPosition: "bodyClose" }],
       link: [
         // preloads
         { rel: "preload", href: "/img/hero.webp", as: "image" },
-        { rel: "preload", href: "/fonts/StabilGrotesk-Regular.woff2", as: "font", type: "font/woff2", crossorigin: "anonymous" },
-        { rel: "preload", href: "/fonts/StabilGrotesk-Medium.woff2", as: "font", type: "font/woff2", crossorigin: "anonymous" },
+        {
+          rel: "preload",
+          href: "/fonts/StabilGrotesk-Regular.woff2",
+          as: "font",
+          type: "font/woff2",
+          crossorigin: "anonymous",
+        },
+        {
+          rel: "preload",
+          href: "/fonts/StabilGrotesk-Medium.woff2",
+          as: "font",
+          type: "font/woff2",
+          crossorigin: "anonymous",
+        },
       ],
     },
   },
   colorMode: {
-    preference: 'light',
-    fallback: 'light'
+    preference: "light",
+    fallback: "light",
   },
   runtimeConfig: {
     public: {
@@ -38,7 +54,6 @@ export default defineNuxtConfig({
     },
   },
   gtag: {
-    id: 'G-FRSCKR2CDP'
+    id: "G-FRSCKR2CDP",
   },
-
 });
