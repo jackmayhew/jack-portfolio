@@ -1,10 +1,19 @@
 <template>
-  <div class="wrapper text-light-text dark:text-dark-text mx-auto max-w-screen-md">
+  <!-- <div class="wrapper text-light-text dark:text-dark-text mx-auto max-w-screen-md">
     <Navbar class="sticky top-0 z-[999] " />
       <div class="main-content px-6 mt-6 sm:mt-12">
         <NuxtPage />
         <Footer />
       </div>
+  </div> -->
+  <div class="wrapper mx-auto max-w-screen-md bg-light-bg dark:bg-dark-bg text-light-text dark:text-dark-text">
+    <Navbar />
+    <Transition name="content" mode="out-in">
+      <div class="main-content px-6 mt-6 sm:mt-12"  >
+        <NuxtPage  />
+        <Footer />
+      </div>
+    </Transition>
   </div>
 </template>
 
@@ -26,19 +35,19 @@ onMounted(() => {
   return () => context.revert();
 })
 
-watch(() => route.path, () => {
-  // animate footer separately to match page transitons
-  // not a fan of this, but it works for now 
-  const context = gsap.context(() => {
-    gsap.set(".footer", { y: 0, autoAlpha: 1 });
-    gsap.timeline()
-      .to(".footer", { y: -15, autoAlpha: 0, duration: 0.3, ease: "power2.out" })
-      .eventCallback("onComplete", () => {
-        gsap.set(".footer", { y: 0, autoAlpha: 1 });
-      });
-  });
-  return () => context.revert();
-});
+// watch(() => route.path, () => {
+//   // animate footer separately to match page transitons
+//   // not a fan of this, but it works for now 
+//   const context = gsap.context(() => {
+//     gsap.set(".footer", { y: 0, autoAlpha: 1 });
+//     gsap.timeline()
+//       .to(".footer", { y: -15, autoAlpha: 0, duration: 0.3, ease: "power2.out" })
+//       .eventCallback("onComplete", () => {
+//         gsap.set(".footer", { y: 0, autoAlpha: 1 });
+//       });
+//   });
+//   return () => context.revert();
+// });
 </script>
 
 <style>
@@ -51,7 +60,6 @@ watch(() => route.path, () => {
   transition: all 0.15s ease-in;
   background-color: transparent;
 }
-
 
 .page-enter-from {
   opacity: 0;
