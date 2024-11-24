@@ -1,8 +1,10 @@
 <template>
   <main>
-    <button @click="goBack" class="absolute mt-[-22px] flex">
-      <Icon name="tabler:arrow-left" size="22" />
-    </button>
+    <div>
+      <button @click="goBack" class="absolute mt-[-25px] flex">
+        <Icon name="tabler:arrow-left" size="22" />
+      </button>
+    </div>
     <div v-if="!project">
       <h1 class="text-5xl sm:text-6xl">Project Not Found</h1>
       <p class="mt-2 text-xl">Sorry, couldn't find the project you're looking for.</p>
