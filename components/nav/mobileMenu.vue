@@ -291,9 +291,10 @@ ul {
     position: fixed;
     top: 0;
     left: 0;
-    /* z-index: 1; */
+    z-index: 1;
     width: 100%;
     height: 100%;
+    min-height: 100vh;
     background-color: rgba(253, 250, 245, .8);
     opacity: 0;
     transition: opacity .2s linear;
