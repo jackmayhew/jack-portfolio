@@ -8,11 +8,11 @@
       <p class="my-2 text-xl sm:text-2xl">{{ project.desc }}</p>
       <p class="my-2 text-lg ">{{ project.stack }}</p>
       <div class="flex gap-4 mt-4">
-        <a class="btn flex items-center gap-2 w-fit text-white text-xl font-bold py-2 px-4 rounded" :href="project.url" target="_blank" rel="noopener">
+        <a class="btn flex items-center gap-2 w-fit text-white text-xl py-2 px-4 rounded" :href="project.url" target="_blank" rel="noopener">
         Visit
         <Icon name="tabler:link" size="22" />
       </a>
-      <NuxtLink class="btn flex items-center gap-2 w-fit text-white text-xl font-bold py-2 px-4 rounded" :to="`/projects/${project.slug}`" >
+      <NuxtLink class="btn flex items-center gap-2 w-fit text-white text-xl py-2 px-4 rounded" :to="`/projects/${project.slug}`" >
         Details
         <Icon name="tabler:arrow-right" size="22" />
       </NuxtLink>

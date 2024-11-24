@@ -1,11 +1,11 @@
 <!-- still a wip - need to clean up, new colours, and might just keep css instead of using tailwind -->
 <template>
     <div class="nav-menu">
-        <div ref="wrapper" class="nav-wrapper" :class="menuIsOpen || menuIsAnimating ? '' : 'menu-disabled'">
+        <div ref="wrapper" class="nav-wrapper" :class="menuIsOpen ? '' : 'menu-disabled'">
             <div ref="wrapperInner" class="nav-wrapper-inner">
                 <ul ref="wrapperList">
                     <li v-for="(link, index) in navigationLinks" :key="index" class="nav-item menu-item">
-                        <NuxtLink :to="link.path" @click="toggleNav" :class="menuIsAnimating ? 'disable' : 'menu-active'">
+                        <NuxtLink :to="link.path" @click="toggleNav">
                             {{ link.name }}
                         </NuxtLink>
                     </li>
@@ -47,6 +47,7 @@ const wrapperList = ref(null);
 
 const menuHeight = ref(null);
 const menuIsOpen = ref(false);
+const currentAnimation = ref(null);
 const menuIsAnimating = ref(false);
 const hamburgerToggle = ref(false);
 
@@ -58,61 +59,69 @@ const navigationLinks = [
 ];
 
 function toggleNav() {
-    if (menuIsAnimating.value) return;
-    menuIsAnimating.value = true;
+   if (currentAnimation.value) {
+       currentAnimation.value.kill();
+   }
 
-    const timeline = gsap.timeline({onComplete: () => (menuIsAnimating.value = false)});
-    
-    if (!menuHeight.value) menuHeight.value = wrapperInner.value.offsetHeight;
+   menuIsAnimating.value = true;
 
-    if (menuIsOpen.value) {
-        timeline.to(wrapperInner.value, { height: 0, y: -10, duration: 0.6, ease: 'expo.inOut' }, 0)
-            .to('.menu-overlay', { opacity: 0, duration: 0.6, ease: 'expo.inOut' }, 0)
-    }
-    else {
-        const wrapperHeight = menuHeight.value;
-        timeline
-            .set(wrapper.value, { height: wrapperHeight, opacity: 0, width: "100%" })
-            .set(wrapperInner.value, { y: "-3.5rem", scaleX: 0, width: "3rem", height: "3rem" })
-            .set('.menu-overlay', { opacity: 1, duration: .6 })
-            .set('.footer-bg', { width: "0" })
-            .to(wrapper.value, { opacity: 1, width: "100%" })
-            .to(wrapperInner.value, {
-                y: 0,
-                scaleX: 1,
-                height: wrapperHeight,
-                duration: .6,
-                ease: "expo.inOut",
-            }, 0)
-            .to(wrapperInner.value, {
-                width: "100%",
-                duration: .6,
-                ease: "expo.inOut",
-            }, .3)
-            .fromTo(
-                '.nav-item',
-                { opacity: 0, x: 60 },
-                {
-                    opacity: 1,
-                    x: 0,
-                    duration: (index) => 1 + index * 0.05,
-                    stagger: 0.1,
-                    ease: 'expo.out',
-                },
-                '-=0.4'
-            )
-            .to('.footer-bg', {
-                width: "100%",
-                duration: .8,
-                ease: "expo.inOut",
-            }, .3)
-    }
+   const timeline = gsap.timeline({
+       onComplete: () => {
+           menuIsAnimating.value = false;
+           currentAnimation.value = null;
+       }
+   });
+   currentAnimation.value = timeline;
 
-    menuIsOpen.value = !menuIsOpen.value;
-    hamburgerToggle.value = !hamburgerToggle.value;
-    document.body.classList.toggle('locked');
-    document.querySelector('.menu-overlay').classList.toggle('pointer-events-auto');
-    // document.querySelector('.hamburger-button').classList.toggle('active-hamburger');
+   if (!menuHeight.value) menuHeight.value = wrapperInner.value.offsetHeight;
+
+   if (menuIsOpen.value) {
+       timeline.to(wrapperInner.value, { height: 0, y: -10, duration: 0.6, ease: 'expo.inOut' }, 0)
+        .to('.menu-overlay', { opacity: 0, duration: 0.6, ease: 'expo.inOut' }, 0)
+   }
+   else {
+       const wrapperHeight = menuHeight.value;
+       timeline
+           .set(wrapper.value, { height: wrapperHeight, opacity: 0, width: "100%" })
+           .set(wrapperInner.value, { y: "-3.5rem", scaleX: 0, width: "3rem", height: "3rem" })
+           .set('.menu-overlay', { opacity: 1, duration: .6 })
+           .set('.footer-bg', { width: "0" })
+           .to(wrapper.value, { opacity: 1, width: "100%" })
+           .to(wrapperInner.value, {
+               y: 0,
+               scaleX: 1,
+               height: wrapperHeight,
+               duration: .6,
+               ease: "expo.inOut",
+           }, 0)
+           .to(wrapperInner.value, {
+               width: "100%",
+               duration: .6,
+               ease: "expo.inOut",
+           }, .3)
+           .fromTo(
+               '.nav-item',
+               { opacity: 0, x: 60 },
+               {
+                   opacity: 1,
+                   x: 0,
+                   duration: (index) => 1 + index * 0.05,
+                   stagger: 0.1,
+                   ease: 'expo.out',
+               },
+               '-=0.4'
+           )
+           .to('.footer-bg', {
+               width: "100%",
+               duration: .8,
+               ease: "expo.inOut",
+           }, .3)
+   }
+
+   menuIsOpen.value = !menuIsOpen.value;
+   hamburgerToggle.value = !hamburgerToggle.value;
+   document.body.classList.toggle('locked');
+   document.querySelector('.menu-overlay').classList.toggle('pointer-events-auto');
 }
 
 // close on browser navigation
@@ -121,12 +130,6 @@ watch(() => route.path, () => {
         menuIsAnimating.value = false;
         toggleNav();
     }
-});
-
-// disable logo 
-watch(() => menuIsAnimating.value, () => {
-    if(menuIsAnimating.value) document.querySelector('.nav-logo').classList.add('disabled');
-    else document.querySelector('.nav-logo').classList.remove('disabled');
 });
 
 onClickOutside(wrapper, event => {
@@ -359,7 +362,7 @@ ul {
 }
 
 .menu-disabled {
-    opacity: 0 !important;
+    /* opacity: 0 !important; */
     pointer-events: none;
 }
 </style>

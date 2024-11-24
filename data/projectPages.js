@@ -16,11 +16,11 @@ export const projectDetails = [
   {
     title: "CampVI",
     slug: "campvi",
-    subtitle: "The go-to camping resoruce for Vancouver Island.",
+    subtitle: "The go-to Vancouver Island camping resource.",
     paragraphs: {
       1: `As an avid camper frustrated with jumping between countless websites to plan trips, I built CampVI to solve a simple problem: finding the perfect campsite shouldn't be a hassle. The site brings together every type of camping spot on Vancouver Island - from provincial parks to hidden off-grid gems - all in one clean, modern interface.`,
-      2: `What started as a personal project has grown into a genuine resource for the island's outdoor community. With an interactive map, smart search, and detailed site info, CampVI helps adventurers spend less time planning and more time exploring.`,
-      3: `Getting messages from folks who've discovered their new favourite camping spots through the site has been cool.`,
+      2: `What started as a personal project has grown into a genuine resource for the island's outdoor community. With an interactive map, intuitive search features, and detailed site info, CampVI helps adventurers spend less time planning and more time exploring.`,
+      3: `Receiving messages from users who've discovered their new favourite camping spots through the site has been cool.`,
     },
     techStack: "Next.js, TypeScript, Sanity.io",
     image: "/img/work/campvi.webp",
