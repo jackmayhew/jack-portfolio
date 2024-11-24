@@ -145,7 +145,7 @@ onClickOutside(wrapper, event => {
     overflow: hidden;
     --menu-bg: #70a2e1;
     --menu-footer: #3c61e5;
-    --dark-menu-bg: #1b1b1b;
+    --dark-menu-bg: #1c1c1c;
     --dark-menu-footer: #161616;
 }
 
@@ -319,7 +319,7 @@ ul {
 }
 
 .dark-mode .hamburger-button {
-    background-color: #1b1b1b;
+    background-color: var(--dark-menu-bg);
 }
 
 .dark-mode .hamburger span {
