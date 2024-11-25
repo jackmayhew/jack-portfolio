@@ -91,5 +91,7 @@ const toggleColorMode = () => {
   top: 0;
   width: 100%;
   z-index: 100;
+  right: 0;
+  left: 0;
 }
 </style>

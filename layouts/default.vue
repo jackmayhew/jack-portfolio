@@ -1,6 +1,6 @@
 <template>
-  <div class="wrapper text-light-text dark:text-dark-text max-w-screen-md mx-auto">
-    <Navbar class="z-[100]" />
+  <div class="wrapper pt-[80px] sm:pt-[60px] text-light-text dark:text-dark-text max-w-screen-md mx-auto">
+    <Navbar class="z-[100] relative max-w-screen-md mx-auto" />
       <div class="main-content px-6 mt-6 sm:mt-12 invisible">
         <NuxtPage />
         <Footer />
@@ -42,7 +42,7 @@ watch(() => route.path, () => {
 </script>
 
 <style>
-/* .page-enter-active{
+.page-enter-active{
   transition: all 0.3s ease-out;
   z-index: -1;
 }
@@ -60,7 +60,7 @@ watch(() => route.path, () => {
 .page-leave-to {
   opacity: 0;
   transform: translateY(-10px);
-} */
+}
 
 .main-content,
 .wrapper {
