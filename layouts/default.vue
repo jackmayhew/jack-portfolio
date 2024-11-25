@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper pt-[80px] sm:pt-[60px] text-light-text dark:text-dark-text max-w-screen-md mx-auto">
+  <div class="wrapper max-w-screen-md mx-auto pt-[80px] sm:pt-[60px]">
     <Navbar class="z-[100] relative max-w-screen-md mx-auto" />
       <div class="main-content px-6 mt-6 sm:mt-12 invisible">
         <NuxtPage />

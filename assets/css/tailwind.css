@@ -43,12 +43,14 @@ html.light-mode {
   background-color: #fdfaf5;
   background: #fdfaf5;
   color-scheme: light;
+  color: #131212;
 }
 
 html.dark-mode {
   background-color: #121212;
   background: #121212;
   color-scheme: dark;
+  color: #DDDDDD;
 }
 
 .btn {
