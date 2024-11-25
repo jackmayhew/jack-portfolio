@@ -4,13 +4,28 @@
         <div ref="wrapper" class="nav-wrapper" :class="menuIsOpen ? '' : 'menu-disabled'">
             <div ref="wrapperInner" class="nav-wrapper-inner">
                 <ul ref="wrapperList">
-                    <li v-for="(link, index) in navigationLinks" :key="index" class="">
+                    <!-- <li v-for="(link, index) in navigationLinks" :key="index" class="">
                         <NuxtLink :to="link.path" @click="toggleNav" class="nav-item menu-item block">
                             {{ link.name }}
                         </NuxtLink>
+                    </li> -->
+                    <li class="">
+                        <a class="nav-item block" href="https://github.com/jackmayhew" target="_blank" rel="noopener" >
+                            GitHub
+                        </a>
                     </li>
                     <li class="">
-                        <a class="nav-item menu-item block" href="https://github.com/jackmayhew" target="_blank" rel="noopener" >
+                        <a class="nav-item block" href="https://github.com/jackmayhew" target="_blank" rel="noopener" >
+                            GitHub
+                        </a>
+                    </li>
+                    <li class="">
+                        <a class="nav-item block" href="https://github.com/jackmayhew" target="_blank" rel="noopener" >
+                            GitHub
+                        </a>
+                    </li>
+                    <li class="">
+                        <a class="nav-item block" href="https://github.com/jackmayhew" target="_blank" rel="noopener" >
                             GitHub
                         </a>
                     </li>
