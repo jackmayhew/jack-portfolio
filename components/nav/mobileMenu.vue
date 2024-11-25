@@ -106,6 +106,8 @@ function toggleNav() {
                 width: "100%",
                 duration: .6,
                 ease: "expo.inOut",
+                onStart: () => wrapperInner.value.style.pointerEvents = 'none',
+                onComplete: () => wrapperInner.value.style.pointerEvents = 'auto',
             }, .3)
             .to('.nav-item', {
                 opacity: 1,
@@ -159,10 +161,11 @@ onClickOutside(wrapper, event => {
     top: 100%;
     right: 0;
     transform-origin: top right;
-    z-index: 998;
+    z-index: 1;
     border-radius: 1.5rem;
     opacity: 0;
     background-color: transparent;
+    border: 1px solid red; 
 }
 
 .nav-wrapper-inner {
@@ -185,7 +188,6 @@ onClickOutside(wrapper, event => {
     width: 100%;
     height: 100%;
     transform-origin: left center;
-    /* z-index: -1; */
     transform: scaleX(0);
 }
 
@@ -255,7 +257,7 @@ ul {
     border-radius: 9999px;
     width: 3rem;
     height: 3rem;
-    z-index: 1000;
+    z-index: 3;
     background-color: var(--menu-bg);
     pointer-events: auto;
 }
@@ -296,7 +298,7 @@ ul {
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 1;
+    /* z-index: 1; */
     width: 100%;
     height: 100%;
     min-height: 100vh;
