@@ -118,7 +118,11 @@ function toggleNav() {
                 opacity: 1,
                 x: 0,
                 duration: 1,
-                ease: 'expo.out'
+                ease: 'expo.out',
+                onUpdate: () => {
+                    // Ensure button remains clickable during entire animation
+                    document.querySelector('.hamburger-button').style.pointerEvents = 'auto';
+                }
             }, .6)
             .to('.footer-bg', {
                 width: "100%",
