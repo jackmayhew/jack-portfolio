@@ -108,11 +108,17 @@ function toggleNav() {
                 duration: .6,
                 ease: "expo.inOut",
             }, .3)
+            // .to('.nav-item', {
+            //     opacity: 1,
+            //     // x: 0,
+            //     duration: (index) => 1 + index * 0.05,
+            //     stagger: 0.1,
+            //     ease: 'expo.out',
+            // }, '-=0.4')
             .to('.nav-item', {
                 opacity: 1,
                 // x: 0,
-                duration: 1,
-                stagger: 0.1,
+                duration: 4,
                 ease: 'expo.out',
             }, .6)
             .to('.footer-bg', {
