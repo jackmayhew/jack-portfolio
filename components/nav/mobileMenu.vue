@@ -120,7 +120,15 @@ function toggleNav() {
                 duration: 1,
                 stagger: 0.1,
                 ease: 'expo.out',
-            }, .6)
+                onStart: () => {
+                    document.querySelector('.navbar').style.pointerEvents = 'auto';
+                },
+                onUpdate: () => {
+                    document.querySelectorAll('.nav-item').forEach(item => {
+                        item.style.pointerEvents = 'auto';
+                    });
+                },
+            }, 0.6)
             .to('.footer-bg', {
                 width: "100%",
                 duration: .8,
@@ -211,6 +219,10 @@ ul {
 
 .menu-item:last-child {
     margin-bottom: 0;
+}
+
+.nav-item {
+    will-change: transform, opacity;
 }
 
 .nav-footer {
