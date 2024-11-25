@@ -32,7 +32,7 @@
                 </div>
             </div>
         </div>
-        <button class="hamburger-button" @click="toggleNav" aria-label="open mobile menu">
+        <button class="ignore-click hamburger-button" @click="toggleNav" aria-label="open mobile menu">
             <div class="hamburger" :class="{ open: hamburgerToggle }">
                 <span></span>
                 <span></span>
@@ -78,6 +78,7 @@ function toggleNav() {
             currentAnimation.value = null;
         }
     });
+
     currentAnimation.value = timeline;
 
     if (!menuHeight.value) menuHeight.value = wrapperInner.value.offsetHeight;
@@ -92,9 +93,9 @@ function toggleNav() {
             .set(wrapper.value, { height: wrapperHeight, opacity: 0, width: "100%" })
             .set(wrapperInner.value, { y: "-3.5rem", scaleX: 0, width: "3rem", height: "3rem" })
             .set('.menu-overlay', { opacity: 1, duration: .6 })
-            .set(".navbar", { pointerEvents: "auto" }, 0)
             .set('.nav-item', { opacity: 0, x: 60 })
             .set('.footer-bg', { width: "0" })
+            .to(".navbar", { pointerEvents: "auto" }, 0)
             .to(wrapper.value, { opacity: 1, width: "100%" })
             .to(wrapperInner.value, {
                 y: 0,
@@ -107,8 +108,6 @@ function toggleNav() {
                 width: "100%",
                 duration: .6,
                 ease: "expo.inOut",
-                onStart: () => wrapperInner.value.style.pointerEvents = 'none',
-                onComplete: () => wrapperInner.value.style.pointerEvents = 'auto',
             }, .3)
             .to('.nav-item', {
                 opacity: 1,
@@ -147,6 +146,10 @@ onClickOutside(wrapper, event => {
 </script>
 
 <style scoped>
+* {
+    border: 1px solid red !important;
+}
+
 .nav-menu {
     overflow: hidden;
     --menu-bg: #70a2e1;
