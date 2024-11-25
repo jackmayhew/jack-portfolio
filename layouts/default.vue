@@ -1,10 +1,12 @@
 <template>
   <div class="wrapper text-light-text dark:text-dark-text max-w-screen-md mx-auto">
-    <Navbar class="sticky top-0 z-[100]" />
-      <div class="main-content px-6 mt-6 sm:mt-12 invisible">
-        <NuxtPage />
-        <Footer />
-      </div>
+    <div class="navbar-wrapper sticky top-0 z-[100]">
+      <Navbar :key="route.fullPath" />
+    </div>
+    <div class="main-content px-6 mt-6 sm:mt-12">
+      <NuxtPage />
+      <Footer />
+    </div>
   </div>
 </template>
 
@@ -16,14 +18,14 @@ setupHead()
 
 onMounted(() => {
   // gsap animation for initial page load
-  const context = gsap.context(() => {
-    const timeline = gsap.timeline();
-    timeline
-      .fromTo(".main-content",
-        { y: 15, autoAlpha: 0 },
-        { y: 0, autoAlpha: 1, duration: 0.3, ease: "power2.out" }, 0.2)
-  });
-  return () => context.revert();
+  // const context = gsap.context(() => {
+  //   const timeline = gsap.timeline();
+  //   timeline
+  //     .fromTo(".main-content",
+  //       { y: 15, autoAlpha: 0 },
+  //       { y: 0, autoAlpha: 1, duration: 0.3, ease: "power2.out" }, 0.2)
+  // });
+  // return () => context.revert();
 })
 
 watch(() => route.path, () => {
@@ -67,4 +69,11 @@ watch(() => route.path, () => {
   min-height: 100vh;
   height: 100%;
 }
+
+.navbar-wrapper {
+  position: sticky;
+  top: 0;
+  background-color: inherit;
+}
+
 </style>
