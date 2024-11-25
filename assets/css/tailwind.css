@@ -52,19 +52,29 @@ html.dark-mode {
 }
 
 .btn {
-  background-color: #70a2e1;
+  /* background-color: #70a2e1; */
+  display: flex;
+  padding: 0.5rem 1.5rem; 
+  border-radius: 0.5rem; 
+  border: 2px solid #e5e5e5;
+  transition: color 300ms, background-color 300ms, border-color 300ms;
+  color: #131212;
 }
 
 .btn:hover {
-  background-color: #3c61e5;
+  /* background-color: #3c61e5; */
+  border: 2px solid #d4d4d4;
 }
 
 .dark-mode .btn {
   background-color: #1c1c1c;
+  border: 2px solid #1c1c1c;
+  color: #dddddd;
 }
 
 .dark-mode .btn:hover {
   background-color: #161616;
+  border: 2px solid #161616;
 }
 
 ::selection {
