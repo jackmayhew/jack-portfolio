@@ -32,7 +32,7 @@
                 </div>
             </div>
         </div>
-        <button class="ignore-click hamburger-button" @click="toggleNav" aria-label="open mobile menu">
+        <button class="hamburger-button" @click="toggleNav" aria-label="open mobile menu">
             <div class="hamburger" :class="{ open: hamburgerToggle }">
                 <span></span>
                 <span></span>
@@ -92,6 +92,7 @@ function toggleNav() {
             .set(wrapper.value, { height: wrapperHeight, opacity: 0, width: "100%" })
             .set(wrapperInner.value, { y: "-3.5rem", scaleX: 0, width: "3rem", height: "3rem" })
             .set('.menu-overlay', { opacity: 1, duration: .6 })
+            .set('.nav-item', { opacity: 0, x: 60 })
             .set('.footer-bg', { width: "0" })
             .to(wrapper.value, { opacity: 1, width: "100%" })
             .to(wrapperInner.value, {
@@ -108,20 +109,14 @@ function toggleNav() {
                 onStart: () => {
                     document.querySelector('.hamburger-button').style.pointerEvents = 'auto';
                 }
-                
             }, .3)
-            .fromTo(
-                '.nav-item',
-                { opacity: 0, x: 60 },
-                {
-                    opacity: 1,
-                    x: 0,
-                    duration: (index) => 1 + index * 0.05,
-                    stagger: 0.1,
-                    ease: 'expo.out',
-                },
-                '-=0.4'
-            )
+            .to('.nav-item', {
+                opacity: 1,
+                x: 0,
+                duration: (index) => 1 + index * 0.05,
+                stagger: 0.1,
+                ease: 'expo.out',
+            }, '-=0.4')
             .to('.footer-bg', {
                 width: "100%",
                 duration: .8,
