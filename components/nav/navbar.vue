@@ -6,7 +6,7 @@
       </NuxtLink>
       <ul class="flex items-center gap-4 sm:gap-6">
         <li v-for="link in navigationLinks" :key="link.path" class="hidden xs:block">
-          <NuxtLink :to="link.path" class="link text-lg">
+          <NuxtLink :to="link.path" class="link text-lg z-50">
             {{ link.name }}
           </NuxtLink>
         </li>
@@ -84,10 +84,5 @@ const toggleColorMode = () => {
 
 .disabled {
   pointer-events: none;
-}
-
-.navbar {
-  transform: translateZ(0);  
-  will-change: transform;
 }
 </style>

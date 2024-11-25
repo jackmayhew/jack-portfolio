@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper text-light-text dark:text-dark-text max-w-screen-md mx-auto">
-    <Navbar class="sticky top-0 z-[999]" />
-      <div class="main-content px-6 mt-6 sm:mt-12">
+    <Navbar class="sticky top-0 z-[100]" />
+      <div class="main-content px-6 mt-6 sm:mt-12 invisible">
         <NuxtPage />
         <Footer />
       </div>
@@ -44,12 +44,12 @@ watch(() => route.path, () => {
 <style>
 .page-enter-active{
   transition: all 0.3s ease-out;
-  background-color: transparent;
+  z-index: -1;
 }
 
 .page-leave-active {
   transition: all 0.15s ease-in;
-  background-color: transparent;
+  z-index: -1;
 }
 
 .page-enter-from {
@@ -66,10 +66,5 @@ watch(() => route.path, () => {
 .wrapper {
   min-height: 100vh;
   height: 100%;
-}
-
-.wrapper {
-  transform-style: preserve-3d;
-  backface-visibility: hidden;
 }
 </style>

@@ -1,10 +1,12 @@
 <template>
-  <p class="band intro pb-1 text-4xl sm:text-5xl invisible">
-    Just a guy who enjoys building cool things for the web and beyond.
-    Currently living and working in Montreal.
-  </p>
-  <div class="mt-6">
-    <img class="hero-img w-full h-auto block rounded-3xl" src="/img/hero.webp" alt="Jack at computer" rel="preload" />
+  <div class="hero sm:min-h-screen">
+    <p class="band intro pb-1 text-4xl sm:text-5xl invisible">
+      Just a guy who enjoys building cool things for the web and beyond.
+      Currently living and working in Montreal.
+    </p>
+    <div class="mt-6">
+      <img class="hero-img w-full h-auto block rounded-3xl invisible" src="/img/hero.webp" alt="Jack at computer" />
+    </div>
   </div>
 </template>
 
