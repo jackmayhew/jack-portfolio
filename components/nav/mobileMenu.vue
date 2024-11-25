@@ -66,8 +66,9 @@ const navigationLinks = [
 ];
 
 function toggleNav() {
+    // If animation is in progress, force close the menu
     if (currentAnimation.value) {
-        currentAnimation.value.kill();
+        currentAnimation.value.progress(1).kill();
     }
 
     menuIsAnimating.value = true;
@@ -121,10 +122,10 @@ function toggleNav() {
             }, .3)
     }
 
-    // menuIsOpen.value = !menuIsOpen.value;
-    // hamburgerToggle.value = !hamburgerToggle.value;
-    // document.body.classList.toggle('locked');
-    // document.querySelector('.menu-overlay').classList.toggle('pointer-events-auto');
+    menuIsOpen.value = !menuIsOpen.value;
+    hamburgerToggle.value = !hamburgerToggle.value;
+    document.body.classList.toggle('locked');
+    document.querySelector('.menu-overlay').classList.toggle('pointer-events-auto');
 }
 
 // close on browser navigation
