@@ -121,7 +121,7 @@ function toggleNav() {
    menuIsOpen.value = !menuIsOpen.value;
    hamburgerToggle.value = !hamburgerToggle.value;
    document.body.classList.toggle('locked');
-   document.querySelector('.menu-overlay').classList.toggle('pointer-events-auto');
+//    document.querySelector('.menu-overlay').classList.toggle('pointer-events-auto');
 }
 
 // close on browser navigation
@@ -251,7 +251,7 @@ ul {
     border-radius: 9999px;
     width: 3rem;
     height: 3rem;
-    z-index: 999;
+    z-index: 1000;
     background-color: var(--menu-bg);
     transition: all .2s;
 }
@@ -298,7 +298,7 @@ ul {
     background-color: rgba(253, 250, 245, .8);
     opacity: 0;
     transition: opacity .2s linear;
-    pointer-events: none;
+    pointer-events: none !important;
     will-change: opacity;
 }
 

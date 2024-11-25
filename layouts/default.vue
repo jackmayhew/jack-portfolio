@@ -1,7 +1,7 @@
 <template>
-  <div class="wrapper max-w-screen-md mx-auto pt-[80px] sm:pt-[60px]">
-    <Navbar class="z-[100] relative max-w-screen-md mx-auto" />
-      <div class="main-content px-6 mt-6 sm:mt-12 invisible">
+  <div class="wrapper max-w-screen-md mx-auto">
+    <Navbar class="relative max-w-screen-md mx-auto" />
+      <div class="main-content px-6 mt-6 sm:mt-12 invisible pt-[80px] sm:pt-[60px]">
         <NuxtPage />
         <Footer />
       </div>
@@ -27,7 +27,7 @@ onMounted(() => {
 })
 
 watch(() => route.path, () => {
-  // animate footer separately to match page transitons
+  // animate footer separately to match nuxt page transitons
   // not a fan of this, but it works for now 
   const context = gsap.context(() => {
     gsap.set(".footer", { y: 0, autoAlpha: 1 });
