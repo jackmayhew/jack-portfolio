@@ -93,5 +93,6 @@ const toggleColorMode = () => {
   z-index: 10;
   right: 0;
   left: 0;
+  pointer-events: auto !important;
 }
 </style>

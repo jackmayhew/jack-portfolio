@@ -92,6 +92,7 @@ function toggleNav() {
             .set(wrapper.value, { height: wrapperHeight, opacity: 0, width: "100%" })
             .set(wrapperInner.value, { y: "-3.5rem", scaleX: 0, width: "3rem", height: "3rem" })
             .set('.menu-overlay', { opacity: 1, duration: .6 })
+            .set(".navbar", { pointerEvents: "auto" }, 0)
             .set('.nav-item', { opacity: 0, x: 60 })
             .set('.footer-bg', { width: "0" })
             .to(wrapper.value, { opacity: 1, width: "100%" })
@@ -165,7 +166,6 @@ onClickOutside(wrapper, event => {
     border-radius: 1.5rem;
     opacity: 0;
     background-color: transparent;
-    border: 1px solid red; 
 }
 
 .nav-wrapper-inner {
