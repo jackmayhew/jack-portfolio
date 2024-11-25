@@ -1,6 +1,7 @@
 <!-- still a wip - need to clean up, new colours, and might just keep css instead of using tailwind -->
 <template>
     <div class="nav-menu">
+        {{ counter }}
         <div ref="wrapper" class="nav-wrapper" :class="menuIsOpen ? '' : 'menu-disabled'">
             <div ref="wrapperInner" class="nav-wrapper-inner">
                 <ul ref="wrapperList">
@@ -51,6 +52,8 @@ const currentAnimation = ref(null);
 const menuIsAnimating = ref(false);
 const hamburgerToggle = ref(false);
 
+const counter = ref(0);
+
 const navigationLinks = [
     { name: 'Home', path: '/' },
     { name: 'About', path: '/about' },
@@ -59,6 +62,8 @@ const navigationLinks = [
 ];
 
 function toggleNav() {
+
+    counter.value++;
    if (currentAnimation.value) {
        currentAnimation.value.kill();
    }
@@ -298,7 +303,7 @@ ul {
     background-color: rgba(253, 250, 245, .8);
     opacity: 0;
     transition: opacity .2s linear;
-    /* pointer-events: none; */
+    pointer-events: none;
     will-change: opacity;
 }
 
