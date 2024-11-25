@@ -42,7 +42,7 @@ watch(() => route.path, () => {
 </script>
 
 <style>
-.page-enter-active{
+/* .page-enter-active{
   transition: all 0.3s ease-out;
   z-index: -1;
 }
@@ -60,7 +60,7 @@ watch(() => route.path, () => {
 .page-leave-to {
   opacity: 0;
   transform: translateY(-10px);
-}
+} */
 
 .main-content,
 .wrapper {
