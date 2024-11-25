@@ -54,7 +54,7 @@ html.dark-mode {
 .btn {
   /* background-color: #70a2e1; */
   display: flex;
-  padding: 0.5rem 1.5rem; 
+  padding: 0.5rem 1.25rem; 
   border-radius: 0.5rem; 
   border: 2px solid #e5e5e5;
   transition: color 300ms, background-color 300ms, border-color 300ms;

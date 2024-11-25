@@ -1,7 +1,7 @@
 <template>
   <header class="gsap-menu navbar px-6 bg-light-bg dark:bg-dark-bg">
     <nav class="py-4 mx-auto relative flex justify-between items-center">
-      <NuxtLink to="/" class="nav-logo text-lg font-semibold z-10">
+      <NuxtLink to="/" class="nav-logo text-xl font-semibold z-10">
         Jack
       </NuxtLink>
       <ul class="flex items-center gap-4 sm:gap-6">

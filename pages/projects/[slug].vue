@@ -7,7 +7,7 @@
     </div>
     <div v-if="!project">
       <h1 class="text-5xl sm:text-6xl">Project Not Found</h1>
-      <p class="mt-2 text-xl">Sorry, couldn't find the project you're looking for.</p>
+      <p class="mt-2 text-xl">Sorry, couldn't find that project.</p>
       <button @click="goBack" class="btn flex items-center gap-2 mt-4 text-white text-xl py-2 px-4 rounded">
         <Icon name="tabler:arrow-left" size="22" />
         Go Back
