@@ -117,10 +117,10 @@ function toggleNav() {
             .to('.nav-item', {
                 opacity: 1,
                 x: 0,
-                duration: 1,
+                duration: (index) => 1 + index * 0.05,
                 stagger: 0.1,
                 ease: 'expo.out',
-            }, '-=0.4')
+            }, .4)
             .to('.footer-bg', {
                 width: "100%",
                 duration: .8,
