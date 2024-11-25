@@ -4,13 +4,13 @@
         <div ref="wrapper" class="nav-wrapper" :class="menuIsOpen ? '' : 'menu-disabled'">
             <div ref="wrapperInner" class="nav-wrapper-inner">
                 <ul ref="wrapperList">
-                    <li v-for="(link, index) in navigationLinks" :key="index" class="nav-item menu-item">
-                        <NuxtLink :to="link.path" @click="toggleNav">
+                    <li v-for="(link, index) in navigationLinks" :key="index" class="">
+                        <NuxtLink :to="link.path" @click="toggleNav" class="nav-item menu-item block">
                             {{ link.name }}
                         </NuxtLink>
                     </li>
-                    <li class="nav-item menu-item">
-                        <a href="https://github.com/jackmayhew" target="_blank" rel="noopener">
+                    <li class="">
+                        <a class="nav-item menu-item block" href="https://github.com/jackmayhew" target="_blank" rel="noopener" >
                             GitHub
                         </a>
                     </li>
@@ -114,11 +114,11 @@ function toggleNav() {
                 stagger: 0.1,
                 ease: 'expo.out',
             }, '-=0.4')
-            // .to('.footer-bg', {
-            //     width: "100%",
-            //     duration: .8,
-            //     ease: "expo.inOut",
-            // }, .3)
+            .to('.footer-bg', {
+                width: "100%",
+                duration: .8,
+                ease: "expo.inOut",
+            }, .3)
     }
 
     menuIsOpen.value = !menuIsOpen.value;
@@ -206,10 +206,10 @@ ul {
     margin-bottom: 0;
 }
 
-.nav-item {
+/* .nav-item {
     will-change: transform, opacity;
     transform: translateZ(0);
-}
+} */
 
 .nav-footer {
     display: flex;
