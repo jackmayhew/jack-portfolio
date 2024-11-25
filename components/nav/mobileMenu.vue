@@ -115,17 +115,11 @@ function toggleNav() {
             //     ease: 'expo.out',
             // }, '-=0.4')
             .to('.nav-item', {
-    opacity: 1,
-    x: 0,
-    duration: 1,
-    stagger: 0.1,
-    ease: 'expo.out',
-    onUpdate: () => {
-        document.querySelectorAll('.nav-item').forEach(item => {
-            item.style.pointerEvents = 'auto';
-        });
-    },
-}, 0.6)
+                opacity: 1,
+                x: 0,
+                duration: 1,
+                ease: 'expo.out',
+            }, 0.6)
             .to('.footer-bg', {
                 width: "100%",
                 duration: .8,
@@ -220,7 +214,7 @@ ul {
 
 .nav-item {
     will-change: transform, opacity;
-    transform: translateZ(0); 
+    transform: translateZ(0);
 }
 
 .nav-footer {
