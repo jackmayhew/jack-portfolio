@@ -40,7 +40,6 @@
         </button>
         <button>close</button>
     </div>
-    <button class="menu-overlay" @click="closeNav"></button>
 </template>
 
 <script setup>
@@ -66,11 +65,6 @@ const navigationLinks = [
     { name: 'Contact', path: '/contact' },
 ];
 
-function closeNav() {
-    if (currentAnimation.value) {
-        currentAnimation.value.kill();
-    }
-}
 function toggleNav() {
     if (currentAnimation.value) {
         currentAnimation.value.kill();
