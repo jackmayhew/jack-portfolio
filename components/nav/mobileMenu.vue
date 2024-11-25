@@ -92,7 +92,7 @@ function toggleNav() {
             .set(wrapper.value, { height: wrapperHeight, opacity: 0, width: "100%" })
             .set(wrapperInner.value, { y: "-3.5rem", scaleX: 0, width: "3rem", height: "3rem" })
             .set('.menu-overlay', { opacity: 1, duration: .6 })
-            .set('.nav-item', { opacity: 0, marginLeft: 60 })
+            .set('.nav-item', { opacity: 0, x: 60 })
             .set('.footer-bg', { width: "0" })
             .to(wrapper.value, { opacity: 1, width: "100%" })
             .to(wrapperInner.value, {
@@ -115,14 +115,13 @@ function toggleNav() {
             //     ease: 'expo.out',
             // }, '-=0.4')
             .to('.nav-item', {
-                opacity: 1,
-                marginLeft: 0,
-                duration: 1,
-                ease: 'expo.out',
-                onUpdate: () => {
-                    document.querySelector('.navbar').style.pointerEvents = 'auto';
-                },
-            }, 0.6)
+    opacity: 1,
+    x: 0,
+    duration: 0.5,  // Fixed duration instead of function
+    stagger: 0.05,  // Reduced stagger time
+    ease: 'expo.out',
+    immediateRender: false  // Prevent pre-rendering
+}, '-=0.4')
             .to('.footer-bg', {
                 width: "100%",
                 duration: .8,
