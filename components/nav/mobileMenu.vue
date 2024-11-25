@@ -66,9 +66,8 @@ const navigationLinks = [
 ];
 
 function toggleNav() {
-    // If animation is in progress, force close the menu
     if (currentAnimation.value) {
-        currentAnimation.value.progress(1).kill();
+        currentAnimation.value.kill();
     }
 
     menuIsAnimating.value = true;
@@ -136,12 +135,12 @@ watch(() => route.path, () => {
     }
 });
 
-onClickOutside(wrapper, event => {
-    if (event.target.closest('.ignore-click')) return;
-    if (!menuIsOpen.value || menuIsAnimating.value) return;
-    menuIsAnimating.value = false;
-    toggleNav();
-})
+// onClickOutside(wrapper, event => {
+//     if (event.target.closest('.ignore-click')) return;
+//     if (!menuIsOpen.value || menuIsAnimating.value) return;
+//     menuIsAnimating.value = false;
+//     toggleNav();
+// })
 </script>
 
 <style scoped>
