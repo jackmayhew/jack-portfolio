@@ -17,7 +17,7 @@
                 </ul>
                 <div class="nav-footer">
                     <div class="footer-bg"></div>
-                    <div class="nav-item nav-footer-icons">
+                    <!-- <div class="nav-item nav-footer-icons">
                         <a href="mailto:jackmayhew5@gmail.com" aria-label="email">
                             <Icon name="tabler:mail" size="36" />
                         </a>
@@ -28,7 +28,7 @@
                             aria-label="linkedin">
                             <Icon name="tabler:brand-linkedin" size="36" />
                         </a>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
