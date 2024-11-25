@@ -4,35 +4,20 @@
         <div ref="wrapper" class="nav-wrapper" :class="menuIsOpen ? '' : 'menu-disabled'">
             <div ref="wrapperInner" class="nav-wrapper-inner">
                 <ul ref="wrapperList">
-                    <!-- <li v-for="(link, index) in navigationLinks" :key="index" class="">
+                    <li v-for="(link, index) in navigationLinks" :key="index" class="">
                         <NuxtLink :to="link.path" @click="toggleNav" class="nav-item menu-item block">
                             {{ link.name }}
                         </NuxtLink>
-                    </li> -->
-                    <li class="">
-                        <a class="nav-item block" href="https://github.com/jackmayhew" target="_blank" rel="noopener" >
-                            GitHub
-                        </a>
                     </li>
                     <li class="">
-                        <a class="nav-item block" href="https://github.com/jackmayhew" target="_blank" rel="noopener" >
-                            GitHub
-                        </a>
-                    </li>
-                    <li class="">
-                        <a class="nav-item block" href="https://github.com/jackmayhew" target="_blank" rel="noopener" >
-                            GitHub
-                        </a>
-                    </li>
-                    <li class="">
-                        <a class="nav-item block" href="https://github.com/jackmayhew" target="_blank" rel="noopener" >
+                        <a class="nav-item menu-item block" href="https://github.com/jackmayhew" target="_blank" rel="noopener" >
                             GitHub
                         </a>
                     </li>
                 </ul>
                 <div class="nav-footer">
                     <div class="footer-bg"></div>
-                    <!-- <div class="nav-item nav-footer-icons">
+                    <div class="nav-item nav-footer-icons">
                         <a href="mailto:jackmayhew5@gmail.com" aria-label="email">
                             <Icon name="tabler:mail" size="36" />
                         </a>
@@ -43,7 +28,7 @@
                             aria-label="linkedin">
                             <Icon name="tabler:brand-linkedin" size="36" />
                         </a>
-                    </div> -->
+                    </div>
                 </div>
             </div>
         </div>
@@ -107,7 +92,7 @@ function toggleNav() {
             .set(wrapper.value, { height: wrapperHeight, opacity: 0, width: "100%" })
             .set(wrapperInner.value, { y: "-3.5rem", scaleX: 0, width: "3rem", height: "3rem" })
             .set('.menu-overlay', { opacity: 1, duration: .6 })
-            .set('.nav-item', { opacity: 0, x: 60 })
+            // .set('.nav-item', { opacity: 0, x: 60 })
             .set('.footer-bg', { width: "0" })
             .to(wrapper.value, { opacity: 1, width: "100%" })
             .to(wrapperInner.value, {
@@ -122,13 +107,13 @@ function toggleNav() {
                 duration: .6,
                 ease: "expo.inOut",
             }, .3)
-            .to('.nav-item', {
-                opacity: 1,
-                x: 0,
-                duration: (index) => 1 + index * 0.05,
-                stagger: 0.1,
-                ease: 'expo.out',
-            }, '-=0.4')
+            // .to('.nav-item', {
+            //     opacity: 1,
+            //     x: 0,
+            //     duration: (index) => 1 + index * 0.05,
+            //     stagger: 0.1,
+            //     ease: 'expo.out',
+            // }, '-=0.4')
             .to('.footer-bg', {
                 width: "100%",
                 duration: .8,
@@ -208,14 +193,14 @@ ul {
     padding: 1.75rem 2rem;
 }
 
-/* .menu-item {
+.menu-item {
     list-style: none;
     margin-bottom: .5rem;
     font-size: 2.25rem;
-    opacity: 0;
-    transform: translateX(60px);
+    /* opacity: 0; */
+    /* transform: translateX(60px); */
     font-weight: 600;
-} */
+}
 
 .menu-item:last-child {
     margin-bottom: 0;
