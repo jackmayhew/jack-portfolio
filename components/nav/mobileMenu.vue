@@ -82,6 +82,14 @@ function toggleNav() {
 
     if (!menuHeight.value) menuHeight.value = wrapperInner.value.offsetHeight;
 
+
+    timeline.eventCallback("onStart", () => {
+  document.querySelector('.navbar').style.pointerEvents = 'auto';
+});
+timeline.eventCallback("onUpdate", () => {
+  document.querySelector('.navbar').style.pointerEvents = 'auto';
+});
+
     if (menuIsOpen.value) {
         timeline.to(wrapperInner.value, { height: 0, y: -10, duration: 0.6, ease: 'expo.inOut' }, 0)
             .to('.menu-overlay', { opacity: 0, duration: 0.6, ease: 'expo.inOut' }, 0)
@@ -107,18 +115,18 @@ function toggleNav() {
                 duration: .6,
                 ease: "expo.inOut",
             }, .3)
-            .to('.nav-item', {
-                opacity: 1,
-                x: 0,
-                duration: (index) => 1 + index * 0.05,
-                stagger: 0.1,
-                ease: 'expo.out',
-            }, '-=0.4')
-            .to('.footer-bg', {
-                width: "100%",
-                duration: .8,
-                ease: "expo.inOut",
-            }, .3)
+            // .to('.nav-item', {
+            //     opacity: 1,
+            //     x: 0,
+            //     duration: (index) => 1 + index * 0.05,
+            //     stagger: 0.1,
+            //     ease: 'expo.out',
+            // }, '-=0.4')
+            // .to('.footer-bg', {
+            //     width: "100%",
+            //     duration: .8,
+            //     ease: "expo.inOut",
+            // }, .3)
     }
 
     menuIsOpen.value = !menuIsOpen.value;
