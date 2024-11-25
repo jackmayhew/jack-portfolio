@@ -1,6 +1,6 @@
 <!-- still a wip - need to clean up, new colours, and might just keep css instead of using tailwind -->
 <template>
-    <div class="nav-menu">
+    <div class="nav-menu flex">
         <div ref="wrapper" class="nav-wrapper" :class="menuIsOpen ? '' : 'menu-disabled'">
             <div ref="wrapperInner" class="nav-wrapper-inner">
                 <ul ref="wrapperList">
@@ -38,8 +38,9 @@
                 <span></span>
             </div>
         </button>
+        <button>close</button>
     </div>
-    <div class="menu-overlay"></div>
+    <button class="menu-overlay" @click="closeNav"></button>
 </template>
 
 <script setup>
@@ -65,6 +66,11 @@ const navigationLinks = [
     { name: 'Contact', path: '/contact' },
 ];
 
+function closeNav() {
+    if (currentAnimation.value) {
+        currentAnimation.value.kill();
+    }
+}
 function toggleNav() {
     if (currentAnimation.value) {
         currentAnimation.value.kill();
