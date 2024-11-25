@@ -1,5 +1,5 @@
 <template>
-  <header class="gsap-menu navbar px-6 bg-light-bg dark:bg-dark-bg">
+  <header class="navbar px-6 bg-light-bg dark:bg-dark-bg">
     <nav class="py-4 mx-auto relative flex justify-between items-center">
       <NuxtLink to="/" class="nav-logo text-xl font-semibold z-10">
         Jack
@@ -84,5 +84,12 @@ const toggleColorMode = () => {
 
 .disabled {
   pointer-events: none;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
 }
 </style>
