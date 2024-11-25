@@ -28,19 +28,19 @@ onMounted(() => {
   // return () => context.revert();
 })
 
-watch(() => route.path, () => {
-  // animate footer separately to match page transitons
-  // not a fan of this, but it works for now 
-  const context = gsap.context(() => {
-    gsap.set(".footer", { y: 0, autoAlpha: 1 });
-    gsap.timeline()
-      .to(".footer", { y: -15, autoAlpha: 0, duration: 0.3, ease: "power2.out" })
-      .eventCallback("onComplete", () => {
-        gsap.set(".footer", { y: 0, autoAlpha: 1 });
-      });
-  });
-  return () => context.revert();
-});
+// watch(() => route.path, () => {
+//   // animate footer separately to match page transitons
+//   // not a fan of this, but it works for now 
+//   const context = gsap.context(() => {
+//     gsap.set(".footer", { y: 0, autoAlpha: 1 });
+//     gsap.timeline()
+//       .to(".footer", { y: -15, autoAlpha: 0, duration: 0.3, ease: "power2.out" })
+//       .eventCallback("onComplete", () => {
+//         gsap.set(".footer", { y: 0, autoAlpha: 1 });
+//       });
+//   });
+//   return () => context.revert();
+// });
 </script>
 
 <style>
