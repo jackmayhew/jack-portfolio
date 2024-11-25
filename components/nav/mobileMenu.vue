@@ -32,7 +32,7 @@
             </div>
         </button>
     </div>
-    <div class="menu-overlay"></div>
+    <!-- <div class="menu-overlay"></div> -->
 </template>
 
 <script setup>
@@ -77,14 +77,14 @@ function toggleNav() {
 
    if (menuIsOpen.value) {
        timeline.to(wrapperInner.value, { height: 0, y: -10, duration: 0.6, ease: 'expo.inOut' }, 0)
-        .to('.menu-overlay', { opacity: 0, duration: 0.6, ease: 'expo.inOut' }, 0)
+        // .to('.menu-overlay', { opacity: 0, duration: 0.6, ease: 'expo.inOut' }, 0)
    }
    else {
        const wrapperHeight = menuHeight.value;
        timeline
            .set(wrapper.value, { height: wrapperHeight, opacity: 0, width: "100%" })
            .set(wrapperInner.value, { y: "-3.5rem", scaleX: 0, width: "3rem", height: "3rem" })
-           .set('.menu-overlay', { opacity: 1, duration: .6 })
+        //    .set('.menu-overlay', { opacity: 1, duration: .6 })
            .set('.footer-bg', { width: "0" })
            .to(wrapper.value, { opacity: 1, width: "100%" })
            .to(wrapperInner.value, {
@@ -298,7 +298,7 @@ ul {
     background-color: rgba(253, 250, 245, .8);
     opacity: 0;
     transition: opacity .2s linear;
-    pointer-events: none !important;
+    /* pointer-events: none; */
     will-change: opacity;
 }
 
