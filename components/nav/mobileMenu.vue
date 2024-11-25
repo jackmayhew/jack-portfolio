@@ -117,9 +117,9 @@ function toggleNav() {
             .to('.nav-item', {
                 opacity: 1,
                 x: 0,
-                duration: 0.5,
+                duration: 1,
                 ease: 'expo.out'
-            }, '-=0.4')
+            }, .6)
             .to('.footer-bg', {
                 width: "100%",
                 duration: .8,
