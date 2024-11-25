@@ -87,12 +87,7 @@ const toggleColorMode = () => {
 }
 
 .navbar {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 10;
-  right: 0;
-  left: 0;
+
   pointer-events: auto !important;
 }
 </style>

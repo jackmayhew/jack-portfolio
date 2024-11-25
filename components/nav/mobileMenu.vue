@@ -78,7 +78,6 @@ function toggleNav() {
             currentAnimation.value = null;
         }
     });
-
     currentAnimation.value = timeline;
 
     if (!menuHeight.value) menuHeight.value = wrapperInner.value.offsetHeight;
@@ -95,7 +94,6 @@ function toggleNav() {
             .set('.menu-overlay', { opacity: 1, duration: .6 })
             .set('.nav-item', { opacity: 0, x: 60 })
             .set('.footer-bg', { width: "0" })
-            .to(".navbar", { pointerEvents: "auto" }, 0)
             .to(wrapper.value, { opacity: 1, width: "100%" })
             .to(wrapperInner.value, {
                 y: 0,
@@ -146,9 +144,6 @@ onClickOutside(wrapper, event => {
 </script>
 
 <style scoped>
-* {
-    border: 1px solid red !important;
-}
 
 .nav-menu {
     overflow: hidden;
