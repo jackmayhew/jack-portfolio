@@ -1,7 +1,6 @@
 <!-- still a wip - need to clean up, new colours, and might just keep css instead of using tailwind -->
 <template>
     <div class="nav-menu">
-        {{ counter }}
         <div ref="wrapper" class="nav-wrapper" :class="menuIsOpen ? '' : 'menu-disabled'">
             <div ref="wrapperInner" class="nav-wrapper-inner">
                 <ul ref="wrapperList">
@@ -33,7 +32,7 @@
             </div>
         </button>
     </div>
-    <!-- <div class="menu-overlay"></div> -->
+    <div class="menu-overlay"></div>
 </template>
 
 <script setup>
@@ -52,8 +51,6 @@ const currentAnimation = ref(null);
 const menuIsAnimating = ref(false);
 const hamburgerToggle = ref(false);
 
-const counter = ref(0);
-
 const navigationLinks = [
     { name: 'Home', path: '/' },
     { name: 'About', path: '/about' },
@@ -62,8 +59,6 @@ const navigationLinks = [
 ];
 
 function toggleNav() {
-
-    counter.value++;
    if (currentAnimation.value) {
        currentAnimation.value.kill();
    }
@@ -82,14 +77,14 @@ function toggleNav() {
 
    if (menuIsOpen.value) {
        timeline.to(wrapperInner.value, { height: 0, y: -10, duration: 0.6, ease: 'expo.inOut' }, 0)
-        // .to('.menu-overlay', { opacity: 0, duration: 0.6, ease: 'expo.inOut' }, 0)
+        .to('.menu-overlay', { opacity: 0, duration: 0.6, ease: 'expo.inOut' }, 0)
    }
    else {
        const wrapperHeight = menuHeight.value;
        timeline
            .set(wrapper.value, { height: wrapperHeight, opacity: 0, width: "100%" })
            .set(wrapperInner.value, { y: "-3.5rem", scaleX: 0, width: "3rem", height: "3rem" })
-        //    .set('.menu-overlay', { opacity: 1, duration: .6 })
+           .set('.menu-overlay', { opacity: 1, duration: .6 })
            .set('.footer-bg', { width: "0" })
            .to(wrapper.value, { opacity: 1, width: "100%" })
            .to(wrapperInner.value, {
@@ -126,7 +121,7 @@ function toggleNav() {
    menuIsOpen.value = !menuIsOpen.value;
    hamburgerToggle.value = !hamburgerToggle.value;
    document.body.classList.toggle('locked');
-//    document.querySelector('.menu-overlay').classList.toggle('pointer-events-auto');
+   document.querySelector('.menu-overlay').classList.toggle('pointer-events-auto');
 }
 
 // close on browser navigation
