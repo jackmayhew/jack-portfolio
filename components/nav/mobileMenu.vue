@@ -1,6 +1,6 @@
 <!-- still a wip - need to clean up, new colours, and might just keep css instead of using tailwind -->
 <template>
-    <div class="nav-menu flex">
+    <div class="nav-menu">
         <div ref="wrapper" class="nav-wrapper" :class="menuIsOpen ? '' : 'menu-disabled'">
             <div ref="wrapperInner" class="nav-wrapper-inner">
                 <ul ref="wrapperList">
@@ -38,8 +38,8 @@
                 <span></span>
             </div>
         </button>
-        <button>close</button>
     </div>
+    <div class="menu-overlay"></div>
 </template>
 
 <script setup>
@@ -135,12 +135,12 @@ watch(() => route.path, () => {
     }
 });
 
-// onClickOutside(wrapper, event => {
-//     if (event.target.closest('.ignore-click')) return;
-//     if (!menuIsOpen.value || menuIsAnimating.value) return;
-//     menuIsAnimating.value = false;
-//     toggleNav();
-// })
+onClickOutside(wrapper, event => {
+    if (event.target.closest('.ignore-click')) return;
+    if (!menuIsOpen.value || menuIsAnimating.value) return;
+    menuIsAnimating.value = false;
+    toggleNav();
+})
 </script>
 
 <style scoped>
