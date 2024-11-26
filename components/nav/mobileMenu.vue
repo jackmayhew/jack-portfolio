@@ -5,31 +5,20 @@
             <div ref="wrapperInner" class="nav-wrapper-inner">
                 <ul>
                     <li v-for="(link, index) in navigationLinks" :key="index" class="">
-                        <NuxtLink :to="link.path" @click="toggleNav" class="menu-item block w-fit">
+                        <div :to="link.path" @click="toggleNav" class="menu-item block w-fit">
                             {{ link.name }}
-                        </NuxtLink>
+                        </div>
                     </li>
                     <li class="">
-                        <a class="menu-item block w-fit" href="https://github.com/jackmayhew" target="_blank"
+                        <div class="menu-item block w-fit" href="https://github.com/jackmayhew" target="_blank"
                             rel="noopener">
                             GitHub
-                        </a>
+                        </div>
                     </li>
                 </ul>
                 <div class="nav-footer">
                     <div class="footer-bg"></div>
-                    <div class="menu-item nav-footer-icons">
-                        <a href="mailto:jackmayhew5@gmail.com" aria-label="email">
-                            <Icon name="tabler:mail" size="36" />
-                        </a>
-                        <a href="https://github.com/jackmayhew" target="_blank" rel="noopener" aria-label="github">
-                            <Icon name="tabler:brand-github" size="36" />
-                        </a>
-                        <a href="https://www.linkedin.com/in/jack-mayhew-610b042b2/" target="_blank" rel="noopener"
-                            aria-label="linkedin">
-                            <Icon name="tabler:brand-linkedin" size="36" />
-                        </a>
-                    </div>
+               
                 </div>
             </div>
         </div>
