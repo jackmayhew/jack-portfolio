@@ -8,7 +8,7 @@
     <div v-if="!project">
       <h1 class="text-5xl sm:text-6xl">Project Not Found</h1>
       <p class="mt-2 text-xl">Sorry, couldn't find that project.</p>
-      <button @click="goBack" class="btn flex items-center gap-2 mt-4">
+      <button @click="goBack" class="btn mt-4">
         <Icon name="tabler:arrow-left" size="22" />
         Go Back
       </button>
@@ -24,7 +24,7 @@
         {{ paragraph }}
       </p>
       <p class="text-xl mb-6">Built with: {{ project.techStack }}</p>
-      <a class="btn flex items-center gap-2 w-fit" :href="project.url"
+      <a class="btn" :href="project.url"
         target="_blank" rel="noopener">
         Visit
         <Icon name="tabler:link" size="22" />

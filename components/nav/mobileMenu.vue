@@ -265,7 +265,6 @@ ul {
     pointer-events: auto;
     z-index: 9999;
     transition: background-color 0.2s ease;
-
 }
 
 .active-hamburger {

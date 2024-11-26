@@ -58,11 +58,15 @@ html.dark-mode,
 .btn {
   /* background-color: #70a2e1; */
   display: flex;
+  align-items: center;
+  gap: 0.5rem;
   padding: 0.5rem 1.25rem;
+  font-size: 1.25rem;
   border-radius: 0.5rem;
   border: 2px solid #e5e5e5;
   transition: background-color 0.2s ease, border-color 0.2s ease;
   color: #131212;
+  width: fit-content;
 }
 
 .btn:hover {
