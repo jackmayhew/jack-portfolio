@@ -22,10 +22,10 @@
                        <div>{{ link.name }}</div> 
                     </li>                   -->
 
-                <a href="/" class="poop block">Home</a>
-                <a href="/about" class="poop block">About</a>
-                <a href="/now" class="poop block">Now</a>
-                <a href="/contact" class="poop block">Contact</a>
+                <div class="poop block">Home</div>
+                <div href="/about" class="poop block">About</div>
+                <div href="/now" class="poop block">Now</div>
+                <div href="/contact" class="poop block">Contact</div>
 
                 <!-- <a to="/" class="poop block">Home</a>
                 <a to="/about" class="poop block">About</a>
