@@ -9,6 +9,7 @@ export default defineNuxtConfig({
     "@nuxtjs/color-mode",
     "nuxt-gtag",
   ],
+  plugins: ['@/plugins/color-mode.js'],
   components: [
     {
       path: "~/components",
@@ -21,6 +22,9 @@ export default defineNuxtConfig({
       mode: "out-in",
     },
     head: {
+      meta: [
+        { name: 'theme-color', content: '#ffffff' }
+      ],
       script: [{ src: "/js/SplitText.js", tagPosition: "bodyClose" }],
       link: [
         // preloads
