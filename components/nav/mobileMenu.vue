@@ -16,10 +16,13 @@
                         </a>
                     </li>
                 </ul> -->
+                <ul>
                 <div class="poop">item</div>
                 <div class="poop">item</div>
                 <div class="poop">item</div>
-                <div class="poop">item</div>
+                <div class="poop">item</div>                    
+                </ul>
+
                 <div class="nav-footer">
                     <div class="footer-bg"></div>
                     <!-- <div class="menu-item nav-footer-icons">
