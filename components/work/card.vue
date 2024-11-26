@@ -2,9 +2,9 @@
   <div class="mb-28">
     <NuxtImg class="work-img w-full h-full rounded-2xl opacity-0 invisible bg-light-bg dark:bg-dark-bg"
       :src="project.image" :alt="project.title" width="800" height="510" />
-    <div class="work-text py-6 sticky bottom-0">
+    <div class="work-text pt-2 pb-6 sticky bottom-0">
       <time class="mt-4 sm:mt-8 text-lg text-gray-400" :datetime="project.date">{{ project.date }}</time>
-      <h2 class="mt-2 text-2xl sm:text-4xl font-semibold">{{ project.title }}</h2>
+      <h2 class="text-2xl sm:text-4xl font-semibold">{{ project.title }}</h2>
       <p class="my-2 text-xl sm:text-2xl">{{ project.desc }}</p>
       <p class="my-2 text-lg ">{{ project.stack }}</p>
       <div class="flex gap-4 mt-4">

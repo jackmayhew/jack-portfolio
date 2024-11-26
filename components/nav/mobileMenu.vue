@@ -289,11 +289,11 @@ ul {
 }
 
 .hamburger.open span:nth-child(1) {
-    transform: translateY(2.75px) rotate(45deg);
+    transform: translateY(3px) rotate(45deg);
 }
 
 .hamburger.open span:nth-child(2) {
-    transform: translateY(-2.75px) rotate(-45deg);
+    transform: translateY(-3px) rotate(-45deg);
 }
 
 .menu-overlay {
