@@ -3,7 +3,7 @@
     <div class="nav-menu">
         <div ref="wrapper" class="nav-wrapper" :class="menuIsOpen ? '' : 'menu-disabled'">
             <div ref="wrapperInner" class="nav-wrapper-inner">
-                <ul>
+                <!-- <ul>
                     <li v-for="(link, index) in navigationLinks" :key="index" class="">
                         <NuxtLink :to="link.path" @click="toggleNav" class="menu-item block w-fit">
                             {{ link.name }}
@@ -15,10 +15,14 @@
                             GitHub
                         </a>
                     </li>
-                </ul>
+                </ul> -->
+                <div class="poop">item</div>
+                <div class="poop">item</div>
+                <div class="poop">item</div>
+                <div class="poop">item</div>
                 <div class="nav-footer">
                     <div class="footer-bg"></div>
-                    <div class="menu-item nav-footer-icons">
+                    <!-- <div class="menu-item nav-footer-icons">
                         <a href="mailto:jackmayhew5@gmail.com" aria-label="email">
                             <Icon name="tabler:mail" size="36" />
                         </a>
@@ -29,7 +33,7 @@
                             aria-label="linkedin">
                             <Icon name="tabler:brand-linkedin" size="36" />
                         </a>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -91,7 +95,8 @@ function toggleNav() {
             .set(wrapper.value, { height: wrapperHeight, opacity: 0, width: "100%" })
             .set(wrapperInner.value, { y: "-3.5rem", scaleX: 0, width: "3rem", height: "3rem" })
             .set('.menu-overlay', { opacity: 1, duration: .6 })
-            .set('.menu-item', { opacity: 0, x: 60 })
+            // .set('.menu-item', { opacity: 0, x: 60 })
+            .set('.poop', { opacity: 0, x: 60 })
             .set('.footer-bg', { width: "0" })
             .to(wrapper.value, { opacity: 1, width: "100%" })
             .to(wrapperInner.value, {
@@ -120,6 +125,13 @@ function toggleNav() {
             //     // stagger: 0.1,
             //     ease: 'expo.out',
             // }, .5)
+            .to('.poop', {
+                opacity: 1,
+                x: 0,
+                duration: 1,
+                // stagger: 0.1,
+                ease: 'expo.out',
+            }, .5)
             .to('.footer-bg', {
                 width: "100%",
                 duration: .8,
