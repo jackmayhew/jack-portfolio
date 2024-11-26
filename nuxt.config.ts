@@ -23,7 +23,7 @@ export default defineNuxtConfig({
     },
     head: {
       meta: [
-        { name: 'theme-color', content: '#ffffff' }
+        { name: 'theme-color', content: '#FDFAF5' }
       ],
       script: [{ src: "/js/SplitText.js", tagPosition: "bodyClose" }],
       link: [
