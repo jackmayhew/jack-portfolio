@@ -22,10 +22,10 @@
                        <div>{{ link.name }}</div> 
                     </li>                   -->
 
-                <NuxtLink to="/" class="poop block">Home</NuxtLink>
-                <NuxtLink to="/about" class="poop block">About</NuxtLink>
-                <NuxtLink to="/now" class="poop block">Now</NuxtLink>
-                <NuxtLink to="/contact" class="poop block">Contact</NuxtLink>
+                <a href="/" class="poop block">Home</a>
+                <a href="/about" class="poop block">About</a>
+                <a href="/now" class="poop block">Now</a>
+                <a href="/contact" class="poop block">Contact</a>
 
                 <!-- <a to="/" class="poop block">Home</a>
                 <a to="/about" class="poop block">About</a>
