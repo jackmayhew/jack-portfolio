@@ -19,11 +19,6 @@
 body {
   font-family: "regular", sans-serif;
   min-height: 100vh;
-  min-height: -webkit-fill-available;
-}
-
-html {
-  height: -webkit-fill-available;
 }
 
 h1,
@@ -56,7 +51,6 @@ html.dark-mode,
 }
 
 .btn {
-  /* background-color: #70a2e1; */
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -70,7 +64,6 @@ html.dark-mode,
 }
 
 .btn:hover {
-  /* background-color: #3c61e5; */
   border: 2px solid #d4d4d4;
 }
 
@@ -85,10 +78,7 @@ html.dark-mode,
   border: 2px solid #161616;
 }
 
-::selection {
-  background-color: #70a2e1;
-}
-
+::selection, 
 ::-moz-selection {
   background-color: #70a2e1;
 }

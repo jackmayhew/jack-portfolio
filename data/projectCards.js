@@ -12,7 +12,7 @@ export const projects = [
   {
     title: "CampVI",
     slug: "campvi",
-    date: "2023",
+    date: "2024",
     desc: `The go-to camping resource for finding campsites on Vancouver Island, from provincial parks to hidden off-grid gems.`,
     url: "https://www.campvi.ca/",
     stack: "Next.js, TypeScript, Sanity.io",
