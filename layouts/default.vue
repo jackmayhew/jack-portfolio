@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper max-w-screen-md mx-auto">
     <Navbar class="relative max-w-screen-md mx-auto" />
-      <div class="main-content px-6 mt-6 sm:mt-12 invisible pt-[80px] sm:pt-[60px]">
+      <div class="main-content px-6 mt-[6.5rem] invisible">
         <NuxtPage />
         <Footer />
       </div>
@@ -67,4 +67,5 @@ watch(() => route.path, () => {
   min-height: 100vh;
   height: 100%;
 }
+
 </style>

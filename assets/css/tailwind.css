@@ -39,14 +39,16 @@ body,
   transition: background-color 0.2s ease;
 }
 
-html.light-mode {
+html.light-mode,
+.light-mode .navbar {
   background-color: #fdfaf5;
   background: #fdfaf5;
   color-scheme: light;
   color: #131212;
 }
 
-html.dark-mode {
+html.dark-mode,
+.dark-mode .navbar {
   background-color: #121212;
   background: #121212;
   color-scheme: dark;

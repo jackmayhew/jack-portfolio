@@ -1,5 +1,5 @@
 <template>
-  <header class="navbar px-6 bg-light-bg dark:bg-dark-bg">
+  <header class="navbar px-6">
     <nav class="py-4 mx-auto relative flex justify-between items-center">
       <NuxtLink to="/" class="nav-logo text-xl font-semibold z-10">
         Jack
