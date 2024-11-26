@@ -125,13 +125,21 @@ function toggleNav() {
             //     // stagger: 0.1,
             //     ease: 'expo.out',
             // }, .5)
+
             .to('.poop', {
                 opacity: 1,
                 x: 0,
-                duration: 1,
-                // stagger: 0.1,
+                duration: (index) => 1 + index * 0.05,
+                stagger: 0.1,
                 ease: 'expo.out',
-            }, .5)
+            }, 1)
+            // .to('.poop', {
+            //     opacity: 1,
+            //     x: 0,
+            //     duration: 1,
+            //     // stagger: 0.1,
+            //     ease: 'expo.out',
+            // }, .5)
             .to('.footer-bg', {
                 width: "100%",
                 duration: .8,
