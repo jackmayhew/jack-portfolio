@@ -135,7 +135,7 @@ function toggleNav() {
                 duration: (index) => 1 + index * 0.05,
                 stagger: 0.1,
                 ease: 'expo.out',
-            }, 1)
+            }, '-=.4')
             // .to('.poop', {
             //     opacity: 1,
             //     x: 0,
