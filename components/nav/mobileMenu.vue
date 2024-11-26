@@ -17,9 +17,15 @@
                     </li>
                 </ul> -->
                 <ul>
-                    <li v-for="(link, index) in navigationLinks" :key="index" class="poop block">
+
+                    <!-- <li v-for="(link, index) in navigationLinks" :key="index" class="poop block">
                        <div>{{ link.name }}</div> 
-                    </li>                  
+                    </li>                   -->
+
+                <NuxtLink to="/" class="poop block">Home</NuxtLink>
+                <NuxtLink to="/about" class="poop block">About</NuxtLink>
+                <NuxtLink to="/now" class="poop block">Now</NuxtLink>
+                <NuxtLink to="/contact" class="poop block">Contact</NuxtLink>
 
                 <!-- <a to="/" class="poop block">Home</a>
                 <a to="/about" class="poop block">About</a>
@@ -31,7 +37,7 @@
 
                 <div class="nav-footer">
                     <div class="footer-bg"></div>
-                    <div class="poop menu-item nav-footer-icons">
+                    <!-- <div class="menu-item nav-footer-icons">
                         <a href="mailto:jackmayhew5@gmail.com" aria-label="email">
                             <Icon name="tabler:mail" size="36" />
                         </a>
@@ -42,7 +48,7 @@
                             aria-label="linkedin">
                             <Icon name="tabler:brand-linkedin" size="36" />
                         </a>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
