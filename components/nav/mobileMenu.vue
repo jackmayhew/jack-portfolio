@@ -3,7 +3,7 @@
     <div class="nav-menu">
         <div ref="wrapper" class="nav-wrapper" :class="menuIsOpen ? '' : 'menu-disabled'">
             <div ref="wrapperInner" class="nav-wrapper-inner">
-                <!-- <ul>
+                <ul>
                     <li v-for="(link, index) in navigationLinks" :key="index" class="">
                         <NuxtLink :to="link.path" @click="toggleNav" class="menu-item block w-fit">
                             {{ link.name }}
@@ -15,29 +15,17 @@
                             GitHub
                         </a>
                     </li>
-                </ul> -->
-                <ul>
-
-                    <!-- <li v-for="(link, index) in navigationLinks" :key="index" class="poop block">
-                       <div>{{ link.name }}</div> 
-                    </li>                   -->
-
-                <div class="poop block">Home</div>
-                <div href="/about" class="poop block">About</div>
-                <div href="/now" class="poop block">Now</div>
-                <div href="/contact" class="poop block">Contact</div>
-
-                <!-- <a to="/" class="poop block">Home</a>
-                <a to="/about" class="poop block">About</a>
-                <a to="/now" class="poop block">Now</a>
-                <a to="/contact" class="poop block">Contact</a> -->
-
-
                 </ul>
+                <!-- <ul>
+                    <div class="poop block">Home</div>
+                    <div href="/about" class="poop block">About</div>
+                    <div href="/now" class="poop block">Now</div>
+                    <div href="/contact" class="poop block">Contact</div>
+                </ul> -->
 
                 <div class="nav-footer">
                     <div class="footer-bg"></div>
-                    <!-- <div class="menu-item nav-footer-icons">
+                    <div class="menu-item nav-footer-icons">
                         <a href="mailto:jackmayhew5@gmail.com" aria-label="email">
                             <Icon name="tabler:mail" size="36" />
                         </a>
@@ -48,7 +36,7 @@
                             aria-label="linkedin">
                             <Icon name="tabler:brand-linkedin" size="36" />
                         </a>
-                    </div> -->
+                    </div>
                 </div>
             </div>
         </div>
@@ -110,7 +98,7 @@ function toggleNav() {
             .set(wrapper.value, { height: wrapperHeight, opacity: 0, width: "100%" })
             .set(wrapperInner.value, { y: "-3.5rem", scaleX: 0, width: "3rem", height: "3rem" })
             .set('.menu-overlay', { opacity: 1, duration: .6 })
-            // .set('.menu-item', { opacity: 0, x: 60 })
+            .set('.menu-item', { opacity: 0, x: 60 })
             .set('.poop', { opacity: 0, x: 60 })
             .set('.footer-bg', { width: "0" })
             .to(wrapper.value, { opacity: 1, width: "100%" })
@@ -141,7 +129,7 @@ function toggleNav() {
             //     ease: 'expo.out',
             // }, .5)
 
-            .to('.poop', {
+            .to('.menu-item', {
                 opacity: 1,
                 x: 0,
                 duration: (index) => 1 + index * 0.05,
