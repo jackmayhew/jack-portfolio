@@ -5,12 +5,12 @@
             <div ref="wrapperInner" class="nav-wrapper-inner">
                 <ul>
                     <li v-for="(link, index) in navigationLinks" :key="index" class="">
-                        <NuxtLink :to="link.path" @click="toggleNav" class="nav-item menu-item block w-fit">
+                        <NuxtLink :to="link.path" @click="toggleNav" class="menu-item block w-fit">
                             {{ link.name }}
                         </NuxtLink>
                     </li>
                     <li class="">
-                        <a class="nav-item menu-item block w-fit" href="https://github.com/jackmayhew" target="_blank"
+                        <a class="menu-item block w-fit" href="https://github.com/jackmayhew" target="_blank"
                             rel="noopener">
                             GitHub
                         </a>
@@ -18,7 +18,7 @@
                 </ul>
                 <div class="nav-footer">
                     <div class="footer-bg"></div>
-                    <div class="nav-item nav-footer-icons">
+                    <div class="menu-item nav-footer-icons">
                         <a href="mailto:jackmayhew5@gmail.com" aria-label="email">
                             <Icon name="tabler:mail" size="36" />
                         </a>
@@ -91,7 +91,7 @@ function toggleNav() {
             .set(wrapper.value, { height: wrapperHeight, opacity: 0, width: "100%" })
             .set(wrapperInner.value, { y: "-3.5rem", scaleX: 0, width: "3rem", height: "3rem" })
             .set('.menu-overlay', { opacity: 1, duration: .6 })
-            .set('.nav-item', { opacity: 0, x: 60 })
+            .set('.menu-item', { opacity: 0, x: 60 })
             .set('.footer-bg', { width: "0" })
             .to(wrapper.value, { opacity: 1, width: "100%" })
             .to(wrapperInner.value, {
@@ -106,7 +106,7 @@ function toggleNav() {
                 duration: .6,
                 ease: "expo.inOut",
             }, .3)
-            .to('.nav-item', {
+            .to('.menu-item', {
                 opacity: 1,
                 x: 0,
                 duration: (index) => 1 + index * 0.05,
@@ -204,16 +204,14 @@ ul {
     opacity: 0;
     transform: translateX(60px);
     font-weight: 600;
+    will-change: transform, opacity;
+    transform: translateZ(0);
 }
 
 .menu-item:last-child {
     margin-bottom: 0;
 }
 
-.nav-item {
-    will-change: transform, opacity;
-    transform: translateZ(0);
-}
 
 .nav-footer {
     display: flex;
@@ -263,9 +261,11 @@ ul {
     border-radius: 9999px;
     width: 3rem;
     height: 3rem;
-    z-index: 3;
     background-color: var(--menu-bg);
     pointer-events: auto;
+    z-index: 9999;
+    transition: background-color 0.2s ease;
+
 }
 
 .active-hamburger {
@@ -378,10 +378,5 @@ ul {
 .menu-disabled {
     /* opacity: 0 !important; */
     pointer-events: none;
-}
-
-.nav-item, .hamburger-button {
-    pointer-events: all;
-    z-index: 9999;
 }
 </style>
