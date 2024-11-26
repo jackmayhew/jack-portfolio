@@ -5,7 +5,8 @@
       Currently living and working in Montreal.
     </p>
     <div class="mt-6">
-      <img class="hero-img w-full h-auto block rounded-3xl invisible" src="/img/hero.webp" alt="Jack at computer" />
+      <img class="hero-img w-full h-auto block rounded-3xl invisible opacity-0" src="/img/hero.webp"
+        alt="Jack at computer" loading="eager" width="492" height="358" />
     </div>
   </div>
 </template>
@@ -63,7 +64,7 @@ onMounted(() => {
     timeline
       .fromTo(".hero-img",
         { y: 40, autoAlpha: 0 },
-        { y: 0, autoAlpha: 1, duration: 0.5, ease: "power2.out" }, .2)
+        { y: 0, autoAlpha: 1, duration: 0.5, ease: "power2.out" }, 0.2)
   });
   return () => context.revert();
 });

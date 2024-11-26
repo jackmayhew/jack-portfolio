@@ -21,7 +21,7 @@ onMounted(() => {
     timeline
       .fromTo(".main-content",
         { y: 15, autoAlpha: 0 },
-        { y: 0, autoAlpha: 1, duration: 0.3, ease: "power2.out" }, 0.2)
+        { y: 0, autoAlpha: 1, duration: .5, ease: "power2.out" }, 0.2)
   });
   return () => context.revert();
 })
