@@ -440,4 +440,9 @@ ul {
     /* opacity: 0 !important; */
     pointer-events: none;
 }
+
+.nav-item, .hamburger-button {
+    pointer-events: all;
+    z-index: 9999;
+}
 </style>
