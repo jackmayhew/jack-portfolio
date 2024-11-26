@@ -3,7 +3,7 @@ export const projects = [
     title: "Refuge Kitty-Kat Rescue",
     slug: "refuge-kitty-kat-rescue",
     date: "2024", 
-    desc: `Worked with Refuge Kitty Kat Rescue, a nonprofit cat rescue in Montreal, to design and build their new website.`,
+    desc: `Worked with Refuge Kitty Kat Rescue, a nonprofit cat rescue in Montreal, to design and develop their new website.`,
     url: "https://www.refugekittykat.com/",
     stack: "Next.js, Tailwind, Hypgraph",
     image: "/img/work/refuge.webp",

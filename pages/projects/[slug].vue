@@ -18,7 +18,7 @@
       <h2 class="mt-2 text-xl sm:text-2xl">{{ project.subtitle }}</h2>
       <div class="my-6">
         <NuxtImg class="hero-img w-full h-auto block rounded-3xl" :src="project.image" :alt="project.title" width="800"
-          height="510" />
+          height="510" loading="eager" />
       </div>
       <p v-for="(paragraph, index) in project.paragraphs" :key="index" class="my-4 text-xl">
         {{ paragraph }}
