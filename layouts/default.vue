@@ -67,5 +67,4 @@ watch(() => route.path, () => {
   min-height: 100vh;
   height: 100%;
 }
-
 </style>

@@ -3,14 +3,15 @@
     <div class="nav-menu">
         <div ref="wrapper" class="nav-wrapper" :class="menuIsOpen ? '' : 'menu-disabled'">
             <div ref="wrapperInner" class="nav-wrapper-inner">
-                <ul ref="wrapperList">
+                <ul>
                     <li v-for="(link, index) in navigationLinks" :key="index" class="">
-                        <NuxtLink :to="link.path" @click="toggleNav" class="nav-item menu-item block">
+                        <NuxtLink :to="link.path" @click="toggleNav" class="nav-item menu-item block w-fit">
                             {{ link.name }}
                         </NuxtLink>
                     </li>
                     <li class="">
-                        <a class="nav-item menu-item block" href="https://github.com/jackmayhew" target="_blank" rel="noopener" >
+                        <a class="nav-item menu-item block w-fit" href="https://github.com/jackmayhew" target="_blank"
+                            rel="noopener">
                             GitHub
                         </a>
                     </li>
@@ -50,7 +51,6 @@ const route = useRoute();
 
 const wrapper = ref(null);
 const wrapperInner = ref(null);
-const wrapperList = ref(null);
 
 const menuHeight = ref(null);
 const menuIsOpen = ref(false);
@@ -65,69 +65,134 @@ const navigationLinks = [
     { name: 'Contact', path: '/contact' },
 ];
 
+// function toggleNav() {
+//     if (currentAnimation.value) currentAnimation.value.kill();
+
+//     menuIsAnimating.value = true;
+
+//     const timeline = gsap.timeline({
+//         onComplete: () => {
+//             menuIsAnimating.value = false;
+//             currentAnimation.value = null;
+//         }
+//     });
+
+//     currentAnimation.value = timeline;
+
+//     if (!menuHeight.value) menuHeight.value = wrapperInner.value.offsetHeight;
+
+//     if (menuIsOpen.value) {
+//         timeline.to(wrapperInner.value, { height: 0, y: -10, duration: 0.6, ease: 'expo.inOut' }, 0)
+//             .to('.menu-overlay', { opacity: 0, duration: 0.6, ease: 'expo.inOut' }, 0)
+//     }
+//     else {
+//         const wrapperHeight = menuHeight.value;
+//         timeline
+//             .set(wrapper.value, { height: wrapperHeight, opacity: 0, width: "100%" })
+//             .set(wrapperInner.value, { y: "-3.5rem", scaleX: 0, width: "3rem", height: "3rem" })
+//             .set('.menu-overlay', { opacity: 1, duration: .6 })
+//             .set('.nav-item', { opacity: 0, x: 60 })
+//             .set('.footer-bg', { width: "0" })
+//             .to(wrapper.value, { opacity: 1, width: "100%" })
+//             .to(wrapperInner.value, {
+//                 y: 0,
+//                 scaleX: 1,
+//                 height: wrapperHeight,
+//                 duration: .6,
+//                 ease: "expo.inOut",
+//             }, 0)
+//             .to(wrapperInner.value, {
+//                 width: "100%",
+//                 duration: .6,
+//                 ease: "expo.inOut",
+//             }, .3)
+//             .to('.nav-item', {
+//                 opacity: 1,
+//                 x: 0,
+//                 duration: (index) => 1 + index * 0.05,
+//                 stagger: 0.1,
+//                 ease: 'expo.out',
+//             }, '-=0.4')
+//             .to('.footer-bg', {
+//                 width: "100%",
+//                 duration: .8,
+//                 ease: "expo.inOut",
+//             }, .3)
+//     }
+
+//     menuIsOpen.value = !menuIsOpen.value;
+//     hamburgerToggle.value = !hamburgerToggle.value;
+//     document.body.classList.toggle('locked');
+//     document.querySelector('.menu-overlay').classList.toggle('pointer-events-auto');
+// }
+
+// close on browser navigation
+
 function toggleNav() {
-    if (currentAnimation.value) {
-        currentAnimation.value.kill();
-    }
+    if (currentAnimation.value) currentAnimation.value.kill();
 
     menuIsAnimating.value = true;
-
     const timeline = gsap.timeline({
         onComplete: () => {
             menuIsAnimating.value = false;
             currentAnimation.value = null;
         }
     });
+
     currentAnimation.value = timeline;
 
     if (!menuHeight.value) menuHeight.value = wrapperInner.value.offsetHeight;
 
+    const menuOverlay = document.querySelector('.menu-overlay');
+    const footerBg = document.querySelector('.footer-bg');
+    const navItems = document.querySelectorAll('.nav-item');
+
     if (menuIsOpen.value) {
-        timeline.to(wrapperInner.value, { height: 0, y: -10, duration: 0.6, ease: 'expo.inOut' }, 0)
-            .to('.menu-overlay', { opacity: 0, duration: 0.6, ease: 'expo.inOut' }, 0)
-    }
-    else {
+        timeline
+            .to(wrapperInner.value, { height: 0, y: -10, duration: 0.6, ease: 'expo.inOut' })
+            .to(menuOverlay, { opacity: 0, duration: 0.6, ease: 'expo.inOut' }, 0)
+    } else {
         const wrapperHeight = menuHeight.value;
+
         timeline
             .set(wrapper.value, { height: wrapperHeight, opacity: 0, width: "100%" })
             .set(wrapperInner.value, { y: "-3.5rem", scaleX: 0, width: "3rem", height: "3rem" })
-            .set('.menu-overlay', { opacity: 1, duration: .6 })
-            .set('.nav-item', { opacity: 0, x: 60 })
-            .set('.footer-bg', { width: "0" })
+            .set(menuOverlay, { opacity: 1 })
+            .set(navItems, { opacity: 0, x: 60 })
+            .set(footerBg, { width: "0" })
             .to(wrapper.value, { opacity: 1, width: "100%" })
             .to(wrapperInner.value, {
                 y: 0,
                 scaleX: 1,
                 height: wrapperHeight,
-                duration: .6,
+                duration: 0.6,
                 ease: "expo.inOut",
             }, 0)
             .to(wrapperInner.value, {
                 width: "100%",
-                duration: .6,
+                duration: 0.6,
                 ease: "expo.inOut",
-            }, .3)
-            .to('.nav-item', {
+            }, 0.3)
+            .to(navItems, {
                 opacity: 1,
                 x: 0,
-                duration: (index) => 1 + index * 0.05,
                 stagger: 0.1,
+                duration: 1,
                 ease: 'expo.out',
-            }, '-=0.4')
-            .to('.footer-bg', {
+            }, 0.4)
+            .to(footerBg, {
                 width: "100%",
-                duration: .8,
+                duration: 0.8,
                 ease: "expo.inOut",
-            }, .3)
+            }, 0.3);
     }
 
     menuIsOpen.value = !menuIsOpen.value;
     hamburgerToggle.value = !hamburgerToggle.value;
     document.body.classList.toggle('locked');
-    document.querySelector('.menu-overlay').classList.toggle('pointer-events-auto');
+    menuOverlay.classList.toggle('pointer-events-auto');
 }
 
-// close on browser navigation
 watch(() => route.path, () => {
     if (menuIsOpen.value) {
         menuIsAnimating.value = false;
@@ -243,7 +308,7 @@ ul {
 .nav-footer-icons {
     display: flex;
     gap: 10px;
-    width: 100%;
+    /* width: 100%; */
     padding: 0 2rem;
 }
 
