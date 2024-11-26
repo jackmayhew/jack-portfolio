@@ -136,7 +136,7 @@ function toggleNav() {
                 stagger: 0.1,
                 ease: 'expo.out',
             }, '-=.4')
-            // .to('.poop', {
+            // .to('.', {
             //     opacity: 1,
             //     x: 0,
             //     duration: 1,
