@@ -5,20 +5,31 @@
             <div ref="wrapperInner" class="nav-wrapper-inner">
                 <ul>
                     <li v-for="(link, index) in navigationLinks" :key="index" class="">
-                        <div :to="link.path" @click="toggleNav" class="menu-item block w-fit">
+                        <NuxtLink :to="link.path" @click="toggleNav" class="menu-item block w-fit">
                             {{ link.name }}
-                        </div>
+                        </NuxtLink>
                     </li>
                     <li class="">
-                        <div class="menu-item block w-fit" href="https://github.com/jackmayhew" target="_blank"
+                        <a class="menu-item block w-fit" href="https://github.com/jackmayhew" target="_blank"
                             rel="noopener">
                             GitHub
-                        </div>
+                        </a>
                     </li>
                 </ul>
                 <div class="nav-footer">
                     <div class="footer-bg"></div>
-               
+                    <div class="menu-item nav-footer-icons">
+                        <a href="mailto:jackmayhew5@gmail.com" aria-label="email">
+                            <Icon name="tabler:mail" size="36" />
+                        </a>
+                        <a href="https://github.com/jackmayhew" target="_blank" rel="noopener" aria-label="github">
+                            <Icon name="tabler:brand-github" size="36" />
+                        </a>
+                        <a href="https://www.linkedin.com/in/jack-mayhew-610b042b2/" target="_blank" rel="noopener"
+                            aria-label="linkedin">
+                            <Icon name="tabler:brand-linkedin" size="36" />
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -102,13 +113,13 @@ function toggleNav() {
             //     stagger: 0.1,
             //     ease: 'expo.out',
             // }, 1)
-            .to('.menu-item', {
-                opacity: 1,
-                x: 0,
-                duration: 1,
-                // stagger: 0.1,
-                ease: 'expo.out',
-            }, .5)
+            // .to('.menu-item', {
+            //     opacity: 1,
+            //     x: 0,
+            //     duration: 1,
+            //     // stagger: 0.1,
+            //     ease: 'expo.out',
+            // }, .5)
             .to('.footer-bg', {
                 width: "100%",
                 duration: .8,
