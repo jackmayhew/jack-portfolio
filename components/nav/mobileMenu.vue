@@ -17,11 +17,20 @@
                     </li>
                 </ul> -->
                 <ul>
-                    <li v-for="(link, index) in navigationLinks" :key="index"class="poop">
+                    <!-- <li v-for="(link, index) in navigationLinks" :key="index"class="poop">
                         <NuxtLink :to="link.path" @click="toggleNav" >
                             {{ link.name }}
                         </NuxtLink>
-                    </li>                  
+                    </li>                   -->
+
+                <NuxtLink to="/" class="poop block">Home</NuxtLink>
+                <NuxtLink to="/about" class="poop block">About</NuxtLink>
+                <NuxtLink to="/now" class="poop block">Now</NuxtLink>
+                <NuxtLink to="/contact" class="poop block">Contact</NuxtLink>
+                <!-- <div class="poop">item</div>
+                <div class="poop">item</div>
+                <div class="poop">item</div>   -->
+
                 </ul>
 
                 <div class="nav-footer">
