@@ -1,14 +1,17 @@
 export default defineNuxtPlugin(() => {
-  const colorMode = useColorMode()
-  const updateThemeColor = () => {
-    const themeColorMeta = document.querySelector('meta[name="theme-color"]')
-    if (themeColorMeta) {
-      // Use transparent or a color that matches your background transition
-      themeColorMeta.setAttribute('content', 'transparent')
+    const colorMode = useColorMode()
+    const updateThemeColor = () => {
+      const themeColorMeta = document.querySelector('meta[name="theme-color"]')
+      if (themeColorMeta) {
+        const color = colorMode.preference === 'dark' ? '#121212' : '#FDFAF5'
+        themeColorMeta.setAttribute('content', color)
+      } else {
+        console.warn('meta[name="theme-color"] not found')
+      }
     }
-  }
 
-  updateThemeColor()
-
-  watch(() => colorMode.preference, updateThemeColor)
-})
+    updateThemeColor()
+  
+    watch(() => colorMode.preference, updateThemeColor)
+  })
+  
