@@ -23,10 +23,10 @@
                         </NuxtLink>
                     </li>                   -->
 
-                <NuxtLink to="/" class="poop block">Home</NuxtLink>
-                <NuxtLink to="/about" class="poop block">About</NuxtLink>
-                <NuxtLink to="/now" class="poop block">Now</NuxtLink>
-                <NuxtLink to="/contact" class="poop block">Contact</NuxtLink>
+                <a to="/" class="poop block">Home</a>
+                <a to="/about" class="poop block">About</a>
+                <a to="/now" class="poop block">Now</a>
+                <a to="/contact" class="poop block">Contact</a>
                 <!-- <div class="poop">item</div>
                 <div class="poop">item</div>
                 <div class="poop">item</div>   -->
