@@ -18,9 +18,7 @@
                 </ul> -->
                 <ul>
                     <li v-for="(link, index) in navigationLinks" :key="index" class="poop block">
-                        <NuxtLink :to="link.path"  >
-                            {{ link.name }}
-                        </NuxtLink>
+                       <div>{{ link.name }}</div> 
                     </li>                  
 
                 <!-- <a to="/" class="poop block">Home</a>
