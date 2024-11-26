@@ -17,7 +17,7 @@
                     </li>
                 </ul> -->
                 <ul>
-                    <a v-for="(link, index) in navigationLinks" :key="index" class="poop block" @click="toggleNav">
+                    <a v-for="(link, index) in navigationLinks" :key="index" class="poop block">
                         {{ link.name }}
                     </a>                  
 
