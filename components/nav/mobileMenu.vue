@@ -164,8 +164,9 @@ const navigationLinks = [
 ];
 
 function toggleNav() {
+     document.body.style.pointerEvents = 'auto'
     if (currentAnimation.value) currentAnimation.value.kill();
-    
+
     menuIsAnimating.value = true;
 
     const timeline = gsap.timeline({
@@ -213,6 +214,10 @@ function toggleNav() {
                 duration: (index) => 1 + index * 0.05,
                 stagger: 0.1,
                 ease: 'expo.out',
+                onStart: () => {
+                    // Force pointer events
+                    document.body.style.pointerEvents = 'auto'
+                }
             }, '-=.4')
             .to('.footer-bg', {
                 width: "100%",

@@ -6,13 +6,15 @@
 </template>
 
 <script setup>
-const { $gsap } = useNuxtApp()
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { projects } from "~/data/projectCards";
+gsap.registerPlugin(ScrollTrigger);
 
 onMounted(() => {
   const imgs = document.querySelectorAll('.work-img');
   imgs.forEach((img) => {
-    $gsap.fromTo(
+    gsap.fromTo(
       img,
       { autoAlpha: 0 },
       {
