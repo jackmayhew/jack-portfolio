@@ -73,11 +73,7 @@ const navigationLinks = [
 ];
 
 function toggleNav() {
-
-    
     if (currentAnimation.value) currentAnimation.value.kill();
-
-    if (menuIsAnimating.value) return;
 
     menuIsAnimating.value = true;
 
@@ -85,12 +81,8 @@ function toggleNav() {
         onComplete: () => {
             menuIsAnimating.value = false;
             currentAnimation.value = null;
-        },
-        onInterrupt: () => {
-            menuIsAnimating.value = false;
-            currentAnimation.value = null;
         }
-    })
+    });
 
     currentAnimation.value = timeline;
 
@@ -164,12 +156,7 @@ function toggleNav() {
     document.querySelector('.menu-overlay').classList.toggle('pointer-events-auto');
 }
 
-
-
-
 // close on browser navigation
-
-
 watch(() => route.path, () => {
     if (menuIsOpen.value) {
         menuIsAnimating.value = false;
