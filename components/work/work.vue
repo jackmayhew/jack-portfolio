@@ -10,7 +10,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { projects } from "~/data/projectCards";
 
-gsap.registerPlugin(ScrollTrigger);
+// gsap.registerPlugin(ScrollTrigger);
 
 // onMounted(() => {
 //     const imgs = document.querySelectorAll('.work-img');
