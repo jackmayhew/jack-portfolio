@@ -14,13 +14,9 @@ import { projects } from "~/data/projectCards";
 // even just gsap.registerPlugin(ScrollTrigger); cuases error
 
 
-onMounted(() => {
-  nextTick(() => {
-    gsap.registerPlugin(ScrollTrigger);
-  });
-});
 
 onMounted(() => {
+  console.log('pain')
   // gsap.registerPlugin(ScrollTrigger);
     // const imgs = document.querySelectorAll('.work-img');
     // imgs.forEach((img) => {
