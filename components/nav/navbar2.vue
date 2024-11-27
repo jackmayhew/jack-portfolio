@@ -6,26 +6,22 @@
       </a>
 
       <ul class="flex items-center gap-4 sm:gap-6 w-fit justify-end">
-
         <li class="hidden sm:block">
           <a href="https://github.com/" target="_blank" rel="noopener noreferrer" class="link text-lg">
-            GitHub
+            Navbar
           </a>
         </li>
 
         <li class="flex sm:hidden">
-
           <div class="nav-menu">
             <div ref="wrapper" class="nav-wrapper">
               <div ref="wrapperInner" class="nav-wrapper-inner">
                 <ul>
-
                   <li class="">
                     <a class="menu-item block w-fit" href="https://github.com/" target="_blank" rel="noopener">
                       GitHub
                     </a>
                   </li>
-
                   <li class="">
                     <a class="menu-item block w-fit" href="https://github.com/" target="_blank" rel="noopener">
                       GitHub
@@ -35,11 +31,9 @@
                 <div class="nav-footer">
                   <div class="footer-bg"></div>
                   <div class="menu-item nav-footer-icons">
-
                     <a class="menu-item block w-fit" href="https://github.com/" target="_blank" rel="noopener">
                       GitHub
                     </a>
-
                   </div>
                 </div>
               </div>
@@ -51,7 +45,6 @@
               </div>
             </button>
           </div>
-
         </li>
       </ul>
       
@@ -61,9 +54,7 @@
 
 <script setup>
 import { gsap } from 'gsap';
-import { onClickOutside } from '@vueuse/core'
 
-const route = useRoute();
 const wrapper = ref(null);
 const wrapperInner = ref(null);
 
@@ -72,13 +63,6 @@ const menuIsOpen = ref(false);
 const currentAnimation = ref(null);
 const menuIsAnimating = ref(false);
 const hamburgerToggle = ref(false);
-
-const navigationLinks = [
-  { name: 'Home', path: '/' },
-  { name: 'About', path: '/about' },
-  { name: 'Now', path: '/now' },
-  { name: 'Contact', path: '/contact' },
-];
 
 function toggleNav() {
 
@@ -126,7 +110,7 @@ function toggleNav() {
         duration: (index) => 1 + index * 0.05,
         stagger: 0.1,
         ease: 'expo.out',
-      }, '-=0.8')
+      }, '-=0.4')
       .to('.footer-bg', {
         width: "100%",
         duration: .8,
