@@ -71,4 +71,11 @@ watch(() => route.path, () => {
   min-height: 100vh;
   height: 100%;
 }
+
+.nuxt-page-wrapper {
+  display: block;
+  position: relative;
+  z-index: 0;
+  pointer-events: auto;
+}
 </style>
