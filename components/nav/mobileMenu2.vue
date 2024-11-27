@@ -57,6 +57,8 @@ const navigationLinks = [
 
 import { gsap } from 'gsap';
 const route = useRoute();
+import { onClickOutside } from '@vueuse/core'
+
 
 const wrapper = ref(null);
 const wrapperInner = ref(null);
@@ -133,6 +135,14 @@ watch(() => route.path, () => {
         toggleNav();
     }
 });
+
+onClickOutside(wrapper, event => {
+    if (event.target.closest('.ignore-click')) return;
+    if (!menuIsOpen.value || menuIsAnimating.value) return;
+    menuIsAnimating.value = false;
+    toggleNav();
+})
+
 </script>
 
 <style scoped>
