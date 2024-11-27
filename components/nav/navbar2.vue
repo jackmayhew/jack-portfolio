@@ -1,17 +1,16 @@
 <template>
   <header class="navbar px-6">
     <nav class="py-4 mx-auto relative flex justify-between items-center">
-      <a to="/" class="nav-logo text-xl font-semibold z-10">
+      <NuxtLink to="/" class="nav-logo text-xl font-semibold z-10">
         Jack
-      </a>
-
+      </NuxtLink>
       <ul class="flex items-center gap-4 sm:gap-6 w-fit justify-end">
-        <li v-for="link in navigationLinks" :key="link.path" class="hidden xs:block">
+        <li v-for="link in navigationLinks" :key="link.path" class="hidden sm:block">
           <NuxtLink :to="link.path" class="link text-lg z-50">
             {{ link.name }}
           </NuxtLink>
         </li>
-        <li class="hidden xs:block">
+        <li class="hidden sm:block">
           <a href="https://github.com/jackmayhew" target="_blank" rel="noopener noreferrer" class="link text-lg">
             GitHub
           </a>
