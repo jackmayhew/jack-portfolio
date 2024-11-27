@@ -6,16 +6,13 @@
 </template>
 
 <script setup>
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+const { $gsap } = useNuxtApp()
 import { projects } from "~/data/projectCards";
-// even just gsap.registerPlugin(ScrollTrigger); alone (without actually using it) causes error
-gsap.registerPlugin(ScrollTrigger);
 
 onMounted(() => {
   const imgs = document.querySelectorAll('.work-img');
   imgs.forEach((img) => {
-    gsap.fromTo(
+    $gsap.fromTo(
       img,
       { autoAlpha: 0 },
       {
