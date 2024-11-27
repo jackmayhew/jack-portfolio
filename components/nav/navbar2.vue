@@ -1,7 +1,7 @@
 <template>
   <header class="navbar px-6">
     <nav class="py-4 mx-auto relative flex justify-between items-center">
-      <NuxtLink to="/" class="nav-logo text-xl font-semibold z-10">
+      <NuxtLink to="/" class="nav-logo text-xl font-semibold z-50">
         Jack
       </NuxtLink>
       <ul class="flex items-center gap-4 sm:gap-6 w-fit justify-end">
@@ -15,7 +15,7 @@
             GitHub
           </a>
         </li>
-        <li class="w-6 h-6 flex z-10">
+        <li class="w-6 h-6 flex z-50">
           <ClientOnly>
             <div :class="colorMode.value === 'dark' ? 'dark' : 'light'" class="flex toggle">
               <button class="ignore-click" title="Toggle Theme" @click="toggleColorMode">
@@ -71,11 +71,12 @@
               </div>
             </div>
           </div>
+          <div class="menu-overlay"></div>
         </li>
       </ul>
     </nav>
   </header>
-  <div class="menu-overlay"></div>
+
 </template>
 
 <script setup>
