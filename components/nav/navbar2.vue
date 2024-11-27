@@ -6,10 +6,24 @@
       </a>
 
       <ul class="flex items-center gap-4 sm:gap-6 w-fit justify-end">
-        <li class="hidden sm:block">
-          <a href="https://github.com/" target="_blank" rel="noopener noreferrer" class="link text-lg">
-            Navbar
+        <li v-for="link in navigationLinks" :key="link.path" class="hidden xs:block">
+          <NuxtLink :to="link.path" class="link text-lg z-50">
+            {{ link.name }}
+          </NuxtLink>
+        </li>
+        <li class="hidden xs:block">
+          <a href="https://github.com/jackmayhew" target="_blank" rel="noopener noreferrer" class="link text-lg">
+            GitHub
           </a>
+        </li>
+        <li class="w-6 h-6 flex z-10">
+          <ClientOnly>
+            <div :class="colorMode.value === 'dark' ? 'dark' : 'light'" class="flex toggle">
+              <button class="ignore-click" title="Toggle Theme" @click="toggleColorMode">
+                <ThemeToggle />
+              </button>
+            </div>
+          </ClientOnly>
         </li>
 
         <li class="flex sm:hidden">
@@ -41,31 +55,38 @@
 
                 </ul>
                 <div class="nav-footer">
-                    <div class="footer-bg"></div>
-                    <div class="menu-item nav-footer-icons">
-                        <a href="mailto:jackmayhew5@gmail.com" aria-label="email">
-                            <Icon name="tabler:mail" size="36" />
-                        </a>
-                        <a href="https://github.com/jackmayhew" target="_blank" rel="noopener" aria-label="github">
-                            <Icon name="tabler:brand-github" size="36" />
-                        </a>
-                        <a href="https://www.linkedin.com/in/jack-mayhew-610b042b2/" target="_blank" rel="noopener"
-                            aria-label="linkedin">
-                            <Icon name="tabler:brand-linkedin" size="36" />
-                        </a>
-                    </div>
+                  <div class="footer-bg"></div>
+                  <div class="menu-item nav-footer-icons">
+                    <a href="mailto:jackmayhew5@gmail.com" aria-label="email">
+                      <Icon name="tabler:mail" size="36" />
+                    </a>
+                    <a href="https://github.com/jackmayhew" target="_blank" rel="noopener" aria-label="github">
+                      <Icon name="tabler:brand-github" size="36" />
+                    </a>
+                    <a href="https://www.linkedin.com/in/jack-mayhew-610b042b2/" target="_blank" rel="noopener"
+                      aria-label="linkedin">
+                      <Icon name="tabler:brand-linkedin" size="36" />
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </li>
       </ul>
-
     </nav>
   </header>
+  
 </template>
 
 <script setup>
+
+const colorMode = useColorMode()
+
+const toggleColorMode = () => {
+  colorMode.preference = colorMode.value === 'dark' ? 'light' : 'dark';
+};
+
 import { gsap } from 'gsap';
 
 const wrapper = ref(null);
