@@ -14,9 +14,15 @@
 
         <li class="flex sm:hidden">
           <div class="nav-menu">
+            <button class="ignore-click hamburger-button" @click="toggleNav" aria-label="open mobile menu">
+              <div class="hamburger" :class="{ open: hamburgerToggle }">
+                <span></span>
+                <span></span>
+              </div>
+            </button>
             <div ref="wrapper" class="nav-wrapper">
               <div ref="wrapperInner" class="nav-wrapper-inner">
-                <ul>
+                <ul class="menu-ul">
                   <li class="">
                     <a class="menu-item block w-fit" href="https://github.com/" target="_blank" rel="noopener">
                       GitHub
@@ -38,12 +44,6 @@
                 </div>
               </div>
             </div>
-            <button class="ignore-click hamburger-button" @click="toggleNav" aria-label="open mobile menu">
-              <div class="hamburger" :class="{ open: hamburgerToggle }">
-                <span></span>
-                <span></span>
-              </div>
-            </button>
           </div>
         </li>
       </ul>
@@ -170,7 +170,7 @@ function toggleNav() {
   transform: scaleX(0);
 }
 
-ul {
+.menu-ul {
   width: 100%;
   padding: 1.75rem 2rem !important;
 }
