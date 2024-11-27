@@ -1,6 +1,6 @@
 <template>
   <main>
     <Hero />
-    <!-- <Work /> -->
+    <Work />
   </main>
 </template>
