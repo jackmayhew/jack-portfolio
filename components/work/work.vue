@@ -1,7 +1,7 @@
 <template>
   <div class="mt-24">
     <h2 class="mb-24 text-4xl sm:text-5xl">Selected Work</h2>
-    <Card v-for="(project) in projects" :key="project.id" :project="project" />
+    <!-- <Card v-for="(project) in projects" :key="project.id" :project="project" /> -->
   </div>
 </template>
 
