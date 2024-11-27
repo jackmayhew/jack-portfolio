@@ -9,7 +9,7 @@ export default defineNuxtConfig({
     "@nuxtjs/color-mode",
     "nuxt-gtag",
   ],
-  plugins: ['@/plugins/color-mode.js'],
+  // plugins: ['@/plugins/color-mode.js'],
   components: [
     {
       path: "~/components",
