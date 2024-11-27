@@ -11,10 +11,17 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { projects } from "~/data/projectCards";
 
 
+// even just gsap.registerPlugin(ScrollTrigger); cuases error
 
 
 onMounted(() => {
-  gsap.registerPlugin(ScrollTrigger);
+  nextTick(() => {
+    gsap.registerPlugin(ScrollTrigger);
+  });
+});
+
+onMounted(() => {
+  // gsap.registerPlugin(ScrollTrigger);
     // const imgs = document.querySelectorAll('.work-img');
     // imgs.forEach((img) => {
     //   gsap.fromTo(
