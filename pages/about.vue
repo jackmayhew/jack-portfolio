@@ -10,6 +10,8 @@
         </p>
       </div>
     </div>
+    <Work />
+
   </main>
 </template>
 
