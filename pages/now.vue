@@ -1,5 +1,5 @@
 <template>
-  <main class="gsap-load">
+  <main>
     <h1 class="text-5xl sm:text-6xl">What's New?</h1>
     <h2 class="mt-2 text-xl sm:text-2xl">An uncurated collection of updates on life and what I’m working on. Feel free to explore.</h2>
       <div class="my-8">

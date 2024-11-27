@@ -1,7 +1,10 @@
 <template>
   <div class="mb-28">
-    <NuxtImg class="work-img w-full h-full rounded-2xl opacity-0 invisible bg-light-bg dark:bg-dark-bg"
+    <div class="work-img  opacity-0 invisible">
+    <NuxtImg class="w-full h-full rounded-2xl bg-light-bg dark:bg-dark-bg"
       :src="project.image" :alt="project.title" width="800" height="510" loading="eager" />
+    </div>
+
     <div class="work-text pt-2 pb-6 sticky bottom-0">
       <time class="mt-4 sm:mt-8 text-lg text-gray-400" :datetime="project.date">{{ project.date }}</time>
       <h2 class="text-2xl sm:text-4xl font-semibold">{{ project.title }}</h2>

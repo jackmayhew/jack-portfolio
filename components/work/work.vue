@@ -1,5 +1,5 @@
 <template>
-  <div class="gsap-load mt-24">
+  <div class="mt-24">
     <h2 class="mb-24 text-4xl sm:text-5xl">Selected Work</h2>
     <Card v-for="(project) in projects" :key="project.id" :project="project" />
   </div>
@@ -12,6 +12,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 onMounted(() => {
   gsap.registerPlugin(ScrollTrigger);
+  nextTick(() => {
   const imgs = gsap.utils.toArray('.work-img')
   imgs.forEach((img) => {
     gsap.fromTo(
@@ -29,5 +30,6 @@ onMounted(() => {
       }
     );
   });
+});
 });
 </script>
