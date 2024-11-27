@@ -27,36 +27,40 @@
                 <ul class="menu-ul">
 
                   <li v-for="(link, index) in navigationLinks" :key="index" class="">
-                        <NuxtLink :to="link.path" @click="toggleNav" class="menu-item block w-fit">
-                            {{ link.name }}
-                        </NuxtLink>
-                    </li>
-                    
-                  <!-- <li class="">
-                    <a class="menu-item block w-fit" href="https://github.com/" target="_blank" rel="noopener">
+                    <NuxtLink :to="link.path" @click="toggleNav" class="menu-item block w-fit">
+                      {{ link.name }}
+                    </NuxtLink>
+                  </li>
+
+                  <li class="">
+                    <a class="menu-item block w-fit" href="https://github.com/jackmayhew" target="_blank"
+                      rel="noopener">
                       GitHub
                     </a>
                   </li>
-                  <li class="">
-                    <a class="menu-item block w-fit" href="https://github.com/" target="_blank" rel="noopener">
-                      GitHub
-                    </a>
-                  </li> -->
+
                 </ul>
                 <div class="nav-footer">
-                  <div class="footer-bg"></div>
-                  <div class="menu-item nav-footer-icons">
-                    <a class="menu-item block w-fit" href="https://github.com/" target="_blank" rel="noopener">
-                      GitHub
-                    </a>
-                  </div>
+                    <div class="footer-bg"></div>
+                    <div class="menu-item nav-footer-icons">
+                        <a href="mailto:jackmayhew5@gmail.com" aria-label="email">
+                            <Icon name="tabler:mail" size="36" />
+                        </a>
+                        <a href="https://github.com/jackmayhew" target="_blank" rel="noopener" aria-label="github">
+                            <Icon name="tabler:brand-github" size="36" />
+                        </a>
+                        <a href="https://www.linkedin.com/in/jack-mayhew-610b042b2/" target="_blank" rel="noopener"
+                            aria-label="linkedin">
+                            <Icon name="tabler:brand-linkedin" size="36" />
+                        </a>
+                    </div>
                 </div>
               </div>
             </div>
           </div>
         </li>
       </ul>
-      
+
     </nav>
   </header>
 </template>
@@ -133,10 +137,10 @@ function toggleNav() {
 }
 
 const navigationLinks = [
-    { name: 'Home', path: '/' },
-    { name: 'About', path: '/about' },
-    { name: 'Now', path: '/now' },
-    { name: 'Contact', path: '/contact' },
+  { name: 'Home', path: '/' },
+  { name: 'About', path: '/about' },
+  { name: 'Now', path: '/now' },
+  { name: 'Contact', path: '/contact' },
 ];
 
 </script>
