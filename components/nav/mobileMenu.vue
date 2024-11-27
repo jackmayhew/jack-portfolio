@@ -1,4 +1,3 @@
-<!-- still a wip - need to clean up, new colours, and might just keep css instead of using tailwind -->
 <template>
     <div class="nav-menu">
         <div ref="wrapper" class="nav-wrapper" :class="menuIsOpen ? '' : 'menu-disabled'">

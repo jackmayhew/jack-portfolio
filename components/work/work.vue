@@ -9,19 +9,20 @@
 import { projects } from "~/data/projectCards";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 
 onMounted(() => {
-  gsap.registerPlugin(ScrollTrigger);
+  
   const imgs = gsap.utils.toArray('.work-img')
   if (!imgs.length) return; 
-  // imgs.forEach((img) => {
+  imgs.forEach((img) => {
     gsap.fromTo(
-      imgs[0],
+      img,
       { autoAlpha: 0 },
       {
         autoAlpha: 1,
         scrollTrigger: {
-          trigger: imgs[0],
+          trigger: img,
           start: "top 55%",
           end: "top 10%",
           scrub: true,
@@ -29,7 +30,6 @@ onMounted(() => {
         },
       }
     );
-  // });
+  });
 });
-
 </script>
