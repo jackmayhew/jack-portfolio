@@ -12,7 +12,7 @@
 </template>
 
 <script setup>
-
+import gsap from "gsap";
 
 let splitText;
 let gltl;
@@ -56,6 +56,7 @@ function heroText() {
   gsap.set('.band', { visibility: 'visible' });
   return tl;
 }
+
 
 onMounted(() => {
   gltl = heroText();
