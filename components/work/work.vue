@@ -33,29 +33,27 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 // });
 onMounted(() => {
   gsap.registerPlugin(ScrollTrigger);
+  
+  // Add a global event listener to prevent default
+  window.addEventListener('click', (e) => {
+    if (window.ScrollTrigger) {
+      ScrollTrigger.refresh();
+    }
+  });
+
   const imgs = gsap.utils.toArray('.work-img')
   if (!imgs.length) return; 
 
-  const triggers = imgs.map((img) => 
-    gsap.fromTo(
-      img,
-      { autoAlpha: 0 },
-      {
-        autoAlpha: 1,
-        scrollTrigger: {
-          trigger: img,
-          start: "top 55%",
-          end: "top 10%",
-          scrub: 0.5, // Changed from 'true' to a specific value
-          toggleActions: "play pause reverse reset", // Modified toggle actions
-        },
-      }
-    )
-  );
-
-  // Optional: Cleanup method
-  return () => {
-    triggers.forEach(trigger => trigger.scrollTrigger?.kill());
-  };
+  imgs.forEach((img) => {
+    ScrollTrigger.create({
+      trigger: img,
+      start: "top 55%",
+      end: "top 10%",
+      onEnter: () => gsap.to(img, { autoAlpha: 1 }),
+      onLeave: () => gsap.to(img, { autoAlpha: 0 }),
+      onEnterBack: () => gsap.to(img, { autoAlpha: 1 }),
+      onLeaveBack: () => gsap.to(img, { autoAlpha: 0 })
+    });
+  });
 });
 </script>
