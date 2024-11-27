@@ -56,6 +56,7 @@ const navigationLinks = [
 ];
 
 import { gsap } from 'gsap';
+const route = useRoute();
 
 const wrapper = ref(null);
 const wrapperInner = ref(null);
