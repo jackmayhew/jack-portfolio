@@ -1,6 +1,6 @@
 export default defineNuxtConfig({
   compatibilityDate: "2024-04-03",
-  // ssr: false,
+  ssr: false,
   devtools: { enabled: true },
   modules: [
     "@nuxtjs/tailwindcss",
@@ -9,7 +9,7 @@ export default defineNuxtConfig({
     "@nuxtjs/color-mode",
     "nuxt-gtag",
   ],
-  // plugins: ['@/plugins/color-mode.js'],
+  plugins: ['@/plugins/color-mode.js'],
   components: [
     {
       path: "~/components",
