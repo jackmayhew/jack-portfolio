@@ -18,7 +18,7 @@
 
 body {
   font-family: "regular", sans-serif;
-  min-height: 100vh;
+  /* min-height: 100vh; */
 }
 
 h1,
@@ -38,10 +38,9 @@ html.light-mode,
 .light-mode .navbar {
   background-color: #fdfaf5;
   background: #fdfaf5;
-  color-scheme: light;
   color: #131212;
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
-  -webkit-touch-callout: none;
+  color-scheme: light;
+
 }
 
 html.dark-mode,
@@ -50,8 +49,6 @@ html.dark-mode,
   background: #121212;
   color-scheme: dark;
   color: #dddddd;
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
-  -webkit-touch-callout: none;
 }
 
 .btn {
@@ -96,3 +93,10 @@ html.dark-mode,
 .locked {
   overflow: hidden;
 }
+
+/* header {
+  background-color: green !important;
+}
+body {
+  background-color: red !important;
+} */

@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper max-w-screen-md mx-auto">
+  <div class="">
     <Navbar2 class="relative max-w-screen-md mx-auto" />
     <div class="main-content px-6 mt-[6.5rem] invisible">
       <NuxtPage />
@@ -44,7 +44,7 @@ watch(() => route.path, () => {
 
 
 <style>
-.page-enter-active {
+/* .page-enter-active {
   transition: all 0.3s ease-out;
   z-index: -1;
 }
@@ -68,5 +68,5 @@ watch(() => route.path, () => {
 .wrapper {
   min-height: 100vh;
   height: 100%;
-}
+} */
 </style>
