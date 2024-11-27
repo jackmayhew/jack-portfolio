@@ -14,16 +14,25 @@
 
         <li class="flex sm:hidden">
           <div class="nav-menu">
+
             <button class="ignore-click hamburger-button" @click="toggleNav" aria-label="open mobile menu">
               <div class="hamburger" :class="{ open: hamburgerToggle }">
                 <span></span>
                 <span></span>
               </div>
             </button>
+
             <div ref="wrapper" class="nav-wrapper">
               <div ref="wrapperInner" class="nav-wrapper-inner">
                 <ul class="menu-ul">
-                  <li class="">
+
+                  <li v-for="(link, index) in navigationLinks" :key="index" class="">
+                        <NuxtLink :to="link.path" @click="toggleNav" class="menu-item block w-fit">
+                            {{ link.name }}
+                        </NuxtLink>
+                    </li>
+                    
+                  <!-- <li class="">
                     <a class="menu-item block w-fit" href="https://github.com/" target="_blank" rel="noopener">
                       GitHub
                     </a>
@@ -32,7 +41,7 @@
                     <a class="menu-item block w-fit" href="https://github.com/" target="_blank" rel="noopener">
                       GitHub
                     </a>
-                  </li>
+                  </li> -->
                 </ul>
                 <div class="nav-footer">
                   <div class="footer-bg"></div>
@@ -122,6 +131,13 @@ function toggleNav() {
   hamburgerToggle.value = !hamburgerToggle.value;
   document.body.classList.toggle('locked');
 }
+
+const navigationLinks = [
+    { name: 'Home', path: '/' },
+    { name: 'About', path: '/about' },
+    { name: 'Now', path: '/now' },
+    { name: 'Contact', path: '/contact' },
+];
 
 </script>
 
