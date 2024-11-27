@@ -31,4 +31,31 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 //     );
 //   });
 // });
+onMounted(() => {
+  gsap.registerPlugin(ScrollTrigger);
+  const imgs = gsap.utils.toArray('.work-img')
+  if (!imgs.length) return; 
+
+  const triggers = imgs.map((img) => 
+    gsap.fromTo(
+      img,
+      { autoAlpha: 0 },
+      {
+        autoAlpha: 1,
+        scrollTrigger: {
+          trigger: img,
+          start: "top 55%",
+          end: "top 10%",
+          scrub: 0.5, // Changed from 'true' to a specific value
+          toggleActions: "play pause reverse reset", // Modified toggle actions
+        },
+      }
+    )
+  );
+
+  // Optional: Cleanup method
+  return () => {
+    triggers.forEach(trigger => trigger.scrollTrigger?.kill());
+  };
+});
 </script>
