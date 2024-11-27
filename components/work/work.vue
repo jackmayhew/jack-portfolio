@@ -7,7 +7,7 @@
 
 <script setup>
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+// import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { projects } from "~/data/projectCards";
 // gsap.registerPlugin(ScrollTrigger);
 // even just gsap.registerPlugin(ScrollTrigger); causes error
@@ -33,4 +33,7 @@ import { projects } from "~/data/projectCards";
 //   });
 //   ScrollTrigger.refresh()
 // });
+
+
+
 </script>
