@@ -2,7 +2,7 @@
   <div class="">
     <Navbar class="" />
     <div class="main-content px-6 mt-[6.5rem] invisible">
-      <!-- <NuxtPage /> -->
+      <NuxtPage />
       <Footer />
     </div>
   </div>

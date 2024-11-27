@@ -24,7 +24,7 @@
             </div>
           </ClientOnly>
         </li>
-        <li class="flex xs:hidden z-50">
+        <li class="flex xs:hidden">
           <MobileMenu />
         </li>
       </ul>
