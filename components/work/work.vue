@@ -12,8 +12,8 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 onMounted(() => {
   gsap.registerPlugin(ScrollTrigger);
-  nextTick(() => {
   const imgs = gsap.utils.toArray('.work-img')
+  if (!imgs.length) return; 
   imgs.forEach((img) => {
     gsap.fromTo(
       img,
@@ -30,6 +30,5 @@ onMounted(() => {
       }
     );
   });
-});
 });
 </script>
