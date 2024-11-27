@@ -26,7 +26,7 @@
         </li>
 
         <li class="flex sm:hidden">
-          <MobileMenu2 />
+          <MobileMenu />
         </li>
       </ul>
     </nav>
