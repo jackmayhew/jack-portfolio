@@ -137,7 +137,7 @@ watch(() => route.path, () => {
 
 onClickOutside(wrapper, event => {
     // if (event.target.closest('.ignore-click')) return;
-    if (!menuIsOpen.value || menuIsAnimating.value) return;
+    if (!menuIsOpen.value || menuIsAnimating.value || event.target.closest('.ignore-click')) return;
     menuIsAnimating.value = false;
     toggleNav();
 })
