@@ -12,39 +12,39 @@
 import gsap from 'gsap'
 const route = useRoute();
 
-// setupHead()
+setupHead()
 
-// onMounted(() => {
-//   // gsap animation for initial page load
-//   const context = gsap.context(() => {
-//     const timeline = gsap.timeline();
-//     timeline
-//       .fromTo(".main-content",
-//         { y: 15, autoAlpha: 0 },
-//         { y: 0, autoAlpha: 1, duration: .5, ease: "power2.out" }, 0.2)
-//   });
-//   return () => context.revert();
-// })
+onMounted(() => {
+  // gsap animation for initial page load
+  const context = gsap.context(() => {
+    const timeline = gsap.timeline();
+    timeline
+      .fromTo(".main-content",
+        { y: 15, autoAlpha: 0 },
+        { y: 0, autoAlpha: 1, duration: .5, ease: "power2.out" }, 0.2)
+  });
+  return () => context.revert();
+})
 
-// watch(() => route.path, () => {
-//   // animate footer separately to match nuxt page transitons
-//   // not a fan of this, but it works for now 
-//   const context = gsap.context(() => {
-//     gsap.set(".footer", { y: 0, autoAlpha: 1 });
-//     gsap.timeline()
-//       .to(".footer", { y: -15, autoAlpha: 0, duration: 0.3, ease: "power2.out" })
-//       .eventCallback("onComplete", () => {
-//         gsap.set(".footer", { y: 0, autoAlpha: 1 });
-//       });
-//   });
-//   return () => context.revert();
-// });
+watch(() => route.path, () => {
+  // animate footer separately to match nuxt page transitons
+  // not a fan of this, but it works for now 
+  const context = gsap.context(() => {
+    gsap.set(".footer", { y: 0, autoAlpha: 1 });
+    gsap.timeline()
+      .to(".footer", { y: -15, autoAlpha: 0, duration: 0.3, ease: "power2.out" })
+      .eventCallback("onComplete", () => {
+        gsap.set(".footer", { y: 0, autoAlpha: 1 });
+      });
+  });
+  return () => context.revert();
+});
 
 </script>
 
 
 <style>
-/* .page-enter-active {
+.page-enter-active {
   transition: all 0.3s ease-out;
   z-index: -1;
 }
@@ -68,5 +68,5 @@ const route = useRoute();
 .wrapper {
   min-height: 100vh;
   height: 100%;
-} */
+}
 </style>
