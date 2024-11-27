@@ -13,7 +13,38 @@
         </li>
 
         <li class="flex sm:hidden">
-            <MobileMenu />
+          <div class="nav-menu">
+            <div ref="wrapper" class="nav-wrapper">
+              <div ref="wrapperInner" class="nav-wrapper-inner">
+                <ul>
+                  <li class="">
+                    <a class="menu-item block w-fit" href="https://github.com/" target="_blank" rel="noopener">
+                      GitHub
+                    </a>
+                  </li>
+                  <li class="">
+                    <a class="menu-item block w-fit" href="https://github.com/" target="_blank" rel="noopener">
+                      GitHub
+                    </a>
+                  </li>
+                </ul>
+                <div class="nav-footer">
+                  <div class="footer-bg"></div>
+                  <div class="menu-item nav-footer-icons">
+                    <a class="menu-item block w-fit" href="https://github.com/" target="_blank" rel="noopener">
+                      GitHub
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button class="ignore-click hamburger-button" @click="toggleNav" aria-label="open mobile menu">
+              <div class="hamburger" :class="{ open: hamburgerToggle }">
+                <span></span>
+                <span></span>
+              </div>
+            </button>
+          </div>
         </li>
       </ul>
       
@@ -22,6 +53,75 @@
 </template>
 
 <script setup>
+import { gsap } from 'gsap';
+
+const wrapper = ref(null);
+const wrapperInner = ref(null);
+
+const menuHeight = ref(null);
+const menuIsOpen = ref(false);
+const currentAnimation = ref(null);
+const menuIsAnimating = ref(false);
+const hamburgerToggle = ref(false);
+
+function toggleNav() {
+
+  if (currentAnimation.value) currentAnimation.value.kill();
+
+  menuIsAnimating.value = true;
+
+  const timeline = gsap.timeline({
+    onComplete: () => {
+      menuIsAnimating.value = false;
+      currentAnimation.value = null;
+    }
+  });
+
+  currentAnimation.value = timeline;
+
+  if (!menuHeight.value) menuHeight.value = wrapperInner.value.offsetHeight;
+
+  if (menuIsOpen.value) {
+    timeline.to(wrapperInner.value, { height: 0, y: -10, duration: 0.6, ease: 'expo.inOut' }, 0)
+  }
+  else {
+    const wrapperHeight = menuHeight.value;
+    timeline
+      .set(wrapper.value, { height: wrapperHeight, opacity: 0, width: "100%" })
+      .set(wrapperInner.value, { y: "-3.5rem", scaleX: 0, width: "3rem", height: "3rem" })
+      .set('.menu-item', { opacity: 0, x: 60 })
+      .set('.footer-bg', { width: "0" })
+      .to(wrapper.value, { opacity: 1, width: "100%" })
+      .to(wrapperInner.value, {
+        y: 0,
+        scaleX: 1,
+        height: wrapperHeight,
+        duration: .6,
+        ease: "expo.inOut",
+      }, 0)
+      .to(wrapperInner.value, {
+        width: "100%",
+        duration: .6,
+        ease: "expo.inOut",
+      }, .3)
+      .to('.menu-item', {
+        opacity: 1,
+        x: 0,
+        duration: (index) => 1 + index * 0.05,
+        stagger: 0.1,
+        ease: 'expo.out',
+      }, '-=0.4')
+      .to('.footer-bg', {
+        width: "100%",
+        duration: .8,
+        ease: "expo.inOut",
+      }, .3)
+  }
+
+  menuIsOpen.value = !menuIsOpen.value;
+  hamburgerToggle.value = !hamburgerToggle.value;
+  document.body.classList.toggle('locked');
+}
 
 </script>
 
