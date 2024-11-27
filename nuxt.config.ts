@@ -25,9 +25,9 @@ export default defineNuxtConfig({
       meta: [
         { name: 'theme-color', content: '#FDFAF5' }
       ],
-      script: [
-        { src: "/js/SplitText.js", tagPosition: "bodyClose" },
-      ],
+      // script: [
+      //   { src: "/js/SplitText.js", tagPosition: "bodyClose" },
+      // ],
       link: [
         // preloads
         { rel: "preload", href: "/img/hero.webp", as: "image" },

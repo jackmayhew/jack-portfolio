@@ -1,6 +1,6 @@
 <template>
   <div class="hero sm:min-h-screen">
-    <p class="band intro pb-1 text-4xl sm:text-5xl invisible">
+    <p class="band intro pb-1 text-4xl sm:text-5xl">
       Just a guy who enjoys building cool things for the web and beyond.
       Currently living and working in Montreal.
     </p>
@@ -58,7 +58,7 @@ function heroText() {
 }
 
 onMounted(() => {
-  gltl = heroText();
+  // gltl = heroText();
   const context = gsap.context(() => {
     const timeline = gsap.timeline();
     timeline
