@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper max-w-screen-md mx-auto">
-    <Navbar class="relative max-w-screen-md mx-auto" />
+    <Navbar2 class="relative max-w-screen-md mx-auto" />
     <div class="main-content px-6 mt-[6.5rem] invisible">
       <NuxtPage />
       <Footer />
