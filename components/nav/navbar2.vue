@@ -81,10 +81,16 @@
 <script setup>
 
 const colorMode = useColorMode()
-
 const toggleColorMode = () => {
   colorMode.preference = colorMode.value === 'dark' ? 'light' : 'dark';
 };
+
+const navigationLinks = [
+  { name: 'Home', path: '/' },
+  { name: 'About', path: '/about' },
+  { name: 'Now', path: '/now' },
+  { name: 'Contact', path: '/contact' },
+];
 
 import { gsap } from 'gsap';
 
@@ -156,16 +162,61 @@ function toggleNav() {
   document.body.classList.toggle('locked');
 }
 
-const navigationLinks = [
-  { name: 'Home', path: '/' },
-  { name: 'About', path: '/about' },
-  { name: 'Now', path: '/now' },
-  { name: 'Contact', path: '/contact' },
-];
 
 </script>
 
 <style scoped>
+.link {
+  position: relative;
+  height: 1.125rem;
+  line-height: 1.1rem;
+  display: block;
+}
+
+.link::before,
+.link::after {
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: currentColor;
+  top: 100%;
+  left: 0;
+  pointer-events: none;
+}
+
+.link::before {
+  content: "";
+  transform-origin: 100% 50%;
+  transform: scale3d(0, 1, 1);
+  transition: transform 0.4s;
+}
+
+.link:hover::before {
+  transform-origin: 0% 50%;
+  transform: scale3d(1, 1, 1);
+}
+
+.router-link-active::before {
+  transform-origin: 0% 50%;
+  transform: scale3d(1, 1, 1);
+}
+
+.disabled {
+  pointer-events: none;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+  right: 0;
+  left: 0;
+  pointer-events: auto !important;
+}
+
+
+
 .nav-menu {
   overflow: hidden;
   --menu-bg: #70a2e1;
@@ -397,13 +448,4 @@ const navigationLinks = [
   pointer-events: none;
 }
 
-.navbar {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 10;
-  right: 0;
-  left: 0;
-  pointer-events: auto !important;
-}
 </style>
