@@ -7,13 +7,12 @@
 
 <script setup>
 import { projects } from "~/data/projectCards";
-import { gsap } from "gsap";
+import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-onMounted(() => {
-  requestAnimationFrame(() => {
+function workCards() {
     const imgs = document.querySelectorAll('.work-img');
     imgs.forEach((img) => {
       gsap.fromTo(
@@ -31,6 +30,25 @@ onMounted(() => {
         }
       );
     });
-  });
+}
+onMounted(() => {
+  workCards()
+    // const imgs = document.querySelectorAll('.work-img');
+    // imgs.forEach((img) => {
+    //   gsap.fromTo(
+    //     img,
+    //     { autoAlpha: 0 },
+    //     {
+    //       autoAlpha: 1,
+    //       scrollTrigger: {
+    //         trigger: img,
+    //         start: "top 55%",
+    //         end: "top 10%",
+    //         scrub: true,
+    //         toggleActions: "play none none reverse",
+    //       },
+    //     }
+    //   );
+    // });
 });
 </script>
