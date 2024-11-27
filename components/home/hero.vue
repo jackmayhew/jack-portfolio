@@ -57,7 +57,6 @@ function heroText() {
   return tl;
 }
 
-
 onMounted(() => {
   gltl = heroText();
   const context = gsap.context(() => {
