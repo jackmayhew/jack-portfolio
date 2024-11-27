@@ -31,26 +31,33 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 onMounted(() => {
-  gsap.registerPlugin(ScrollTrigger);
-  const imgs = gsap.utils.toArray('.work-img')
-  if (!imgs.length) return; 
-  imgs.forEach((img) => {
-    gsap.fromTo(
-      img,
-      { autoAlpha: 0 },
-      {
-        autoAlpha: 1,
-        scrollTrigger: {
-          trigger: img,
-          start: "top 55%",
-          end: "top 10%",
-          scrub: true,
-          toggleActions: "play none none reverse",
-        },
-      }
-    );
+  const context = gsap.context(() => {
+    gsap.registerPlugin(ScrollTrigger);
+    const imgs = gsap.utils.toArray('.work-img');
+    
+    if (imgs.length === 0) return;
+
+    imgs.forEach((img) => {
+      gsap.fromTo(
+        img,
+        { autoAlpha: 0 },
+        {
+          autoAlpha: 1,
+          scrollTrigger: {
+            trigger: img,
+            start: "top 55%",
+            end: "top 10%",
+            scrub: true,
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
+    });
   });
+
+  return () => context.revert(); 
 });
+
 </script>
 
 <style scoped>
