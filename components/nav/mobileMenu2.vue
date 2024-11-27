@@ -59,7 +59,6 @@ import { gsap } from 'gsap';
 
 const wrapper = ref(null);
 const wrapperInner = ref(null);
-
 const menuHeight = ref(null);
 const menuIsOpen = ref(false);
 const currentAnimation = ref(null);
@@ -93,7 +92,6 @@ function toggleNav() {
             .set(wrapperInner.value, { y: "-3.5rem", scaleX: 0, width: "3rem", height: "3rem" })
             .set('.menu-overlay', { opacity: 1, duration: .6 })
             .set('.menu-item', { opacity: 0, x: 60 })
-            // .set('.poop', { opacity: 0, x: 60 })
             .set('.footer-bg', { width: "0" })
             .to(wrapper.value, { opacity: 1, width: "100%" })
             .to(wrapperInner.value, {
@@ -108,21 +106,6 @@ function toggleNav() {
                 duration: .6,
                 ease: "expo.inOut",
             }, .3)
-            // .to('.menu-item', {
-            //     opacity: 1,
-            //     x: 0,
-            //     duration: (index) => 1 + index * 0.05,
-            //     stagger: 0.1,
-            //     ease: 'expo.out',
-            // }, 1)
-            // .to('.menu-item', {
-            //     opacity: 1,
-            //     x: 0,
-            //     duration: 1,
-            //     // stagger: 0.1,
-            //     ease: 'expo.out',
-            // }, .5)
-
             .to('.menu-item', {
                 opacity: 1,
                 x: 0,
@@ -130,13 +113,6 @@ function toggleNav() {
                 stagger: 0.1,
                 ease: 'expo.out',
             }, '-=.4')
-            // .to('.', {
-            //     opacity: 1,
-            //     x: 0,
-            //     duration: 1,
-            //     // stagger: 0.1,
-            //     ease: 'expo.out',
-            // }, .5)
             .to('.footer-bg', {
                 width: "100%",
                 duration: .8,
@@ -149,6 +125,13 @@ function toggleNav() {
     document.body.classList.toggle('locked');
     document.querySelector('.menu-overlay').classList.toggle('pointer-events-auto');
 }
+
+watch(() => route.path, () => {
+    if (menuIsOpen.value) {
+        menuIsAnimating.value = false;
+        toggleNav();
+    }
+});
 </script>
 
 <style scoped>
