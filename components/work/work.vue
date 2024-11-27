@@ -9,31 +9,49 @@
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { projects } from "~/data/projectCards";
+// gsap.registerPlugin(ScrollTrigger);
 
-
-// even just gsap.registerPlugin(ScrollTrigger); cuases error
-
-
+// even just gsap.registerPlugin(ScrollTrigger); causes error
 
 onMounted(() => {
   console.log('pain')
+  setTimeout(() => {
+    gsap.registerPlugin(ScrollTrigger);
+    const imgs = document.querySelectorAll('.work-img');
+    imgs.forEach((img) => {
+      gsap.fromTo(
+        img,
+        { autoAlpha: 0 },
+        {
+          autoAlpha: 1,
+          scrollTrigger: {
+            trigger: img,
+            start: "top 55%",
+            end: "top 10%",
+            scrub: true,
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
+    });
+  }, 10000);
   // gsap.registerPlugin(ScrollTrigger);
-    // const imgs = document.querySelectorAll('.work-img');
-    // imgs.forEach((img) => {
-    //   gsap.fromTo(
-    //     img,
-    //     { autoAlpha: 0 },
-    //     {
-    //       autoAlpha: 1,
-    //       scrollTrigger: {
-    //         trigger: img,
-    //         start: "top 55%",
-    //         end: "top 10%",
-    //         scrub: true,
-    //         toggleActions: "play none none reverse",
-    //       },
-    //     }
-    //   );
-    // });
+  // const imgs = document.querySelectorAll('.work-img');
+  // imgs.forEach((img) => {
+  //   gsap.fromTo(
+  //     img,
+  //     { autoAlpha: 0 },
+  //     {
+  //       autoAlpha: 1,
+  //       scrollTrigger: {
+  //         trigger: img,
+  //         start: "top 55%",
+  //         end: "top 10%",
+  //         scrub: true,
+  //         toggleActions: "play none none reverse",
+  //       },
+  //     }
+  //   );
+  // });
 });
 </script>

@@ -161,6 +161,7 @@ watch(() => route.path, () => {
     border-radius: 1.5rem;
     opacity: 0;
     background-color: transparent;
+    will-change: transform, width, height, opacity;
 }
 
 .nav-wrapper-inner {
@@ -173,7 +174,7 @@ watch(() => route.path, () => {
     right: 0;
     position: absolute;
     overflow: hidden;
-    will-change: transform, width, height;
+    will-change: transform, width, height, opacity;
 }
 
 .nav-background {
