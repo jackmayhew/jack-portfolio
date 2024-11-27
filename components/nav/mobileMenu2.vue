@@ -136,12 +136,12 @@ watch(() => route.path, () => {
     }
 });
 
-onClickOutside(wrapper, event => {
-    if (event.target.closest('.ignore-click')) return;
-    if (!menuIsOpen.value || menuIsAnimating.value) return;
-    menuIsAnimating.value = false;
-    toggleNav();
-})
+// onClickOutside(wrapper, event => {
+//     if (event.target.closest('.ignore-click')) return;
+//     if (!menuIsOpen.value || menuIsAnimating.value) return;
+//     menuIsAnimating.value = false;
+//     toggleNav();
+// })
 
 </script>
 
