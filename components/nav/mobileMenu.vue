@@ -46,7 +46,7 @@
 
 <script setup>
 import { gsap } from 'gsap';
-import { onClickOutside } from '@vueuse/core'
+// import { onClickOutside } from '@vueuse/core'
 
 const route = useRoute();
 
