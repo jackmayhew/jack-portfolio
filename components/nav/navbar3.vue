@@ -10,9 +10,9 @@
             {{ link.name }}
           </NuxtLink>
         </li>
-        <li class="hidden xs:block">
-          <a href="https://github.com/jackmayhew" target="_blank" rel="noopener noreferrer" class="link text-lg">
-            GitHub
+        <li class="hidden sm:block">
+          <a href="https://github.com/" target="_blank" rel="noopener noreferrer" class="link text-lg">
+            Navbar
           </a>
         </li>
         <li class="w-6 h-6 flex z-10">
