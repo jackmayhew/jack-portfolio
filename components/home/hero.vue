@@ -12,7 +12,7 @@
 </template>
 
 <script setup>
-import gsap from "gsap";
+
 
 let splitText;
 let gltl;
