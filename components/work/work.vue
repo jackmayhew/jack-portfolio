@@ -12,25 +12,25 @@ import { projects } from "~/data/projectCards";
 // gsap.registerPlugin(ScrollTrigger);
 // even just gsap.registerPlugin(ScrollTrigger); causes error
 
-onMounted(() => {
-  gsap.registerPlugin(ScrollTrigger);
-  const imgs = document.querySelectorAll('.work-img');
-  imgs.forEach((img) => {
-    gsap.fromTo(
-      img,
-      { autoAlpha: 0 },
-      {
-        autoAlpha: 1,
-        scrollTrigger: {
-          trigger: img,
-          start: "top 55%",
-          end: "top 10%",
-          scrub: true,
-          toggleActions: "play none none reverse",
-        },
-      }
-    );
-  });
-  ScrollTrigger.refresh()
-});
+// onMounted(() => {
+//   gsap.registerPlugin(ScrollTrigger);
+//   const imgs = document.querySelectorAll('.work-img');
+//   imgs.forEach((img) => {
+//     gsap.fromTo(
+//       img,
+//       { autoAlpha: 0 },
+//       {
+//         autoAlpha: 1,
+//         scrollTrigger: {
+//           trigger: img,
+//           start: "top 55%",
+//           end: "top 10%",
+//           scrub: true,
+//           toggleActions: "play none none reverse",
+//         },
+//       }
+//     );
+//   });
+//   ScrollTrigger.refresh()
+// });
 </script>

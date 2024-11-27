@@ -1,5 +1,12 @@
 <template>
     <div class="nav-menu">
+        <button class="ignore-click hamburger-button" @click="toggleNav" aria-label="open mobile menu">
+            <div class="hamburger" :class="{ open: hamburgerToggle }">
+                <span></span>
+                <span></span>
+            </div>
+        </button>
+
         <div ref="wrapper" class="nav-wrapper" :class="menuIsOpen ? '' : 'menu-disabled'">
             <div ref="wrapperInner" class="nav-wrapper-inner">
                 <ul>
@@ -32,12 +39,7 @@
                 </div>
             </div>
         </div>
-        <button class="ignore-click hamburger-button" @click="toggleNav" aria-label="open mobile menu">
-            <div class="hamburger" :class="{ open: hamburgerToggle }">
-                <span></span>
-                <span></span>
-            </div>
-        </button>
+
     </div>
     <div class="menu-overlay"></div>
 </template>
@@ -133,12 +135,12 @@ watch(() => route.path, () => {
     }
 });
 
-// onClickOutside(wrapper, event => {
-//     if (event.target.closest('.ignore-click')) return;
-//     if (!menuIsOpen.value || menuIsAnimating.value) return;
-//     menuIsAnimating.value = false;
-//     toggleNav();
-// })
+onClickOutside(wrapper, event => {
+    if (event.target.closest('.ignore-click')) return;
+    if (!menuIsOpen.value || menuIsAnimating.value) return;
+    menuIsAnimating.value = false;
+    toggleNav();
+})
 </script>
 
 <style scoped>
