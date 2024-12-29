@@ -20,7 +20,7 @@ export const projectDetails = [
     paragraphs: {
       1: `As an avid camper frustrated with jumping between countless websites to plan trips, I built CampVI to solve a simple problem: finding the perfect campsite shouldn't be a hassle. The site brings together every type of camping spot on Vancouver Island - from provincial parks to hidden off-grid gems - all in one clean, modern interface.`,
       2: `What started as a personal project has grown into a genuine resource for the island's outdoor community. With an interactive map, intuitive search features, and detailed site info, CampVI helps adventurers spend less time planning and more time exploring.`,
-      3: `Receiving messages from users who've discovered their new favourite camping spots through the site has been cool.`,
+      3: `It's been nice getting messages from users who've discovered their new favourite camping spots through the site!`,
     },
     techStack: "Next.js, TypeScript, Sanity.io",
     image: "/img/work/campvi.webp",
@@ -46,7 +46,7 @@ export const projectDetails = [
     subtitle: "Clean, distraction-free guitar and bass tabs.",
     paragraphs: {
       1: `I built TabZen to solve a simple frustration: guitar tab sites are cluttered with ads and popups that standard adblockers miss. What started as me manually removing elements in DevTools turned into a browser extension that does the work automatically.`,
-      2: `Though still new (built November 2024), TabZen is helping musicians focus on what matters - the music without the visual clutter. Simple fix for an annoying problem.`,
+      2: `Though still new (built November 2024), TabZen is helping users focus on what matters - the music without the clutter. A simple fix for an annoying problem!`,
     },
     techStack: "HTML, CSS, JavaScript, Chrome Extensions API",
     image: "/img/work/tabzen.webp",

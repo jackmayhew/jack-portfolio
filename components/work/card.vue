@@ -9,13 +9,13 @@
       <p class="my-2 text-lg ">{{ project.stack }}</p>
       <div class="flex gap-4 mt-4">
         <a class="btn" :href="project.url" target="_blank" rel="noopener">
-        Visit
-        <Icon name="tabler:link" size="22" />
-      </a>
-      <NuxtLink class="btn" :to="`/projects/${project.slug}`" >
-        Details
-        <Icon name="tabler:arrow-right" size="22" />
-      </NuxtLink>
+          Visit
+          <Icon name="tabler:link" size="22" />
+        </a>
+        <NuxtLink class="btn" :to="`/projects/${project.slug}`">
+          Details
+          <Icon name="tabler:arrow-right" size="22" />
+        </NuxtLink>
       </div>
     </div>
   </div>

@@ -2,8 +2,8 @@
   <header class="navbar px-6">
     <nav class="py-4 mx-auto relative flex justify-between items-center">
       <NuxtLink to="/" class="nav-logo text-xl font-semibold z-50">
-        <!-- Jack -->
-         <img src="/logo3.png" alt="" class="w-[85px]">
+        Jack
+         <!-- <img src="/logo3.png" alt="" class="w-[85px]"> -->
       </NuxtLink>
       <ul class="flex items-center gap-4 sm:gap-6">
         <li v-for="link in navigationLinks" :key="link.path" class="hidden xs:block">

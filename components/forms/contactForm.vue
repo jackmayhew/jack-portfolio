@@ -97,7 +97,7 @@ const sendEmail = () => {
       () => {
         messageStatusResponse.value = 200;
         messageStatusEmail.value = false;
-        messageStatus.value = "Email has been sent! I'll get back to you asap as possible";
+        messageStatus.value = "Email has been sent! I'll get back to you asap as possible.";
 
         window.scrollTo({ top: 0, behavior: 'smooth' });
         form.value = { firstName: '', email: '', message: '' };
