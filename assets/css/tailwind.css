@@ -80,7 +80,8 @@ html.dark-mode,
 }
 
 ::selection, 
-::-moz-selection {
+::-moz-selection,
+::-webkit-selection {
   background-color: #70a2e1;
 }
 
