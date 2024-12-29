@@ -24,11 +24,10 @@
         <span v-if="errors.message" class="text-red-600 dark:text-red-500">{{ errors.message }}</span>
       </div>
       <div class="mt-6 w-fit">
-        <!-- <button class="flex px-6 py-2 rounded-lg border-2 border-neutral-200 dark:border-gray-700 transition-colors duration-300 hover:border-neutral-300">Submit</button> -->
         <button class="btn">
-        Send
-        <Icon name="tabler:send" size="22" />
-      </button>
+          Send
+          <Icon name="tabler:send" size="22" />
+        </button>
       </div>
     </form>
   </div>
@@ -122,13 +121,13 @@ const messageStatusClass = computed(() => {
 <style scoped>
 /* prevent autofill styling */
 input:-webkit-autofill {
-    -webkit-text-fill-color: #131212;
-    transition: background-color 0s 9999999s;
-    box-shadow: 0 0 0 1000px #fff inset;
+  -webkit-text-fill-color: #131212;
+  transition: background-color 0s 9999999s;
+  box-shadow: 0 0 0 1000px #fff inset;
 }
 
 .dark-mode input:-webkit-autofill {
-    -webkit-text-fill-color: #dddddd;
-    box-shadow: 0 0 0 1000px #121212 inset;
+  -webkit-text-fill-color: #dddddd;
+  box-shadow: 0 0 0 1000px #121212 inset;
 }
 </style>

@@ -2,46 +2,41 @@
   <div class="wrapper max-w-screen-md mx-auto">
     <Navbar class="relative max-w-screen-md mx-auto" />
     <div class="main-content px-6 mt-[6.5rem] invisible">
-      <NuxtPage />
+      <NuxtPage :gsapDelay="gsapDelay" />
       <Footer />
     </div>
   </div>
 </template>
 
 <script setup>
-import gsap from 'gsap'
+import { pageLoadGSAP, footerGSAP } from '@/utils/gsapAnimations'
 const route = useRoute();
 
 setupHead()
 
+/**
+ * Delay 0.5 for initial page load,
+ * then 0.2 for subsequent page transitions.
+ */
+let gsapDelay = ref(0.5);
+
+// Initial page load animations
 onMounted(() => {
-  // gsap animation for initial page load
-  const context = gsap.context(() => {
-    const timeline = gsap.timeline();
-    timeline
-      .fromTo(".main-content",
-        { y: 15, autoAlpha: 0 },
-        { y: 0, autoAlpha: 1, duration: .5, ease: "power2.out" }, 0.2)
-  });
-  return () => context.revert();
+  const { cleanup } = pageLoadGSAP()
+  return cleanup
 })
 
+/**
+ * Animate footer to match page transitions.
+ * For some reason Nuxt page transition won't work with the footer, only with <NuxtPage />
+ * Not a huge fan of this, but it works for now
+ */
 watch(() => route.path, () => {
-  // animate footer separately to match nuxt page transitons
-  // not a fan of this, but it works for now 
-  const context = gsap.context(() => {
-    gsap.set(".footer", { y: 0, autoAlpha: 1 });
-    gsap.timeline()
-      .to(".footer", { y: -15, autoAlpha: 0, duration: 0.3, ease: "power2.out" })
-      .eventCallback("onComplete", () => {
-        gsap.set(".footer", { y: 0, autoAlpha: 1 });
-      });
-  });
-  return () => context.revert();
-});
-
+  gsapDelay.value = 0.2
+  const { cleanup } = footerGSAP()
+  return cleanup
+})
 </script>
-
 
 <style>
 .page-enter-active {

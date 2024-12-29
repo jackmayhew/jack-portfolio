@@ -14,59 +14,68 @@
 <script setup>
 import gsap from "gsap";
 
+const props = defineProps({
+  gsapDelay: Number,
+});
+
 let splitText;
 let gltl;
 
-function heroText() {
+function gsapText() {
   if (splitText) {
     splitText.revert();
   }
 
-  splitText = new SplitText('.band', {
+  splitText = new SplitText(".band", {
     type: "chars,words,lines",
     charsClass: "bandChar",
     wordsClass: "word",
     linesClass: "line",
-    position: "relative"
+    position: "relative",
   });
 
-  const chars = splitText.chars;
   const lines = splitText.lines;
-  const delay = .2;
 
   const tl = gsap.timeline({
     defaults: {
       ease: "power3.out",
-      duration: 0.8
-    }
+      duration: 0.8,
+    },
   });
 
-  tl.delay(delay);
+  tl.delay(props.gsapDelay);
 
   lines.forEach((line, i) => {
-    const charsInLine = line.querySelectorAll('.bandChar');
-    tl.from(charsInLine, {
-      y: -50,
-      autoAlpha: 0,
-      stagger: 0.02,
-      duration: 0.6,
-    }, i * 0.1);
+    const charsInLine = line.querySelectorAll(".bandChar");
+    tl.from(
+      charsInLine,
+      {
+        y: -50,
+        autoAlpha: 0,
+        stagger: 0.02,
+        duration: 0.6,
+      },
+      i * 0.1
+    );
   });
 
-  gsap.set('.band', { visibility: 'visible' });
+  gsap.set(".band", { visibility: "visible" });
+  return tl;
+}
+
+function gsapImage() {
+  const tl = gsap.timeline();
+  tl.fromTo(
+    ".hero-img",
+    { y: 40, autoAlpha: 0 },
+    { y: 0, autoAlpha: 1, duration: 0.5, ease: "power2.out" }
+  );
   return tl;
 }
 
 onMounted(() => {
-  gltl = heroText();
-  const context = gsap.context(() => {
-    const timeline = gsap.timeline();
-    timeline
-      .fromTo(".hero-img",
-        { y: 40, autoAlpha: 0 },
-        { y: 0, autoAlpha: 1, duration: 0.5, ease: "power2.out" }, 0.2)
-  });
-  return () => context.revert();
+  gltl = gsap.timeline();
+  gltl.add(gsapText()).add(gsapImage(), props.gsapDelay);
 });
 </script>
 

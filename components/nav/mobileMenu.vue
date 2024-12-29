@@ -31,10 +31,10 @@
                         <a href="https://github.com/jackmayhew" target="_blank" rel="noopener" aria-label="github">
                             <Icon name="tabler:brand-github" size="36" />
                         </a>
-                        <a href="https://www.linkedin.com/in/jack-mayhew-610b042b2/" target="_blank" rel="noopener"
+                        <!-- <a href="https://www.linkedin.com/in/jack-mayhew-610b042b2/" target="_blank" rel="noopener"
                             aria-label="linkedin">
                             <Icon name="tabler:brand-linkedin" size="36" />
-                        </a>
+                        </a> -->
                     </div>
                 </div>
             </div>

@@ -1,6 +1,12 @@
 <template>
   <main>
-    <Hero />
+    <Hero :gsapDelay="gsapDelay" />
     <Work />
   </main>
 </template>
+
+<script setup>
+defineProps({
+  gsapDelay: Number,
+});
+</script>
