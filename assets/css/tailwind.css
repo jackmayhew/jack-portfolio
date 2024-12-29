@@ -58,25 +58,25 @@ html.dark-mode,
   padding: 0.5rem 1.25rem;
   font-size: 1.25rem;
   border-radius: 0.5rem;
-  border: 2px solid #131212b7;
+  border: 2px solid #e5e5e5;
   transition: background-color 0.2s ease, border-color 0.2s ease;
   color: #131212;
   width: fit-content;
 }
 
 .btn:hover {
-  border: 2px solid #131212;
+  border: 2px solid #d4d4d4;
 }
 
 .dark-mode .btn {
-  /* background-color: #1c1c1c; */
-  border: 2px solid #ddddddbc;
+  background-color: #1c1c1c;
+  border: 2px solid #1c1c1c;
   color: #dddddd;
 }
 
 .dark-mode .btn:hover {
-  /* background-color: #161616; */
-  border: 2px solid #dddddd;
+  background-color: #161616;
+  border: 2px solid #161616;
 }
 
 ::selection, 
