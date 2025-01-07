@@ -1,5 +1,5 @@
 <template>
-  <div class="hero sm:min-h-screen">
+  <div class="hero">
     <p class="band intro pb-1 text-4xl sm:text-5xl invisible">
       Just a guy who enjoys building cool things for the web and beyond.
       Currently living and working in Montreal.

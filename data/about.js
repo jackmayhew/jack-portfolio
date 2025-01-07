@@ -7,7 +7,7 @@ const aboutContent = [
   {
     id: 2,
     text: `In 2022, I worked as a full-stack web developer at Gain Group in Victoria, BC, an automotive group where I built websites for luxury car dealerships. 
-    It was a great chance to blend my front-end and back-end skills to create seamless, high-performance experiences for both customers and dealers.`,
+    It was a great opportunity to blend my front-end and back-end skills to create seamless, high-performance experiences for both customers and dealers.`,
   },
   {
     id: 3,

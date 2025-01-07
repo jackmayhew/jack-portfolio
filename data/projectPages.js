@@ -5,7 +5,7 @@ export const projectDetails = [
     subtitle: "Helping cats find new homes, one click at a time.",
     paragraphs: {
       1: `When Refuge Kitty-Kat reached out about their website struggles, I was eager to help. The local rescue was doing amazing work but their website wasn't doing them justice. I rebuilt their site from the ground up, focusing on what matters most: making it dead simple for people to donate, volunteer, and (most importantly) find their new cat.`,
-      2: `The results have been good - more donations flowing in, volunteer applications up, and adoption rates climbing. Plus, the site's been climbing search rankings, which means more eyeballs on adoption postings (and more forever homes in the making).`,
+      2: `The results have been good - more donations are flowing in, volunteer applications are up, and adoption rates are climbing. Plus, the site's been climbing search rankings, which means more eyeballs on adoption postings (and more forever homes in the making).`,
       3: `It's pretty cool seeing your code make a real difference. Knowing this project is helping more animals find their way to new homes - that's what it's all about.`,
     },
     techStack: "Next.js, Tailwind, GraphQL",
