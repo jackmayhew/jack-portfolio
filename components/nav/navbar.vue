@@ -1,7 +1,7 @@
 <template>
   <header class="navbar px-6">
     <nav class="py-4 mx-auto relative flex justify-between items-center">
-      <NuxtLink to="/" class="nav-logo text-xl font-semibold z-50">
+      <NuxtLink to="/" class="logo nav-logo text-4xl font-semibold z-50 select-none">
         Jack
          <!-- <img src="/logo3.png" alt="" class="w-[85px]"> -->
       </NuxtLink>

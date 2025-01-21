@@ -16,6 +16,19 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: "logo";
+  src: url("/fonts/ShadowHand.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+.logo {
+  font-family: "logo", sans-serif;
+}
+
+
 body {
   font-family: "regular", sans-serif;
   /* min-height: 100vh; */
