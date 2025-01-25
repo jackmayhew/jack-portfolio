@@ -22,10 +22,12 @@
       </div>
       <p v-for="(paragraph, index) in project.paragraphs" :key="index" class="my-4 text-xl">
         {{ paragraph }}
+        <span v-if="project.title === 'Refuge Kitty-Kat Rescue' && index == 2">
+          <a :href="project.externalLink" target="_blank" rel="noopener" class="underline">'cat rescue montreal.'</a>
+        </span>
       </p>
       <p class="text-xl mb-6">Built with: {{ project.techStack }}</p>
-      <a class="btn" :href="project.url"
-        target="_blank" rel="noopener">
+      <a class="btn" :href="project.url" target="_blank" rel="noopener">
         Visit
         <Icon name="tabler:link" size="22" />
       </a>

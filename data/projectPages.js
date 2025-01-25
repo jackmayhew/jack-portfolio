@@ -1,21 +1,21 @@
 export const projectDetails = [
   {
     title: "Refuge Kitty-Kat Rescue",
-    slug: "refuge-kitty-kat-rescue",
     subtitle: "Helping cats find new homes, one click at a time.",
     paragraphs: {
       1: `When Refuge Kitty-Kat reached out about their website struggles, I was eager to help. The local rescue was doing amazing work but their website wasn't doing them justice. I rebuilt their site from the ground up, focusing on what matters most: making it dead simple for people to donate, volunteer, and (most importantly) find their new cat.`,
-      2: `The results have been good - more donations are flowing in, volunteer applications are up, and adoption rates are climbing. Plus, the site's been climbing search rankings, which means more eyeballs on adoption postings (and more forever homes in the making).`,
+      2: `The results have been good - more donations are flowing in, volunteer applications are up, and adoption rates are climbing. Plus, the site's been ranking well, which means more eyes on adoption postings. Currently sitting second only to the SPCA for popular keywords like`,
       3: `It's pretty cool seeing your code make a real difference. Knowing this project is helping more animals find their way to new homes - that's what it's all about.`,
     },
+    externalLink: "https://www.google.ca/search?q=cat+rescue+montreal",
     techStack: "Next.js, Tailwind, GraphQL",
     image: "/img/work/refuge.webp",
     url: "https://www.refugekittykat.com/",
     id: 1,
+    slug: "refuge-kitty-kat-rescue",
   },
   {
     title: "CampVI",
-    slug: "campvi",
     subtitle: "The go-to Vancouver Island camping resource.",
     paragraphs: {
       1: `As an avid camper frustrated with jumping between countless websites to plan trips, I built CampVI to solve a simple problem: finding the perfect campsite shouldn't be a hassle. The site brings together every type of camping spot on Vancouver Island - from provincial parks to hidden off-grid gems - all in one clean, modern interface.`,
@@ -26,10 +26,10 @@ export const projectDetails = [
     image: "/img/work/campvi.webp",
     url: "https://www.campvi.ca/",
     id: 2,
+    slug: "campvi",
   },
   {
     title: "MTL Spots",
-    slug: "mtl-spots",
     subtitle: "A platform for skaters to share and find local skate spots.",
     paragraphs: {
       1: `MTL Spots is a platform for local skateboarders to share the city's best spots. Users can share by uploading photos, locations and details, making it easy for others to find spots around Montreal.`,
@@ -39,10 +39,10 @@ export const projectDetails = [
     image: "/img/work/mtlspots.webp",
     url: "https://www.mtlspots.ca/",
     id: 3,
+    slug: "mtl-spots",
   },
   {
     title: "TabZen",
-    slug: "tabzen",
     subtitle: "Clean, distraction-free guitar and bass tabs.",
     paragraphs: {
       1: `I built TabZen to solve a simple frustration: guitar tab sites are cluttered with ads and popups that standard adblockers miss. What started as me manually removing elements in DevTools turned into a browser extension that does the work automatically.`,
@@ -52,5 +52,6 @@ export const projectDetails = [
     image: "/img/work/tabzen.webp",
     url: "https://tabzen.app/",
     id: 4,
+    slug: "tabzen",
   },
 ];

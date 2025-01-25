@@ -9,9 +9,8 @@ export const nowContent = [
   {
     displayDate: "April 2024",
     formateDate: "2024-06-15",
-    desc: `Partnered with Refuge Kitty Kat Rescue, a nonprofit cat rescue in Montreal, to design and build their new website. 
-    It’s been cool to see this work directly support their mission, with an increase in donations, more volunteers, and higher adoption rates.`,
-    seo: true,
+    desc: `Partnered with Refuge Kitty Kat Rescue, a nonprofit cat rescue in Montreal, to design and develop their new website. 
+    It’s been a rewarding experience seeing this work directly support their mission, with an increase in donations, more volunteers, and higher adoption rates.`,
   },
   {
     displayDate: "December 2023",

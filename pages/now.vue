@@ -18,10 +18,6 @@
               If you're curious, you can check out my <a href="https://jacko-three.vercel.app/" target="_blank" rel="noopener" class="underline">previous&nbsp;website,</a>
               or explore the code for this website on my <a href="https://github.com/jackmayhew/" target="_blank" rel="noopener" class="underline">GitHub.</a>
             </p>
-            <span v-if="event.seo" class="inline">
-              Ongoing SEO efforts have helped them rank well, currently sitting second only to the SPCA for popular keywords like 
-             <a href="https://www.google.ca/search?q=cat+rescue+montreal" target="_blank" rel="noopener" class="underline">'cat rescue Montreal.'</a>
-            </span>
           </div>
         </div>
       </div>
