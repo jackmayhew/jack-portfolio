@@ -59,9 +59,9 @@ watch(() => route.path, () => {
   transform: translateY(-10px);
 }
 
-.main-content,
+/* .main-content,
 .wrapper {
   min-height: 100vh;
   height: 100%;
-}
+} */
 </style>
