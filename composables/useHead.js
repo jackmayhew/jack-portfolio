@@ -32,7 +32,7 @@ export function setupHead() {
       { rel: "apple-touch-icon", sizes: "180x180", href: "/favicon/apple-touch-icon.png" },
       { rel: "manifest", href: "/favicon/site.webmanifest" },
       { rel: "canonical", href: "https://jackmayhew.com" },
-      // preloads
+      // preloads (moved to nuxt.config)
       // { rel: "preload", href: "/img/hero.webp", as: "image" },
       // { rel: "preload", href: "/fonts/StabilGrotesk-Regular.woff2", as: "font", type: "font/woff2", crossorigin: "anonymous" },
       // { rel: "preload", href: "/fonts/StabilGrotesk-Medium.woff2", as: "font", type: "font/woff2", crossorigin: "anonymous" },

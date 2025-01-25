@@ -11,8 +11,8 @@ const aboutContent = [
   },
   {
     id: 3,
-    text: `These days, I split my time between carpentry and freelance web development, while keeping an eye out for the right role in web development. 
-    I’m eager to dive back into the industry but am taking my time to find the perfect fit.`,
+    text: `These days, I split my time between carpentry and freelance web development. 
+    While I’m eager to dive back into the industry full-time, I’m taking my time to find the right opportunity.`,
   },
   {
     id: 4,
