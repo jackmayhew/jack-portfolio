@@ -3,9 +3,8 @@
     <nav class="py-4 mx-auto relative flex justify-between items-center">
       <NuxtLink to="/" class="logo nav-logo text-4xl font-semibold z-50 select-none">
         Jack
-         <!-- <img src="/logo3.png" alt="" class="w-[85px]"> -->
       </NuxtLink>
-      <ul class="flex items-center gap-2 sm:gap-6">
+      <ul class="flex items-center gap-2 xs:gap-5 sm:gap-6">
         <li v-for="link in navigationLinks" :key="link.path" class="hidden xs:block">
           <NuxtLink :to="link.path" class="link text-lg z-50">
             {{ link.name }}

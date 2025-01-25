@@ -46,7 +46,6 @@
 
 <script setup>
 import { gsap } from 'gsap';
-import { ref, watch, onBeforeUnmount } from 'vue';
 import { useRoute } from 'vue-router';
 import { onClickOutside } from '@vueuse/core'
 
