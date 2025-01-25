@@ -25,16 +25,16 @@
                 <div class="nav-footer">
                     <div class="footer-bg"></div>
                     <div class="menu-item nav-footer-icons">
-                        <a href="mailto:jackmayhew5@gmail.com" aria-label="email">
-                            <Icon name="tabler:mail" size="36" />
-                        </a>
                         <a href="https://github.com/jackmayhew" target="_blank" rel="noopener" aria-label="github">
                             <Icon name="tabler:brand-github" size="36" />
                         </a>
-                        <!-- <a href="https://www.linkedin.com/in/jack-mayhew-610b042b2/" target="_blank" rel="noopener"
+                        <a href="mailto:jackmayhew5@gmail.com" aria-label="email">
+                            <Icon name="tabler:mail" size="36" />
+                        </a>
+                        <a href="https://www.instagram.com/jackmayheww/" target="_blank" rel="noopener"
                             aria-label="linkedin">
-                            <Icon name="tabler:brand-linkedin" size="36" />
-                        </a> -->
+                            <Icon name="tabler:brand-instagram" size="36" />
+                        </a>
                     </div>
                 </div>
             </div>
@@ -45,106 +45,10 @@
 </template>
 
 <script setup>
-// import { gsap } from 'gsap';
-
-// const route = useRoute();
-
-// const wrapper = ref(null);
-// const wrapperInner = ref(null);
-
-// const menuHeight = ref(null);
-// const menuIsOpen = ref(false);
-// const currentAnimation = ref(null);
-// const menuIsAnimating = ref(false);
-// const hamburgerToggle = ref(false);
-
-// const navigationLinks = [
-//     { name: 'Home', path: '/' },
-//     { name: 'About', path: '/about' },
-//     { name: 'Now', path: '/now' },
-//     { name: 'Contact', path: '/contact' },
-// ];
-
-// function toggleNav() {
-//     if (currentAnimation.value) currentAnimation.value.kill();
-
-//     menuIsAnimating.value = true;
-
-//     const timeline = gsap.timeline({
-//         onComplete: () => {
-//             menuIsAnimating.value = false;
-//             currentAnimation.value = null;
-//         }
-//     });
-
-//     currentAnimation.value = timeline;
-
-//     if (!menuHeight.value) menuHeight.value = wrapperInner.value.offsetHeight;
-
-//     if (menuIsOpen.value) {
-//         timeline.to(wrapperInner.value, { height: 0, y: -10, duration: 0.6, ease: 'expo.inOut' }, 0)
-//             .to('.menu-overlay', { opacity: 0, duration: 0.6, ease: 'expo.inOut' }, 0)
-//     }
-//     else {
-//         const wrapperHeight = menuHeight.value;
-//         timeline
-//             .set(wrapper.value, { height: wrapperHeight, opacity: 0, width: "100%" })
-//             .set(wrapperInner.value, { y: "-3.5rem", scaleX: 0, width: "3rem", height: "3rem" })
-//             .set('.menu-overlay', { opacity: 1, duration: .6 })
-//             .set('.menu-item', { opacity: 0, x: 60 })
-//             .set('.footer-bg', { width: "0" })
-//             .to(wrapper.value, { opacity: 1, width: "100%" })
-//             .to(wrapperInner.value, {
-//                 y: 0,
-//                 scaleX: 1,
-//                 height: wrapperHeight,
-//                 duration: .6,
-//                 ease: "expo.inOut",
-//             }, 0)
-//             .to(wrapperInner.value, {
-//                 width: "100%",
-//                 duration: .6,
-//                 ease: "expo.inOut",
-//             }, .3)
-//             .to('.menu-item', {
-//                 opacity: 1,
-//                 x: 0,
-//                 duration: (index) => 1 + index * 0.05,
-//                 stagger: 0.1,
-//                 ease: 'expo.out',
-//             }, '-=.4')
-//             .to('.footer-bg', {
-//                 width: "100%",
-//                 duration: .8,
-//                 ease: "expo.inOut",
-//             }, .3)
-//     }
-
-//     menuIsOpen.value = !menuIsOpen.value;
-//     hamburgerToggle.value = !hamburgerToggle.value;
-//     document.body.classList.toggle('locked');
-//     document.querySelector('.menu-overlay').classList.toggle('pointer-events-auto');
-// }
-
-// // close on browser navigation
-// watch(() => route.path, () => {
-//     if (menuIsOpen.value) {
-//         menuIsAnimating.value = false;
-//         toggleNav();
-//     }
-// });
-
-// onClickOutside(wrapper, event => {
-//     // if (event.target.closest('.ignore-click')) return;
-//     if (!menuIsOpen.value || menuIsAnimating.value || event.target.closest('.ignore-click')) return;
-//     menuIsAnimating.value = false;
-//     toggleNav();
-// })
-
-
 import { gsap } from 'gsap';
 import { ref, watch, onBeforeUnmount } from 'vue';
 import { useRoute } from 'vue-router';
+import { onClickOutside } from '@vueuse/core'
 
 const route = useRoute();
 
@@ -165,7 +69,7 @@ const navigationLinks = [
 
 function toggleNav() {
     if (currentAnimation.value) currentAnimation.value.kill();
-    
+
     menuIsAnimating.value = true;
 
     const timeline = gsap.timeline({
@@ -183,7 +87,8 @@ function toggleNav() {
         // Menu close animation
         timeline
             .to(wrapperInner.value, { height: 0, y: -10, duration: 0.6, ease: 'expo.inOut' })
-            .to('.menu-overlay', { opacity: 0, duration: 0.6, ease: 'expo.inOut' }, 0);
+            .to('.menu-overlay', { opacity: 0, duration: 0.6, ease: 'expo.inOut' }, 0)
+            .to('.nav-wrapper-inner', { borderWidth: 0, duration: 0.9, ease: 'expo.inOut' }, 0);
     } else {
         const wrapperHeight = menuHeight.value;
 
@@ -192,6 +97,7 @@ function toggleNav() {
             .set(wrapper.value, { height: wrapperHeight, opacity: 0, width: "100%" })
             .set(wrapperInner.value, { y: "-3.5rem", scaleX: 0, width: "3rem", height: "3rem" })
             .set('.menu-overlay', { opacity: 1, duration: 0.6 })
+            .set('.nav-wrapper-inner', { border: '3px solid', opacity: 1, duration: 0.6 })
             .set('.menu-item', { opacity: 0, x: 60 })
             .set('.footer-bg', { width: "0" })
             .to(wrapper.value, { opacity: 1, width: "100%" })
@@ -241,15 +147,22 @@ onBeforeUnmount(() => {
     if (currentAnimation.value) currentAnimation.value.kill();
 });
 
-
+onClickOutside(wrapper, event => {
+    // if (event.target.closest('.ignore-click')) return;
+    if (!menuIsOpen.value || menuIsAnimating.value || event.target.closest('.ignore-click')) return;
+    menuIsAnimating.value = false;
+    toggleNav();
+})
 </script>
 
 <style scoped>
 .nav-menu {
     overflow: hidden;
-    --menu-bg: #70a2e1;
+    /* --menu-bg: #70a2e1; */
+    --menu-bg: #fdfaf5;
     --menu-footer: #3c61e5;
     --dark-menu-bg: #1c1c1c;
+    /* --dark-menu-bg: #121212; */
     --dark-menu-footer: #161616;
 }
 
@@ -272,6 +185,8 @@ onBeforeUnmount(() => {
     flex-direction: column;
     align-items: center;
     color: #131212;
+    /* border: 3px solid #131212; */
+    border-color: #131212;
     background-color: var(--menu-bg);
     border-radius: 1.5rem;
     right: 0;
@@ -327,12 +242,15 @@ ul {
     position: absolute;
     width: 0%;
     right: 0;
-    background-color: var(--menu-footer);
+    /* background-color: var(--menu-footer); */
     border-radius: 1px 0 1.5rem 1.5rem;
+    /* border-top: 3px solid #131212; */
+    border-top: 3px solid #131212;
+
 }
 
 .nav-footer span {
-    color: white;
+    color: #131212;
     transition: color .2s;
 }
 
@@ -363,6 +281,7 @@ ul {
     pointer-events: auto;
     z-index: 9999;
     transition: background-color 0.2s ease;
+    /* border: 2px solid #131212; */
 }
 
 .active-hamburger {
@@ -384,7 +303,7 @@ ul {
     display: block;
     height: 3px;
     width: 100%;
-    background-color: #fff;
+    background-color: #131212;
     transition: all 0.3s ease-in-out;
     border-radius: 999em;
 }
@@ -415,10 +334,13 @@ ul {
 .dark-mode .nav-wrapper-inner {
     background-color: var(--dark-menu-bg);
     color: #DDDDDD;
+    border: none !important;
 }
 
 .dark-mode .footer-bg {
     background-color: var(--dark-menu-footer);
+    border-top: none;
+
 }
 
 .dark-mode .nav-footer span {
