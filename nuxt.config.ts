@@ -33,6 +33,13 @@ export default defineNuxtConfig({
         { rel: "preload", href: "/img/hero.webp", as: "image" },
         {
           rel: "preload",
+          href: "/fonts/ShadowHand.ttf",
+          as: "font",
+          type: "font/ttf",
+          crossorigin: "anonymous",
+        },
+        {
+          rel: "preload",
           href: "/fonts/StabilGrotesk-Regular.woff2",
           as: "font",
           type: "font/woff2",

@@ -36,7 +36,7 @@ export function setupHead() {
       // { rel: "preload", href: "/img/hero.webp", as: "image" },
       // { rel: "preload", href: "/fonts/StabilGrotesk-Regular.woff2", as: "font", type: "font/woff2", crossorigin: "anonymous" },
       // { rel: "preload", href: "/fonts/StabilGrotesk-Medium.woff2", as: "font", type: "font/woff2", crossorigin: "anonymous" },
-      { rel: "preload", href: "/fonts/ShadowHand.ttf", as: "font", type: "font/ttf", crossorigin: "anonymous" },
+      // { rel: "preload", href: "/fonts/ShadowHand.ttf", as: "font", type: "font/ttf", crossorigin: "anonymous" },
       // other
       { rel: 'robots', href: '/robots.txt' },
       { rel: 'sitemap', type: 'application/xml', title: 'Sitemap', href: '/sitemap.xml' },
