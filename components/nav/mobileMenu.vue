@@ -148,7 +148,7 @@ onBeforeUnmount(() => {
 
 onClickOutside(wrapper, event => {
     // if (event.target.closest('.ignore-click')) return;
-    if (event.target.closest('.ignore-click')) return;
+    if (!menuIsOpen.value || event.target.closest('.ignore-click')) return;
     menuIsAnimating.value = false;
     toggleNav();
 })
