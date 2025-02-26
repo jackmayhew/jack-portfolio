@@ -4,13 +4,13 @@
       <NuxtLink to="/" class="logo nav-logo text-4xl font-semibold z-50 select-none">
         Jack
       </NuxtLink>
-      <ul class="flex items-center gap-2 xs:gap-5 sm:gap-6">
-        <li v-for="link in navigationLinks" :key="link.path" class="hidden xs:block">
+      <ul class="flex items-center gap-2 sm:gap-5 sm:gap-6">
+        <li v-for="link in navigationLinks" :key="link.path" class="hidden sm:block">
           <NuxtLink :to="link.path" class="link text-lg z-50">
             {{ link.name }}
           </NuxtLink>
         </li>
-        <li class="hidden xs:block">
+        <li class="hidden sm:block">
           <a href="https://github.com/jackmayhew" target="_blank" rel="noopener noreferrer" class="link text-lg">
             GitHub
           </a>
@@ -24,7 +24,7 @@
             </div>
           </ClientOnly>
         </li>
-        <li class="flex xs:hidden">
+        <li class="flex sm:hidden">
           <MobileMenu />
         </li>
       </ul>

@@ -141,13 +141,11 @@ watch(() => route.path, () => {
     }
 });
 
-// Clean up on unmount
 onBeforeUnmount(() => {
     if (currentAnimation.value) currentAnimation.value.kill();
 });
 
 onClickOutside(wrapper, event => {
-    // if (event.target.closest('.ignore-click')) return;
     if (!menuIsOpen.value || event.target.closest('.ignore-click')) return;
     menuIsAnimating.value = false;
     toggleNav();
@@ -333,7 +331,8 @@ ul {
 .dark-mode .nav-wrapper-inner {
     background-color: var(--dark-menu-bg);
     color: #DDDDDD;
-    border: none !important;
+    /* border: none !important; */
+    border-color: transparent !important;
 }
 
 .dark-mode .footer-bg {
@@ -351,7 +350,7 @@ ul {
 }
 
 .dark-mode .hamburger-button {
-    background-color: var(--dark-menu-bg);
+    background-color: transparent;
 }
 
 .dark-mode .hamburger span {

@@ -22,14 +22,11 @@
   font-weight: normal;
   font-style: normal;
   font-display: block;
-  
 }
-
 
 .logo {
   font-family: "logo", sans-serif;
 }
-
 
 body {
   font-family: "regular", sans-serif;
@@ -109,10 +106,3 @@ html.dark-mode,
 .locked {
   overflow: hidden;
 }
-
-/* header {
-  background-color: green !important;
-}
-body {
-  background-color: red !important;
-} */
