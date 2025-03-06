@@ -274,10 +274,10 @@ ul {
     border-radius: 9999px;
     width: 3rem;
     height: 3rem;
-    background-color: var(--menu-bg);
+    background-color: transparent;
     pointer-events: auto;
     z-index: 9999;
-    transition: background-color 0.2s ease;
+    /* transition: background-color 0.2s ease; */
     /* border: 2px solid #131212; */
 }
 
@@ -349,9 +349,7 @@ ul {
     color: #fff;
 }
 
-.dark-mode .hamburger-button {
-    background-color: transparent;
-}
+
 
 .dark-mode .hamburger span {
     background-color: #DDDDDD;
