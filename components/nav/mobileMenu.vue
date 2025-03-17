@@ -1,12 +1,11 @@
 <template>
     <div class="nav-menu">
-        <button class="ignore-click hamburger-button" @click="toggleNav" aria-label="open mobile menu">
-            <div class="hamburger" :class="{ open: hamburgerToggle }">
+        <button class="ignore-click hamburger-button" :class="{ 'menu-open': menuCompletedState }" @click="toggleNav" aria-label="open mobile menu">
+            <div class="hamburger" :class="{ 'open': hamburgerToggle }">
                 <span></span>
                 <span></span>
             </div>
         </button>
-
         <div ref="wrapper" class="nav-wrapper" :class="menuIsOpen ? '' : 'menu-disabled'">
             <div ref="wrapperInner" class="nav-wrapper-inner">
                 <ul>
@@ -58,6 +57,7 @@ const menuIsOpen = ref(false);
 const currentAnimation = ref(null);
 const menuIsAnimating = ref(false);
 const hamburgerToggle = ref(false);
+const menuCompletedState = ref(false);
 
 const navigationLinks = [
     { name: 'Home', path: '/' },
@@ -75,6 +75,9 @@ function toggleNav() {
         onComplete: () => {
             menuIsAnimating.value = false;
             currentAnimation.value = null;
+
+            if (menuIsOpen.value) menuCompletedState.value = true
+            else menuCompletedState.value = false
         }
     });
 
@@ -266,6 +269,10 @@ ul {
     display: flex;
 }
 
+.menu-open {
+    background-color: transparent !important;
+}
+
 .hamburger-button {
     display: flex;
     align-items: center;
@@ -274,9 +281,10 @@ ul {
     border-radius: 9999px;
     width: 3rem;
     height: 3rem;
-    background-color: transparent;
+    background-color: #FDFAF5;
     pointer-events: auto;
     z-index: 9999;
+    transition: background-color 0.2s ease !important;
     /* transition: background-color 0.2s ease; */
     /* border: 2px solid #131212; */
 }
@@ -349,6 +357,10 @@ ul {
     color: #fff;
 }
 
+
+.dark-mode .hamburger-button {
+    background-color: #121212;
+}
 
 
 .dark-mode .hamburger span {
