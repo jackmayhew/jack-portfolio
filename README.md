@@ -1,11 +1,11 @@
-# Jacks Portfolio
+# Jack's Portfolio
 
-Just a simple website—easy to use and minimalist. Really enjoyed building with Nuxt.
+My portfolio website built with Nuxt3. Kept it simple and clean. First time building with Nuxt, really enjoyed it.
 
-Still on the fence about Tailwind. Pros and cons for sure. I think I'll switch back to SCSS for now.
+Still unsure about Tailwind. Has its pros and cons. Might switch back to SCSS for now.
 
-Might add a guestbook down the road.
+Thinking about adding a guestbook down the road.
 
-Built with Nuxt3, GSAP, and Tailwind.
+**Built with:** Nuxt3, GSAP, Tailwind
 
-<a href="https://www.jackmayhew.com/" target="_blank" rel="noopener noreferrer">Feel free to explore!</a>
+[Check it out](https://www.jackmayhew.com/)
