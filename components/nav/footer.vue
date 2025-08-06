@@ -1,9 +1,18 @@
+<script setup lang="ts">
+const navigationLinks = [
+  { path: '/', name: 'Home' },
+  { path: '/about', name: 'About' },
+  { path: '/now', name: 'Now' },
+  { path: '/contact', name: 'Contact' },
+]
+</script>
+
 <template>
   <footer class="footer mt-24 sm:mt-32 rounded-lg">
     <div class="pt-4 pb-12 md:py-8 mx-auto w-full max-w-screen-xl">
       <div class="sm:flex sm:items-center sm:justify-between">
         <a href="https://jackmayhew.com/" class="mb-4 sm:mb-0 flex items-center space-x-3 rtl:space-x-reverse">
-          <span class="logo self-center text-4xl font-semibold whitespace-nowrap select-none	">Jack</span>
+          <span class="logo self-center text-4xl font-semibold whitespace-nowrap select-none">Jack</span>
         </a>
         <ul class="mb-6 sm:mb-0 flex flex-wrap items-center text-sm font-medium">
           <li v-for="link in navigationLinks" :key="link.path">
@@ -24,12 +33,3 @@
     </div>
   </footer>
 </template>
-
-<script setup>
-const navigationLinks = [
-  { path: '/', name: 'Home' },
-  { path: '/about', name: 'About' },
-  { path: '/now', name: 'Now' },
-  { path: '/contact', name: 'Contact' }
-];
-</script>

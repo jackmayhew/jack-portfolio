@@ -1,7 +1,7 @@
 {
   "name": "nuxt-app",
-  "private": true,
   "type": "module",
+  "private": true,
   "engines": {
     "node": "16.17.0"
   },
@@ -10,7 +10,9 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
@@ -22,11 +24,17 @@
     "nuxt": "^3.13.0",
     "nuxt-gtag": "^3.0.2",
     "nuxt-storage": "^1.2.2",
+    "resend": "^4.8.0",
     "vue": "^3.2.0",
-    "vue-router": "^4.0.0"
+    "vue-router": "^4.0.0",
+    "zod": "^4.0.15"
   },
   "devDependencies": {
+    "@antfu/eslint-config": "^5.1.0",
     "@iconify-json/tabler": "^1.2.8",
-    "@nuxtjs/tailwindcss": "^6.12.2"
+    "@nuxt/typescript-build": "^3.0.2",
+    "@nuxtjs/tailwindcss": "^6.12.2",
+    "eslint": "^9.32.0",
+    "typescript": "^5.9.2"
   }
 }

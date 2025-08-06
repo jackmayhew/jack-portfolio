@@ -1,3 +1,17 @@
+<script setup lang="ts">
+const colorMode = useColorMode()
+
+const navigationLinks = [
+  { path: '/about', name: 'About' },
+  { path: '/now', name: 'Now' },
+  { path: '/contact', name: 'Contact' },
+]
+
+function toggleColorMode() {
+  colorMode.preference = colorMode.value === 'dark' ? 'light' : 'dark'
+}
+</script>
+
 <template>
   <header class="navbar px-6">
     <nav class="py-4 mx-auto relative flex justify-between items-center">
@@ -31,20 +45,6 @@
     </nav>
   </header>
 </template>
-
-<script setup>
-const colorMode = useColorMode()
-
-const navigationLinks = [
-  { path: '/about', name: 'About' },
-  { path: '/now', name: 'Now' },
-  { path: '/contact', name: 'Contact' },
-];
-
-const toggleColorMode = () => {
-  colorMode.preference = colorMode.value === 'dark' ? 'light' : 'dark';
-};
-</script>
 
 <style scoped>
 .link {

@@ -1,159 +1,172 @@
-<template>
-    <div class="nav-menu">
-        <button class="ignore-click hamburger-button" :class="{ 'menu-open': menuCompletedState }" @click="toggleNav" aria-label="open mobile menu">
-            <div class="hamburger" :class="{ 'open': hamburgerToggle }">
-                <span></span>
-                <span></span>
-            </div>
-        </button>
-        <div ref="wrapper" class="nav-wrapper" :class="menuIsOpen ? '' : 'menu-disabled'">
-            <div ref="wrapperInner" class="nav-wrapper-inner">
-                <ul>
-                    <li v-for="(link, index) in navigationLinks" :key="index" class="">
-                        <NuxtLink :to="link.path" @click="toggleNav" class="menu-item block w-fit">
-                            {{ link.name }}
-                        </NuxtLink>
-                    </li>
-                    <li class="">
-                        <a class="menu-item block w-fit" href="https://github.com/jackmayhew" target="_blank"
-                            rel="noopener">
-                            GitHub
-                        </a>
-                    </li>
-                </ul>
-                <div class="nav-footer">
-                    <div class="footer-bg"></div>
-                    <div class="menu-item nav-footer-icons">
-                        <a href="https://github.com/jackmayhew" target="_blank" rel="noopener" aria-label="github">
-                            <Icon name="tabler:brand-github" size="36" />
-                        </a>
-                        <a href="mailto:jackmayhew5@gmail.com" aria-label="email">
-                            <Icon name="tabler:mail" size="36" />
-                        </a>
-                        <a href="https://www.instagram.com/jackmayheww/" target="_blank" rel="noopener"
-                            aria-label="linkedin">
-                            <Icon name="tabler:brand-instagram" size="36" />
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </div>
-    <div class="menu-overlay"></div>
-</template>
-
-<script setup>
-import { gsap } from 'gsap';
-import { useRoute } from 'vue-router';
+<script setup lang="ts">
 import { onClickOutside } from '@vueuse/core'
+import { gsap } from 'gsap'
 
-const route = useRoute();
+const route = useRoute()
 
-const wrapper = ref(null);
-const wrapperInner = ref(null);
-const menuHeight = ref(null);
-const menuIsOpen = ref(false);
-const currentAnimation = ref(null);
-const menuIsAnimating = ref(false);
-const hamburgerToggle = ref(false);
-const menuCompletedState = ref(false);
+// --- state ---
+const wrapper = ref<HTMLElement | null>(null)
+const wrapperInner = ref<HTMLElement | null>(null)
+const menuHeight = ref<number | null>(null)
+const menuIsOpen = ref(false)
+const menuIsAnimating = ref(false)
+const menuCompletedState = ref(false)
+const currentAnimation = ref<gsap.core.Timeline | null>(null)
 
 const navigationLinks = [
-    { name: 'Home', path: '/' },
-    { name: 'About', path: '/about' },
-    { name: 'Now', path: '/now' },
-    { name: 'Contact', path: '/contact' },
-];
+  { name: 'Home', path: '/' },
+  { name: 'About', path: '/about' },
+  { name: 'Now', path: '/now' },
+  { name: 'Contact', path: '/contact' },
+]
 
+// --- animation logic ---
 function toggleNav() {
-    if (currentAnimation.value) currentAnimation.value.kill();
+  // ensure elements are mounted before animating
+  if (!wrapper.value || !wrapperInner.value)
+    return
 
-    menuIsAnimating.value = true;
+  // kill any previous animation
+  if (currentAnimation.value)
+    currentAnimation.value.kill()
 
-    const timeline = gsap.timeline({
-        onComplete: () => {
-            menuIsAnimating.value = false;
-            currentAnimation.value = null;
+  menuIsAnimating.value = true
 
-            if (menuIsOpen.value) menuCompletedState.value = true
-            else menuCompletedState.value = false
-        }
-    });
+  const timeline = gsap.timeline({
+    onComplete: () => {
+      menuIsAnimating.value = false
+      currentAnimation.value = null
+      // ppdate the menus final state for class bindings
+      menuCompletedState.value = menuIsOpen.value
+    },
+  })
 
-    currentAnimation.value = timeline;
+  currentAnimation.value = timeline
 
-    if (!menuHeight.value) menuHeight.value = wrapperInner.value.offsetHeight;
-
-    if (menuIsOpen.value) {
-        // Menu close animation
-        timeline
-            .to(wrapperInner.value, { height: 0, y: -10, duration: 0.6, ease: 'expo.inOut' })
-            .to('.menu-overlay', { opacity: 0, duration: 0.6, ease: 'expo.inOut' }, 0)
-            .to('.nav-wrapper-inner', { borderWidth: 0, duration: 0.9, ease: 'expo.inOut' }, 0);
-    } else {
-        const wrapperHeight = menuHeight.value;
-
-        // Menu open animation
-        timeline
-            .set(wrapper.value, { height: wrapperHeight, opacity: 0, width: "100%" })
-            .set(wrapperInner.value, { y: "-3.5rem", scaleX: 0, width: "3rem", height: "3rem" })
-            .set('.menu-overlay', { opacity: 1, duration: 0.6 })
-            .set('.nav-wrapper-inner', { border: '3px solid', opacity: 1, duration: 0.6 })
-            .set('.menu-item', { opacity: 0, x: 60 })
-            .set('.footer-bg', { width: "0" })
-            .to(wrapper.value, { opacity: 1, width: "100%" })
-            .to(wrapperInner.value, {
-                y: 0,
-                scaleX: 1,
-                height: wrapperHeight,
-                duration: 0.6,
-                ease: "expo.inOut",
-            }, 0)
-            .to(wrapperInner.value, {
-                width: "100%",
-                duration: 0.6,
-                ease: "expo.inOut",
-            }, 0.3)
-            .to('.menu-item', {
-                opacity: 1,
-                x: 0,
-                duration: (index) => 1 + index * 0.05,
-                stagger: 0.1,
-                ease: 'expo.out',
-            }, '-=.4')
-            .to('.footer-bg', {
-                width: "100%",
-                duration: 0.8,
-                ease: "expo.inOut",
-            }, 0.3);
+  if (menuIsOpen.value) {
+    // --- close animation ---
+    timeline
+      .to(wrapperInner.value, { height: 0, y: -10, duration: 0.6, ease: 'expo.inOut' })
+      .to('.menu-overlay', { opacity: 0, duration: 0.6, ease: 'expo.inOut' }, 0)
+      .to('.nav-wrapper-inner', { outlineWidth: 0, duration: 0.9, ease: 'expo.inOut' }, 0)
+  }
+  else {
+    // --- open animation ---
+    if (!menuHeight.value) {
+      menuHeight.value = wrapperInner.value.offsetHeight
     }
+    const wrapperHeight = menuHeight.value
 
-    // Toggle menu state
-    menuIsOpen.value = !menuIsOpen.value;
-    hamburgerToggle.value = !hamburgerToggle.value;
-    document.body.classList.toggle('locked');
-    document.querySelector('.menu-overlay').classList.toggle('pointer-events-auto');
+    timeline
+      .set(wrapper.value, { height: wrapperHeight, opacity: 0, width: '100%' })
+      .set(wrapperInner.value, { y: '-3.5rem', scaleX: 0, width: '3rem', height: '3rem' })
+      .set('.menu-overlay', { opacity: 1 })
+      .set('.nav-wrapper-inner', { outline: '3px solid', opacity: 1 })
+      .set('.menu-item', { opacity: 0, x: 60 })
+      .set('.footer-bg', { width: '0' })
+      .to(wrapper.value, { opacity: 1, width: '100%' })
+      .to(wrapperInner.value, {
+        y: 0,
+        scaleX: 1,
+        height: wrapperHeight,
+        duration: 0.6,
+        ease: 'expo.inOut',
+      }, 0)
+      .to(wrapperInner.value, {
+        width: '100%',
+        duration: 0.6,
+        ease: 'expo.inOut',
+      }, 0.3)
+      .to('.menu-item', {
+        opacity: 1,
+        x: 0,
+        duration: (index: number) => 1 + index * 0.05,
+        stagger: 0.1,
+        ease: 'expo.out',
+      }, '-=.4')
+      .to('.footer-bg', {
+        width: '100%',
+        duration: 0.8,
+        ease: 'expo.inOut',
+      }, 0.3)
+  }
+
+  // toggle state and classes
+  menuIsOpen.value = !menuIsOpen.value
+  document.body.classList.toggle('locked')
+  document.querySelector('.menu-overlay')?.classList.toggle('pointer-events-auto')
 }
 
-// Close menu on route change
+// --- lifecycle ---
 watch(() => route.path, () => {
-    if (menuIsOpen.value) {
-        menuIsAnimating.value = false;
-        toggleNav();
-    }
-});
+  if (menuIsOpen.value) {
+    toggleNav()
+  }
+})
 
 onBeforeUnmount(() => {
-    if (currentAnimation.value) currentAnimation.value.kill();
-});
+  if (currentAnimation.value) {
+    currentAnimation.value.kill()
+  }
+})
 
-onClickOutside(wrapper, event => {
-    if (!menuIsOpen.value || event.target.closest('.ignore-click')) return;
-    menuIsAnimating.value = false;
-    toggleNav();
+onClickOutside(wrapper, (event) => {
+  const target = event.target as HTMLElement
+  // do not close if the menu isn't open or if the click is on the hamburger button
+  if (!menuIsOpen.value || target.closest('.ignore-click')) {
+    return
+  }
+  toggleNav()
 })
 </script>
+
+<template>
+  <div class="nav-menu">
+    <button class="ignore-click hamburger-button" :class="{ 'menu-open': menuCompletedState }" aria-label="open mobile menu" @click="toggleNav">
+      <div class="hamburger" :class="{ open: menuIsOpen }">
+        <span />
+        <span />
+      </div>
+    </button>
+    <div ref="wrapper" class="nav-wrapper" :class="menuIsOpen ? '' : 'menu-disabled'">
+      <div ref="wrapperInner" class="nav-wrapper-inner">
+        <ul>
+          <li v-for="(link, index) in navigationLinks" :key="index" class="">
+            <NuxtLink :to="link.path" class="menu-item block w-fit" @click="toggleNav">
+              {{ link.name }}
+            </NuxtLink>
+          </li>
+          <li class="">
+            <a
+              class="menu-item block w-fit" href="https://github.com/jackmayhew" target="_blank"
+              rel="noopener"
+            >
+              GitHub
+            </a>
+          </li>
+        </ul>
+        <div class="nav-footer">
+          <div class="footer-bg" />
+          <div class="menu-item nav-footer-icons">
+            <a href="https://github.com/jackmayhew" target="_blank" rel="noopener" aria-label="github">
+              <Icon name="tabler:brand-github" size="36" />
+            </a>
+            <a href="mailto:jackmayhew5@gmail.com" aria-label="email">
+              <Icon name="tabler:mail" size="36" />
+            </a>
+            <a
+              href="https://www.instagram.com/jackmayheww/" target="_blank" rel="noopener"
+              aria-label="linkedin"
+            >
+              <Icon name="tabler:brand-instagram" size="36" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="menu-overlay" />
+</template>
 
 <style scoped>
 .nav-menu {
@@ -186,7 +199,7 @@ onClickOutside(wrapper, event => {
     align-items: center;
     color: #131212;
     /* border: 3px solid #131212; */
-    border-color: #131212;
+    outline-color: #131212;
     background-color: var(--menu-bg);
     border-radius: 1.5rem;
     right: 0;
@@ -225,7 +238,6 @@ ul {
     margin-bottom: 0;
 }
 
-
 .nav-footer {
     display: flex;
     align-items: center;
@@ -244,8 +256,8 @@ ul {
     right: 0;
     /* background-color: var(--menu-footer); */
     border-radius: 1px 0 1.5rem 1.5rem;
-    /* border-top: 3px solid #131212; */
     border-top: 3px solid #131212;
+    /* outline: 3px solid #131212; */
 
 }
 
@@ -340,12 +352,12 @@ ul {
     background-color: var(--dark-menu-bg);
     color: #DDDDDD;
     /* border: none !important; */
-    border-color: transparent !important;
+   outline: none !important;
 }
 
 .dark-mode .footer-bg {
     background-color: var(--dark-menu-footer);
-    border-top: none;
+    border-top: 3px solid transparent;
 
 }
 
@@ -357,16 +369,13 @@ ul {
     color: #fff;
 }
 
-
 .dark-mode .hamburger-button {
     background-color: #121212;
 }
 
-
 .dark-mode .hamburger span {
     background-color: #DDDDDD;
 }
-
 
 .dark-mode .menu-overlay {
     background-color: rgba(18, 18, 18, 0.8)

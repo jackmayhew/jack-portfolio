@@ -1,12 +1,13 @@
+<script setup lang="ts">
+defineProps<{
+  gsapDelay: number
+}>()
+</script>
+
 <template>
   <main>
-    <Hero :gsapDelay="gsapDelay" />
-    <Work />
+    <HomeHero :gsap-delay="gsapDelay" />
+    <WorkSection />
+    <Footer />
   </main>
 </template>
-
-<script setup>
-defineProps({
-  gsapDelay: Number,
-});
-</script>
