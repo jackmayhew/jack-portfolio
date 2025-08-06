@@ -35,7 +35,7 @@ export const projectCards = [
     date: '2024',
     desc: `TabZen is a browser extension that removes disruptive ads and visual clutter from guitar, bass, and drum tabs & chords.`,
     url: 'https://tabzen.app/',
-    stack: 'Nuxt, GSAP, Tailwind',
+    stack: 'HTML, CSS, JavaScript, Chrome Extensions API',
     image: '/img/work/tabzen.webp',
     id: 4,
   },
