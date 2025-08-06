@@ -24,7 +24,10 @@ useHead({
 <template>
   <main>
     <div>
-      <button class="absolute mt-[-25px] flex hover:-translate-x-1 transition-transform duration-150" @click="goBack">
+      <button
+        class="absolute mt-[-25px] flex hover:-translate-x-1 transition-transform duration-150 pr-4"
+        @click="goBack"
+      >
         <Icon name="lucide:arrow-left" size="22" />
       </button>
     </div>

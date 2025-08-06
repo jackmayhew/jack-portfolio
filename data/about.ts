@@ -1,7 +1,7 @@
 export const about = [
   {
-    text: `I started coding in 2019, building websites for friends and family. Nothing fancy, but it was enough to get me hooked. 
-    So I quickly got to work studying all things web development and working towards landing my first role.`,
+    text: `I started coding in 2019, building websites for friends and family. Nothing fancy, but it was enough to get me hooked,
+    so I quickly got to work studying all things web development and working towards landing my first role.`,
   },
   {
     text: `In 2022, I worked as a full-stack developer at Gain Group in Victoria, BC,
