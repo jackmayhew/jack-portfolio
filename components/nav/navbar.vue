@@ -38,7 +38,7 @@ function toggleColorMode() {
             </div>
           </ClientOnly>
         </li>
-        <li class="flex sm:hidden">
+        <li class="flex sm:hidden -mzr-[16px]">
           <MobileMenu />
         </li>
       </ul>

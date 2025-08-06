@@ -113,7 +113,7 @@ async function submitForm() {
         <input id="subject" v-model="form.honeypot" type="text" name="subject" tabindex="-1">
       </div>
 
-      <div class="flex flex-col">
+      <div class="flex flex-col relative pb-6">
         <label for="name">First Name*</label>
         <input
           id="name"
@@ -124,10 +124,10 @@ async function submitForm() {
           :class="errors.firstName ? 'border-red-500' : 'border-neutral-200 dark:border-gray-700 hover:border-neutral-300 focus:border-neutral-300'"
           @input="clearError('firstName')"
         >
-        <span v-if="errors.firstName" class="text-red-600 dark:text-red-500">{{ errors.firstName }}</span>
+        <span v-if="errors.firstName" class="text-red-600 dark:text-red-500 text-sm">{{ errors.firstName }}</span>
       </div>
 
-      <div class="flex flex-col mt-6">
+      <div class="flex flex-col relative pb-6">
         <label for="email">Email*</label>
         <input
           id="email"
@@ -138,23 +138,23 @@ async function submitForm() {
           :class="errors.email ? 'border-red-500' : 'border-neutral-200 dark:border-gray-700 hover:border-neutral-300 focus:border-neutral-300'"
           @input="clearError('email')"
         >
-        <span v-if="errors.email" class="text-red-600 dark:text-red-500">{{ errors.email }}</span>
+        <span v-if="errors.email" class="text-red-600 dark:text-red-500 text-sm">{{ errors.email }}</span>
       </div>
 
-      <div class="flex flex-col mt-6">
+      <div class="flex flex-col relative pb-6">
         <label for="message">Message*</label>
         <textarea
           id="message"
           v-model="form.message"
           name="message"
-          class="h-40 p-2 rounded-md text-base resize-none border-2 dark:bg-transparent duration-200 ease-in-out"
+          class="align-top h-40 p-2 rounded-md text-base resize-none border-2 dark:bg-transparent duration-200 ease-in-out"
           :class="errors.message ? 'border-red-500' : 'border-neutral-200 dark:border-gray-700 hover:border-neutral-300 focus:border-neutral-300'"
           @input="clearError('message')"
         />
-        <span v-if="errors.message" class="text-red-600 dark:text-red-500">{{ errors.message }}</span>
+        <span v-if="errors.message" class="text-red-600 dark:text-red-500 text-sm">{{ errors.message }}</span>
       </div>
 
-      <div class="mt-6 w-full">
+      <div class="w-full">
         <Button
           :text="loading ? 'Sending...' : 'Send'"
           icon-name="lucide:send"

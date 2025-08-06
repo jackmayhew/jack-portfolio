@@ -93,7 +93,7 @@ function toggleNav() {
 
   // toggle state and classes
   menuIsOpen.value = !menuIsOpen.value
-  document.body.classList.toggle('locked')
+  document.body.classList.toggle('scroll-locked')
   document.querySelector('.menu-overlay')?.classList.toggle('pointer-events-auto')
 }
 

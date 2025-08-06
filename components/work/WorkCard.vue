@@ -17,7 +17,7 @@ defineProps<{
       loading="eager"
     />
     <div class="work-text pt-2 pb-6 sticky bottom-0">
-      <time class="mt-4 sm:mt-8 text-lg text-gray-400" :datetime="project.date">{{ project.date }}</time>
+      <time class="mt-4 sm:mt-8 text-lg text-neutral-400" :datetime="project.date">{{ project.date }}</time>
       <h2 class="text-2xl sm:text-4xl font-semibold">
         {{ project.title }}
       </h2>

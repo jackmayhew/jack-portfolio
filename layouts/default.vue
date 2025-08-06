@@ -3,10 +3,7 @@ import { pageLoadGSAP } from '~/utils/gsap-animations'
 
 setupHead()
 
-/**
- * delay 0.5 for initial page load,
- * then 0.2 for subsequent page transitions.
- */
+// 0.5 for initial load, 0.2 for subsequent transitions
 const gsapDelay = ref(0.5)
 
 // initial page load animations
