@@ -53,13 +53,7 @@ useHead({
           loading="eager"
         />
       </div>
-      <p v-for="(paragraph, index) in project.paragraphs" :key="index" class="my-4 text-xl">
-        {{ paragraph }}
-        <!-- kinda jank -->
-        <span v-if="project.title === 'Refuge Kitty-Kat Rescue' && index === 2">
-          <a :href="project.externalLink" target="_blank" rel="noopener" class="underline">'cat rescue montreal.'</a>
-        </span>
-      </p>
+      <p v-for="(paragraph, index) in project.paragraphs" :key="index" class="my-4 text-xl" v-html="paragraph" />
       <p class="text-xl mb-6">
         Built with: {{ project.techStack }}
       </p>

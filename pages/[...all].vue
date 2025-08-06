@@ -1,5 +1,5 @@
 <script setup lang="ts">
-// root/error.vue not working?
+// error.vue not working?
 
 useHead({
   title: '404',

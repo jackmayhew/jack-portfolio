@@ -65,3 +65,7 @@ html.dark-mode,
 .scroll-locked {
   overflow: hidden !important;
 }
+
+.json-link {
+  text-decoration: underline;
+}

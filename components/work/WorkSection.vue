@@ -31,6 +31,6 @@ onMounted(() => {
     <h2 class="mb-24 text-4xl sm:text-5xl">
       Selected Work
     </h2>
-    <WorkCard v-for="(project) in projectCards" :key="project.id" :project="project" />
+    <WorkCard v-for="(project, index) in projectCards" :key="index" :project="project" />
   </div>
 </template>

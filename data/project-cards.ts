@@ -5,7 +5,7 @@ export const projectCards = [
     date: '2024',
     desc: `Collaborated with Refuge Kitty Kat Rescue, a nonprofit cat rescue in Montreal, to design and develop their new website.`,
     url: 'https://www.refugekittykat.com/',
-    stack: 'Next.js, Tailwind, Hypgraph',
+    stack: 'Next.js, Tailwind, Hygraph',
     image: '/img/work/refuge.webp',
     id: 1,
   },

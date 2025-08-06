@@ -16,10 +16,7 @@ useHead({
     </h2>
     <div class="w-full max-w-3xl mx-auto">
       <div class="mt-8 text-lg">
-        <p v-for="section in about" :key="section.id" class="mt-5">
-          {{ section.text }}
-          <a v-if="section.link" class="underline" href="mailto:jackmayhew5@gmail.com">{{ section.link }}</a>
-        </p>
+        <p v-for="(section, index) in about" :key="index" class="mt-5" v-html="section.text" />
       </div>
     </div>
     <Footer />
