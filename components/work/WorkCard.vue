@@ -28,14 +28,8 @@ defineProps<{
         {{ project.stack }}
       </p>
       <div class="flex gap-4 mt-4">
-        <a class="btn" :href="project.url" target="_blank" rel="noopener">
-          Visit
-          <Icon name="tabler:link" size="22" />
-        </a>
-        <NuxtLink class="btn" :to="`/projects/${project.slug}`">
-          Details
-          <Icon name="tabler:arrow-right" size="22" />
-        </NuxtLink>
+        <ButtonLinkExternal :url="project.url" text="Visit" icon-name="lucide:link" :icon-size="18" width="150px" />
+        <ButtonLink :url="`/projects/${project.slug}`" text="Details" icon-name="lucide:arrow-right" :icon-size="20" width="150px" />
       </div>
     </div>
   </div>

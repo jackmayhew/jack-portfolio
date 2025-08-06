@@ -7,8 +7,6 @@ const props = defineProps({
   gsapDelay: Number,
 })
 
-// declare const SplitText: any
-
 let splitText: any
 let gltl: gsap.core.Timeline
 

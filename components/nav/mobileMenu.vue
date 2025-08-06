@@ -148,18 +148,15 @@ onClickOutside(wrapper, (event) => {
         <div class="nav-footer">
           <div class="footer-bg" />
           <div class="menu-item nav-footer-icons">
-            <a href="https://github.com/jackmayhew" target="_blank" rel="noopener" aria-label="github">
-              <Icon name="tabler:brand-github" size="36" />
+            <a href="https://github.com/jackmayhew" target="_blank" rel="noopener">
+              <Icon name="lucide:github" size="36" />
             </a>
-            <a href="mailto:jackmayhew5@gmail.com" aria-label="email">
-              <Icon name="tabler:mail" size="36" />
+            <a href="mailto:jackmayhew5@gmail.com">
+              <Icon name="lucide:mail" size="36" />
             </a>
-            <a
-              href="https://www.instagram.com/jackmayheww/" target="_blank" rel="noopener"
-              aria-label="linkedin"
-            >
-              <Icon name="tabler:brand-instagram" size="36" />
-            </a>
+            <!-- <a href="https://www.instagram.com/jackmayheww/" target="_blank" rel="noopener">
+              <Icon name="lucide:twitter" size="36" />
+            </a> -->
           </div>
         </div>
       </div>

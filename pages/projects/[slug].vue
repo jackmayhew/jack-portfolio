@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import { projectDetails } from '~/data/project-pages'
 
-const route = useRoute()
 const router = useRouter()
+
+const route = useRoute()
 const slug = route.params.slug
 const project = projectDetails.find(proj => proj.slug === slug)
 
@@ -23,8 +24,8 @@ useHead({
 <template>
   <main>
     <div>
-      <button class="absolute mt-[-25px] flex" @click="goBack">
-        <Icon name="tabler:arrow-left" size="22" />
+      <button class="absolute mt-[-25px] flex hover:-translate-x-1 transition-transform duration-150" @click="goBack">
+        <Icon name="lucide:arrow-left" size="22" />
       </button>
     </div>
     <div v-if="!project">
@@ -34,10 +35,6 @@ useHead({
       <p class="mt-2 text-xl">
         Sorry, couldn't find that project.
       </p>
-      <button class="btn mt-4" @click="goBack">
-        <Icon name="tabler:arrow-left" size="22" />
-        Go Back
-      </button>
     </div>
     <div v-else>
       <h1 class="text-5xl sm:text-6xl">
@@ -66,10 +63,7 @@ useHead({
       <p class="text-xl mb-6">
         Built with: {{ project.techStack }}
       </p>
-      <a class="btn" :href="project.url" target="_blank" rel="noopener">
-        Visit
-        <Icon name="tabler:link" size="22" />
-      </a>
+      <ButtonLinkExternal :url="project.url" text="Visit" icon-name="lucide:link" :icon-size="18" width="150px" />
     </div>
     <Footer />
   </main>

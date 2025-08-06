@@ -13,14 +13,13 @@ useHead({
     </h1>
     <h2 class="mt-2 text-xl sm:text-2xl">
       The page you're looking for might have moved, been deleted,
-      or never existed in the first place! Please return to the homepage.
+      or never existed in the first place!
     </h2>
     <div class="w-full max-w-3xl mx-auto">
-      <div class="mt-8 text-lg">
-        <NuxtLink to="/" class="btn flex items-center gap-2 w-fit text-white text-xl font-bold py-2 px-4 rounded">
-          Homepage
-        </NuxtLink>
+      <div class="mt-4 text-lg">
+        <ButtonLink url="`/" text="Homepage" width="150px" />
       </div>
     </div>
+    <Footer />
   </main>
 </template>

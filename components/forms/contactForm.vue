@@ -154,11 +154,13 @@ async function submitForm() {
         <span v-if="errors.message" class="text-red-600 dark:text-red-500">{{ errors.message }}</span>
       </div>
 
-      <div class="mt-6 w-fit">
-        <button class="btn" :disabled="loading">
-          {{ loading ? 'Sending...' : 'Send' }}
-          <Icon name="tabler:send" size="22" />
-        </button>
+      <div class="mt-6 w-full">
+        <Button
+          :text="loading ? 'Sending...' : 'Send'"
+          icon-name="lucide:send"
+          :disabled="loading"
+          width="100%"
+        />
       </div>
     </form>
   </div>
