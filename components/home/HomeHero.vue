@@ -1,12 +1,13 @@
 <script setup lang="ts">
 import gsap from 'gsap'
+import { SplitText } from 'gsap/SplitText'
 
 const props = defineProps({
   // optional delay
   gsapDelay: Number,
 })
 
-declare const SplitText: any
+// declare const SplitText: any
 
 let splitText: any
 let gltl: gsap.core.Timeline
