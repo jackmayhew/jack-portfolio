@@ -18,7 +18,7 @@ onMounted(() => {
     <Navbar class="relative max-w-screen-md mx-auto" />
     <div class="main-content px-6 mt-[6.5rem] invisible">
       <NuxtPage :gsap-delay="gsapDelay" />
-      <!-- footer added to pages to be included in page transition. not ideal but ok -->
+      <!-- footer moved to pages for page transitions. not ideal but ok -->
     </div>
   </div>
 </template>
@@ -43,10 +43,4 @@ onMounted(() => {
   opacity: 0;
   transform: translateY(-10px);
 }
-
-/* .main-content,
-.wrapper {
-  min-height: 100vh;
-  height: 100%;
-} */
 </style>

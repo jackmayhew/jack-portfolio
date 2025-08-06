@@ -10,7 +10,7 @@ export default defineEventHandler(async (event) => {
   try {
     const body = await readValidatedBody(event, contactSchema.parse)
 
-    // not even sure if honeypots are useful anymore
+    // not sure if honeypots are even useful anymore
     if (body.honeypot) {
       return { status: 'OK' }
     }
