@@ -4,7 +4,7 @@ export const now = [
     formateDate: '2024-10-31',
     desc: `Built a new portfolio website (the one you're on now). Kept it simple and minimalist.
     First time building with Nuxt and I'm really liking it. The developer experience is smooth and the tooling is really nice.
-    You can check out the code on my <a href="https://github.com/jackmayhew/" target="_blank" rel="noopener" class="json-link">GitHub.</a>`,
+    You can check out the code on my <a href="https://github.com/jackmayhew/jack-portfolio" target="_blank" rel="noopener" class="json-link">GitHub.</a>`,
   },
   {
     displayDate: 'April 2024',
