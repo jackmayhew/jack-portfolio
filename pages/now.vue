@@ -25,9 +25,7 @@ useHead({
           </div>
         </div>
         <div class="pl-6 sm:pl-8 text-lg">
-          <p class="inline">
-            {{ event.desc }}
-          </p>
+          <p v-html="event.desc" />
         </div>
       </div>
     </div>
