@@ -8,9 +8,9 @@ const route = useRoute()
 const wrapper = ref<HTMLElement | null>(null)
 const wrapperInner = ref<HTMLElement | null>(null)
 const menuHeight = ref<number | null>(null)
-const menuIsOpen = ref(false)
-const menuIsAnimating = ref(false)
-const menuCompletedState = ref(false)
+const menuIsOpen = ref<boolean>(false)
+const menuIsAnimating = ref<boolean>(false)
+const menuCompletedState = ref<boolean>(false)
 const currentAnimation = ref<gsap.core.Timeline | null>(null)
 
 const navigationLinks = [

@@ -10,10 +10,10 @@ const form = ref<ContactForm>({
 })
 
 const errors = ref<Record<string, string | undefined>>({})
-const loading = ref(false)
+const loading = ref<boolean>(false)
 const submissionStatus = ref<'success' | 'error' | null>(null) // null: idle
-const flashError = ref(false)
-let successTimeout: any = null
+const flashError = ref<boolean>(false)
+let successTimeout: ReturnType<typeof setTimeout> | null = null
 
 const formRef = ref<HTMLElement | null>(null)
 

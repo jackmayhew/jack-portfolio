@@ -1,12 +1,18 @@
 <script setup lang="ts">
 import { pageLoadGSAP } from '~/utils/gsap-animations'
 
+const route = useRoute()
+const initialLoad = ref<boolean>(true)
+
 setupHead()
+provide('initialLoad', initialLoad)
 
-// 0.5 for initial load, 0.2 for subsequent transitions
-const gsapDelay = ref(0.5)
+// set to false after first navigation
+watch(() => route.path, () => {
+  initialLoad.value = false
+})
 
-// initial page load animations
+// run page load animations
 onMounted(() => {
   const { cleanup } = pageLoadGSAP()
   return cleanup
@@ -17,8 +23,7 @@ onMounted(() => {
   <div class="wrapper max-w-screen-md mx-auto">
     <Navbar class="relative max-w-screen-md mx-auto" />
     <div class="main-content px-6 mt-[6.5rem] invisible">
-      <NuxtPage :gsap-delay="gsapDelay" />
-      <!-- footer moved to pages for page transitions. not ideal but ok -->
+      <NuxtPage />
     </div>
   </div>
 </template>

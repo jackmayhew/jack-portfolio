@@ -2,12 +2,10 @@
 import gsap from 'gsap'
 import { SplitText } from 'gsap/SplitText'
 
-const props = defineProps({
-  // optional delay
-  gsapDelay: Number,
-})
+const initialLoad = inject<Ref<boolean>>('initialLoad', ref(false))
+const delay = computed(() => initialLoad.value ? 0.5 : 0.2)
 
-let splitText: any
+let splitText: SplitText | null = null
 let gltl: gsap.core.Timeline
 
 // headline animation
@@ -33,9 +31,9 @@ function gsapText() {
     },
   })
 
-  tl.delay(props.gsapDelay ?? 0)
+  tl.delay(delay.value)
 
-  lines.forEach((line: HTMLElement, i: number) => {
+  lines.forEach((line: Element, i: number) => {
     const charsInLine = line.querySelectorAll('.bandChar')
     tl.from(
       charsInLine,
@@ -66,7 +64,7 @@ function gsapImage() {
 
 onMounted(() => {
   gltl = gsap.timeline()
-  gltl.add(gsapText()).add(gsapImage(), props.gsapDelay)
+  gltl.add(gsapText()).add(gsapImage(), delay.value)
 })
 </script>
 
