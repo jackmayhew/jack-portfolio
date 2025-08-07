@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { pageLoadGSAP } from '~/utils/gsap-animations'
+import { pageLoadGSAP } from '~/composables/use-gsap'
 
 const route = useRoute()
 const initialLoad = ref<boolean>(true)
