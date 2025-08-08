@@ -10,6 +10,11 @@ export default defineEventHandler(async (event) => {
   try {
     const body = await readValidatedBody(event, contactSchema.parse)
 
+    // throw createError({
+    //   statusCode: 500,
+    //   statusMessage: 'test error.',
+    // })
+
     // not sure if honeypots are even useful anymore
     if (body.honeypot) {
       return { status: 'OK' }
@@ -32,6 +37,12 @@ export default defineEventHandler(async (event) => {
     return { status: 'OK' }
   }
   catch (e: any) {
+    // re-throw as is
+    if (e.statusCode) {
+      throw e
+    }
+
+    // validation error, treat as a 400
     throw createError({
       statusCode: 400,
       statusMessage: e.message,

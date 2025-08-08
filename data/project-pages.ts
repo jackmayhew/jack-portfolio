@@ -1,3 +1,4 @@
+// considered using a markdown file, but felt overkill. sticking with js object for now
 export const projectDetails = [
   {
     title: 'Refuge Kitty-Kat Rescue',

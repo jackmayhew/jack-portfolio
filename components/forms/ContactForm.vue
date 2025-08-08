@@ -1,51 +1,49 @@
 <script setup lang="ts">
 import type { ContactForm } from '~/types/contact.types'
+import FormField from '~/components/forms/ContactFormField.vue'
 import { contactSchema } from '~/types/contact.types'
 
-const form = ref<ContactForm>({
-  firstName: '',
-  email: '',
-  message: '',
-  honeypot: '',
-})
-
+// --- state ---
+const form = ref<ContactForm>({ firstName: '', email: '', message: '', honeypot: '' })
 const errors = ref<Record<string, string | undefined>>({})
-const loading = ref<boolean>(false)
-const submissionStatus = ref<'success' | 'error' | null>(null) // null: idle
-const flashError = ref<boolean>(false)
-let successTimeout: ReturnType<typeof setTimeout> | null = null
-
+const loading = ref(false)
+const submissionStatus = ref<'success' | 'error' | null>(null)
+const flashError = ref(false)
 const formRef = ref<HTMLElement | null>(null)
 
-function clearError(field: 'firstName' | 'email' | 'message') {
-  if (errors.value[field]) {
-    errors.value[field] = undefined
-  }
+// --- helpers ---
+function clearError(field: keyof Omit<ContactForm, 'honeypot'>) {
+  errors.value[field] = undefined
 }
 
-async function submitForm() {
-  // clear previous success message
-  if (submissionStatus.value === 'success')
+function scrollToForm() {
+  if (!formRef.value)
+    return
+  window.scrollTo({
+    top: window.scrollY + formRef.value.getBoundingClientRect().top - 100,
+    behavior: 'smooth',
+  })
+}
+
+function handleSuccess() {
+  submissionStatus.value = 'success'
+  form.value = { firstName: '', email: '', message: '', honeypot: '' }
+  setTimeout(() => {
     submissionStatus.value = null
+  }, 5000)
+}
 
-  // clear any existing timeout
-  if (successTimeout)
-    clearTimeout(successTimeout)
+function handleError() {
+  submissionStatus.value = 'error'
+  flashError.value = true
+  setTimeout(() => {
+    flashError.value = false
+  }, 500)
+}
 
-  // scroll formm into view
-  if (formRef.value) {
-    window.scrollTo({
-      top: window.scrollY + formRef.value.getBoundingClientRect().top - 100,
-      behavior: 'smooth',
-    })
-  }
-
-  loading.value = true
-  errors.value = {}
-
-  // 1. validate form
+// --- core logic ---
+function validateForm() {
   const result = contactSchema.safeParse(form.value)
-
   if (!result.success) {
     const fieldErrors = result.error.flatten().fieldErrors
     errors.value = {
@@ -53,35 +51,35 @@ async function submitForm() {
       email: fieldErrors.email?.[0],
       message: fieldErrors.message?.[0],
     }
-    loading.value = false
-    return // Stop execution
+    return null // validation failure
   }
+  return result.data
+}
 
-  // 2. validation succeeds
+// --- submission ---
+async function submitForm() {
+  loading.value = true
+  if (submissionStatus.value === 'success')
+    submissionStatus.value = null
+  errors.value = {}
+  scrollToForm()
+
   try {
+    const validatedData = validateForm()
+    if (!validatedData) {
+      // validation failed, validateForm already set the errors
+      return
+    }
+
     await $fetch('/api/contact', {
       method: 'POST',
-      body: result.data,
+      body: validatedData,
     })
 
-    // success
-    submissionStatus.value = 'success'
-    form.value = { firstName: '', email: '', message: '', honeypot: '' } // reset
-
-    // clear success message
-    successTimeout = setTimeout(() => {
-      submissionStatus.value = null
-    }, 5000)
+    handleSuccess()
   }
   catch {
-    // error
-    submissionStatus.value = 'error'
-
-    // shake animation for feedback
-    flashError.value = true
-    setTimeout(() => {
-      flashError.value = false
-    }, 500)
+    handleError()
   }
   finally {
     loading.value = false
@@ -92,75 +90,57 @@ async function submitForm() {
 <template>
   <div class="sm:w-3/5 md:w-3/5">
     <div ref="formRef" class="mt-6 mb-4 min-h-[24px]">
-      <!-- success -->
       <h3 v-if="submissionStatus === 'success'" class="text-[#249e40]">
         Email has been sent! I'll get back to you asap as possible.
       </h3>
-      <!-- error -->
       <h3 v-else-if="submissionStatus === 'error'" class="text-red-600 dark:text-red-500" :class="{ 'animate-shake': flashError }">
         Error! Please try again, or email me directly at <a href="mailto:jackmayhew5@gmail.com">jackmayhew5@gmail.com</a>
       </h3>
-      <!-- idle -->
       <h3 v-else>
         Send a message, or email me directly at <a href="mailto:jackmayhew5@gmail.com">jackmayhew5@gmail.com</a>
       </h3>
     </div>
 
     <form novalidate @submit.prevent="submitForm">
-      <!-- honeypot -->
       <div class="absolute w-px h-px overflow-hidden -left-[5000px]">
         <label for="subject">Subject</label>
         <input id="subject" v-model="form.honeypot" type="text" name="subject" tabindex="-1">
       </div>
 
-      <div class="flex flex-col relative pb-6">
-        <label for="name">First Name*</label>
-        <input
-          id="name"
-          v-model="form.firstName"
-          type="text"
-          name="name"
-          class="p-2 h-12 rounded-md text-base border-2 dark:bg-transparent duration-200 ease-in-out"
-          :class="errors.firstName ? 'border-red-500' : 'border-neutral-200 dark:border-gray-700 hover:border-neutral-300 focus:border-neutral-300'"
-          @input="clearError('firstName')"
-        >
-        <span v-if="errors.firstName" class="text-red-600 dark:text-red-500 text-sm">{{ errors.firstName }}</span>
-      </div>
+      <FormField
+        id="name"
+        v-model="form.firstName"
+        label="First Name"
+        name="name"
+        :error="errors.firstName"
+        required
+        @update:model-value="clearError('firstName')"
+      />
 
-      <div class="flex flex-col relative pb-6">
-        <label for="email">Email*</label>
-        <input
-          id="email"
-          v-model="form.email"
-          type="text"
-          name="email"
-          class="p-2 h-12 rounded-md text-base border-2 dark:bg-transparent duration-200 ease-in-out"
-          :class="errors.email ? 'border-red-500' : 'border-neutral-200 dark:border-gray-700 hover:border-neutral-300 focus:border-neutral-300'"
-          @input="clearError('email')"
-        >
-        <span v-if="errors.email" class="text-red-600 dark:text-red-500 text-sm">{{ errors.email }}</span>
-      </div>
+      <FormField
+        id="email"
+        v-model="form.email"
+        label="Email"
+        name="email"
+        type="email"
+        :error="errors.email"
+        required
+        @update:model-value="clearError('email')"
+      />
 
-      <div class="flex flex-col relative pb-6">
-        <label for="message">Message*</label>
-        <textarea
-          id="message"
-          v-model="form.message"
-          name="message"
-          class="align-top h-40 p-2 rounded-md text-base resize-none border-2 dark:bg-transparent duration-200 ease-in-out"
-          :class="errors.message ? 'border-red-500' : 'border-neutral-200 dark:border-gray-700 hover:border-neutral-300 focus:border-neutral-300'"
-          @input="clearError('message')"
-        />
-        <span v-if="errors.message" class="text-red-600 dark:text-red-500 text-sm">{{ errors.message }}</span>
-      </div>
+      <FormField
+        id="message"
+        v-model="form.message"
+        label="Message"
+        name="message"
+        type="textarea"
+        :error="errors.message"
+        required
+        @update:model-value="clearError('message')"
+      />
 
       <div class="w-full">
-        <Button
-          :text="loading ? 'Sending...' : 'Send'"
-          icon-name="lucide:send"
-          :disabled="loading"
-          width="100%"
-        />
+        <Button :text="loading ? 'Sending...' : 'Send'" icon-name="lucide:send" :disabled="loading" width="100%" />
       </div>
     </form>
   </div>
