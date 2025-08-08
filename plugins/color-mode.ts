@@ -1,6 +1,7 @@
 import { watch } from 'vue'
 
 export default defineNuxtPlugin(() => {
+  // updates the browser's theme-color meta tag to match the current color mode
   const colorMode = useColorMode()
 
   const updateThemeColor = (newColorMode: string) => {

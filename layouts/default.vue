@@ -6,6 +6,7 @@ const initialLoad = ref<boolean>(true)
 const mainContentRef = ref<HTMLDivElement | null>(null)
 
 setupHead()
+
 provide('initialLoad', initialLoad)
 
 watch(() => route.path, () => {

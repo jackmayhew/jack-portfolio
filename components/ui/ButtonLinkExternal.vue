@@ -1,6 +1,8 @@
 <script setup lang="ts">
 // external navigation button component
 
+// TODO: consider merging the button components into a single component with conditional rendering
+
 withDefaults(defineProps<{
   url: string
   text: string

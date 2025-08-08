@@ -1,6 +1,19 @@
 <script setup lang="ts">
+/**
+ * A WIP full-screen mobile navigation menu with gsap animations
+ *
+ * @todo
+ * Refactor CSS to use Tailwind's 'dark:' variant instead of the custom
+ * '.dark-mode' class for project-wide consistency.
+ */
 import { onClickOutside } from '@vueuse/core'
 import { gsap } from 'gsap'
+
+const { navigationLinks } = useNavLinks()
+const mobileNavLinks = [
+  { name: 'Home', path: '/', external: false },
+  ...navigationLinks,
+]
 
 const route = useRoute()
 
@@ -12,13 +25,6 @@ const menuIsOpen = ref<boolean>(false)
 const menuIsAnimating = ref<boolean>(false)
 const menuCompletedState = ref<boolean>(false)
 const currentAnimation = ref<gsap.core.Timeline | null>(null)
-
-const navigationLinks = [
-  { name: 'Home', path: '/' },
-  { name: 'About', path: '/about' },
-  { name: 'Now', path: '/now' },
-  { name: 'Contact', path: '/contact' },
-]
 
 // --- animation logic ---
 function toggleNav() {
@@ -93,8 +99,6 @@ function toggleNav() {
 
   // toggle state and classes
   menuIsOpen.value = !menuIsOpen.value
-  document.body.classList.toggle('scroll-locked')
-  document.querySelector('.menu-overlay')?.classList.toggle('pointer-events-auto')
 }
 
 // --- lifecycle ---
@@ -102,6 +106,13 @@ watch(() => route.path, () => {
   if (menuIsOpen.value) {
     toggleNav()
   }
+})
+
+const bodyLockedClass = computed(() => menuIsOpen.value ? 'scroll-locked' : '')
+useHead({
+  bodyAttrs: {
+    class: bodyLockedClass,
+  },
 })
 
 onBeforeUnmount(() => {
@@ -122,7 +133,13 @@ onClickOutside(wrapper, (event) => {
 
 <template>
   <div class="nav-menu">
-    <button class="ignore-click hamburger-button" :class="{ 'menu-open': menuCompletedState }" aria-label="open mobile menu" @click="toggleNav">
+    <button
+      class="ignore-click hamburger-button"
+      :class="{ 'menu-open': menuCompletedState }"
+      :aria-label="menuIsOpen ? 'close mobile menu' : 'open mobile menu'"
+      :aria-expanded="menuIsOpen"
+      @click="toggleNav"
+    >
       <div class="hamburger" :class="{ open: menuIsOpen }">
         <span />
         <span />
@@ -131,18 +148,25 @@ onClickOutside(wrapper, (event) => {
     <div ref="wrapper" class="nav-wrapper" :class="menuIsOpen ? '' : 'menu-disabled'">
       <div ref="wrapperInner" class="nav-wrapper-inner">
         <ul>
-          <li v-for="(link, index) in navigationLinks" :key="index" class="">
-            <NuxtLink :to="link.path" class="menu-item block w-fit" @click="toggleNav">
+          <li v-for="link in mobileNavLinks" :key="link.path">
+            <a
+              v-if="link.external"
+              :href="link.path"
+              target="_blank"
+              rel="noopener"
+              class="menu-item block w-fit"
+              @click="toggleNav"
+            >
+              {{ link.name }}
+            </a>
+            <NuxtLink
+              v-else
+              :to="link.path"
+              class="menu-item block w-fit"
+              @click="toggleNav"
+            >
               {{ link.name }}
             </NuxtLink>
-          </li>
-          <li class="">
-            <a
-              class="menu-item block w-fit" href="https://github.com/jackmayhew" target="_blank"
-              rel="noopener"
-            >
-              GitHub
-            </a>
           </li>
         </ul>
         <div class="nav-footer">
@@ -162,7 +186,7 @@ onClickOutside(wrapper, (event) => {
       </div>
     </div>
   </div>
-  <div class="menu-overlay" />
+  <div class="menu-overlay" :class="{ 'pointer-events-auto': menuIsOpen }" />
 </template>
 
 <style scoped>

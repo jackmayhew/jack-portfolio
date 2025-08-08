@@ -1,6 +1,8 @@
 <script setup lang="ts">
 // internal navigation button component using NuxtLink
 
+// TODO: consider merging the button components into a single component with conditional rendering
+
 withDefaults(defineProps<{
   url: string
   text: string

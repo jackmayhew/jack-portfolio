@@ -1,4 +1,6 @@
 <script setup lang="ts">
+// TODO: consider merging the button components into a single component with conditional rendering
+
 withDefaults(defineProps<{
   text: string
   width?: string
