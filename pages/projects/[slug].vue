@@ -2,10 +2,14 @@
 import { projectDetails } from '~/data/project-pages'
 
 const router = useRouter()
-
 const route = useRoute()
 const slug = route.params.slug
+
 const project = projectDetails.find(proj => proj.slug === slug)
+
+if (!project) {
+  throw createError({ statusCode: 404, statusMessage: 'Project Not Found', fatal: true })
+}
 
 function goBack() {
   if (window.history.state?.back) {
@@ -17,7 +21,7 @@ function goBack() {
 }
 
 useHead({
-  title: project ? project.title : 'Project Not Found',
+  title: project.title,
 })
 </script>
 
@@ -31,15 +35,7 @@ useHead({
         <Icon name="lucide:arrow-left" size="22" />
       </button>
     </div>
-    <div v-if="!project">
-      <h1 class="text-5xl sm:text-6xl">
-        Project Not Found
-      </h1>
-      <p class="mt-2 text-xl">
-        Sorry, couldn't find that project.
-      </p>
-    </div>
-    <div v-else>
+    <div>
       <h1 class="text-5xl sm:text-6xl">
         {{ project.title }}
       </h1>
@@ -56,7 +52,16 @@ useHead({
           loading="eager"
         />
       </div>
-      <p v-for="(paragraph, index) in project.paragraphs" :key="index" class="my-4 text-xl" v-html="paragraph" />
+      <p v-for="(p, index) in project.paragraphs" :key="index" class="my-4 text-xl">
+        {{ typeof p === 'object' ? p.text : p }}
+        <a
+          v-if="typeof p === 'object' && p.link"
+          :href="p.link.url"
+          target="_blank"
+          rel="noopener"
+          class="json-link"
+        >{{ p.link.text }}</a>
+      </p>
       <p class="text-xl mb-6">
         Built with: {{ project.techStack }}
       </p>
