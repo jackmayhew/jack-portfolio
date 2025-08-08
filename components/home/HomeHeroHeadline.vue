@@ -3,13 +3,22 @@ import gsap from 'gsap'
 import { SplitText } from 'gsap/SplitText'
 
 let splitTextInstance: SplitText | null = null
+const bandRef = ref<HTMLParagraphElement | null>(null)
 
+/**
+ * Animates the headline text with SplitText.
+ * Exposed to the parent component so it can be added to a master timeline.
+ * @returns {gsap.core.Timeline} The animation timeline.
+ */
 function gsapText() {
+  if (!bandRef.value)
+    return gsap.timeline()
+
   if (splitTextInstance) {
     splitTextInstance.revert()
   }
 
-  splitTextInstance = new SplitText('.band', {
+  splitTextInstance = new SplitText(bandRef.value, {
     type: 'chars,words,lines',
     charsClass: 'bandChar',
     wordsClass: 'word',
@@ -38,7 +47,7 @@ function gsapText() {
     )
   })
 
-  gsap.set('.band', { visibility: 'visible' })
+  gsap.set(bandRef.value, { visibility: 'visible' })
   return tl
 }
 
@@ -46,7 +55,7 @@ defineExpose({ gsapText })
 </script>
 
 <template>
-  <p class="band intro pb-1 text-4xl sm:text-5xl invisible">
+  <p ref="bandRef" class="band intro pb-1 text-4xl sm:text-5xl invisible">
     Just a guy who enjoys building cool things for the web and beyond.
     Currently living and working in Montreal.
   </p>

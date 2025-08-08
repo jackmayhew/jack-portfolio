@@ -3,18 +3,17 @@ import { pageLoadGSAP } from '~/composables/use-gsap'
 
 const route = useRoute()
 const initialLoad = ref<boolean>(true)
+const mainContentRef = ref<HTMLDivElement | null>(null)
 
 setupHead()
 provide('initialLoad', initialLoad)
 
-// set to false after first navigation
 watch(() => route.path, () => {
   initialLoad.value = false
 })
 
-// run page load animations
 onMounted(() => {
-  const { cleanup } = pageLoadGSAP()
+  const { cleanup } = pageLoadGSAP(mainContentRef.value)
   return cleanup
 })
 </script>
@@ -22,7 +21,7 @@ onMounted(() => {
 <template>
   <div class="wrapper max-w-screen-md mx-auto">
     <Navbar class="relative max-w-screen-md mx-auto" />
-    <div class="main-content px-6 mt-[6.5rem] invisible">
+    <div ref="mainContentRef" class="main-content px-6 mt-[6.5rem] invisible">
       <NuxtPage />
     </div>
   </div>

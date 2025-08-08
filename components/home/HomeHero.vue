@@ -9,11 +9,12 @@ const initialLoad = inject<Ref<boolean>>('initialLoad', ref(false))
 const delay = computed(() => initialLoad.value ? 0.5 : 0.2)
 
 const headlineRef = ref<{ gsapText: () => gsap.core.Timeline } | null>(null)
+const heroImageRef = ref<HTMLImageElement | null>(null)
 
 function gsapImage() {
   const tl = gsap.timeline()
   tl.fromTo(
-    '.hero-img',
+    heroImageRef.value,
     { y: 40, autoAlpha: 0 },
     { y: 0, autoAlpha: 1, duration: 0.5, ease: 'power2.out' },
   )
@@ -42,9 +43,13 @@ onMounted(async () => {
     <HomeHeroHeadline ref="headlineRef" />
     <div class="mt-6">
       <img
-        class="hero-img w-full h-auto block rounded-3xl invisible opacity-0"
+        ref="heroImageRef"
+        class="w-full h-auto block rounded-3xl invisible opacity-0"
         src="/img/hero.webp"
-        alt="Jack at computer" loading="eager" width="492" height="358"
+        alt="Jack at computer"
+        loading="eager"
+        width="492"
+        height="358"
       >
     </div>
   </div>
