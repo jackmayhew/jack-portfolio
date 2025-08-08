@@ -1,11 +1,6 @@
 <script setup lang="ts">
 const colorMode = useColorMode()
-
-const navigationLinks = [
-  { path: '/about', name: 'About' },
-  { path: '/now', name: 'Now' },
-  { path: '/contact', name: 'Contact' },
-]
+const { navigationLinks } = useNavLinks()
 
 function toggleColorMode() {
   colorMode.preference = colorMode.value === 'dark' ? 'light' : 'dark'
@@ -14,25 +9,34 @@ function toggleColorMode() {
 
 <template>
   <header class="navbar px-6">
-    <nav class="py-4 mx-auto relative flex justify-between items-center">
+    <nav aria-label="Main navigation" class="py-4 mx-auto relative flex justify-between items-center">
       <NuxtLink to="/" class="logo nav-logo text-4xl font-semibold z-50 select-none">
         Jack
       </NuxtLink>
       <ul class="flex items-center gap-2 sm:gap-5 sm:gap-6">
         <li v-for="link in navigationLinks" :key="link.path" class="hidden sm:block">
-          <NuxtLink :to="link.path" class="link text-lg z-50">
+          <a
+            v-if="link.external"
+            :href="link.path"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="link text-lg z-50"
+          >
+            {{ link.name }}
+          </a>
+          <NuxtLink v-else :to="link.path" class="link text-lg z-50">
             {{ link.name }}
           </NuxtLink>
-        </li>
-        <li class="hidden sm:block">
-          <a href="https://github.com/jackmayhew" target="_blank" rel="noopener noreferrer" class="link text-lg">
-            GitHub
-          </a>
         </li>
         <li class="w-6 h-6 flex z-50">
           <ClientOnly>
             <div :class="colorMode.value === 'dark' ? 'dark' : 'light'" class="flex toggle">
-              <button class="ignore-click" title="Toggle Theme" @click="toggleColorMode">
+              <button
+                class="ignore-click"
+                title="Toggle Theme"
+                aria-label="Toggle color theme"
+                @click="toggleColorMode"
+              >
                 <ThemeToggle />
               </button>
             </div>

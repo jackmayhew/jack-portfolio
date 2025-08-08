@@ -19,6 +19,7 @@ useHead({
         v-for="(event, index) in now"
         :key="index"
         :event="event"
+        class="pb-6 last:pb-0"
       />
     </div>
     <Footer />
