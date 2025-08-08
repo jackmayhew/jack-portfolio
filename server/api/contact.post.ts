@@ -12,7 +12,7 @@ export default defineEventHandler(async (event) => {
 
     // throw createError({
     //   statusCode: 500,
-    //   statusMessage: 'test error.',
+    //   statusMessage: 'test error',
     // })
 
     // not sure if honeypots are even useful anymore
