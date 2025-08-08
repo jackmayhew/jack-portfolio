@@ -21,6 +21,14 @@ export default defineNuxtConfig({
       mode: 'out-in',
     },
     head: {
+      style: [
+        {
+          innerHTML: `
+            html.light-mode { background-color: #FDFAF5; }
+            html.dark-mode { background-color: #121212; }
+          `,
+        },
+      ],
       meta: [
         { name: 'theme-color', content: '#FDFAF5' },
       ],

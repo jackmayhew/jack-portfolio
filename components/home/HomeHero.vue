@@ -1,57 +1,15 @@
 <script setup lang="ts">
 import gsap from 'gsap'
 import { SplitText } from 'gsap/SplitText'
+import HomeHeroHeadline from './HomeHeroHeadline.vue'
+
+gsap.registerPlugin(SplitText)
 
 const initialLoad = inject<Ref<boolean>>('initialLoad', ref(false))
 const delay = computed(() => initialLoad.value ? 0.5 : 0.2)
 
-let splitText: SplitText | null = null
-let gltl: gsap.core.Timeline
+const headlineRef = ref<{ gsapText: () => gsap.core.Timeline } | null>(null)
 
-// headline animation
-function gsapText() {
-  if (splitText) {
-    splitText.revert()
-  }
-
-  splitText = new SplitText('.band', {
-    type: 'chars,words,lines',
-    charsClass: 'bandChar',
-    wordsClass: 'word',
-    linesClass: 'line',
-    position: 'relative',
-  })
-
-  const lines = splitText.lines
-
-  const tl = gsap.timeline({
-    defaults: {
-      ease: 'power3.out',
-      duration: 0.8,
-    },
-  })
-
-  tl.delay(delay.value)
-
-  lines.forEach((line: Element, i: number) => {
-    const charsInLine = line.querySelectorAll('.bandChar')
-    tl.from(
-      charsInLine,
-      {
-        y: -50,
-        autoAlpha: 0,
-        stagger: 0.02,
-        duration: 0.6,
-      },
-      i * 0.1,
-    )
-  })
-
-  gsap.set('.band', { visibility: 'visible' })
-  return tl
-}
-
-// hero image animation
 function gsapImage() {
   const tl = gsap.timeline()
   tl.fromTo(
@@ -62,18 +20,26 @@ function gsapImage() {
   return tl
 }
 
-onMounted(() => {
-  gltl = gsap.timeline()
-  gltl.add(gsapText()).add(gsapImage(), delay.value)
+onMounted(async () => {
+  await document.fonts.ready
+
+  if (headlineRef.value) {
+    const masterTimeline = gsap.timeline({
+      delay: delay.value,
+    })
+
+    const textAnimation = headlineRef.value.gsapText()
+
+    masterTimeline
+      .add(textAnimation)
+      .add(gsapImage(), '<0.1')
+  }
 })
 </script>
 
 <template>
   <div class="hero">
-    <p class="band intro pb-1 text-4xl sm:text-5xl invisible">
-      Just a guy who enjoys building cool things for the web and beyond.
-      Currently living and working in Montreal.
-    </p>
+    <HomeHeroHeadline ref="headlineRef" />
     <div class="mt-6">
       <img
         class="hero-img w-full h-auto block rounded-3xl invisible opacity-0"
@@ -83,31 +49,3 @@ onMounted(() => {
     </div>
   </div>
 </template>
-
-<style scoped>
-/* styles for SplitText animation */
-.bandChar {
-  display: inline-block;
-  position: relative;
-  transform-style: preserve-3d;
-  backface-visibility: hidden;
-}
-
-.word {
-  display: inline-block;
-  margin-right: 0.25em;
-}
-
-.line {
-  display: block;
-  overflow: hidden;
-}
-
-.band {
-  overflow: hidden;
-  position: relative;
-  perspective: 200px;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-</style>
