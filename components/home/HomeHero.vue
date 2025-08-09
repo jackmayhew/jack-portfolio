@@ -44,7 +44,7 @@ onMounted(async () => {
     <div class="mt-6">
       <img
         ref="heroImageRef"
-        class="w-full h-auto block rounded-3xl invisible opacity-0"
+        class="w-full h-auto block rounded-xl invisible opacity-0"
         src="/img/hero.webp"
         alt="Jack at computer"
         loading="eager"
