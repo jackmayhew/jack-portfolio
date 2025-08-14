@@ -18,7 +18,7 @@ export const about = [
   },
   {
     headline: 'Get in Touch',
-    text: `If you're around and want to chat `,
+    text: `If you're around and want to chat, `,
     link: {
       url: 'mailto:jackmayhew5@gmail.com',
       text: 'drop me a message!',
