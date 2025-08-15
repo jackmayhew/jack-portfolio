@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { TimelineEvent } from '~/types/timeline-event.types'
+import type { TimelineEvent } from '~/types/now/timeline-event.types'
 
 defineProps<{
   event: TimelineEvent

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { projectDetails } from '~/data/project-pages'
+import { projectDetails } from '~/data/project-details'
 
 const router = useRouter()
 const route = useRoute()
@@ -65,7 +65,10 @@ useHead({
       <p class="text-xl mb-6">
         Built with: {{ project.techStack }}
       </p>
-      <ButtonLinkExternal :url="project.url" text="Visit" icon-name="lucide:link" :icon-size="18" width="150px" />
+      <div class="flex gap-2">
+        <ButtonLinkExternal :url="project.url" text="Visit" icon-name="lucide:link" :icon-size="18" width="150px" />
+        <ButtonLinkExternal v-if="project.githubUrl" :url="project.githubUrl" text="Code" icon-name="lucide:github" :icon-size="18" width="150px" />
+      </div>
     </div>
     <Footer />
   </main>

@@ -1,5 +1,22 @@
+import type { ProjectDetails } from '~/types/project/project-details-types'
+
 // considered using a markdown file, but felt overkill. sticking with js object for now
-export const projectDetails = [
+export const projectDetails: ProjectDetails[] = [
+  {
+    title: 'Loon',
+    subtitle: 'Shop Canadian, without the extra legwork.',
+    image: '/img/work/loon.webp',
+    paragraphs: [
+      `Trying to shop from Canadian stores online often felt like a manual, frustrating process. You\'d find a product on a big international site, then have to start a whole separate search just to find a local alternative.`,
+      `I built Loon to automate that second step. It’s a browser extension that finds you Canadian alternatives right when you need them. No more juggling a dozen tabs to find a local option.`,
+      `The goal was to make supporting local businesses easier. It was also a solid project for tackling challenges like product matching, database design, and extension architecture.`,
+      `Loon is open source, and is officially launching 2025/08/22.`,
+    ],
+    techStack: 'Vue 3, TypeScript, UnoCSS, Fastify, Supabase',
+    url: 'https://getloon.ca/',
+    githubUrl: 'https://github.com/jackmayhew/loon/',
+    slug: 'loon',
+  },
   {
     title: 'Refuge Kitty-Kat Rescue',
     subtitle: 'Helping cats find new homes, one click at a time.',
@@ -31,18 +48,6 @@ export const projectDetails = [
     techStack: 'Next.js, TypeScript, Sanity.io',
     url: 'https://www.campvi.ca/',
     slug: 'campvi',
-  },
-  {
-    title: 'MTL Spots',
-    subtitle: 'A platform for skaters to share and find local skate spots.',
-    image: '/img/work/mtlspots.webp',
-    paragraphs: [
-      `MTL Spots is a platform for local skateboarders to share the city's best spots. Users can share by uploading photos, locations and details, making it easy for others to find spots around Montreal.`,
-      `With an interactive map and a clean interface, finding a spot is simple.`,
-    ],
-    techStack: 'Next.js, TypeScript, SCSS, S3, MongoDB',
-    url: 'https://www.mtlspots.ca/',
-    slug: 'mtl-spots',
   },
   {
     title: 'TabZen',

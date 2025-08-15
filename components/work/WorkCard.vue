@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import type { Project } from '~/types/project.types'
+import type { ProjectCard } from '~/types/project/project-card.types'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 defineProps<{
-  project: Project
+  project: ProjectCard
 }>()
 
 gsap.registerPlugin(ScrollTrigger)

@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import type { ContactForm } from '~/types/contact.types'
+import type { ContactForm } from '~/types/contact/contact.types'
 import FormField from '~/components/forms/ContactFormField.vue'
-import { contactSchema } from '~/types/contact.types'
+import { contactSchema } from '~/types/contact/contact.types'
 
 // --- state ---
 const form = ref<ContactForm>({ firstName: '', email: '', message: '', honeypot: '' })
@@ -121,6 +121,7 @@ async function submitForm() {
         id="email"
         v-model="form.email"
         label="Email"
+        label-small="(So I can respond!)"
         name="email"
         type="email"
         :error="errors.email"

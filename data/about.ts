@@ -1,5 +1,7 @@
+import type { AboutItem } from '~/types/about/about-item.types'
+
 // considered using a markdown file, but felt overkill. sticking with js object for now
-export const about = [
+export const about: AboutItem[] = [
   {
     headline: 'Intro',
     text: `I started coding in 2019, building websites for friends and family. Nothing fancy, but it was enough to get me hooked. From there, I got to work studying all things web development and working towards landing my first role.`,

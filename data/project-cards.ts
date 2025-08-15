@@ -1,5 +1,16 @@
+import type { ProjectCard } from '~/types/project/project-card.types'
+
 // considered using a markdown file, but felt overkill. sticking with js object for now
-export const projectCards = [
+export const projectCards: ProjectCard[] = [
+  {
+    title: 'Loon',
+    slug: 'loon',
+    date: '2025',
+    desc: `A browser extension that finds Canadian alternatives and deals while you shop online, making it easy to support local businesses.`,
+    url: 'https://getloon.ca/',
+    stack: 'Vue 3, TypeScript, UnoCSS, Fastify, Supabase',
+    image: '/img/work/loon.webp',
+  },
   {
     title: 'Refuge Kitty-Kat Rescue',
     slug: 'refuge-kitty-kat-rescue',
@@ -8,7 +19,6 @@ export const projectCards = [
     url: 'https://www.refugekittykat.com/',
     stack: 'Next.js, Tailwind, Hygraph',
     image: '/img/work/refuge.webp',
-    id: 1,
   },
   {
     title: 'CampVI',
@@ -18,17 +28,6 @@ export const projectCards = [
     url: 'https://www.campvi.ca/',
     stack: 'Next.js, TypeScript, Sanity.io',
     image: '/img/work/campvi.webp',
-    id: 2,
-  },
-  {
-    title: 'MTL Spots',
-    slug: 'mtl-spots',
-    date: '2022',
-    desc: `A platform built for skateboarders to share and discover local skate spots in Montreal.`,
-    url: 'https://www.mtlspots.ca/',
-    stack: 'Next.js, TypeScript, SCSS, S3, MongoDB',
-    image: '/img/work/mtlspots.webp',
-    id: 3,
   },
   {
     title: 'TabZen',
@@ -38,6 +37,5 @@ export const projectCards = [
     url: 'https://tabzen.app/',
     stack: 'HTML, CSS, JavaScript, Chrome Extensions API',
     image: '/img/work/tabzen.webp',
-    id: 4,
   },
 ]

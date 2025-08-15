@@ -2,6 +2,7 @@
 const props = defineProps<{
   modelValue: string
   label: string
+  labelSmall?: string
   error?: string
   type?: 'text' | 'textarea' | 'email'
   name: string
@@ -28,7 +29,7 @@ function handleInput(event: Event) {
 
 <template>
   <div class="flex flex-col relative pb-6">
-    <label :for="id">{{ label }}<span v-if="required">*</span></label>
+    <label class="flex items-center" :for="id">{{ label }}<span v-if="required">*</span><span v-if="labelSmall" class="text-xs ml-1">{{ labelSmall }}</span></label>
     <textarea
       v-if="inputType === 'textarea'"
       :id="id"

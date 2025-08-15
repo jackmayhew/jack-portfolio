@@ -1,6 +1,6 @@
 import process from 'node:process'
 import { Resend } from 'resend'
-import { contactSchema } from '~/types/contact.types'
+import { contactSchema } from '~/types/contact/contact.types'
 
 const resend = new Resend(process.env.RESEND_API_KEY)
 

@@ -1,5 +1,7 @@
+import type { TimelineEvent } from '~/types/now/timeline-event.types'
+
 // considered using a markdown file, but felt overkill. sticking with js object for now
-export const now = [
+export const now: TimelineEvent[] = [
   {
     displayDate: 'October 2024',
     formateDate: '2024-10-31',
