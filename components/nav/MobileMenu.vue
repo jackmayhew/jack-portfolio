@@ -8,8 +8,9 @@
  */
 import { onClickOutside } from '@vueuse/core'
 import { gsap } from 'gsap'
+import { navigationLinks } from '~/constants/nav-links'
+import { socialLinks } from '~/constants/social-links'
 
-const { navigationLinks } = useNavLinks()
 const mobileNavLinks = [
   { name: 'Home', path: '/', external: false },
   ...navigationLinks,
@@ -172,15 +173,15 @@ onClickOutside(wrapper, (event) => {
         <div class="nav-footer">
           <div class="footer-bg" />
           <div class="menu-item nav-footer-icons">
-            <a href="https://github.com/jackmayhew" target="_blank" rel="noopener">
-              <Icon name="lucide:github" size="36" />
+            <a
+              v-for="link in socialLinks"
+              :key="link.href"
+              :href="link.href"
+              :target="link.target"
+              :rel="link.rel"
+            >
+              <Icon :name="link.icon" :size="link.size" />
             </a>
-            <a href="mailto:jackmayhew5@gmail.com">
-              <Icon name="lucide:mail" size="36" />
-            </a>
-            <!-- <a href="https://www.instagram.com/jackmayheww/" target="_blank" rel="noopener">
-              <Icon name="lucide:twitter" size="36" />
-            </a> -->
           </div>
         </div>
       </div>

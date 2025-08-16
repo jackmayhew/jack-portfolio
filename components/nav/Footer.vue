@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const { navigationLinks } = useNavLinks()
+import { navigationLinks } from '~/constants/nav-links'
 </script>
 
 <template>

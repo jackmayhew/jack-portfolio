@@ -1,6 +1,7 @@
 <script setup lang="ts">
+import { navigationLinks } from '~/constants/nav-links'
+
 const colorMode = useColorMode()
-const { navigationLinks } = useNavLinks()
 
 function toggleColorMode() {
   colorMode.preference = colorMode.value === 'dark' ? 'light' : 'dark'
@@ -10,7 +11,7 @@ function toggleColorMode() {
 <template>
   <header class="navbar px-6">
     <nav aria-label="Main navigation" class="py-4 mx-auto relative flex justify-between items-center">
-      <NuxtLink to="/" class="logo nav-logo text-4xl font-semibold z-50 select-none">
+      <NuxtLink to="/" class="logo nav-logo text-4xl font-semibold z-50 select-none px-1 sm:px-0">
         Jack
       </NuxtLink>
       <ul class="flex items-center gap-2 sm:gap-5 sm:gap-6">
