@@ -7,7 +7,7 @@ export const socialLinks = [
     size: 36,
   },
   {
-    href: 'https://x.com/jackss___59',
+    href: 'https://x.com/jack___59',
     target: '_blank',
     rel: 'noopener',
     icon: 'lucide:twitter',
