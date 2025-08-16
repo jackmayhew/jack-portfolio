@@ -36,7 +36,7 @@ onMounted(() => {
   <div class="mb-28">
     <NuxtImg
       ref="imgRef"
-      class="work-img w-full h-full rounded-2xl opacity-0 invisible bg-light-bg dark:bg-dark-bg"
+      class="work-img w-full h-full rounded-xl opacity-0 invisible bg-light-bg dark:bg-dark-bg"
       :src="project.image"
       :alt="project.title"
       width="800"
