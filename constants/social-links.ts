@@ -6,13 +6,13 @@ export const socialLinks = [
     icon: 'lucide:github',
     size: 36,
   },
-  {
-    href: 'https://x.com/jack___59',
-    target: '_blank',
-    rel: 'noopener',
-    icon: 'lucide:twitter',
-    size: 36,
-  },
+  // {
+  //   href: 'https://x.com/',
+  //   target: '_blank',
+  //   rel: 'noopener',
+  //   icon: 'lucide:twitter',
+  //   size: 36,
+  // },
   {
     href: 'mailto:jackmayhew5@gmail.com',
     icon: 'lucide:mail',
