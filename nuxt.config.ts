@@ -7,7 +7,6 @@ export default defineNuxtConfig({
     '@nuxt/icon',
     '@nuxt/image',
     '@nuxtjs/color-mode',
-    'nuxt-gtag',
   ],
   components: [
     {
@@ -62,8 +61,5 @@ export default defineNuxtConfig({
   colorMode: {
     preference: 'light',
     fallback: 'light',
-  },
-  gtag: {
-    id: 'G-FRSCKR2CDP',
   },
 })

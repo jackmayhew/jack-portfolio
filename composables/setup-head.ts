@@ -6,6 +6,9 @@ export function setupHead() {
     htmlAttrs: {
       lang: 'en',
     },
+    script: [
+      { 'defer': true, 'data-domain': 'jackmayhew.com', 'src': 'https://plausible.io/js/script.js' },
+    ],
     meta: [
       { name: 'description', content: 'Just a guy who enjoys building cool stuff for the web, making things (blazingly) fast, and ricing my desktop. In case anyone is wondering, I use arch linux.' },
       { charset: 'UTF-8' },
