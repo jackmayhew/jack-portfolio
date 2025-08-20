@@ -7,7 +7,7 @@ export function setupHead() {
       lang: 'en',
     },
     script: [
-      { 'defer': true, 'data-domain': 'jackmayhew.com', 'src': 'https://plausible.io/js/script.js' },
+      { 'defer': true, 'data-site': 'UFPTWCQF', 'src': 'https://cdn.usefathom.com/script.js' },
     ],
     meta: [
       { name: 'description', content: 'Just a guy who enjoys building cool stuff for the web, making things (blazingly) fast, and ricing my desktop. In case anyone is wondering, I use arch linux.' },
