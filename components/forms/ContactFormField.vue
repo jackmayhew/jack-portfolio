@@ -18,7 +18,7 @@ const inputClasses = computed(() => [
   'p-2 rounded-md text-base border-2 dark:bg-transparent duration-200 ease-in-out',
   props.error
     ? 'border-red-500'
-    : 'border-neutral-200 dark:border-gray-700 hover:border-neutral-300 focus:border-neutral-300',
+    : 'border-neutral-300 dark:border-gray-700 hover:border-neutral-200 focus:border-neutral-200 focus:border-neutral-200 focus:outline-none transition-none',
   inputType.value === 'textarea' ? 'align-top h-40 resize-none' : 'h-12',
 ])
 
@@ -29,7 +29,13 @@ function handleInput(event: Event) {
 
 <template>
   <div class="flex flex-col relative pb-6">
-    <label class="flex items-center" :for="id">{{ label }}<span v-if="required">*</span><span v-if="labelSmall" class="text-xs ml-1">{{ labelSmall }}</span></label>
+    <label class="flex items-center" :for="id">
+      {{ label }}
+      <span v-if="required">*</span>
+      <span v-if="labelSmall" class="text-xs ml-1">
+        {{ labelSmall }}
+      </span>
+    </label>
     <textarea
       v-if="inputType === 'textarea'"
       :id="id"
