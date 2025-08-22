@@ -5,7 +5,7 @@ export const now: TimelineEvent[] = [
   {
     displayDate: 'August 2025',
     formateDate: '2024-08-17',
-    desc: `Built Loon, a browser extension that helps Canadians find local alternatives while shopping online. It's live and I'm officially launching the MVP 2025/08/22. Built it to make supporting local businesses easier - sometimes the best Canadian option is just a click away.`,
+    desc: `Built Loon, a browser extension that helps Canadians find local alternatives while shopping online. It's live and the MVP is officially launching 2025/08/22. Built it to make supporting local businesses easier.`,
     link: {
       url: 'https://getloon.ca/',
       text: 'Check it out.',
