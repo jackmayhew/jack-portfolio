@@ -55,7 +55,7 @@ defineExpose({ gsapText })
 </script>
 
 <template>
-  <p ref="bandRef" class="band intro pb-1 text-4xl sm:text-5xl invisible">
+  <p ref="bandRef" class="hero-text band pb-1 text-4xl sm:text-5xl invisible">
     Just a guy who enjoys building cool things for the web and beyond.
     Currently living and working in Montreal.
   </p>
@@ -68,14 +68,17 @@ defineExpose({ gsapText })
   transform-style: preserve-3d;
   backface-visibility: hidden;
 }
+
 .word {
   display: inline-block;
   margin-right: 0.25em;
 }
+
 .line {
   display: block;
   overflow: hidden;
 }
+
 .band {
   overflow: hidden;
   position: relative;

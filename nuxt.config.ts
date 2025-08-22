@@ -7,6 +7,7 @@ export default defineNuxtConfig({
     '@nuxt/icon',
     '@nuxt/image',
     '@nuxtjs/color-mode',
+    '@nuxtjs/google-fonts',
   ],
   components: [
     {
@@ -14,6 +15,13 @@ export default defineNuxtConfig({
       pathPrefix: false,
     },
   ],
+  googleFonts: {
+    families: {
+      'JetBrains+Mono': {
+        wght: '100..800',
+      },
+    },
+  },
   app: {
     pageTransition: {
       name: 'page',
@@ -32,27 +40,12 @@ export default defineNuxtConfig({
         { name: 'theme-color', content: '#FDFAF5' },
       ],
       link: [
-        // preloads
         { rel: 'preload', href: '/img/hero.webp', as: 'image' },
         {
           rel: 'preload',
           href: '/fonts/ShadowHand.ttf',
           as: 'font',
           type: 'font/ttf',
-          crossorigin: 'anonymous',
-        },
-        {
-          rel: 'preload',
-          href: '/fonts/StabilGrotesk-Regular.woff2',
-          as: 'font',
-          type: 'font/woff2',
-          crossorigin: 'anonymous',
-        },
-        {
-          rel: 'preload',
-          href: '/fonts/StabilGrotesk-Medium.woff2',
-          as: 'font',
-          type: 'font/woff2',
           crossorigin: 'anonymous',
         },
       ],

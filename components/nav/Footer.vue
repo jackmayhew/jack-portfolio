@@ -7,7 +7,7 @@ import { navigationLinks } from '~/constants/nav-links'
     <div class="pt-4 pb-12 md:py-8 mx-auto w-full max-w-screen-xl">
       <div class="sm:flex sm:items-center sm:justify-between">
         <NuxtLink to="/" class="mb-4 sm:mb-0 flex items-center space-x-3 rtl:space-x-reverse">
-          <span class="logo self-center text-4xl font-semibold whitespace-nowrap select-none">Jack</span>
+          <span class="logo-text self-center text-4xl font-semibold whitespace-nowrap select-none">Jack</span>
         </NuxtLink>
         <ul class="mb-6 sm:mb-0 flex flex-wrap items-center text-sm font-medium">
           <li v-for="link in navigationLinks" :key="link.path">

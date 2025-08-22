@@ -31,6 +31,7 @@
   "devDependencies": {
     "@antfu/eslint-config": "^5.1.0",
     "@nuxt/typescript-build": "^3.0.2",
+    "@nuxtjs/google-fonts": "^3.2.0",
     "@nuxtjs/tailwindcss": "^6.12.2",
     "eslint": "^9.32.0",
     "typescript": "^5.9.2"

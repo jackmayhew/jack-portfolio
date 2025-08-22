@@ -11,7 +11,7 @@ function toggleColorMode() {
 <template>
   <header class="navbar px-6">
     <nav aria-label="Main navigation" class="py-4 mx-auto relative flex justify-between items-center">
-      <NuxtLink to="/" class="logo nav-logo text-4xl font-semibold z-50 select-none px-1 sm:px-0">
+      <NuxtLink to="/" class="logo-text nav-logo text-4xl font-semibold z-50 select-none px-1 sm:px-0">
         Jack
       </NuxtLink>
       <ul class="flex items-center gap-2 sm:gap-5 sm:gap-6">

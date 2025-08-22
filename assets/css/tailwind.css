@@ -3,39 +3,30 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: "regular";
-  src: url("/fonts/StabilGrotesk-Regular.woff2") format("truetype");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "medium";
-  src: url("/fonts/StabilGrotesk-Medium.woff2") format("truetype");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "logo";
+  font-family: "ShadowHand";
   src: url("/fonts/ShadowHand.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
   font-display: block;
 }
 
-.logo {
-  font-family: "logo", sans-serif;
+.logo-text {
+  font-family: "ShadowHand", sans-serif;
+}
+
+.hero-text {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600;
 }
 
 body {
-  font-family: "regular", sans-serif;
-  /* min-height: 100vh; */
+  font-family: 'JetBrains Mono', monospace;
 }
 
 h1,
 .bold {
-  font-family: "medium", sans-serif;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 900;
 }
 
 html,
@@ -68,4 +59,24 @@ html.dark-mode,
 
 .json-link {
   text-decoration: underline;
+}
+
+::selection {
+  background-color: #f8f6f1;
+  color: #df1515;
+}
+
+::-moz-selection {
+  background-color: #f8f6f1;
+  color: #df1515;
+}
+
+html.dark-mode ::selection {
+  background-color: #282828;
+  color: #dddddd;
+}
+
+html.dark-mode ::-moz-selection {
+  background-color: #282828;
+  color: #dddddd;
 }
