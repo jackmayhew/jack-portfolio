@@ -6,12 +6,10 @@ useHead({
 
 <template>
   <main>
-    <h1 class="text-5xl sm:text-6xl">
-      Contact Jack
-    </h1>
-    <h2 class="mt-2 text-xl sm:text-2xl">
-      Always happy to chat!
-    </h2>
+    <Header
+      title="Contact Jack"
+      subtitle="Always happy to chat!"
+    />
     <div class="mt-8 text-lg">
       <ContactForm />
     </div>

@@ -1,7 +1,7 @@
 <template>
   <main>
     <HomeHero />
-    <WorkSection />
+    <ProjectCards />
     <Footer />
   </main>
 </template>

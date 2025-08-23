@@ -8,12 +8,10 @@ useHead({
 
 <template>
   <main>
-    <h1 class="text-5xl sm:text-6xl">
-      What's New?
-    </h1>
-    <h2 class="mt-2 text-xl sm:text-2xl">
-      Updates on life and what I’m working on.
-    </h2>
+    <Header
+      title="What's New?"
+      subtitle="Updates on life and what I’m working on."
+    />
     <div class="my-8">
       <TimelineItem
         v-for="(event, index) in now"
