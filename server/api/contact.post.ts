@@ -2,18 +2,18 @@ import process from 'node:process'
 import { Resend } from 'resend'
 import { contactSchema } from '~/types/contact/contact.types'
 
-const resend = new Resend(process.env.RESEND_API_KEY)
-
 // todo: add upstash rate limiting. really not a priority
 
 export default defineEventHandler(async (event) => {
+  if (!process.env.RESEND_API_KEY) {
+    throw createError({
+      statusCode: 500,
+      statusMessage: 'Server configuration error: RESEND_API_KEY is not set.',
+    })
+  }
   try {
+    const resend = new Resend(process.env.RESEND_API_KEY)
     const body = await readValidatedBody(event, contactSchema.parse)
-
-    // throw createError({
-    //   statusCode: 500,
-    //   statusMessage: 'test error',
-    // })
 
     // not sure if honeypots are even useful anymore
     if (body.honeypot) {
