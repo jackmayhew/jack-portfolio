@@ -51,7 +51,7 @@ function validateForm() {
       email: fieldErrors.email?.[0],
       message: fieldErrors.message?.[0],
     }
-    return null // validation failure
+    return null // validation failed
   }
   return result.data
 }

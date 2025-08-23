@@ -28,7 +28,7 @@ defineProps<{
         class="json-link"
       >{{ p.link.text }}</a>
     </p>
-    <p class="text-xl mb-6">
+    <p class="text-lg mb-6">
       Built with: {{ project.techStack }}
     </p>
   </div>
