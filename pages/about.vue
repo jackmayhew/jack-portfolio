@@ -19,7 +19,7 @@ useHead({
           :key="index"
           class="mt-6"
         >
-          <h3 class="text-xl font-bold text-gray-500 font-semibold">
+          <h3 class="text-xl text-gray-500 font-semibold">
             {{ section.headline }}
           </h3>
           <p>
