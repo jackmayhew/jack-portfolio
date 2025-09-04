@@ -25,8 +25,10 @@ defineProps<{
         :href="p.link.url"
         target="_blank"
         rel="noopener"
-        class="json-link"
-      >{{ p.link.text }}</a>
+        class="underline"
+      >
+        {{ p.link.text }}
+      </a>
     </p>
     <p class="text-lg mb-6">
       Built with: {{ project.techStack }}

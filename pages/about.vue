@@ -26,7 +26,7 @@ useHead({
             {{ section.text }}
             <a
               v-if="section.link"
-              class="json-link"
+              class="underline"
               :href="section.link.url"
             >
               {{ section.link.text }}

@@ -56,10 +56,6 @@ html.dark-mode,
   overflow: hidden !important;
 }
 
-.json-link {
-  text-decoration: underline;
-}
-
 ::selection {
   background-color: #f8f6f1;
   color: #df1515;

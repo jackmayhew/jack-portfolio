@@ -25,7 +25,7 @@ defineProps<{
           :href="event.link.url"
           target="_blank"
           rel="noopener"
-          class="json-link"
+          class="underline"
         >
           {{ event.link.text }}
         </a>
