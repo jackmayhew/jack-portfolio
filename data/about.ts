@@ -16,7 +16,7 @@ export const about: AboutItem[] = [
   },
   {
     headline: 'Outside of Coding',
-    text: `Outside of coding, you can find me playing baseball or soccer, surfing, or playing my bass guitar. I'm based in Montreal, but Vancouver (my hometown) is always calling me back for visits.`,
+    text: `Outside of coding, you can find me playing baseball or soccer, surfing, or playing my bass guitar. Currently living and working in Victoria, BC.`,
   },
   {
     headline: 'Get in Touch',
