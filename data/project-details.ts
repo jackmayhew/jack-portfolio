@@ -57,7 +57,7 @@ export const projectDetails: ProjectDetails[] = [
       `I built TabZen to solve a simple frustration: guitar tab sites are cluttered with ads and popups that standard adblockers miss. What started as me manually removing elements in DevTools turned into a browser extension that does the work automatically.`,
       `TabZen helps users focus on what matters - the music without the clutter. A simple fix for an annoying problem!`,
     ],
-    techStack: 'HTML, CSS, JavaScript, Chrome Extensions API',
+    techStack: 'HTML, CSS, JavaScript',
     url: 'https://tabzen.app/',
     slug: 'tabzen',
   },
