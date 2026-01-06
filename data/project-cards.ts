@@ -26,7 +26,7 @@ export const projectCards: ProjectCard[] = [
     date: '2024',
     desc: `The go-to Vancouver Island camping resource. Explore everything from popular provincial parks to hidden off-grid gems.`,
     url: 'https://www.campvi.ca/',
-    stack: 'Next.js, TypeScript, Sanity.io',
+    stack: 'Next.js, TypeScript, Sanity',
     image: '/img/work/campvi.webp',
   },
   {

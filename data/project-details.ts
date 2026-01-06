@@ -45,7 +45,7 @@ export const projectDetails: ProjectDetails[] = [
       `What started as a personal project has grown into a genuine resource for the island's outdoor community. With an interactive map, intuitive search features, and detailed site info, CampVI helps adventurers spend less time planning and more time exploring.`,
       `It's nice getting messages from users who've discovered their new favourite camping spots through the site!`,
     ],
-    techStack: 'Next.js, TypeScript, Sanity.io',
+    techStack: 'Next.js, TypeScript, Sanity',
     url: 'https://www.campvi.ca/',
     slug: 'campvi',
   },

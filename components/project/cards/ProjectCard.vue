@@ -57,12 +57,6 @@ onMounted(() => {
       <div class="flex gap-4 mt-4">
         <ButtonLinkExternal :url="project.url" text="Visit" icon-name="lucide:link" :icon-size="18" width="150px" />
         <ButtonLink :url="`/projects/${project.slug}`" text="Details" icon-name="lucide:arrow-right" :icon-size="20" width="150px" />
-        <!-- <button class="w-[150px] relative top-0.5 rounded-md border-2 border-gray-300 bg-gray-200 text-center no-underline disabled:cursor-not-allowed disabled:opacity-50 dark:border-gray-700 dark:bg-gray-800">
-          <span class="relative h-full flex items-center justify-center gap-1.5 mx-[-2px] block -translate-y-0.5 select-none rounded-md border-2 border-gray-300 bg-white px-4 py-1 text-center text-base font-bold text-gray-700 hover:-translate-y-1 hover:text-gray-700 active:-translate-y-px active:transition-all active:duration-100 group-disabled:hover:!-translate-y-0.5 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 dark:hover:text-gray-300">
-            Details
-            <Icon name="lucide:arrow-right" size="16" />
-          </span>
-        </button> -->
       </div>
     </div>
   </div>
