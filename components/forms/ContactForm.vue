@@ -59,15 +59,25 @@ function validateForm() {
 // --- submission ---
 async function submitForm() {
   loading.value = true
+
   if (submissionStatus.value === 'success')
     submissionStatus.value = null
   errors.value = {}
-  scrollToForm()
 
   try {
     const validatedData = validateForm()
     if (!validatedData) {
-      // validation failed, validateForm already set the errors
+      // validation failed, validateForm sets errors
+
+      await nextTick()
+
+      // find and focus first input that has an error message
+      const firstErrorField = Object.keys(errors.value).find(key => errors.value[key])
+      if (firstErrorField) {
+        const inputToFocus = document.querySelector<HTMLInputElement>(`#${firstErrorField}`)
+        inputToFocus?.focus()
+      }
+
       return
     }
 
@@ -76,9 +86,11 @@ async function submitForm() {
       body: validatedData,
     })
 
+    scrollToForm()
     handleSuccess()
   }
   catch {
+    scrollToForm()
     handleError()
   }
   finally {
@@ -93,7 +105,11 @@ async function submitForm() {
       <h3 v-if="submissionStatus === 'success'" class="text-[#249e40]">
         Email has been sent! I'll get back to you asap as possible.
       </h3>
-      <h3 v-else-if="submissionStatus === 'error'" class="text-red-600 dark:text-red-500" :class="{ 'animate-shake': flashError }">
+      <h3
+        v-else-if="submissionStatus === 'error'"
+        class="text-red-600 dark:text-red-500"
+        :class="{ 'animate-shake': flashError }"
+      >
         Error! Please try again, or email me directly at <a href="mailto:jackmayhew5@gmail.com">jackmayhew5@gmail.com</a>
       </h3>
       <h3 v-else>
@@ -108,7 +124,7 @@ async function submitForm() {
       </div>
 
       <FormField
-        id="name"
+        id="firstName"
         v-model="form.firstName"
         label="First Name"
         name="name"
@@ -140,8 +156,12 @@ async function submitForm() {
         @update:model-value="clearError('message')"
       />
 
-      <div class="w-full">
-        <Button :text="loading ? 'Sending...' : 'Send'" icon-name="lucide:send" :disabled="loading" width="100%" />
+      <div class="w-full" :class="{ 'pointer-events-none': loading }">
+        <Button
+          :text="loading ? 'Sending...' : 'Send'"
+          icon-name="lucide:send"
+          :disabled="loading" width="100%"
+        />
       </div>
     </form>
   </div>
@@ -161,12 +181,22 @@ input:-webkit-autofill {
 }
 
 /* shake animation for error feedback */
-@keyframes shake {
-  0%, 100% { transform: translateX(0); }
-  25% { transform: translateX(-5px); }
-  75% { transform: translateX(5px); }
-}
 .animate-shake {
-  animation: shake 0.3s ease-in-out;
+  animation: shake 0.65s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: translateX(-1px);
+  }
+  20%, 80% {
+    transform: translateX(2px);
+  }
+  30%, 50%, 70% {
+    transform: translateX(-4px);
+  }
+  40%, 60% {
+    transform: translateX(4px);
+  }
 }
 </style>

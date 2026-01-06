@@ -15,10 +15,15 @@ const emit = defineEmits(['update:modelValue'])
 const inputType = computed(() => props.type || 'text')
 
 const inputClasses = computed(() => [
-  'p-2 rounded-md text-base border-2 dark:bg-transparent duration-200 ease-in-out',
+  // base styles for all states
+  'p-2 rounded-md text-base border-2 dark:bg-transparent duration-200 ease-in-out focus:outline-none focus:ring-2 border-[#121212] dark:border-gray-600',
+
+  // conditionals
   props.error
-    ? 'border-red-500'
-    : 'border-neutral-300 dark:border-gray-700 hover:border-neutral-200 focus:border-neutral-200 focus:border-neutral-200 focus:outline-none transition-none',
+    ? 'focus:ring-red-600' // error state
+    : 'focus:ring-orange-light', // default state
+
+  // conditionals for input type
   inputType.value === 'textarea' ? 'align-top h-40 resize-none' : 'h-12',
 ])
 
@@ -28,7 +33,7 @@ function handleInput(event: Event) {
 </script>
 
 <template>
-  <div class="flex flex-col relative pb-6">
+  <div class="relative flex flex-col relative pb-6">
     <label class="flex items-center" :for="id">
       {{ label }}
       <span v-if="required">*</span>
@@ -53,8 +58,9 @@ function handleInput(event: Event) {
       :value="modelValue"
       :aria-required="required"
       :class="inputClasses"
+      autocomplete="true"
       @input="handleInput"
     >
-    <span v-if="error" class="text-red-600 dark:text-red-500 text-sm">{{ error }}</span>
+    <span v-if="error" class="absolute bottom-1 text-red-600 dark:text-red-500 text-sm">{{ error }}</span>
   </div>
 </template>

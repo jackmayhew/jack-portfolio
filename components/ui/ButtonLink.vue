@@ -18,9 +18,11 @@ withDefaults(defineProps<{
   <NuxtLink
     :to="url"
     :style="{ width }"
-    class="group relative inline-flex h-12 gap-2 text-lg items-center justify-center overflow-hidden rounded-md border-2 border-neutral-300 dark:border-gray-700 bg-transparent px-6 font-medium text-neutral-600 dark:text-dark-text transition-all [box-shadow:0px_4px_0.5px_#d4d4d4] dark:[box-shadow:0px_4px_0.5px_#374151] hover:translate-y-[2px] hover:shadow-none"
+    class="relative top-0.5 h-12 rounded-md border-2 border-orange-dark bg-orange-light text-center no-underline disabled:cursor-not-allowed disabled:opacity-50 dark:border-gray-700 dark:bg-gray-800"
   >
-    {{ text }}
-    <Icon v-if="iconName" :name="iconName" :size="iconSize" class="flex-shrink-0" />
+    <span class="relative h-full flex items-center justify-center gap-1.5 mx-[-2px] block -translate-y-0.5 select-none rounded-md border-2 border-orange-dark bg-white px-4 py-1 text-center text-base font-bold text-gray-900 hover:-translate-y-1 hover:text-gray-900 active:-translate-y-[2px] active:transition-all active:duration-100 group-disabled:hover:!-translate-y-0.5 dark:border-gray-700 dark:bg-gray-900 dark:text-white dark:hover:text-white">
+      {{ text }}
+      <Icon v-if="iconName" :name="iconName" :size="iconSize" class="flex-shrink-0" />
+    </span>
   </NuxtLink>
 </template>

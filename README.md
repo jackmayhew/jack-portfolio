@@ -9,3 +9,7 @@ Thinking about adding a guestbook down the road.
 **Built with:** Nuxt3, GSAP, Tailwind
 
 [Check it out](https://www.jackmayhew.com/)
+
+remove input hover states
+input error states - use focus instead of border color
+buttons

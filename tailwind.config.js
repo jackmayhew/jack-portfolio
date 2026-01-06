@@ -15,6 +15,9 @@ export default {
         // dark mode
         'dark-bg': '#121212',
         'dark-text': '#DDDDDD',
+
+        'orange-light': '#EB9D2A',
+        'orange-dark': '#b17816',
       },
     },
   },
