@@ -1,5 +1,10 @@
+import { websiteUrl } from './constants/social-links'
+
 export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
+  site: {
+    url: websiteUrl,
+  },
   ssr: false,
   devtools: { enabled: true },
   modules: [
@@ -8,6 +13,7 @@ export default defineNuxtConfig({
     '@nuxt/image',
     '@nuxtjs/color-mode',
     '@nuxtjs/google-fonts',
+    '@nuxtjs/sitemap',
   ],
   components: [
     {
@@ -28,14 +34,6 @@ export default defineNuxtConfig({
       mode: 'out-in',
     },
     head: {
-      // style: [
-      //   {
-      //     innerHTML: `
-      //       html.light-mode { background-color: #FDFAF5; }
-      //       html.dark-mode { background-color: #121212; }
-      //     `,
-      //   },
-      // ],
       link: [
         { rel: 'preload', href: '/img/hero.webp', as: 'image' },
         {

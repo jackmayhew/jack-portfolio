@@ -45,7 +45,7 @@ export function setupHead() {
       { property: 'twitter:title', content: 'Jack Mayhew' },
       { property: 'twitter:description', content: 'Just a guy who enjoys building cool stuff for the web, making things (blazingly) fast, and ricing my desktop. In case anyone is wondering, I use arch linux.' },
       { property: 'twitter:image', content: `${websiteUrl}/img/meta/twitter.png` },
-      // { name: 'twitter:creator', content: '@idk' },
+      // { name: 'twitter:creator', content: '@username' },
       {
         name: 'theme-color',
         content: computed(() => (colorMode.value === 'dark' ? '#121212' : '#FDFAF5')),
