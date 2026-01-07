@@ -1,7 +1,7 @@
 import type { AboutItem } from '~/types/about/about-item.types'
 import { emailAddress } from '~/constants/social-links'
 
-// considered using a markdown file, but felt overkill. sticking with js object for now
+// considered a markdown file, but felt overkill
 export const about: AboutItem[] = [
   {
     headline: 'Intro',

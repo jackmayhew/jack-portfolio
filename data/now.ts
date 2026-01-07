@@ -1,7 +1,7 @@
 import type { TimelineEvent } from '~/types/now/timeline-event.types'
 import { githubUsername } from '~/constants/social-links'
 
-// considered using a markdown file, but felt overkill. sticking with js object for now
+// considered a markdown file, but felt overkill
 export const now: TimelineEvent[] = [
   {
     displayDate: 'August 2025',
@@ -15,7 +15,7 @@ export const now: TimelineEvent[] = [
   {
     displayDate: 'October 2024',
     formateDate: '2024-10-31',
-    desc: `Built a new portfolio website (the one you're on now). Kept it simple and minimalist. First time building with Nuxt and I'm really liking it. The developer experience is smooth and the tooling is really nice. You can check out the code on my `,
+    desc: `Built a new portfolio website (the one you're on now). Kept it simple and minimalist. First time building with Nuxt and I'm really liking it. The developer experience is smooth and the tooling is solid. You can check out the code on my `,
     link: {
       url: `${githubUsername}/jack-portfolio`,
       text: 'GitHub.',

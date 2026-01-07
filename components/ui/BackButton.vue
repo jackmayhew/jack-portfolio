@@ -13,7 +13,7 @@ function goBack() {
 
 <template>
   <button
-    class="absolute mt-[-25px] flex hover:-translate-x-1 transition-transform duration-150 pr-4"
+    class="absolute mt-[-25px] flex hover:-translate-x-0.5 transition-transform duration-150 pr-4"
     @click="goBack"
   >
     <Icon name="lucide:arrow-left" size="22" />
