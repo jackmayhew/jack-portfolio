@@ -15,7 +15,7 @@ useHead({
 </script>
 
 <template>
-  <main>
+  <main class="relative">
     <BackButton />
     <div>
       <Header :title="project.title" :subtitle="project.subtitle" />
