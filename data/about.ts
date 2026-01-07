@@ -1,4 +1,5 @@
 import type { AboutItem } from '~/types/about/about-item.types'
+import { emailAddress } from '~/constants/social-links'
 
 // considered using a markdown file, but felt overkill. sticking with js object for now
 export const about: AboutItem[] = [
@@ -22,7 +23,7 @@ export const about: AboutItem[] = [
     headline: 'Get in Touch',
     text: `If you're around and want to chat, `,
     link: {
-      url: 'mailto:jackmayhew5@gmail.com',
+      url: `mailto:${emailAddress}`,
       text: 'drop me a message!',
     },
   },

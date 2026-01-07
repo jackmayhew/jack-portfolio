@@ -1,11 +1,10 @@
 <script setup lang="ts">
 const route = useRoute()
+const { isMobile } = useDetectMobile()
+setupHead()
+
 const initialLoad = ref<boolean>(true)
 const mainContentRef = ref<HTMLDivElement | null>(null)
-
-const { isMobile } = useDetectMobile()
-
-setupHead()
 
 provide('initialLoad', initialLoad)
 
@@ -15,7 +14,7 @@ watch(() => route.path, () => {
 
 onMounted(() => {
   const { cleanup } = pageLoadGSAP(mainContentRef.value)
-  return cleanup
+  onUnmounted(cleanup)
 })
 </script>
 

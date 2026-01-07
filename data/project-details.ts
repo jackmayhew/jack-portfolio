@@ -1,4 +1,5 @@
 import type { ProjectDetails } from '~/types/project/project-details-types'
+import { githubUsername } from '~/constants/social-links'
 
 // considered using a markdown file, but felt overkill. sticking with js object for now
 export const projectDetails: ProjectDetails[] = [
@@ -14,7 +15,7 @@ export const projectDetails: ProjectDetails[] = [
     ],
     techStack: 'Vue 3, TypeScript, UnoCSS, Fastify, Supabase',
     url: 'https://getloon.ca/',
-    githubUrl: 'https://github.com/jackmayhew/loon/',
+    githubUrl: `${githubUsername}/loon`,
     slug: 'loon',
   },
   {

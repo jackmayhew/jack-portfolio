@@ -1,5 +1,6 @@
 import process from 'node:process'
 import { Resend } from 'resend'
+import { emailAddress } from '~/constants/social-links'
 import { contactSchema } from '~/types/contact/contact.types'
 
 // todo: add upstash rate limiting. really not a priority
@@ -22,7 +23,7 @@ export default defineEventHandler(async (event) => {
 
     const { error } = await resend.emails.send({
       from: 'Portfolio Contact <onboarding@resend.dev>',
-      to: ['jackmayhew5@gmail.com'],
+      to: [emailAddress],
       subject: `New message from ${body.firstName}`,
       text: `Name: ${body.firstName}\nEmail: ${body.email}\n\nMessage:\n${body.message}`,
     })

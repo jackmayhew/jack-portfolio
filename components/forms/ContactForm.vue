@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import type { ContactForm } from '~/types/contact/contact.types'
-import FormField from '~/components/forms/ContactFormField.vue'
+import { emailAddress } from '~/constants/social-links'
 import { contactSchema } from '~/types/contact/contact.types'
+
+const { isMobile } = useDetectMobile()
 
 // --- state ---
 const form = ref<ContactForm>({ firstName: '', email: '', message: '', honeypot: '' })
@@ -66,18 +68,16 @@ async function submitForm() {
 
   try {
     const validatedData = validateForm()
+    // validation failed, validateForm sets errors
     if (!validatedData) {
-      // validation failed, validateForm sets errors
-
       await nextTick()
 
       // find and focus first input that has an error message
       const firstErrorField = Object.keys(errors.value).find(key => errors.value[key])
-      if (firstErrorField) {
+      if (firstErrorField && !isMobile.value) {
         const inputToFocus = document.querySelector<HTMLInputElement>(`#${firstErrorField}`)
         inputToFocus?.focus()
       }
-
       return
     }
 
@@ -110,10 +110,16 @@ async function submitForm() {
         class="text-red-600 dark:text-red-500"
         :class="{ 'animate-shake': flashError }"
       >
-        Error! Please try again, or email me directly at <a href="mailto:jackmayhew5@gmail.com">jackmayhew5@gmail.com</a>
+        Error! Please try again, or email me directly at
+        <a :href="`mailto:${emailAddress}`">
+          {{ emailAddress }}
+        </a>
       </h3>
       <h3 v-else>
-        Send a message, or email me directly at <a href="mailto:jackmayhew5@gmail.com">jackmayhew5@gmail.com</a>
+        Send a message, or email me directly at
+        <a :href="`mailto:${emailAddress}`">
+          {{ emailAddress }}
+        </a>
       </h3>
     </div>
 
@@ -123,7 +129,7 @@ async function submitForm() {
         <input id="subject" v-model="form.honeypot" type="text" name="subject" tabindex="-1">
       </div>
 
-      <FormField
+      <ContactFormField
         id="firstName"
         v-model="form.firstName"
         label="First Name"
@@ -133,7 +139,7 @@ async function submitForm() {
         @update:model-value="clearError('firstName')"
       />
 
-      <FormField
+      <ContactFormField
         id="email"
         v-model="form.email"
         label="Email"
@@ -145,7 +151,7 @@ async function submitForm() {
         @update:model-value="clearError('email')"
       />
 
-      <FormField
+      <ContactFormField
         id="message"
         v-model="form.message"
         label="Message"
