@@ -16,6 +16,7 @@ const mobileNavLinks = [
   ...navigationLinks,
 ]
 
+const { isMobile } = useDetectMobile()
 const route = useRoute()
 
 // --- state ---
@@ -136,7 +137,7 @@ onClickOutside(wrapper, (event) => {
   <div class="nav-menu">
     <button
       class="ignore-click hamburger-button"
-      :class="{ 'menu-open': menuCompletedState }"
+      :class="{ 'menu-open': menuCompletedState, 'no-transition': isMobile }"
       :aria-label="menuIsOpen ? 'close mobile menu' : 'open mobile menu'"
       :aria-expanded="menuIsOpen"
       @click="toggleNav"
@@ -318,7 +319,7 @@ ul {
     background-color: #FDFAF5;
     pointer-events: auto;
     z-index: 9999;
-    transition: background-color 0.2s ease !important;
+    transition: background-color 0.2s ease;
     /* transition: background-color 0.2s ease; */
     /* border: 2px solid #131212; */
 }

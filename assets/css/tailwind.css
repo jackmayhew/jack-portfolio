@@ -30,26 +30,33 @@ h1,
 }
 
 html,
-body,
-.wrapper,
 .navbar {
   transition: background-color 0.2s ease;
 }
 
-html.light-mode,
-.light-mode .navbar {
-  background-color: #fdfaf5;
-  background: #fdfaf5;
-  color: #131212;
-  color-scheme: light;
+/* disables the transitions for mobile */
+html.no-transition,
+html.no-transition .hamburger-button,
+html.no-transition .navbar {
+  transition: none;
 }
 
-html.dark-mode,
-.dark-mode .navbar {
+html.light-mode {
+  background-color: #fdfaf5;
+  color: #121212;
+  color-scheme: light;
+}
+.light-mode .navbar {
+  background-color: #fdfaf5;
+}
+
+html.dark-mode {
   background-color: #121212;
-  background: #121212;
   color-scheme: dark;
   color: #dddddd;
+}
+.dark-mode .navbar {
+  background-color: #121212;
 }
 
 .scroll-locked {

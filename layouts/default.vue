@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { pageLoadGSAP } from '~/composables/use-gsap'
-
 const route = useRoute()
 const initialLoad = ref<boolean>(true)
 const mainContentRef = ref<HTMLDivElement | null>(null)
+
+const { isMobile } = useDetectMobile()
 
 setupHead()
 
@@ -20,7 +20,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="wrapper max-w-screen-md mx-auto">
+  <div class="wrapper max-w-screen-md mx-auto" :class="{ 'no-transition': isMobile }">
     <Navbar class="relative max-w-screen-md mx-auto" />
     <div ref="mainContentRef" class="main-content px-6 mt-[6.5rem] invisible">
       <slot />

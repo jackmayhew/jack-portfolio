@@ -28,17 +28,14 @@ export default defineNuxtConfig({
       mode: 'out-in',
     },
     head: {
-      style: [
-        {
-          innerHTML: `
-            html.light-mode { background-color: #FDFAF5; }
-            html.dark-mode { background-color: #121212; }
-          `,
-        },
-      ],
-      meta: [
-        { name: 'theme-color', content: '#FDFAF5' },
-      ],
+      // style: [
+      //   {
+      //     innerHTML: `
+      //       html.light-mode { background-color: #FDFAF5; }
+      //       html.dark-mode { background-color: #121212; }
+      //     `,
+      //   },
+      // ],
       link: [
         { rel: 'preload', href: '/img/hero.webp', as: 'image' },
         {

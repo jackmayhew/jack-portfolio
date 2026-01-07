@@ -1,10 +1,14 @@
 export function setupHead() {
+  const { isMobile } = useDetectMobile()
+  const colorMode = useColorMode()
+
   useHead({
     titleTemplate: (titleChunk) => {
       return titleChunk ? `Jack Mayhew - ${titleChunk}` : `Jack Mayhew`
     },
     htmlAttrs: {
       lang: 'en',
+      class: computed(() => (isMobile.value ? 'no-transition' : '')),
     },
     script: [
       { 'defer': true, 'data-site': 'UFPTWCQF', 'src': 'https://cdn.usefathom.com/script.js' },
@@ -26,6 +30,10 @@ export function setupHead() {
       { property: 'twitter:title', content: 'Jack Mayhew' },
       { property: 'twitter:description', content: 'Just a guy who enjoys building cool stuff for the web, making things (blazingly) fast, and ricing my desktop. In case anyone is wondering, I use arch linux.' },
       { property: 'twitter:image', content: 'https://jackmayhew.com/img/meta/twitter.png' },
+      {
+        name: 'theme-color',
+        content: computed(() => (colorMode.value === 'dark' ? '#121212' : '#FDFAF5')),
+      },
     ],
     link: [
       // favicons
