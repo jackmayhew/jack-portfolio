@@ -9,6 +9,7 @@ defineProps<{
 
 gsap.registerPlugin(ScrollTrigger)
 
+const { isMobile } = useDetectMobile()
 const imgRef = ref<any>(null)
 
 onMounted(() => {
@@ -43,7 +44,7 @@ onMounted(() => {
       height="510"
       loading="lazy"
     />
-    <div class="work-text pt-2 pb-6 sticky bottom-0">
+    <div class="work-text pt-2 pb-6 sticky bottom-0" :class="{ 'no-transition': isMobile }">
       <time class="mt-4 sm:mt-8 text-lg text-neutral-400" :datetime="project.date">{{ project.date }}</time>
       <h2 class="text-2xl sm:text-4xl font-semibold">
         {{ project.title }}
@@ -55,8 +56,20 @@ onMounted(() => {
         {{ project.stack }}
       </p>
       <div class="flex gap-4 mt-4">
-        <ButtonLinkExternal :url="project.url" text="Visit" icon-name="lucide:link" :icon-size="18" width="150px" />
-        <ButtonLink :url="`/projects/${project.slug}`" text="Details" icon-name="lucide:arrow-right" :icon-size="20" width="150px" />
+        <ButtonLinkExternal
+          :url="project.url"
+          text="Visit"
+          icon-name="lucide:link"
+          :icon-size="18"
+          width="150px"
+        />
+        <ButtonLink
+          :url="`/projects/${project.slug}`"
+          text="Details"
+          icon-name="lucide:arrow-right"
+          :icon-size="20"
+          width="150px"
+        />
       </div>
     </div>
   </div>

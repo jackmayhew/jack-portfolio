@@ -28,9 +28,10 @@ html,
   transition: background-color 0.2s ease;
 }
 
-/* disables the transitions for mobile */
+/* disables transitions for mobile */
 html.no-transition,
 html.no-transition .hamburger-button,
+html.no-transition .work-text,
 html.no-transition .navbar {
   transition: none;
 }
