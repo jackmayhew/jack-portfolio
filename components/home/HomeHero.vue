@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import gsap from 'gsap'
 import { SplitText } from 'gsap/SplitText'
-import HomeHeroHeadline from './HomeHeroHeadline.vue'
 
 gsap.registerPlugin(SplitText)
 

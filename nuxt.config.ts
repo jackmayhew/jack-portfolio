@@ -35,7 +35,7 @@ export default defineNuxtConfig({
     },
     head: {
       link: [
-        { rel: 'preload', href: '/img/hero.webp', as: 'image' },
+        { rel: 'preload', href: '/img/hero2.gif', as: 'image' },
         {
           rel: 'preload',
           href: '/fonts/ShadowHand.ttf',
