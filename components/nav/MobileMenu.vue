@@ -1,6 +1,6 @@
 <script setup lang="ts">
 /**
- * A WIP full-screen mobile navigation menu with gsap animations
+ * A WIP mobile navigation menu with gsap animations
  *
  * @todo
  * Refactor CSS to use Tailwind's 'dark:' variant instead of the custom
