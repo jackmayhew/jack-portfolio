@@ -180,6 +180,7 @@ onClickOutside(wrapper, (event) => {
               :href="link.href"
               :target="link.target"
               :rel="link.rel"
+              :aria-label="link.type"
             >
               <Icon :name="link.icon" :size="link.size" />
             </a>

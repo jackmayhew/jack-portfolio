@@ -5,6 +5,7 @@ export const websiteUrl = 'https://jackmayhew.com'
 
 export const socialLinks = [
   {
+    type: 'github',
     href: githubUsername,
     target: '_blank',
     rel: 'noopener',
@@ -19,6 +20,7 @@ export const socialLinks = [
   //   size: 36,
   // },
   {
+    type: 'email',
     href: `mailto:${emailAddress}`,
     icon: 'lucide:mail',
     size: 36,

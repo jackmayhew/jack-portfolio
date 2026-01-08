@@ -14,7 +14,7 @@ const heroImageRef = ref<HTMLImageElement | null>(null)
 function gsapImage() {
   const tl = gsap.timeline()
   tl.fromTo(
-    heroImageRef.value,
+    heroImageRef.value?.$el,
     { y: 40, autoAlpha: 0 },
     { y: 0, autoAlpha: 1, duration: 0.5, ease: 'power2.out' },
   )
