@@ -55,9 +55,11 @@ defineExpose({ gsapText })
 </script>
 
 <template>
-  <p ref="bandRef" class="hero-text band pb-1 text-4xl sm:text-5xl invisible">
+  <p ref="bandRef" class="hero-text band pb-1 text-4xl sm:text-5xl invisible" aria-hidden="true">
     Just a guy who enjoys building cool things for the web and beyond.
-    <!-- Currently living and working in Montreal. -->
+  </p>
+  <p class="sr-only">
+    Just a guy who enjoys building cool things for the web and beyond.
   </p>
 </template>
 

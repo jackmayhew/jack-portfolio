@@ -42,7 +42,7 @@ onMounted(async () => {
   <div class="hero">
     <HomeHeroHeadline ref="headlineRef" />
     <div class="mt-6">
-      <img
+      <!-- <img
         ref="heroImageRef"
         class="w-full h-auto block rounded-lg invisible opacity-0"
         src="/img/hero.webp"
@@ -50,7 +50,16 @@ onMounted(async () => {
         loading="eager"
         width="492"
         height="358"
-      >
+      > -->
+      <NuxtImg
+        ref="heroImageRef"
+        class="w-full h-auto block rounded-lg"
+        src="/img/hero2.gif"
+        alt="Jack at computer"
+        loading="eager"
+        width="492"
+        height="358"
+      />
     </div>
   </div>
 </template>
