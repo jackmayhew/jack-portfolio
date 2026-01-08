@@ -10,6 +10,7 @@ defineProps<{
 gsap.registerPlugin(ScrollTrigger)
 
 const { isMobile } = useDetectMobile()
+
 const imgRef = ref<any>(null)
 
 onMounted(() => {
