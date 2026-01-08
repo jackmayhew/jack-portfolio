@@ -21,13 +21,13 @@ export default defineNuxtConfig({
       pathPrefix: false,
     },
   ],
-  googleFonts: {
-    families: {
-      'JetBrains+Mono': {
-        wght: '100..800',
-      },
-    },
-  },
+  // googleFonts: {
+  //   families: {
+  //     'JetBrains+Mono': {
+  //       wght: '100..800',
+  //     },
+  //   },
+  // },
   app: {
     pageTransition: {
       name: 'page',
@@ -39,6 +39,13 @@ export default defineNuxtConfig({
         {
           rel: 'preload',
           href: '/fonts/ShadowHand.ttf',
+          as: 'font',
+          type: 'font/ttf',
+          crossorigin: 'anonymous',
+        },
+        {
+          rel: 'preload',
+          href: '/fonts/JetBrainsMono[wght].ttf',
           as: 'font',
           type: 'font/ttf',
           crossorigin: 'anonymous',

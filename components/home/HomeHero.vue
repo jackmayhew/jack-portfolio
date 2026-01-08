@@ -56,6 +56,7 @@ onMounted(async () => {
         class="w-full h-auto block rounded-lg"
         src="/img/hero2.gif"
         alt="Jack at computer"
+        fetchpriority="high"
         loading="eager"
         width="492"
         height="358"

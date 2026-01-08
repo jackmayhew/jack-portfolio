@@ -1,14 +1,8 @@
+@import './fonts.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@font-face {
-  font-family: "ShadowHand";
-  src: url("/fonts/ShadowHand.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
-  font-display: block;
-}
 
 .logo-text {
   font-family: "ShadowHand", sans-serif;

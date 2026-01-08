@@ -62,6 +62,7 @@ export function setupHead() {
       // other
       { rel: 'robots', href: '/robots.txt' },
       { rel: 'sitemap', type: 'application/xml', title: 'Sitemap', href: '/sitemap.xml' },
+      { rel: 'preconnect', href: 'https://api.iconify.design' },
     ],
   })
 }
