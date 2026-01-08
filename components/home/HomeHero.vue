@@ -52,7 +52,7 @@ onMounted(async () => {
       > -->
       <NuxtImg
         ref="heroImageRef"
-        class="w-full h-auto block rounded-lg"
+        class="w-full h-auto block rounded-lg invisible opacity-0"
         src="/img/hero2.gif"
         alt="Jack at computer"
         fetchpriority="high"

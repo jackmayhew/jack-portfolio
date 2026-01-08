@@ -16,8 +16,10 @@ export default {
         'dark-bg': '#121212',
         'dark-text': '#DDDDDD',
 
+        // buttons
         'orange-light': '#EB9D2A',
         'orange-dark': '#b17816',
+        'btn-surface': '#FEFDFC',
       },
     },
   },

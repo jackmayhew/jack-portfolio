@@ -26,7 +26,7 @@ import { navigationLinks } from '~/constants/nav-links'
           </li>
         </ul>
       </div>
-      <hr class="my-4 sm:mx-auto">
+      <hr class="my-4 sm:mx-auto border-neutral-400">
       <span class="block text-sm text-gray-500 dark:text-neutral-400">© {{ new Date().getFullYear() }}
         <NuxtLink to="/" class="hover:underline">Jack</NuxtLink>. All Rights Reserved.</span>
     </div>
