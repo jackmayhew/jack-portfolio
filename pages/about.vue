@@ -24,13 +24,13 @@ useHead({
           </h3>
           <p>
             {{ section.text }}
-            <a
+            <NuxtLink
               v-if="section.link"
               class="underline"
-              :href="section.link.url"
+              :to="section.link.url"
             >
               {{ section.link.text }}
-            </a>
+            </NuxtLink>
           </p>
         </div>
       </div>
