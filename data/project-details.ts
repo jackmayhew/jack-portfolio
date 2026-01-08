@@ -17,7 +17,7 @@ export const projectDetails: ProjectDetails[] = [
   },
   {
     title: 'Refuge Kitty-Kat Rescue',
-    subtitle: 'Helping cats find new homes, one click at a time.',
+    subtitle: 'Helping cats find new homes.',
     image: '/img/work/refuge.webp',
     paragraphs: [
       `Refuge Kitty-Kat needed a new website. Their old one made it harder than it should've been for people to donate, volunteer, or adopt. I rebuilt it from scratch with those three things as the priority.`,
