@@ -21,13 +21,6 @@ export default defineNuxtConfig({
       pathPrefix: false,
     },
   ],
-  // googleFonts: {
-  //   families: {
-  //     'JetBrains+Mono': {
-  //       wght: '100..800',
-  //     },
-  //   },
-  // },
   app: {
     pageTransition: {
       name: 'page',
@@ -56,5 +49,19 @@ export default defineNuxtConfig({
   colorMode: {
     preference: 'light',
     fallback: 'light',
+  },
+  features: {
+    inlineStyles: true,
+  },
+  vite: {
+    build: {
+      minify: 'terser',
+      terserOptions: {
+        compress: {
+          drop_console: true,
+          drop_debugger: true,
+        },
+      },
+    },
   },
 })

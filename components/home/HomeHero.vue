@@ -8,12 +8,12 @@ const initialLoad = inject<Ref<boolean>>('initialLoad', ref(false))
 const delay = computed(() => initialLoad.value ? 0.5 : 0.2)
 
 const headlineRef = ref<{ gsapText: () => gsap.core.Timeline } | null>(null)
-const heroImageRef = ref<HTMLImageElement | null>(null)
+const heroImageRef = ref<HTMLElement | null>(null)
 
 function gsapImage() {
   const tl = gsap.timeline()
   tl.fromTo(
-    heroImageRef.value?.$el,
+    heroImageRef.value,
     { y: 40, autoAlpha: 0 },
     { y: 0, autoAlpha: 1, duration: 0.5, ease: 'power2.out' },
   )
@@ -50,7 +50,7 @@ onMounted(async () => {
         width="492"
         height="358"
       > -->
-      <NuxtImg
+      <!-- <NuxtImg
         ref="heroImageRef"
         class="w-full h-auto block rounded-lg invisible opacity-0"
         src="/img/hero.gif"
@@ -59,7 +59,21 @@ onMounted(async () => {
         loading="eager"
         width="492"
         height="358"
-      />
+      /> -->
+      <video
+        ref="heroImageRef"
+        class="w-full h-auto block rounded-lg invisible opacity-0"
+        autoplay
+        loop
+        muted
+        playsinline
+        width="492"
+        height="492"
+        poster="/img/hero.webp"
+      >
+        <source src="/img/hero.webm" type="video/webm">
+        <source src="/img/hero.mp4" type="video/mp4">
+      </video>
     </div>
   </div>
 </template>
