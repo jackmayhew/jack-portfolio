@@ -1,6 +1,6 @@
 export const twitterUsername = 'https://x.com/username'
 export const githubUsername = 'https://github.com/jackmayhew'
-export const emailAddress = 'jackmayhew5@gmail.com'
+export const emailAddress = 'hello@jackmayhew.com'
 export const websiteUrl = 'https://jackmayhew.com'
 
 export const socialLinks = [
