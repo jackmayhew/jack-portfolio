@@ -22,7 +22,7 @@ export default defineEventHandler(async (event) => {
     }
 
     const { error } = await resend.emails.send({
-      from: 'Portfolio Contact <onboarding@resend.dev>',
+      from: 'Portfolio Contact <email@jackmayhew.com>',
       to: [emailAddress],
       subject: `New message from ${body.firstName}`,
       text: `Name: ${body.firstName}\nEmail: ${body.email}\n\nMessage:\n${body.message}`,
